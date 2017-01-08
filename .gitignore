@@ -1,0 +1,12 @@
+node_modules
+coverage
+*.log
+npm-debug.log
+.logs
+logs
+*.swp
+run
+*-run
+.idea
+.DS_Store
+.tmp
