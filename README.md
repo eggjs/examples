@@ -1,15 +1,18 @@
-# Application examples for egg
+# Examples for [egg]
 
-## Install dependencies
+## Usage
+
+Find the example, then run command below. For example run the [httpclient] example
 
 ```bash
+$ cd {example}
 $ npm install
+$ npm start
 ```
 
-## Start an example
+## List of examples
 
-```bash
-# npm start <name>
+- [httpclient]
 
-$ npm start httpclient
-```
+[egg]: https://github.com/eggjs/egg
+[httpclient]: https://github.com/eggjs/examples/tree/master/httpclient
