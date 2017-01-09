@@ -7,11 +7,13 @@
     "egg"
   ],
   "devDependencies": {
+    "egg-ci": "^1.1.0",
     "eslint": "^3.13.0",
     "eslint-config-egg": "^3.2.0"
   },
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "ci": "npm run lint"
   },
   "homepage": "https://github.com/eggjs/examples",
   "repository": {
@@ -22,6 +24,7 @@
     "node": ">= 6.0.0"
   },
   "ci": {
+    "type": "travis",
     "version": "6, 7"
   },
   "license": "MIT",
