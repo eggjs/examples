@@ -3,3 +3,4 @@ examples/**/app/public
 node_modules
 logs
 run
+coverage
