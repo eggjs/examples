@@ -21,6 +21,20 @@ describe('test/controller/home.test.js', () => {
         .expect(200)
         .expect('hello world');
     });
+
+    it('should send multi requests', function* () {
+      // 使用 generator function 方式写测试用例，可以请求地发起多次请求
+      yield request(app.callback())
+        .get('/')
+        .expect(200) // 期望返回 status 200
+        .expect('hello world'); // 期望 body 是 hello world
+
+      // 再请求一次
+      yield request(app.callback())
+        .get('/')
+        .expect(200)
+        .expect('hello world');
+    });
   });
 
   describe('POST /post', () => {
@@ -28,6 +42,7 @@ describe('test/controller/home.test.js', () => {
       app.mockCsrf();
       return request(app.callback())
         .post('/post')
+        .type('form')
         .send({
           foo: 'bar',
         })
