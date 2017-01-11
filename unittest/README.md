@@ -1,3 +1,3 @@
-# httpclient
+# unittest
 
-Example use on https://github.com/eggjs/egg/blob/master/docs/source/zh-cn/core/httpclient.md
+Example use on https://github.com/eggjs/egg/blob/master/docs/source/zh-cn/core/unittest.md
