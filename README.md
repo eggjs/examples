@@ -13,6 +13,8 @@ $ npm start
 ## List of examples
 
 - [httpclient]
+- [unittest]
 
 [egg]: https://github.com/eggjs/egg
 [httpclient]: https://github.com/eggjs/examples/tree/master/httpclient
+[unittest]: https://github.com/eggjs/examples/tree/master/unittest

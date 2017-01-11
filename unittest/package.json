@@ -1,0 +1,22 @@
+{
+  "name": "unittest-example",
+  "dependencies": {
+    "egg": "*",
+    "ylru": "^1.0.0"
+  },
+  "devDependencies": {
+    "egg-bin": "1",
+    "egg-mock": "^1.2.1",
+    "supertest": "^2.0.1"
+  },
+  "scripts": {
+    "start": "egg-bin dev",
+    "test": "egg-bin test",
+    "cov": "egg-bin cov",
+    "ci": "eslint . && egg-bin cov"
+  },
+  "ci": {
+    "version": "6, 7"
+  },
+  "private": true
+}
