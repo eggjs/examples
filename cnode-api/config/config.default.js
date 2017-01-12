@@ -8,5 +8,9 @@ module.exports = appInfo => {
 
   config.middleware = [ 'errorHandler' ];
 
+  config.errorHandler = {
+    match: '/api',
+  };
+
   return config;
 };
