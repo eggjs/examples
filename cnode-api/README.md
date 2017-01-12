@@ -5,7 +5,7 @@ cnode RESTful API
 ## QuickStart
 
 ### Development
-```shell
+```bash
 $ npm install
 $ npm run dev
 $ open http://localhost:7001/
@@ -15,7 +15,7 @@ $ open http://localhost:7001/
 
 Use `EGG_SERVER_ENV=prod` to enable prod mode
 
-```shell
+```bash
 $ EGG_SERVER_ENV=prod npm start
 ```
 
