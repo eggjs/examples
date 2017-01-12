@@ -12,6 +12,7 @@ $ npm start
 
 ## List of examples
 
+- [hackernews](https://github.com/eggjs/examples/tree/master/hackernews)
 - [cookie](https://github.com/eggjs/examples/tree/master/cookie)
 - [cookie_session](https://github.com/eggjs/examples/tree/master/cookie_session)
 - [helloworld](https://github.com/eggjs/examples/tree/master/helloworld)
@@ -24,3 +25,4 @@ $ npm start
 - [view_nunjucks](https://github.com/eggjs/examples/tree/master/view_nunjucks)
 
 [egg]: https://github.com/eggjs/egg
+
