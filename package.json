@@ -11,7 +11,8 @@
     "eslint-config-egg": "^3.2.0"
   },
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "ci": "npm run lint"
   },
   "homepage": "https://github.com/eggjs/examples",
   "repository": {
@@ -20,9 +21,6 @@
   },
   "engines": {
     "node": ">= 6.0.0"
-  },
-  "ci": {
-    "version": "6, 7"
   },
   "license": "MIT",
   "private": true

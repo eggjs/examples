@@ -1,19 +1,18 @@
 {
-  "name": "unittest-example",
+  "name": "view-nunjucks-example",
   "dependencies": {
     "egg": "*",
-    "ylru": "^1.0.0"
+    "egg-view-nunjucks": "^0.6.0"
   },
   "devDependencies": {
     "egg-bin": "1",
     "egg-mock": "2",
-    "supertest": "^2.0.1"
+    "supertest": "2"
   },
   "scripts": {
     "start": "egg-bin dev",
     "test": "egg-bin test",
-    "cov": "egg-bin cov",
-    "ci": "eslint . && egg-bin cov"
+    "cov": "egg-bin cov"
   },
   "private": true
 }
