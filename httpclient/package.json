@@ -5,7 +5,7 @@
     "egg": "*"
   },
   "devDependencies": {
-    "egg-bin": "^1.0.0"
+    "egg-bin": "1"
   },
   "scripts": {
     "start": "egg-bin dev"

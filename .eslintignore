@@ -1,5 +1,5 @@
 test/fixtures
-examples/**/app/public
+**/app/public
 node_modules
 logs
 run
