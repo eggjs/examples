@@ -59,8 +59,7 @@ module.exports = app => {
         this.ctx.throw(result.status, errorMsg);
       }
       if (!result.data.success) {
-        this.logger.error('remote format error:', result.data);
-        this.ctx.throw(500, 'remote response error');
+        this.ctx.throw(500, 'remote response error', { data: result.data });
       }
     }
   }
