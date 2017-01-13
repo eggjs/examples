@@ -1,19 +1,17 @@
 'use strict';
 
 const request = require('supertest');
-const mm = require('egg-mock');
+const mock = require('egg-mock');
 const assert = require('assert');
 
 describe('test/app/controller/topic.test.js', () => {
   let app;
   before(() => {
-    app = mm.app();
+    app = mock.app();
     return app.ready();
   });
 
-  after(() => app.close());
-
-  afterEach(mm.restore);
+  afterEach(mock.restore);
 
   it('should GET /api/v2/topics', function* () {
     const r = yield request(app.callback())
@@ -36,7 +34,7 @@ describe('test/app/controller/topic.test.js', () => {
 
   it('should GET /api/v2/topics/:id 404', function* () {
     yield request(app.callback())
-    .get('/api/v2/topics/999999999999')
+    .get('/api/v2/topics/5433d5e4e737cbe96dcef300')
     .expect(404);
   });
 

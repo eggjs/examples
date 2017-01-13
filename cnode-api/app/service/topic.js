@@ -4,11 +4,11 @@ module.exports = app => {
   class TopicService extends app.Service {
     constructor(ctx) {
       super(ctx);
-      this.root = 'https://cnodejs.org/api/v1/topics';
+      this.root = 'https://cnodejs.org/api/v1';
     }
 
     * show(params) {
-      const result = yield this.ctx.curl(`${this.root}/${params.id}`, {
+      const result = yield this.ctx.curl(`${this.root}/topic/${params.id}`, {
         data: {
           mdrender: params.mdrender,
           accesstoken: params.accesstoken,
@@ -21,7 +21,7 @@ module.exports = app => {
     }
 
     * list(params) {
-      const result = yield this.ctx.curl(this.root, {
+      const result = yield this.ctx.curl(`${this.root}/topics`, {
         data: params,
         dataType: 'json',
       });
@@ -31,7 +31,7 @@ module.exports = app => {
     }
 
     * create(params) {
-      const result = yield this.ctx.curl(this.root, {
+      const result = yield this.ctx.curl(`${this.root}/topics`, {
         method: 'post',
         data: params,
         dataType: 'json',
@@ -43,7 +43,7 @@ module.exports = app => {
     }
 
     * update(params) {
-      const result = yield this.ctx.curl(`${this.root}/${params.id}`, {
+      const result = yield this.ctx.curl(`${this.root}/topics/update`, {
         method: 'post',
         data: params,
         dataType: 'json',
