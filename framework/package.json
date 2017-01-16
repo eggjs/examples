@@ -1,16 +1,13 @@
 {
-  "name": "egg-example-hackernews",
+  "name": "my-framework",
   "version": "1.0.0",
-  "description": "hackernews showcase for egg",
-  "private": true,
+  "description": "",
   "dependencies": {
     "egg": "^0.7.0",
-    "egg-view-nunjucks": "^1.0.0",
-    "moment": "^2.17.1"
+    "egg-view-nunjucks": "1.0.0"
   },
   "devDependencies": {
     "autod": "^2.7.1",
-    "cheerio": "^0.22.0",
     "egg-bin": "^1.10.0",
     "egg-ci": "^1.1.0",
     "egg-mock": "^2.0.0",
@@ -23,13 +20,24 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "dev": "egg-bin dev",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
     "autod": "autod"
-  }
+  },
+  "ci": {
+    "version": "6, 7"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "egg",
+    "egg-framework"
+  ],
+  "author": "",
+  "license": "MIT"
 }
