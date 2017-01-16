@@ -1,0 +1,19 @@
+{
+  "name": "yadan",
+  "version": "1.0.0",
+  "dependencies": {
+    "egg": "^0.7.0",
+    "egg-view-nunjucks": "1.0.0"
+  },
+  "devDependencies": {
+    "egg-bin": "^1.10.0",
+    "egg-mock": "^2.0.0",
+    "supertest": "^2.0.1"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "test": "egg-bin test"
+  }
+}
