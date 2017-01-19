@@ -6,7 +6,7 @@
     "framework": "example-framework"
   },
   "dependencies": {
-    "example-framework": "*"
+    "example-framework": "../example-framework"
   },
   "devDependencies": {
     "egg-bin": "1",

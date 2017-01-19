@@ -1,12 +1,11 @@
 {
-  "name": "progressive",
+  "name": "egg-ua",
   "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "egg": "*",
-    "egg-ua": "../egg-ua"
+  "eggPlugin": {
+    "name": "ua"
   },
   "devDependencies": {
+    "egg": "*",
     "egg-bin": "1",
     "egg-mock": "2",
     "supertest": "2"

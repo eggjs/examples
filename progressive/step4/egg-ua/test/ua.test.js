@@ -3,23 +3,18 @@
 const request = require('supertest');
 const mm = require('egg-mock');
 
-describe('test/index.test.js', () => {
+describe('test/ua.test.js', () => {
   let app;
 
   before(() => {
-    app = mm.app();
+    app = mm.app({
+      baseDir: 'test-app',
+    });
     return app.ready();
   });
 
   after(() => app.close());
   afterEach(mm.restore);
-
-  it('should use custom framework', () => {
-    return request(app.callback())
-      .get('/framework')
-      .expect(200)
-      .expect('example-framework');
-  });
 
   it('should GET / with iOS', () => {
     return request(app.callback())

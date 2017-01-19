@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "egg": "*",
-    "egg-ua": "*"
+    "egg-ua": "../egg-ua"
   },
   "devDependencies": {
     "egg-bin": "^2.0.0",
