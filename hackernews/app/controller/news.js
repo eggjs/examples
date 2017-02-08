@@ -1,25 +1,33 @@
 'use strict';
 
-exports.list = function* newsListController() {
-  const pageSize = this.app.config.news.pageSize;
-  const page = parseInt(this.query.page) || 1;
+module.exports = app => {
+  class NewsController extends app.Controller {
+    * list() {
+      const ctx = this.ctx;
+      const pageSize = this.config.news.pageSize;
+      const page = parseInt(ctx.query.page) || 1;
 
-  const idList = yield this.service.hackerNews.getTopStories(page);
-  // get itemInfo parallel
-  const newsList = yield idList.map(id => this.service.hackerNews.getItem(id));
-  yield this.render('news/list.tpl', { list: newsList, page, pageSize });
-};
+      const idList = yield ctx.service.hackerNews.getTopStories(page);
+      // get itemInfo parallel
+      const newsList = yield idList.map(id => ctx.service.hackerNews.getItem(id));
+      yield ctx.render('news/list.tpl', { list: newsList, page, pageSize });
+    }
 
-exports.detail = function* newsDetailController() {
-  const id = this.params.id;
-  const newsInfo = yield this.service.hackerNews.getItem(id);
-  // get comment parallel
-  const commentList = yield newsInfo.kids.map(id => this.service.hackerNews.getItem(id));
-  yield this.render('news/detail.tpl', { item: newsInfo, comments: commentList });
-};
+    * detail() {
+      const ctx = this.ctx;
+      const id = ctx.params.id;
+      const newsInfo = yield ctx.service.hackerNews.getItem(id);
+      // get comment parallel
+      const commentList = yield newsInfo.kids.map(id => ctx.service.hackerNews.getItem(id));
+      yield ctx.render('news/detail.tpl', { item: newsInfo, comments: commentList });
+    }
 
-exports.user = function* userInfoController() {
-  const id = this.params.id;
-  const userInfo = yield this.service.hackerNews.getUser(id);
-  yield this.render('news/user.tpl', { user: userInfo });
+    * user() {
+      const ctx = this.ctx;
+      const id = ctx.params.id;
+      const userInfo = yield ctx.service.hackerNews.getUser(id);
+      yield ctx.render('news/user.tpl', { user: userInfo });
+    }
+  }
+  return NewsController;
 };
