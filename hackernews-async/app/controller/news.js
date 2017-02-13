@@ -3,27 +3,31 @@
 module.exports = app => {
   return class NewsController extends app.Controller {
     async list() {
-      const pageSize = this.app.config.news.pageSize;
-      const page = parseInt(this.query.page) || 1;
+      const { ctx, app } = this;
+      const pageSize = app.config.news.pageSize;
+      const page = parseInt(ctx.query.page) || 1;
 
-      const idList = await this.service.hackerNews.getTopStories(page);
+      const idList = await ctx.service.hackerNews.getTopStories(page);
+
       // get itemInfo parallel
-      const newsList = await idList.map(id => this.service.hackerNews.getItem(id));
-      await this.render('news/list.tpl', { list: newsList, page, pageSize });
+      const newsList = await Promise.all(idList.map(id => ctx.service.hackerNews.getItem(id)));
+      await ctx.render('news/list.tpl', { list: newsList, page, pageSize });
     }
 
     async detail() {
-      const id = this.params.id;
-      const newsInfo = await this.service.hackerNews.getItem(id);
+      const { ctx } = this;
+      const id = ctx.params.id;
+      const newsInfo = await ctx.service.hackerNews.getItem(id);
       // get comment parallel
-      const commentList = await newsInfo.kids.map(id => this.service.hackerNews.getItem(id));
-      await this.render('news/detail.tpl', { item: newsInfo, comments: commentList });
+      const commentList = await Promise.all(newsInfo.kids.map(id => ctx.service.hackerNews.getItem(id)));
+      await ctx.render('news/detail.tpl', { item: newsInfo, comments: commentList });
     }
 
     async user() {
-      const id = this.params.id;
-      const userInfo = await this.service.hackerNews.getUser(id);
-      await this.render('news/user.tpl', { user: userInfo });
+      const { ctx } = this;
+      const id = ctx.params.id;
+      const userInfo = await ctx.service.hackerNews.getUser(id);
+      await ctx.render('news/user.tpl', { user: userInfo });
     }
   };
 };
