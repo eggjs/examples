@@ -4,6 +4,8 @@
 
 ## QuickStart
 
+**Please ensure your node version is 7.6.0+.**
+
 ### Development
 ```shell
 $ npm install
