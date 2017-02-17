@@ -13,8 +13,9 @@ describe('example multipart test', () => {
   let host;
   let server;
 
-  before(() => {
+  before(function* () {
     app = mm.app();
+    yield app.ready();
     server = app.listen();
   });
 
@@ -27,8 +28,8 @@ describe('example multipart test', () => {
       .expect(/<p>Image: <input type="file" name="image" \/><\/p>/)
       .expect(res => {
         console.log(res.headers, res.text);
-        csrfToken = res.headers['x-csrf'];
         cookies = res.headers['set-cookie'].join(';');
+        csrfToken = cookies.match(/csrfToken=(.*?);/)[1];
         host = `http://127.0.0.1:${server.address().port}`;
       });
   });
