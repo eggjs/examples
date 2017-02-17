@@ -9,7 +9,6 @@
   "devDependencies": {
     "autod": "^2.7.1",
     "egg-bin": "^1.7.0",
-    "egg-ci": "^1.1.0",
     "egg-mock": "^2.0.0",
     "eslint": "^3.10.0",
     "eslint-config-egg": "^3.2.0",
@@ -28,9 +27,6 @@
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
     "autod": "autod"
-  },
-  "ci": {
-    "version": "4, 6, 7"
   },
   "repository": {
     "type": "git",
