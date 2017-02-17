@@ -1,0 +1,15 @@
+{
+  "name": "redefine-controller",
+  "dependencies": {
+    "egg": "^0.12.0"
+  },
+  "devDependencies": {
+    "egg-bin": "^2.2.0",
+    "egg-mock": "^3.0.0",
+    "supertest": "^3.0.0"
+  },
+  "scripts": {
+    "test": "egg-bin test",
+    "dev": "egg-bin dev"
+  }
+}
