@@ -13,7 +13,8 @@ const exampleDirs = fs.readdirSync(__dirname)
   .map(name => path.join(__dirname, name))
   .filter(name => fs.statSync(name).isDirectory());
 
-const records = [];
+const skips = [];
+const tests = [];
 for (const dir of exampleDirs) {
   const dirname = path.basename(dir);
   if (!testExists(dir)) {
@@ -21,6 +22,7 @@ for (const dir of exampleDirs) {
       chalk.bgYellow('skip'),
       chalk.gray(dirname)
     );
+    skips.push(dir);
     continue;
   }
   console.log('%s directory %s',
@@ -31,12 +33,13 @@ for (const dir of exampleDirs) {
   execSync(`../node_modules/.bin/npminstall ${flag}`, options);
   execSync('npm test', options);
   console.log('%s success\n', chalk.green('✔'));
-  records.push(dirname);
+  tests.push(dirname);
 }
 
-console.log('%s success in %s',
+console.log('%s tested in %s and skiped in %s',
   chalk.bgGreen('✔'),
-  chalk.gray(records.join(', '))
+  chalk.gray(tests.join(', ')),
+  chalk.gray(skips.join(', '))
 );
 
 function testExists(dir) {
