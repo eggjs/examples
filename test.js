@@ -22,7 +22,7 @@ for (const dir of exampleDirs) {
       chalk.bgYellow('skip'),
       chalk.gray(dirname)
     );
-    skips.push(dir);
+    skips.push(dirname);
     continue;
   }
   console.log('%s directory %s',
@@ -36,10 +36,9 @@ for (const dir of exampleDirs) {
   tests.push(dirname);
 }
 
-console.log('%s tested in %s and skiped in %s',
-  chalk.bgGreen('✔'),
-  chalk.gray(tests.join(', ')),
-  chalk.gray(skips.join(', '))
+console.log('successed: %s\nskiped: %s',
+  chalk.cyan(tests.join(', ')),
+  chalk.yellow(skips.join(', '))
 );
 
 function testExists(dir) {
