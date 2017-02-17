@@ -18,7 +18,7 @@ module.exports = app => {
       const id = ctx.params.id;
       const newsInfo = yield ctx.service.hackerNews.getItem(id);
       // get comment parallel
-      const commentList = yield newsInfo.kids.map(id => ctx.service.hackerNews.getItem(id));
+      const commentList = yield (newsInfo.kids || []).map(id => ctx.service.hackerNews.getItem(id));
       yield ctx.render('news/detail.tpl', { item: newsInfo, comments: commentList });
     }
 
