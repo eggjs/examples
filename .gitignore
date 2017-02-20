@@ -10,3 +10,4 @@ run
 .idea
 .DS_Store
 .tmp
+*.log.*

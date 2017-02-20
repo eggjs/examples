@@ -21,6 +21,7 @@ module.exports = app => {
     * request(api, opts) {
       const options = Object.assign({
         dataType: 'json',
+        timeout: [ '30s', '30s' ],
       }, opts);
 
       const result = yield this.ctx.curl(`${this.serverUrl}/${api}`, options);

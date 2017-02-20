@@ -7,14 +7,21 @@ module.exports = app => {
       this.root = 'https://cnodejs.org/api/v1';
     }
 
+    * request(url, opts) {
+      url = `${this.root}${url}`;
+      opts = Object.assign({
+        timeout: [ '30s', '30s' ],
+        dataType: 'json',
+      }, opts);
+      return yield this.ctx.curl(url, opts);
+    }
+
     * show(params) {
-      const result = yield this.ctx.curl(`${this.root}/topic/${params.id}`, {
+      const result = yield this.request(`/topic/${params.id}`, {
         data: {
           mdrender: params.mdrender,
           accesstoken: params.accesstoken,
         },
-        dataType: 'json',
-        timeout: '30s',
       });
       this.checkSuccess(result);
 
@@ -22,10 +29,8 @@ module.exports = app => {
     }
 
     * list(params) {
-      const result = yield this.ctx.curl(`${this.root}/topics`, {
+      const result = yield this.request('/topics', {
         data: params,
-        dataType: 'json',
-        timeout: '30s',
       });
 
       this.checkSuccess(result);
@@ -33,12 +38,10 @@ module.exports = app => {
     }
 
     * create(params) {
-      const result = yield this.ctx.curl(`${this.root}/topics`, {
+      const result = yield this.request('/topics', {
         method: 'post',
         data: params,
-        dataType: 'json',
         contentType: 'json',
-        timeout: '30s',
       });
 
       this.checkSuccess(result);
@@ -46,12 +49,10 @@ module.exports = app => {
     }
 
     * update(params) {
-      const result = yield this.ctx.curl(`${this.root}/topics/update`, {
+      const result = yield this.request('/topics/update', {
         method: 'post',
         data: params,
-        dataType: 'json',
         contentType: 'json',
-        timeout: '30s',
       });
 
       this.checkSuccess(result);
