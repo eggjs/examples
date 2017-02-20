@@ -14,6 +14,7 @@ module.exports = app => {
           accesstoken: params.accesstoken,
         },
         dataType: 'json',
+        timeout: '30s',
       });
       this.checkSuccess(result);
 
@@ -24,6 +25,7 @@ module.exports = app => {
       const result = yield this.ctx.curl(`${this.root}/topics`, {
         data: params,
         dataType: 'json',
+        timeout: '30s',
       });
 
       this.checkSuccess(result);
@@ -36,6 +38,7 @@ module.exports = app => {
         data: params,
         dataType: 'json',
         contentType: 'json',
+        timeout: '30s',
       });
 
       this.checkSuccess(result);
@@ -48,6 +51,7 @@ module.exports = app => {
         data: params,
         dataType: 'json',
         contentType: 'json',
+        timeout: '30s',
       });
 
       this.checkSuccess(result);
