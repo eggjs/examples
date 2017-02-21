@@ -2,21 +2,21 @@
 
 // secure keys on https://github.com/eggjs/egg/wiki#secure-env-for-travis-ci
 exports.passportWeibo = {
-  clientID: 'a',
-  clientSecret: 'b',
+  key: 'a',
+  secret: 'b',
 };
 
 exports.passportGithub = {
-  clientID: 'c',
-  clientSecret: 'd',
+  key: 'c',
+  secret: 'd',
 };
 
 exports.passportBitbucket = {
-  clientID: 'e',
-  clientSecret: 'f',
+  key: 'e',
+  secret: 'f',
 };
 
 exports.passportTwitter = {
-  consumerKey: 'g',
-  consumerSecret: 'h',
+  key: 'g',
+  secret: 'h',
 };
