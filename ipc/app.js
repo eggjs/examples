@@ -8,10 +8,7 @@ module.exports = app => {
 
   const { messenger } = app;
 
-  messenger.on('pullRefresh', () => update('pull'));
-  messenger.on('pushRefresh', () => update('push'));
-
-  function update(by) {
+  messenger.on('refresh', by => {
     app.logger.info('start update by %s', by);
     // create an anonymous context to access service
     const ctx = app.createAnonymousContext();
@@ -21,5 +18,5 @@ module.exports = app => {
       yield ctx.service.source.update();
       app.lastUpdateBy = by;
     });
-  }
+  });
 };

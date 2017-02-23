@@ -10,5 +10,5 @@ exports.task = function* (ctx) {
   if (!needRefresh) return;
 
   // notify all workers to update memory cache from `file`
-  ctx.app.messenger.sendToApp('pullRefresh');
+  ctx.app.messenger.sendToApp('refresh', 'pull');
 };
