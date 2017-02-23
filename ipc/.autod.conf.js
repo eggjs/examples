@@ -8,9 +8,9 @@ module.exports = {
     'benchmark',
   ],
   dep: [
+    'egg',
   ],
   devdep: [
-    'egg',
     'egg-bin',
     'autod',
     'eslint',
