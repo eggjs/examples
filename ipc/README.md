@@ -10,8 +10,8 @@ We'll combine schedule and IPC to implement these features.
 
 ## start
 
-```shell
-npm start
+```bash
+$ npm start
 ```
 
-Notice: It will start app with tow workers when you run this command.
+It will start app with two workers when you run this command.

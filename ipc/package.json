@@ -25,15 +25,5 @@
     "autod": "autod"
   },
   "author": "dead-horse",
-  "license": "MIT",
-  "boilerplate": {
-    "name": "egg-boilerplate-empty",
-    "version": "2.0.0",
-    "description": "only init basic stuff, such as eslint / test / ci ... ",
-    "repository": {
-      "type": "git",
-      "url": "git@github.com:eggjs/egg-boilerplate-empty.git"
-    },
-    "homepage": "https://github.com/eggjs/egg-boilerplate-empty"
-  }
+  "license": "MIT"
 }
