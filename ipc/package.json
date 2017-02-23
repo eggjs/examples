@@ -1,0 +1,30 @@
+{
+  "name": "ipc",
+  "version": "1.0.0",
+  "description": "egg ipc example",
+  "private": true,
+  "dependencies": {
+    "egg": "^1.0.0-rc.1",
+    "mz-modules": "^1.0.0"
+  },
+  "devDependencies": {
+    "autod": "^2.7.1",
+    "egg-bin": "^2.2.1",
+    "eslint": "^3.16.1",
+    "eslint-config-egg": "^3.2.0",
+    "supertest": "^3.0.0",
+    "webstorm-disable-index": "^1.1.2"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "start": "egg-bin dev --cluster 2",
+    "dev": "egg-bin dev",
+    "test": "npm run lint",
+    "lint": "eslint .",
+    "autod": "autod"
+  },
+  "author": "dead-horse",
+  "license": "MIT"
+}

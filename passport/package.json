@@ -9,13 +9,10 @@
     "egg-passport-bitbucket": "^1.0.0"
   },
   "devDependencies": {
-    "egg-bin": "1",
-    "egg-mock": "2",
-    "supertest": "2"
+    "egg-bin": "1"
   },
   "scripts": {
     "start": "egg-bin dev",
-    "test": "egg-bin test",
     "cov": "egg-bin cov"
   },
   "private": true
