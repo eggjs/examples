@@ -1,0 +1,25 @@
+{
+  "name": "custom-env",
+  "version": "1.0.0",
+  "description": "custom environment",
+  "private": true,
+  "dependencies": {
+    "egg": "^1.0.0-rc.1"
+  },
+  "devDependencies": {
+    "autod": "^2.7.1",
+    "autod-egg": "^1.0.0",
+    "egg-bin": "^2.2.3",
+    "egg-mock": "^3.0.1",
+    "supertest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "egg-bin dev",
+    "test": "egg-bin test",
+    "autod": "autod"
+  }
+}

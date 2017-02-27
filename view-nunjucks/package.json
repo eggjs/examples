@@ -1,0 +1,22 @@
+{
+  "name": "view-nunjucks-example",
+  "dependencies": {
+    "egg": "^1.0.0-rc.1",
+    "egg-view-nunjucks": "^2.0.0"
+  },
+  "devDependencies": {
+    "autod": "^2.7.1",
+    "autod-egg": "^1.0.0",
+    "egg-bin": "^2.2.3",
+    "egg-mock": "^3.0.1",
+    "supertest": "^3.0.0"
+  },
+  "scripts": {
+    "start": "egg-bin dev",
+    "dev": "egg-bin dev",
+    "test": "egg-bin test",
+    "cov": "egg-bin cov",
+    "autod": "autod"
+  },
+  "private": true
+}
