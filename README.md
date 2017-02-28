@@ -14,7 +14,7 @@ $ npm start
 
 - [hackernews](https://github.com/eggjs/examples/tree/master/hackernews)
 - [cookie](https://github.com/eggjs/examples/tree/master/cookie)
-- [cookie_session](https://github.com/eggjs/examples/tree/master/cookie_session)
+- [cookie-session](https://github.com/eggjs/examples/tree/master/cookie-session)
 - [helloworld](https://github.com/eggjs/examples/tree/master/helloworld)
 - [httpclient](https://github.com/eggjs/examples/tree/master/httpclient)
 - [middleware](https://github.com/eggjs/examples/tree/master/middleware)
@@ -22,7 +22,7 @@ $ npm start
 - [schedule](https://github.com/eggjs/examples/tree/master/schedule)
 - [static](https://github.com/eggjs/examples/tree/master/static)
 - [unittest](https://github.com/eggjs/examples/tree/master/unittest)
-- [view_nunjucks](https://github.com/eggjs/examples/tree/master/view_nunjucks)
+- [view-nunjucks](https://github.com/eggjs/examples/tree/master/view-nunjucks)
+- [custom-env](https://github.com/eggjs/examples/tree/master/custom-env)
 
 [egg]: https://github.com/eggjs/egg
-
