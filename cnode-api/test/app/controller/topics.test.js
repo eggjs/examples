@@ -4,7 +4,7 @@ const request = require('supertest');
 const mock = require('egg-mock');
 const assert = require('assert');
 
-describe('test/app/controller/topic.test.js', () => {
+describe('test/app/controller/topics.test.js', () => {
   let app;
   before(() => {
     app = mock.app();
@@ -25,7 +25,7 @@ describe('test/app/controller/topic.test.js', () => {
   it('should GET /api/v2/topics error', function* () {
     const err = new Error('client error');
     err.status = 400;
-    app.mockServiceError('topic', 'list', err);
+    app.mockServiceError('topics', 'list', err);
     yield request(app.callback())
     .get('/api/v2/topics')
     .expect(400)
@@ -54,7 +54,7 @@ describe('test/app/controller/topic.test.js', () => {
 
   it('should POST /api/v2/topics/ 201', function* () {
     app.mockCsrf();
-    app.mockService('topic', 'create', 123);
+    app.mockService('topics', 'create', 123);
     yield request(app.callback())
     .post('/api/v2/topics')
     .send({
@@ -70,7 +70,7 @@ describe('test/app/controller/topic.test.js', () => {
 
   it('should PUT /api/v2/topics/1 204', function* () {
     app.mockCsrf();
-    app.mockService('topic', 'update', null);
+    app.mockService('topics', 'update', null);
     yield request(app.callback())
     .put('/api/v2/topics/1')
     .send({

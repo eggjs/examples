@@ -1,7 +1,7 @@
 'use strict';
 
 exports.show = function* () {
-  this.body = yield this.service.topic.show({
+  this.body = yield this.service.topics.show({
     id: this.params.id,
     mdrender: this.query.mdrender !== 'false',
     accesstoken: this.query.accesstoken || '',
@@ -15,7 +15,7 @@ exports.index = function* () {
     limit: { format: /\d+/, required: false },
   }, this.query);
 
-  this.body = yield this.service.topic.list({
+  this.body = yield this.service.topics.list({
     page: this.query.page,
     tab: this.query.tab,
     limit: this.query.limit,
@@ -33,7 +33,7 @@ const createRule = {
 exports.create = function* () {
   this.validate(createRule);
 
-  const id = yield this.service.topic.create(this.request.body);
+  const id = yield this.service.topics.create(this.request.body);
   this.body = {
     topic_id: id,
   };
@@ -42,6 +42,6 @@ exports.create = function* () {
 
 exports.update = function* () {
   this.validate(createRule);
-  yield this.service.topic.update(this.params.id, this.request.body);
+  yield this.service.topics.update(this.params.id, this.request.body);
   this.status = 204;
 };
