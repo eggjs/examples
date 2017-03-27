@@ -1,5 +1,7 @@
 'use strict';
 
+exports.keys = 'my super cool keys';
+
 exports.middleware = [
   'hello',
 ];
