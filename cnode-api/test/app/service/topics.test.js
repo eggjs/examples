@@ -56,7 +56,7 @@ describe('test/app/service/topics.test.js', () => {
     });
 
     it('should response 404 when topic id not exist', function* () {
-      app.mockHttpclient(`${ctx.service.topics.root}/topic/57ea257b3670ca3f44c5beb6`, 'GET', {
+      app.mockHttpclient(`${ctx.service.topics.root}/topic/5433d5e4e737cbe96dcef300`, 'GET', {
         status: 404,
         data: {
           error_msg: '话题不存在',

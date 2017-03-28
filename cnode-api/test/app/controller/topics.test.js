@@ -38,7 +38,7 @@ describe('test/app/controller/topics.test.js', () => {
   it('should GET /api/v2/topics/:id 404', function* () {
     const err = new Error('not found error');
     err.status = 404;
-    app.mockService('topics', 'create', err);
+    app.mockService('topics', 'show', err);
     yield request(app.callback())
     .get('/api/v2/topics/5433d5e4e737cbe96dcef300')
     .expect(404);
