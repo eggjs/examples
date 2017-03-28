@@ -16,6 +16,15 @@ describe('test/app/service/topics.test.js', () => {
 
   describe('show()', () => {
     it('should with render success', function* () {
+      app.mockHttpclient(`${ctx.service.topics.root}/topic/57ea257b3670ca3f44c5beb6`, 'GET', {
+        data: {
+          success: true,
+          data: {
+            content: '<div class="markdown-text">Super Mock Content</div>',
+            replies: [],
+          },
+        },
+      });
       const topic = yield ctx.service.topics.show({
         id: '57ea257b3670ca3f44c5beb6',
         mdrender: true,
@@ -27,6 +36,15 @@ describe('test/app/service/topics.test.js', () => {
     });
 
     it('should without render success', function* () {
+      app.mockHttpclient(`${ctx.service.topics.root}/topic/57ea257b3670ca3f44c5beb6`, 'GET', {
+        data: {
+          success: true,
+          data: {
+            content: 'Super Mock Content',
+            replies: [],
+          },
+        },
+      });
       const topic = yield ctx.service.topics.show({
         id: '57ea257b3670ca3f44c5beb6',
         mdrender: false,
@@ -38,6 +56,13 @@ describe('test/app/service/topics.test.js', () => {
     });
 
     it('should response 404 when topic id not exist', function* () {
+      app.mockHttpclient(`${ctx.service.topics.root}/topic/57ea257b3670ca3f44c5beb6`, 'GET', {
+        status: 404,
+        data: {
+          error_msg: '话题不存在',
+        },
+      });
+
       try {
         yield ctx.service.topics.show({
           id: '5433d5e4e737cbe96dcef300',
@@ -53,6 +78,18 @@ describe('test/app/service/topics.test.js', () => {
 
   describe('list()', () => {
     it('should with render, limit and tab success', function* () {
+      app.mockHttpclient(`${ctx.service.topics.root}/topics`, 'GET', {
+        data: {
+          success: true,
+          data: [
+            {
+              content: '<div class="markdown-text">mock content</div>',
+            },
+            {}, {}, {}, {},
+          ],
+        },
+      });
+
       const topics = yield ctx.service.topics.list({
         mdrender: true,
         limit: 5,
@@ -67,6 +104,13 @@ describe('test/app/service/topics.test.js', () => {
 
   describe('create()', () => {
     it('should create failed by accesstoken error', function* () {
+      app.mockHttpclient(`${ctx.service.topics.root}/topics`, 'POST', {
+        status: 401,
+        data: {
+          error_msg: '错误的accessToken',
+        },
+      });
+
       try {
         yield ctx.service.topics.create({
           accesstoken: 'hello',
@@ -97,6 +141,13 @@ describe('test/app/service/topics.test.js', () => {
 
   describe('update()', () => {
     it('should update failed by accesstoken error', function* () {
+      app.mockHttpclient(`${ctx.service.topics.root}/topics/update`, 'POST', {
+        status: 401,
+        data: {
+          error_msg: '错误的accessToken',
+        },
+      });
+
       try {
         yield ctx.service.topics.update({
           id: '57ea257b3670ca3f44c5beb6',

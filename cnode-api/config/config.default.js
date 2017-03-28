@@ -5,4 +5,5 @@ module.exports = {
   errorHandler: {
     match: '/api',
   },
+  keys: 'my super cool keys',
 };
