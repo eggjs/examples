@@ -11,6 +11,7 @@
     "egg-bin": "^3.1.0",
     "egg-ci": "^1.5.0",
     "egg-mock": "^3.2.0",
+    "egg-validate": "^1.0.0",
     "eslint": "^3.18.0",
     "eslint-config-egg": "^3.2.0",
     "supertest": "^3.0.0",

@@ -1,5 +1,8 @@
 {
   "extends": "eslint-config-egg",
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
   "rules": {
   },
   "globals": {
@@ -7,6 +10,6 @@
     "request": true,
     "mm": true,
     "mock": true,
-    "assert": true,
+    "assert": true
   }
 }
