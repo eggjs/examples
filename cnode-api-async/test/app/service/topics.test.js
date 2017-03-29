@@ -59,7 +59,7 @@ describe('test/app/service/topics.test.js', () => {
       app.mockHttpclient(`${ctx.service.topics.root}/topic/5433d5e4e737cbe96dcef300`, 'GET', {
         status: 404,
         data: {
-          error_msg: 'ËØùÈ¢ò‰∏çÂ≠òÂú®',
+          error_msg: '话题不存在',
         },
       });
 
@@ -71,7 +71,7 @@ describe('test/app/service/topics.test.js', () => {
         throw new Error('should not excute');
       } catch (err) {
         assert(err.status === 404);
-        assert(err.message === 'ËØùÈ¢ò‰∏çÂ≠òÂú®');
+        assert(err.message === '话题不存在');
       }
     });
   });
@@ -107,7 +107,7 @@ describe('test/app/service/topics.test.js', () => {
       app.mockHttpclient(`${ctx.service.topics.root}/topics`, 'POST', {
         status: 401,
         data: {
-          error_msg: 'ÈîôËØØÁöÑaccessToken',
+          error_msg: '错误的accessToken',
         },
       });
 
@@ -119,7 +119,7 @@ describe('test/app/service/topics.test.js', () => {
         });
       } catch (err) {
         assert(err.status === 401);
-        assert(err.message === 'ÈîôËØØÁöÑaccessToken');
+        assert(err.message === '错误的accessToken');
       }
     });
 
@@ -144,7 +144,7 @@ describe('test/app/service/topics.test.js', () => {
       app.mockHttpclient(`${ctx.service.topics.root}/topics/update`, 'POST', {
         status: 401,
         data: {
-          error_msg: 'ÈîôËØØÁöÑaccessToken',
+          error_msg: '错误的accessToken',
         },
       });
 
@@ -157,7 +157,7 @@ describe('test/app/service/topics.test.js', () => {
         });
       } catch (err) {
         assert(err.status === 401);
-        assert(err.message === 'ÈîôËØØÁöÑaccessToken');
+        assert(err.message === '错误的accessToken');
       }
     });
 
