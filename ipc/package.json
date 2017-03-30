@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "egg-bin dev --cluster 2",
-    "start": "egg-bin dev",
+    "dev": "egg-bin dev",
     "test": "npm run lint",
     "lint": "eslint .",
     "autod": "autod"
