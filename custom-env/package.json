@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "egg-bin dev",
+    "start": "egg-bin dev",
     "test": "egg-bin test",
     "autod": "autod"
   }

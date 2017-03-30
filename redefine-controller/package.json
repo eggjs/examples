@@ -10,6 +10,6 @@
   },
   "scripts": {
     "test": "egg-bin test",
-    "dev": "egg-bin dev"
+    "start": "egg-bin dev"
   }
 }
