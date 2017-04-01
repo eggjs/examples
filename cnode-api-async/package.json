@@ -1,0 +1,42 @@
+{
+  "name": "cnode-api-async",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "egg": "^1.0.0"
+  },
+  "devDependencies": {
+    "autod": "^2.7.1",
+    "egg-bin": "^3.1.0",
+    "egg-ci": "^1.5.0",
+    "egg-mock": "^3.2.0",
+    "egg-validate": "^1.0.0",
+    "eslint": "^3.18.0",
+    "eslint-config-egg": "^3.2.0",
+    "supertest": "^3.0.0",
+    "webstorm-disable-index": "^1.1.2"
+  },
+  "engines": {
+    "node": ">=7.6.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "egg-bin dev",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "ci": {
+    "version": "6"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "SF-Zhou",
+  "license": "MIT"
+}
