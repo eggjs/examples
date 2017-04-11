@@ -3,6 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 
+require('source-map-support').install();
+
 module.exports = appInfo => {
   const config = {};
 
