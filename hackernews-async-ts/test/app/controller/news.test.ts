@@ -2,14 +2,12 @@
 
 import * as assert from 'assert';
 import * as cheerio from 'cheerio';
-import { MockApplication } from 'egg';
 import * as mm from 'egg-mock';
 import * as request from 'supertest';
 
 describe('test/app/controller/news.test.js', () => {
-  let app: MockApplication;
+  const app = mm.app();
   before(async () => {
-    app = mm.app();
     await app.ready();
   });
 

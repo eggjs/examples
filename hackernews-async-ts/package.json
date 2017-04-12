@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.1",
+    "@types/koa": "^2.0.39",
     "@types/mocha": "^2.2.40",
     "@types/node": "^7.0.12",
     "@types/power-assert": "^1.4.29",

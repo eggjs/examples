@@ -1,17 +1,14 @@
 'use strict';
 
 import * as assert from 'assert';
-import { Context, MockApplication } from 'egg';
 import * as mm from 'egg-mock';
 
 describe('test/app/service/HackerNews.test.js', () => {
-  let app: MockApplication;
-  let ctx: Context;
+  const app = mm.app();
+  const ctx = app.mockContext();
 
   before(async () => {
-    app = mm.app();
     await app.ready();
-    ctx = app.mockContext();
   });
 
   after(() => app.close());
