@@ -1,5 +1,3 @@
-'use strict';
-
 exports.static = true;
 
 exports.nunjucks = {

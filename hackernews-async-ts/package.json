@@ -12,7 +12,10 @@
     "typescript": "^2.2.2"
   },
   "devDependencies": {
+    "@types/accepts": "^1.3.2",
     "@types/cheerio": "^0.22.1",
+    "@types/koa": "^2.0.39",
+    "@types/koa-router": "^7.0.22",
     "@types/mocha": "^2.2.40",
     "@types/node": "^7.0.12",
     "@types/power-assert": "^1.4.29",
@@ -34,7 +37,7 @@
     "node": ">=7.6.0"
   },
   "scripts": {
-    "clean": "rimraf app/**/*.{js,map} test/**/*.{js,map}",
+    "clean": "rimraf app/**/*.{js,map} test/**/*.{js,map} config/**/*.{js,map}",
     "tsc": "tsc -p tsconfig.json",
     "tsc:w": "tsc -p tsconfig.json -w",
     "debug": "egg-bin debug",

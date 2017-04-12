@@ -10,7 +10,7 @@ declare module 'egg' {
  * HackerNews Api Service
  */
 export default class HackerNews extends Service {
-  private config: any;
+  public config: any;
   private serverUrl: string;
   private pageSize: number;
   constructor(ctx: Context) {
@@ -38,7 +38,7 @@ export default class HackerNews extends Service {
 
   /**
    * get top story ids
-   * @param {Number?} [page] - page number, 1-base
+   * @param {Number?} [page] - page number, 1-ase
    * @param {Number?} [pageSize] - page count
    * @return {Promise} id list
    */
@@ -46,14 +46,19 @@ export default class HackerNews extends Service {
     page = page || 1;
     pageSize = pageSize || this.pageSize;
 
-    const result = await this.request('topstories.json', {
-      data: {
-        orderBy: '"$key"',
-        startAt: `"${pageSize * (page - 1)}"`,
-        endAt: `"${pageSize * page - 1}"`,
-      },
-    });
-    return Object.keys(result).map(key => result[key]);
+    try {
+      const result = await this.request('topstories.json', {
+        data: {
+          orderBy: '"$key"',
+          startAt: `"${pageSize * (page - 1)}"`,
+          endAt: `"${pageSize * page - 1}"`,
+        },
+      });
+      return Object.keys(result).map((key) => result[key]);
+    } catch (e) {
+      this.ctx.logger.error(e);
+      return [];
+    }
   }
 
   /**

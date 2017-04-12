@@ -1,12 +1,21 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
+import { EggAppConfig } from 'egg';
+import * as fs from 'fs';
+import * as path from 'path';
+import 'source-map-support/register';
 
-require('source-map-support').install();
+declare module 'egg' {
+  export interface EggAppConfig {
+    news: {
+      pageSize: number;
+      serverUrl: string;
+    };
+  }
+}
 
-module.exports = appInfo => {
-  const config = {};
+module.exports = (appInfo: EggAppConfig) => {
+  const config: any = {};
 
   // should change to your own
   config.keys = appInfo.name + '123456';
