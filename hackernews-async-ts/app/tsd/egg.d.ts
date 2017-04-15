@@ -22,22 +22,22 @@ declare module 'egg' {
     get(path: string, fn: Function | string): Router;
     get(router: string, path: string, fn: Function | string): Router;
     get(path: string, ...middleware: KoaApplication.Middleware[], fn: Function | string): Router;
-    get(router: string, path: string, ...middleware: KoaApplication.Middleware, fn: Function | string): Router;
+    get(router: string, path: string, ...middleware: KoaApplication.Middleware[], fn: Function | string): Router;
     
     put(path: string, fn: Function | string): Router;
     put(router: string, path: string, fn: Function | string): Router;
     put(path: string, ...middleware: KoaApplication.Middleware[], fn: Function | string): Router;
-    put(router: string, path: string, ...middleware: KoaApplication.Middleware, fn: Function | string): Router;
+    put(router: string, path: string, ...middleware: KoaApplication.Middleware[], fn: Function | string): Router;
     
     post(path: string, fn: Function | string): Router;
     post(router: string, path: string, fn: Function | string): Router;
     post(path: string, ...middleware: KoaApplication.Middleware[], fn: Function | string): Router;
-    post(router: string, path: string, ...middleware: KoaApplication.Middleware, fn: Function | string): Router;
+    post(router: string, path: string, ...middleware: KoaApplication.Middleware[], fn: Function | string): Router;
     
     delete(path: string, fn: Function | string): Router;
     delete(router: string, path: string, fn: Function | string): Router;
     delete(path: string, ...middleware: KoaApplication.Middleware[], fn: Function | string): Router;
-    delete(router: string, path: string, ...middleware: KoaApplication.Middleware, fn: Function | string): Router;
+    delete(router: string, path: string, ...middleware: KoaApplication.Middleware[], fn: Function | string): Router;
     
     /**
      * restful router api
