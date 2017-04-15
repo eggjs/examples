@@ -15,10 +15,44 @@ declare module 'egg' {
     error: Function;
   }
 
+  
+  export interface Router{
+
+
+    get(path: string, fn: Function | string): Router;
+    get(router: string, path: string, fn: Function | string): Router;
+    get(path: string, ...middleware: KoaApplication.Middleware[], fn: Function | string): Router;
+    get(router: string, path: string, ...middleware: KoaApplication.Middleware, fn: Function | string): Router;
+    
+    put(path: string, fn: Function | string): Router;
+    put(router: string, path: string, fn: Function | string): Router;
+    put(path: string, ...middleware: KoaApplication.Middleware[], fn: Function | string): Router;
+    put(router: string, path: string, ...middleware: KoaApplication.Middleware, fn: Function | string): Router;
+    
+    post(path: string, fn: Function | string): Router;
+    post(router: string, path: string, fn: Function | string): Router;
+    post(path: string, ...middleware: KoaApplication.Middleware[], fn: Function | string): Router;
+    post(router: string, path: string, ...middleware: KoaApplication.Middleware, fn: Function | string): Router;
+    
+    delete(path: string, fn: Function | string): Router;
+    delete(router: string, path: string, fn: Function | string): Router;
+    delete(path: string, ...middleware: KoaApplication.Middleware[], fn: Function | string): Router;
+    delete(router: string, path: string, ...middleware: KoaApplication.Middleware, fn: Function | string): Router;
+    
+    /**
+     * restful router api
+     */
+    resources(router:string, path: string, fn: Function | string):Router;
+
+    
+    redirect(path: string, redirectPath: string):Router;
+
+    
+  }
   /**
    * Singleton instance in App Worker, extend EggApplication
    */
-  export interface Application extends KoaApplication {
+  export interface Application extends KoaApplication, Router{
 
     /**
      * The configuration of application
@@ -62,9 +96,10 @@ declare module 'egg' {
      */
     getLogger(name: string): Logger;
 
-    get(path: string, fn: Function | string);
+    controller:IController;
 
-    redirect(path: string, redirectPath: string);
+    serviceClasses:IService; //egg-core/lib/loader/mixin/service.js
+
   }
 
   export interface Context extends KoaApplication.Context {
@@ -79,7 +114,7 @@ declare module 'egg' {
 
     redirect(url: string);
 
-    curl: Function;
+    curl(url: string, opt: Object): Promise<any>;
   }
 
   export class Controller extends BaseClass { }

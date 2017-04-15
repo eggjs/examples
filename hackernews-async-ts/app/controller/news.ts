@@ -1,6 +1,12 @@
 import { Controller } from 'egg';
 
-export default class NewsController extends Controller {
+declare module 'egg' {
+  export interface IController {
+    news: News ;
+  }
+}
+
+export default class News extends Controller {
   public async list() {
     const { ctx, app } = this;
     const pageSize = app.config.news.pageSize;
