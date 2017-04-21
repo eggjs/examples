@@ -22,11 +22,10 @@ export default class HackerNews extends Service {
 
   /**
    * request hacker-news api
-   * @param {String} api - Api name
-   * @param {Object} [opts] - urllib options
-   * @return {Promise} response.data
+   * @param api - Api name
+   * @param opts - urllib options
    */
-  public async request(api, opts?) {
+  public async request(api: string, opts?: object) {
     const options = Object.assign({
       dataType: 'json',
       timeout: ['30s', '30s'],
@@ -38,9 +37,8 @@ export default class HackerNews extends Service {
 
   /**
    * get top story ids
-   * @param {Number?} [page] - page number, 1-ase
-   * @param {Number?} [pageSize] - page count
-   * @return {Promise} id list
+   * @param page - page number, 1-ase
+   * @param pageSize - page count
    */
   public async getTopStories(page?: number, pageSize?: number) {
     page = page || 1;
@@ -63,19 +61,17 @@ export default class HackerNews extends Service {
 
   /**
    * query item
-   * @param {Number} id - itemId
-   * @return {Promise} item info
+   * @param id - itemId
    */
-  public async getItem(id) {
+  public async getItem(id: number) {
     return await this.request(`item/${id}.json`);
   }
 
   /**
    * get user info
-   * @param {Number} id - userId
-   * @return {Promise} user info
+   * @param id - userId
    */
-  public async getUser(id) {
+  public async getUser(id: number) {
     return await this.request(`user/${id}.json`);
   }
 }
