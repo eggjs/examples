@@ -40,7 +40,7 @@
     "tsc:w": "tsc -p tsconfig.json -w",
     "debug": "egg-bin debug",
     "start": "egg-bin dev",
-    "test": "npm run test-local",
+    "test": "npm run tsc && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",
     "lint": "eslint .",

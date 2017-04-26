@@ -1,7 +1,7 @@
 import { Context, Service } from 'egg';
 
 declare module 'egg' {
-  export interface Services {
+  export interface IService {
     hackerNews: HackerNews;
   }
 }

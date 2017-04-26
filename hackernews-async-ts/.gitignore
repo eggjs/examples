@@ -1,5 +1,6 @@
 app/**/*.js
 test/**/*.js
+config/**/*.js
 *.map
 run
 logs

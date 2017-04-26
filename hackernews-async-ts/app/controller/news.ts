@@ -1,7 +1,7 @@
 import { Controller } from 'egg';
 
 declare module 'egg' {
-  export interface Controllers {
+  export interface IController {
     news: NewsController;
   }
 }
