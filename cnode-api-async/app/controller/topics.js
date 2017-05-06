@@ -53,9 +53,10 @@ module.exports = app => {
 
     async update() {
       const { ctx } = this;
+      const id = ctx.params.id;
 
       ctx.validate(this.createRule);
-      await ctx.service.topics.update(ctx.params.id, ctx.request.body);
+      await ctx.service.topics.update(Object.assign({ id }, ctx.request.body));
       ctx.status = 204;
     }
   }
