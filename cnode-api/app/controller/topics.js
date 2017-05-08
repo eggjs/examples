@@ -41,7 +41,8 @@ exports.create = function* () {
 };
 
 exports.update = function* () {
+  const id = this.params.id;
   this.validate(createRule);
-  yield this.service.topics.update(this.params.id, this.request.body);
+  yield this.service.topics.update(Object.assign({ id }, this.request.body));
   this.status = 204;
 };
