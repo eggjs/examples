@@ -3,7 +3,7 @@
 const request = require('supertest');
 const mm = require('egg-mock');
 
-describe('test/controller/api.tset.js', () => {
+describe('test/controller/api.test.js', () => {
   let app;
   before(() => {
     app = mm.app();
