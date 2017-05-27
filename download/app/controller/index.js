@@ -11,7 +11,7 @@ module.exports = app => {
 			const filePath = path.resolve(__dirname, '..', 'public/egg.svg');
 			const buf = fs.readFileSync(filePath, 'utf-8');
 			ctx.set('Content-Type', 'application/octet-stream');
-			ctx.set('Content-Disposition', 'attachment; filename=egg.svg')
+			ctx.attachment('egg.svg');
 			ctx.body = buf;
 		}
 	}
