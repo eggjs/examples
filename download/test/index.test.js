@@ -1,22 +1,21 @@
 'use strict';
 
-var fs = require('fs');
-var path = require('path');
-var assert = require('assert');
+const fs = require('fs');
+const path = require('path');
+const assert = require('assert');
 const mm = require('egg-mock');
 const request = require('supertest');
-const svg = fs.readFileSync(
-  path.resolve(__dirname, '..', 'app/public/egg.svg')
-);
 
 describe('example download test', () => {
   let app;
   let server;
+  let file;
 
-  before(function*() {
+  before(function* () {
     app = mm.app();
     yield app.ready();
     server = app.listen();
+    file = fs.readFileSync(path.resolve(app.config.static.dir, 'hello.txt'));
   });
 
   after(() => app.close());
@@ -28,14 +27,14 @@ describe('example download test', () => {
       .expect(/<a download href="\/download">download<\/a>/);
   });
 
-  it('should GET /download and download egg.svg', () => {
+  it('should GET /download and download hello.txt', () => {
     return request(server)
       .get('/download')
       .expect('Content-Type', 'application/octet-stream')
-      .expect('Content-Disposition', 'attachment; filename="egg.svg"')
+      .expect('Content-Disposition', 'attachment; filename="hello.txt"')
       .expect(200)
       .expect(res => {
-        assert.deepStrictEqual(svg.toString(), res.text);
+        assert.deepStrictEqual(file.toString(), res.text);
       });
   });
 });

@@ -1,18 +1,20 @@
-var path = require('path');
-var fs = require('fs');
+'use strict';
+
+const path = require('path');
+const fs = require('fs');
 
 module.exports = app => {
   class IndexController extends app.Controller {
-    *index() {
+    * index() {
       this.ctx.body = '<a download href="/download">download</a>';
     }
 
-    *download(ctx) {
-      const filePath = path.resolve(__dirname, '..', 'public/egg.svg');
+    * download() {
+      const filePath = path.resolve(this.app.config.static.dir, 'hello.txt');
       const buf = fs.readFileSync(filePath, 'utf-8');
-      ctx.attachment('egg.svg');
-      ctx.set('Content-Type', 'application/octet-stream');
-      ctx.body = buf;
+      this.ctx.attachment('hello.txt');
+      this.ctx.set('Content-Type', 'application/octet-stream');
+      this.ctx.body = buf;
     }
   }
 
