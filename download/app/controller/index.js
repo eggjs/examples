@@ -11,10 +11,9 @@ module.exports = app => {
 
     * download() {
       const filePath = path.resolve(this.app.config.static.dir, 'hello.txt');
-      const buf = fs.readFileSync(filePath, 'utf-8');
       this.ctx.attachment('hello.txt');
       this.ctx.set('Content-Type', 'application/octet-stream');
-      this.ctx.body = buf;
+      this.ctx.body = fs.createReadStream(filePath);
     }
   }
 
