@@ -4,18 +4,19 @@
   "description": "hackernews showcase for egg",
   "private": true,
   "dependencies": {
-    "egg": "^0.11.0",
-    "egg-view-nunjucks": "^1.0.0",
-    "moment": "^2.17.1"
+    "egg": "^1.4.0",
+    "egg-view-nunjucks": "^2.1.2",
+    "moment": "^2.18.1"
   },
   "devDependencies": {
-    "autod": "^2.7.1",
-    "cheerio": "^0.22.0",
-    "egg-bin": "^1.10.0",
-    "egg-mock": "^2.0.0",
-    "eslint": "^3.13.1",
-    "eslint-config-egg": "^3.2.0",
-    "supertest": "^2.0.1",
+    "autod": "^2.8.0",
+    "autod-egg": "^1.0.0",
+    "cheerio": "^1.0.0-rc.1",
+    "egg-bin": "^3.4.1",
+    "egg-mock": "^3.7.1",
+    "eslint": "^3.19.0",
+    "eslint-config-egg": "^4.2.0",
+    "supertest": "^3.0.0",
     "webstorm-disable-index": "^1.1.2"
   },
   "engines": {
