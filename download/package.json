@@ -1,0 +1,20 @@
+{
+  "name": "download",
+  "dependencies": {
+    "egg": "*"
+  },
+  "devDependencies": {
+    "egg-bin": "1",
+    "egg-mock": "2",
+    "eslint": "^3.19.0",
+    "eslint-config-egg": "^4.2.0",
+    "supertest": "2"
+  },
+  "scripts": {
+    "start": "egg-bin dev",
+    "test": "npm run lint && egg-bin test",
+    "lint": "eslint app config test *.js",
+    "cov": "egg-bin cov"
+  },
+  "private": true
+}
