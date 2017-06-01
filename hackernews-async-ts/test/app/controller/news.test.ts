@@ -15,7 +15,7 @@ describe('test/app/controller/news.test.js', () => {
 
   afterEach(mm.restore);
 
-  it('should GET /news', async () => {
+  it.only('should GET /news', async () => {
     const result = await request(app.callback()).get('/news').expect(200);
     const $ = cheerio.load(result.text);
     const listItem = $('.news-view .item');

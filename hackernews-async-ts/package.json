@@ -1,5 +1,5 @@
 {
-  "name": "egg-example-hackernews-async",
+  "name": "egg-example-hackernews-async-ts",
   "version": "1.0.0",
   "description": "hackernews showcase using async/await for egg",
   "private": true,
