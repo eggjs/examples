@@ -5,7 +5,7 @@ import * as cheerio from 'cheerio';
 import * as mm from 'egg-mock';
 import * as request from 'supertest';
 
-describe('test/app/controller/news.test.js', () => {
+describe('test/app/controller/news.test.ts', () => {
   const app = mm.app();
   before(async () => {
     await app.ready();

@@ -11,3 +11,4 @@ run
 .DS_Store
 .tmp
 *.log.*
+cnode-api-async/*.yml
