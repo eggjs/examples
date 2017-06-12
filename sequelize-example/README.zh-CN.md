@@ -11,12 +11,6 @@
 
 如需进一步了解，参见 [egg 文档][egg]。
 
-### 单元测试
-```bash
-$ createdb example-unittest --owner postgres
-$ npm test
-```
-
 ### 本地开发
 ```bash
 $ npm install
