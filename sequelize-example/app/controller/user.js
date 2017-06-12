@@ -2,30 +2,30 @@
 
 module.exports = app => {
   return class UserController extends app.Controller {
-    * users() {
-      this.ctx.body = yield this.service.user.list(this.ctx.query);
+    * users(ctx) {
+      ctx.body = yield ctx.service.user.list(ctx.query);
     }
 
-    * user() {
-      this.ctx.body = yield this.service.user.find(this.ctx.params.id);
+    * user(ctx) {
+      ctx.body = yield ctx.service.user.find(ctx.params.id);
     }
 
-    * create() {
-      const created = yield this.service.user.create(this.ctx.request.body);
-      this.ctx.status = 201;
-      this.ctx.body = created;
+    * create(ctx) {
+      const created = yield ctx.service.user.create(ctx.request.body);
+      ctx.status = 201;
+      ctx.body = created;
     }
 
-    * update() {
-      const id = this.ctx.params.id;
-      const body = this.ctx.request.body;
-      this.ctx.body = yield this.service.user.update({ id, updates: body });
+    * update(ctx) {
+      const id = ctx.params.id;
+      const body = ctx.request.body;
+      ctx.body = yield ctx.service.user.update({ id, updates: body });
     }
 
-    * del() {
-      const id = this.ctx.params.id;
-      yield this.service.user.del(id);
-      this.ctx.status = 200;
+    * del(ctx) {
+      const id = ctx.params.id;
+      yield ctx.service.user.del(id);
+      ctx.status = 200;
     }
   };
 };
