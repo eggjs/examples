@@ -1,0 +1,50 @@
+{
+  "name": "sequelize-example",
+  "version": "1.0.0",
+  "description": "The egg example project that uses egg-sequelize plugin.",
+  "private": true,
+  "dependencies": {
+    "egg": "^1.4.0",
+    "egg-sequelize": "^2.1.4",
+    "pg": "^6.2.4",
+    "pg-hstore": "^2.3.2"
+  },
+  "devDependencies": {
+    "autod": "^2.8.0",
+    "autod-egg": "^1.0.0",
+    "egg-bin": "^3.4.2",
+    "egg-ci": "^1.7.0",
+    "egg-mock": "^3.7.2",
+    "eslint": "^3.19.0",
+    "eslint-config-egg": "^4.2.0",
+    "lodash": "^4.17.4",
+    "mocha": "^3.4.2",
+    "supertest": "^3.0.0",
+    "webstorm-disable-index": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "egg-bin dev",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod",
+    "migrate:new": "egg-sequelize migration:create",
+    "migrate:up": "egg-sequelize db:migrate",
+    "migrate:down": "egg-sequelize db:migrate:undo"
+  },
+  "ci": {
+    "version": "6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "iyuq/sequelize-example"
+  },
+  "author": "Qi Yu <njuyuqi@gmail.coom>",
+  "license": "MIT"
+}

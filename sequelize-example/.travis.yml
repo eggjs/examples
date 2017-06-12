@@ -12,3 +12,5 @@ before_script:
   - psql -c 'create database "example-unittest";' -U postgres
 script:
   - npm run ci
+after_script:
+  - npminstall codecov && codecov
