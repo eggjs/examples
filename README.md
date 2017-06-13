@@ -24,5 +24,6 @@ $ npm start
 - [unittest](https://github.com/eggjs/examples/tree/master/unittest)
 - [view-nunjucks](https://github.com/eggjs/examples/tree/master/view-nunjucks)
 - [custom-env](https://github.com/eggjs/examples/tree/master/custom-env)
+- [sequelize-example](https://github.com/eggjs/examples/tree/master/sequelize-example)
 
 [egg]: https://github.com/eggjs/egg
