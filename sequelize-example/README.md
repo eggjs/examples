@@ -1,6 +1,6 @@
 # sequelize-example
 
-The [egg][egg] example project that uses [egg-sequelize][egg-sequelize] plugin.
+The [egg] example project that uses [egg-sequelize] plugin.
 
 ## QuickStart
 

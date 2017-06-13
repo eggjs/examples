@@ -1,6 +1,6 @@
 # sequelize-example
 
-使用 [egg-sequelize][egg-sequelize] 插件的 [egg][egg] 示例项目。
+使用 [egg-sequelize] 插件的 [egg] 示例项目。
 
 ## 快速入门
 
