@@ -1,6 +1,6 @@
 # sequelize-example
 
-使用egg-sequelize插件的egg示例项目。
+使用 [egg-sequelize][egg-sequelize] 插件的 [egg][egg] 示例项目。
 
 ## 快速入门
 
@@ -40,3 +40,4 @@ $ EGG_SERVER_ENV=prod npm start
 
 
 [egg]: https://eggjs.org
+[egg-sequelize]: https://github.com/eggjs/egg-sequelize

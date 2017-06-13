@@ -1,6 +1,6 @@
 # sequelize-example
 
-The egg example project that uses egg-sequelize plugin.
+The [egg][egg] example project that uses [egg-sequelize][egg-sequelize] plugin.
 
 ## QuickStart
 
@@ -35,3 +35,4 @@ $ EGG_SERVER_ENV=prod npm start
 
 
 [egg]: https://eggjs.org
+[egg-sequelize]: https://github.com/eggjs/egg-sequelize
