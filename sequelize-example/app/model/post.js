@@ -3,7 +3,7 @@
 module.exports = app => {
   const { STRING, INTEGER, DATE } = app.Sequelize;
 
-  return app.model.define('post', {
+  const Post = app.model.define('post', {
     id: {
       type: INTEGER,
       primaryKey: true,
@@ -14,11 +14,11 @@ module.exports = app => {
     user_id: INTEGER,
     created_at: DATE,
     updated_at: DATE,
-  }, {
-    classMethods: {
-      associate() {
-        app.model.Post.belongsTo(app.model.User, { as: 'user', foreignKey: 'user_id' });
-      },
-    },
   });
+
+  Post.associate = function() {
+    app.model.Post.belongsTo(app.model.User, { as: 'user', foreignKey: 'user_id' });
+  };
+
+  return Post;
 };
