@@ -4,14 +4,11 @@ import { Context, Service } from 'egg';
  * HackerNews Api Service
  */
 export default class HackerNews extends Service {
-  public config: any;
-  private serverUrl: string;
-  private pageSize: number;
   constructor(ctx: Context) {
     super(ctx);
-    this.config = this.ctx.app.config.news;
-    this.serverUrl = this.config.serverUrl;
-    this.pageSize = this.config.pageSize;
+  }
+  getConfig() {
+    return this.app.config.news;
   }
 
   /**
@@ -25,7 +22,7 @@ export default class HackerNews extends Service {
       timeout: ['30s', '30s'],
     }, opts);
 
-    const result = await this.ctx.curl(`${this.serverUrl}/${api}`, options);
+    const result = await this.ctx.curl(`${this.getConfig().serverUrl}/${api}`, options);
     return result.data;
   }
 
@@ -36,7 +33,7 @@ export default class HackerNews extends Service {
    */
   public async getTopStories(page?: number, pageSize?: number): Promise<number[]> {
     page = page || 1;
-    pageSize = pageSize || this.pageSize;
+    pageSize = pageSize || this.getConfig().pageSize;
 
     try {
       const result = await this.request('topstories.json', {
