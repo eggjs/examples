@@ -1,11 +1,5 @@
 import { Controller } from 'egg';
 
-declare module 'egg' {
-  export interface IController {
-    news: NewsController;
-  }
-}
-
 export default class NewsController extends Controller {
   public async list() {
     const { ctx, app } = this;

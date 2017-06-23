@@ -4,7 +4,7 @@
   "description": "hackernews showcase using async/await for egg",
   "private": true,
   "dependencies": {
-    "egg": "^1.4.0",
+    "egg": "^1.5.0",
     "egg-view-nunjucks": "^2.1.2",
     "moment": "^2.18.1",
     "source-map-support": "^0.4.15",
@@ -13,8 +13,6 @@
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.1",
-    "@types/egg": "^1.0.0",
-    "@types/egg-mock": "^3.0.0",
     "@types/mocha": "^2.2.40",
     "@types/node": "^7.0.12",
     "@types/supertest": "^2.0.0",

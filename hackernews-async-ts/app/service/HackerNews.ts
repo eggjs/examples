@@ -1,11 +1,5 @@
 import { Context, Service } from 'egg';
 
-declare module 'egg' {
-  export interface IService {
-    hackerNews: HackerNews;
-  }
-}
-
 /**
  * HackerNews Api Service
  */
@@ -40,7 +34,7 @@ export default class HackerNews extends Service {
    * @param page - page number, 1-ase
    * @param pageSize - page count
    */
-  public async getTopStories(page?: number, pageSize?: number) {
+  public async getTopStories(page?: number, pageSize?: number): Promise<number[]> {
     page = page || 1;
     pageSize = pageSize || this.pageSize;
 
@@ -63,7 +57,17 @@ export default class HackerNews extends Service {
    * query item
    * @param id - itemId
    */
-  public async getItem(id: number) {
+  public async getItem(id: number): Promise<{
+    id: number;
+    score: number;
+    time: number;
+    title: string;
+    type: string;
+    url: string;
+    descendants: number;
+    kids: number[];
+    by: string;
+  }> {
     return await this.request(`item/${id}.json`);
   }
 
