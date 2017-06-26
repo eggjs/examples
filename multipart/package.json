@@ -1,14 +1,14 @@
 {
   "name": "multipart-example",
   "dependencies": {
-    "egg": "*",
+    "egg": "1",
     "formstream": "^1.1.0",
     "stream-wormhole": "^1.0.3"
   },
   "devDependencies": {
-    "egg-bin": "1",
-    "egg-mock": "2",
-    "supertest": "2"
+    "egg-bin": "4",
+    "egg-mock": "3",
+    "supertest": "3"
   },
   "scripts": {
     "start": "egg-bin dev",
