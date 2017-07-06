@@ -1,18 +1,9 @@
 'use strict';
-
 import { EggAppConfig } from 'egg';
 import * as fs from 'fs';
 import * as path from 'path';
 import 'source-map-support/register';
-
-declare module 'egg' {
-  export interface EggAppConfig {
-    news: {
-      pageSize: number;
-      serverUrl: string;
-    };
-  }
-}
+import defaultConfig from './defaultConfig';
 
 module.exports = (appInfo: EggAppConfig) => {
   const config: any = {};
@@ -24,11 +15,6 @@ module.exports = (appInfo: EggAppConfig) => {
     '/favicon.ico': fs.readFileSync(path.join(appInfo.baseDir, 'app/public/favicon.png')),
   };
 
-  config.news = {
-    pageSize: 30,
-    serverUrl: 'https://hacker-news.firebaseio.com/v0',
-  };
-
   config.view = {
     defaultViewEngine: 'nunjucks',
     mapping: {
@@ -36,5 +22,5 @@ module.exports = (appInfo: EggAppConfig) => {
     },
   };
 
-  return config;
+  return { ...config, ...defaultConfig };
 };

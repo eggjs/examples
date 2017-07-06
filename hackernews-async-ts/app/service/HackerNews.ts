@@ -1,23 +1,14 @@
 import { Context, Service } from 'egg';
 
-declare module 'egg' {
-  export interface IService {
-    hackerNews: HackerNews;
-  }
-}
-
 /**
  * HackerNews Api Service
  */
 export default class HackerNews extends Service {
-  public config: any;
-  private serverUrl: string;
-  private pageSize: number;
   constructor(ctx: Context) {
     super(ctx);
-    this.config = this.ctx.app.config.news;
-    this.serverUrl = this.config.serverUrl;
-    this.pageSize = this.config.pageSize;
+  }
+  getConfig() {
+    return this.app.config.news;
   }
 
   /**
@@ -31,7 +22,7 @@ export default class HackerNews extends Service {
       timeout: ['30s', '30s'],
     }, opts);
 
-    const result = await this.ctx.curl(`${this.serverUrl}/${api}`, options);
+    const result = await this.ctx.curl(`${this.getConfig().serverUrl}/${api}`, options);
     return result.data;
   }
 
@@ -40,9 +31,9 @@ export default class HackerNews extends Service {
    * @param page - page number, 1-ase
    * @param pageSize - page count
    */
-  public async getTopStories(page?: number, pageSize?: number) {
+  public async getTopStories(page?: number, pageSize?: number): Promise<number[]> {
     page = page || 1;
-    pageSize = pageSize || this.pageSize;
+    pageSize = pageSize || this.getConfig().pageSize;
 
     try {
       const result = await this.request('topstories.json', {
@@ -63,7 +54,17 @@ export default class HackerNews extends Service {
    * query item
    * @param id - itemId
    */
-  public async getItem(id: number) {
+  public async getItem(id: number): Promise<{
+    id: number;
+    score: number;
+    time: number;
+    title: string;
+    type: string;
+    url: string;
+    descendants: number;
+    kids: number[];
+    by: string;
+  }> {
     return await this.request(`item/${id}.json`);
   }
 

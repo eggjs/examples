@@ -20,7 +20,7 @@
     ],
     "adjacent-overload-signatures": true,
     "member-access": [
-      true
+      false
     ],
     "member-ordering": [
       true,

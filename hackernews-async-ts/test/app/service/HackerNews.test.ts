@@ -23,6 +23,6 @@ describe('test/app/service/HackerNews.test.js', () => {
 
   it('getItem', async () => {
     const item = await ctx.service.hackerNews.getItem(1);
-    assert(item.hasOwnProperty('id') && item.hasOwnProperty('title') && item.hasOwnProperty('url'));
+    assert(item.id && item.title && item.url);
   });
 });
