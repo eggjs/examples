@@ -1,4 +1,4 @@
-class DefaultConfig {
+export class DefaultConfig {
   news =  {
     pageSize: 30,
     serverUrl: 'https://hacker-news.firebaseio.com/v0',
