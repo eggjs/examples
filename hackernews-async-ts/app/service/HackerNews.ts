@@ -1,9 +1,21 @@
 import { Context, Service } from 'egg';
 
+export interface NewsItem {
+  id: number;
+  score: number;
+  time: number;
+  title: string;
+  type: string;
+  url: string;
+  descendants: number;
+  kids: number[];
+  by: string;
+}
+
 /**
  * HackerNews Api Service
  */
-export default class HackerNews extends Service {
+export class HackerNews extends Service {
   constructor(ctx: Context) {
     super(ctx);
   }
@@ -54,17 +66,7 @@ export default class HackerNews extends Service {
    * query item
    * @param id - itemId
    */
-  public async getItem(id: number): Promise<{
-    id: number;
-    score: number;
-    time: number;
-    title: string;
-    type: string;
-    url: string;
-    descendants: number;
-    kids: number[];
-    by: string;
-  }> {
+  public async getItem(id: number): Promise<NewsItem> {
     return await this.request(`item/${id}.json`);
   }
 
@@ -76,3 +78,5 @@ export default class HackerNews extends Service {
     return await this.request(`user/${id}.json`);
   }
 }
+
+export default HackerNews;
