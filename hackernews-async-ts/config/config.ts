@@ -5,7 +5,7 @@ import * as path from 'path';
 import 'source-map-support/register';
 import defaultConfig from './defaultConfig';
 
-module.exports = (appInfo: EggAppConfig) => {
+export default (appInfo: EggAppConfig) => {
   const config: any = {};
 
   // should change to your own
