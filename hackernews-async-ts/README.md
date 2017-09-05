@@ -8,7 +8,7 @@
 ```shell
 $ npm install
 $ npm run tsc:w
-$ npm run dev
+$ npm start
 $ open http://localhost:7001/
 ```
 
