@@ -17,7 +17,6 @@
     "semver": "^5.3.0"
   },
   "scripts": {
-    "dev": "egg-bin dev",
     "lint": "eslint .",
     "test": "node test.js",
     "test-cn": "node test.js -c",
