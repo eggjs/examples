@@ -1,7 +1,7 @@
 {
   "name": "unittest-example",
   "dependencies": {
-    "egg": "*",
+    "egg": "^1.0.0",
     "ylru": "^1.0.0"
   },
   "devDependencies": {
@@ -10,7 +10,7 @@
     "supertest": "^2.0.1"
   },
   "scripts": {
-    "start": "egg-bin dev",
+    "dev": "egg-bin dev",
     "test": "egg-bin test",
     "cov": "egg-bin cov",
     "ci": "eslint . && egg-bin cov"

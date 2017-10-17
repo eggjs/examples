@@ -2,7 +2,7 @@
   "name": "example-framework",
   "version": "1.0.0",
   "dependencies": {
-    "egg": "*",
+    "egg": "^1.0.0",
     "egg-ua": "../egg-ua"
   },
   "devDependencies": {
