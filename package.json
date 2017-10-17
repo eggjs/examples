@@ -17,11 +17,13 @@
     "semver": "^5.3.0"
   },
   "scripts": {
+    "dev": "egg-bin dev",
     "lint": "eslint .",
     "test": "node test.js",
     "test-cn": "node test.js -c",
     "ci": "npm run lint && npm test",
-    "autod": "autod"
+    "autod": "autod",
+    "list": "ls -d */ | tr -s ' ' | sed 's/^\\(.*\\)\\/$/- [\\1](https:\\\/\\\/github.com\\\/eggjs\\\/examples\\\/tree\\\/master\\\/\\1)/g'"
   },
   "homepage": "https://github.com/eggjs/examples",
   "repository": {

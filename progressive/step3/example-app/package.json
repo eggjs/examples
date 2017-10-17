@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "egg": "*",
+    "egg": "^1.0.0",
     "egg-ua": "../egg-ua"
   },
   "devDependencies": {
@@ -12,7 +12,7 @@
     "supertest": "2"
   },
   "scripts": {
-    "start": "egg-bin dev",
+    "dev": "egg-bin dev",
     "test": "egg-bin test",
     "cov": "egg-bin cov"
   }

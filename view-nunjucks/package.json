@@ -12,7 +12,6 @@
     "supertest": "^3.0.0"
   },
   "scripts": {
-    "start": "egg-bin dev",
     "dev": "egg-bin dev",
     "test": "egg-bin test",
     "cov": "egg-bin cov",

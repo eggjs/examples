@@ -12,7 +12,7 @@
     "egg-bin": "1"
   },
   "scripts": {
-    "start": "egg-bin dev",
+    "dev": "egg-bin dev",
     "cov": "egg-bin cov"
   },
   "private": true

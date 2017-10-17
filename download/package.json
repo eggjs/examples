@@ -1,7 +1,7 @@
 {
   "name": "download",
   "dependencies": {
-    "egg": "*"
+    "egg": "^1.0.0"
   },
   "devDependencies": {
     "egg-bin": "1",
@@ -11,7 +11,7 @@
     "supertest": "2"
   },
   "scripts": {
-    "start": "egg-bin dev",
+    "dev": "egg-bin dev",
     "test": "npm run lint && egg-bin test",
     "lint": "eslint app config test *.js",
     "cov": "egg-bin cov"
