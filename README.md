@@ -10,7 +10,7 @@ $ npm install
 $ npm run dev
 ```
 
-**Recommend use Node >= 8**
+**Recommend to use Node >= 8**
 
 ## List of examples
 
