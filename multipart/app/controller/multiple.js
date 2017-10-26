@@ -6,7 +6,7 @@ const Controller = require('egg').Controller;
 const awaitWriteStream = require('await-stream-ready').write;
 const sendToWormhole = require('stream-wormhole');
 
-class UploadFormController extends Controller {
+class UploadMultipleController extends Controller {
   async show() {
     await this.ctx.render('page/multiple.html');
   }
@@ -35,4 +35,4 @@ class UploadFormController extends Controller {
   }
 }
 
-module.exports = UploadFormController;
+module.exports = UploadMultipleController;

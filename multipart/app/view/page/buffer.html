@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2>Upload Image</h2>
+  <form action="/buffer?_csrf={{ ctx.csrf |  safe }}" method="post" enctype="multipart/form-data">
+    <ul>
+      <li>Image Name: <input name="name" type="text" /></li>
+      <li><input name="file" type="file" /></li>
+      <li><input type="submit" value="Upload" /></li>
+    </ul>
+  </form>
+{% endblock %}
