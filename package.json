@@ -33,10 +33,10 @@
     "url": "https://github.com/eggjs/egg/issues"
   },
   "engines": {
-    "node": ">= 6.0.0"
+    "node": ">= 8.0.0"
   },
   "ci": {
-    "version": "6, 8",
+    "version": "8",
     "afterScript": false
   },
   "license": "MIT",

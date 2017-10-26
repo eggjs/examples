@@ -18,8 +18,9 @@ class UploadFormController extends Controller {
     const writeStream = fs.createWriteStream(target);
     try {
       await awaitWriteStream(stream.pipe(writeStream));
-    } finally {
+    } catch (err) {
       await sendToWormhole(stream);
+      throw err;
     }
     this.ctx.redirect('/public/' + filename);
   }

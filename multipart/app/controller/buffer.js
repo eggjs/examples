@@ -17,8 +17,9 @@ class UploadBufferController extends Controller {
     try {
       const parts = await toArray(stream);
       buf = Buffer.concat(parts);
-    } finally {
+    } catch (err) {
       await sendToWormhole(stream);
+      throw err;
     }
 
     const filename = encodeURIComponent(stream.fields.name) + path.extname(stream.filename).toLowerCase();
