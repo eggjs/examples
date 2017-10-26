@@ -1,8 +1,11 @@
 {
   "name": "multipart-example",
   "dependencies": {
+    "await-stream-ready": "^1.0.1",
     "egg": "1",
+    "egg-view-nunjucks": "^2.1.4",
     "formstream": "^1.1.0",
+    "mz": "^2.7.0",
     "stream-wormhole": "^1.0.3"
   },
   "devDependencies": {

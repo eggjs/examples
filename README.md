@@ -10,6 +10,8 @@ $ npm install
 $ npm run dev
 ```
 
+**Recommend use Node >= 8**
+
 ## List of examples
 
 - [cnode-api-async](https://github.com/eggjs/examples/tree/master/cnode-api-async)
