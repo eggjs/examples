@@ -1,13 +1,18 @@
 {
   "name": "multipart-example",
   "dependencies": {
+    "await-stream-ready": "^1.0.1",
     "egg": "1",
+    "egg-view-nunjucks": "^2.1.4",
     "formstream": "^1.1.0",
+    "mz": "^2.7.0",
+    "stream-to-array": "^2.3.0",
     "stream-wormhole": "^1.0.3"
   },
   "devDependencies": {
     "egg-bin": "4",
     "egg-mock": "3",
+    "mz-modules": "^2.0.0",
     "supertest": "3"
   },
   "scripts": {

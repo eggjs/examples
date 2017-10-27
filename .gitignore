@@ -12,3 +12,4 @@ run
 .tmp
 *.log.*
 cnode-api-async/*.yml
+public

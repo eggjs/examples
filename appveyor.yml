@@ -1,6 +1,5 @@
 environment:
   matrix:
-    - nodejs_version: '6'
     - nodejs_version: '8'
 
 install:
@@ -10,6 +9,6 @@ install:
 test_script:
   - node --version
   - npm --version
-  - npm run ci
+  - npm run test
 
 build: off

@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Upload Result</h2>
+  <ul>
+    {% for field in fields %}
+    <li>{{ field.key }}: {{ field.value }}</li>
+    {% endfor %}
+
+    {% for file in files %}
+    <li><a href="/public/{{ file }}" _target="blank">{{ file }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

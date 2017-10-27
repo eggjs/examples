@@ -14,15 +14,15 @@ describe('test/controller/api.test.js', () => {
 
   it('should get /success ok', () => {
     return request(app.callback())
-    .get('/success')
-    .expect(200)
-    .expect({ success: true, result: { foo: 'bar' } });
+      .get('/success')
+      .expect(200)
+      .expect({ success: true, result: { foo: 'bar' } });
   });
 
   it('should get /fail ok', () => {
     return request(app.callback())
-    .get('/fail')
-    .expect(200)
-    .expect({ success: false, message: 'something wrong' });
+      .get('/fail')
+      .expect(200)
+      .expect({ success: false, message: 'something wrong' });
   });
 });

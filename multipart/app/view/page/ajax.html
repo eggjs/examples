@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2>Upload Image</h2>
+  <form>
+    <ul>
+      <li>Image Name: <input name="name" type="text" /></li>
+      <li><input name="file" type="file" /></li>
+      <li><input type="submit" value="Upload" /></li>
+    </ul>
+  </form>
+
+  <script>
+  $('form').submit(function(e) {
+    e.preventDefault();
+    var formData = new FormData();
+    formData.append('name', $('input[type=text]').val());
+    // Attach file
+    formData.append('image', $('input[type=file]')[0].files[0]);
+    // console.log(formData);
+
+    $.ajax({
+      url: '/ajax?_csrf=' + getCsrf(),
+      data: formData,
+      method: 'POST',
+      contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+      processData: false, // NEEDED, DON'T OMIT THIS
+      success: function(result) {
+        console.log(result);
+        location.href = result.url;
+      },
+      error: function(responseStr) {
+        alert("error", responseStr);
+      }
+    });
+
+    function getCsrf() {
+      var keyValue = document.cookie.match('(^|;) ?csrfToken=([^;]*)(;|$)');
+      return keyValue ? keyValue[2] : null;
+    }
+  });
+  </script>
+{% endblock %}

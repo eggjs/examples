@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h2>Upload Image</h2>
+  <form action="/multiple-file?_csrf={{ ctx.csrf |  safe }}" method="post" enctype="multipart/form-data">
+    <ul>
+      <li><input name="name1" type="text" /></li>
+      <li><input name="file1" type="file" /></li>
+      <li><input name="name2" type="text" /></li>
+      <li><input name="file2" type="file" /></li>
+      <li><input name="name3" type="text" /></li>
+      <li><input type="submit" value="Upload" /></li>
+    </ul>
+  </form>
+{% endblock %}

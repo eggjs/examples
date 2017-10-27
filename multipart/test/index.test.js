@@ -1,58 +1,101 @@
 'use strict';
 
+const path = require('path');
 const assert = require('assert');
-const request = require('supertest');
 const mm = require('egg-mock');
-const formstream = require('formstream');
-const urllib = require('urllib');
+const rimraf = require('mz-modules/rimraf');
 
 describe('example multipart test', () => {
   let app;
-  let csrfToken;
-  let cookies;
-  let host;
-  let server;
-
-  before(function* () {
+  before(async () => {
     app = mm.app();
-    yield app.ready();
-    server = app.listen();
+    await app.ready();
   });
-
   after(() => app.close());
+  after(() => rimraf(path.join(app.config.baseDir, 'app/public')));
 
-  it('should GET / show upload form', () => {
-    return request(server)
-      .get('/')
-      .expect(200)
-      .expect(/<p>Image: <input type="file" name="image" \/><\/p>/)
-      .expect(res => {
-        console.log(res.headers, res.text);
-        cookies = res.headers['set-cookie'].join(';');
-        csrfToken = cookies.match(/csrfToken=(.*?);/)[1];
-        host = `http://127.0.0.1:${server.address().port}`;
-      });
-  });
+  describe('form', () => {
+    it('should upload', async () => {
+      app.mockCsrf();
+      await app.httpRequest()
+        .post('/form')
+        .field('name', 'form')
+        .attach('file', path.join(__dirname, 'mc.jpeg'))
+        .expect('Location', '/public/form.jpeg')
+        .expect(302);
 
-  it('should POST /upload success', done => {
-    const form = formstream();
-    form.file('file', __filename);
-    // other form fields
-    form.field('title', 'fengmk2 test title')
-      .field('love', 'egg');
-
-    const headers = form.headers();
-    headers.Cookie = cookies;
-    urllib.request(`${host}/upload?_csrf=${csrfToken}`, {
-      method: 'POST',
-      headers,
-      stream: form,
-      dataType: 'json',
-    }, (err, data, res) => {
-      assert(!err, err && err.message);
-      assert.equal(res.statusCode, 200);
-      console.log(data);
-      done();
+      await app.httpRequest()
+        .get('/public/form.jpeg')
+        .expect('content-length', '6635')
+        .expect(200);
     });
   });
+
+  describe('multiple', () => {
+    it('should upload', async () => {
+      app.mockCsrf();
+      await app.httpRequest()
+        .post('/multiple-file')
+        .field('name1', '1')
+        .attach('file1', path.join(__dirname, 'mc.jpeg'))
+        .field('name2', '2')
+        .attach('file2', path.join(__dirname, 'kfc.jpeg'))
+        .field('name3', '3')
+        .expect(res => {
+          assert(res.text.includes('name1: 1'));
+          assert(res.text.includes('name2: 2'));
+          assert(res.text.includes('name3: 3'));
+          assert(res.text.includes('href="/public/mc.jpeg"'));
+          assert(res.text.includes('href="/public/kfc.jpeg"'));
+        })
+        .expect(200);
+
+      await app.httpRequest()
+        .get('/public/mc.jpeg')
+        .expect('content-length', '6635')
+        .expect(200);
+
+      await app.httpRequest()
+        .get('/public/kfc.jpeg')
+        .expect('content-length', '28810')
+        .expect(200);
+    });
+  });
+
+  describe('ajax', () => {
+    it('should upload', async () => {
+      app.mockCsrf();
+      await app.httpRequest()
+        .post('/ajax')
+        .field('name', 'ajax')
+        .attach('file', path.join(__dirname, 'mc.jpeg'))
+        .expect({
+          url: '/public/ajax.jpeg',
+        })
+        .expect(200);
+
+      await app.httpRequest()
+        .get('/public/ajax.jpeg')
+        .expect('content-length', '6635')
+        .expect(200);
+    });
+  });
+
+  describe('buffer', () => {
+    it('should upload', async () => {
+      app.mockCsrf();
+      await app.httpRequest()
+        .post('/form')
+        .field('name', 'buffer')
+        .attach('file', path.join(__dirname, 'mc.jpeg'))
+        .expect('Location', '/public/buffer.jpeg')
+        .expect(302);
+
+      await app.httpRequest()
+        .get('/public/buffer.jpeg')
+        .expect('content-length', '6635')
+        .expect(200);
+    });
+  });
+
 });

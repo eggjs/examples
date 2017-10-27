@@ -25,15 +25,15 @@ describe('test/app/controller/news.test.js', () => {
 
   it('should GET /news/item/:id', () => {
     return request(app.callback())
-    .get('/news/item/1')
-    .expect(/\/news\/item\/1/) // just a example, use regex to test part of dom string, but should be strong characteristic
-    .expect(200);
+      .get('/news/item/1')
+      .expect(/\/news\/item\/1/) // just a example, use regex to test part of dom string, but should be strong characteristic
+      .expect(200);
   });
 
   it('should GET /news/user/:id', () => {
     return request(app.callback())
-    .get('/news/user/activatedgeek')
-    .expect(/<span class="label">user:<\/span> activatedgeek/) // just a example, use regex to test part of dom string, but should be strong characteristic
-    .expect(200);
+      .get('/news/user/activatedgeek')
+      .expect(/<span class="label">user:<\/span> activatedgeek/) // just a example, use regex to test part of dom string, but should be strong characteristic
+      .expect(200);
   });
 });
