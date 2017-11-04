@@ -13,7 +13,7 @@ module.exports = app => {
         timeout: [ '30s', '30s' ],
         dataType: 'json',
       }, opts);
-      return await this.ctx.curl(url, opts);
+      return this.ctx.curl(url, opts);
     }
 
     async show(params) {

@@ -5,15 +5,15 @@ const mock = require('egg-mock');
 describe('test/app/service/user.test.js', () => {
   let app;
   let ctx;
-  before(function* () {
+  before(async function() {
     app = mock.app();
-    yield app.ready();
+    await app.ready();
     ctx = app.mockContext();
-    yield ctx.model.sync({ force: true });
+    await ctx.model.sync({ force: true });
   });
   describe('list()', () => {
-    before(function* () {
-      yield ctx.model.User.bulkCreate([
+    before(async function() {
+      await ctx.model.User.bulkCreate([
         {
           id: 1,
           name: 'yuqi01',
@@ -89,40 +89,40 @@ describe('test/app/service/user.test.js', () => {
         },
       ]);
     });
-    after(function* () {
-      yield ctx.model.sync({ force: true });
+    after(async function() {
+      await ctx.model.sync({ force: true });
     });
-    it('should list success with default limit 10 offset 0 order created_at', function* () {
-      const data = yield ctx.service.user.list({});
+    it('should list success with default limit 10 offset 0 order created_at', async function() {
+      const data = await ctx.service.user.list({});
       assert(data.count === 12);
       assert(data.rows.length === 10);
       assert(data.rows[0].id === 1);
       assert(data.rows[9].id === 10);
     });
-    it('should return the giving offset rows', function* () {
-      const data = yield ctx.service.user.list({ offset: 2 });
+    it('should return the giving offset rows', async function() {
+      const data = await ctx.service.user.list({ offset: 2 });
       assert(data.rows[0].id === 3);
       assert(data.rows[9].id === 12);
     });
-    it('should return the giving limit rows', function* () {
-      const data = yield ctx.service.user.list({ limit: 2 });
+    it('should return the giving limit rows', async function() {
+      const data = await ctx.service.user.list({ limit: 2 });
       assert(data.count === 12);
       assert(data.rows.length === 2);
     });
-    it('should return order by the giving order name', function* () {
-      const data = yield ctx.service.user.list({ order_by: 'age' });
+    it('should return order by the giving order name', async function() {
+      const data = await ctx.service.user.list({ order_by: 'age' });
       assert(data.rows[0].id === 12);
       assert(data.rows[1].id === 11);
     });
-    it('should return order by the giving order_by name and the order direction', function* () {
-      const data = yield ctx.service.user.list({ order_by: 'age', order: 'desc' });
+    it('should return order by the giving order_by name and the order direction', async function() {
+      const data = await ctx.service.user.list({ order_by: 'age', order: 'desc' });
       assert(data.rows[0].id === 1);
       assert(data.rows[1].id === 2);
     });
   });
   describe('find(id)', () => {
-    before(function* () {
-      yield ctx.model.User.bulkCreate([
+    before(async function() {
+      await ctx.model.User.bulkCreate([
         {
           id: 1,
           name: 'yuqi',
@@ -132,20 +132,20 @@ describe('test/app/service/user.test.js', () => {
         },
       ]);
     });
-    after(function* () {
-      yield ctx.model.sync({ force: true });
+    after(async function() {
+      await ctx.model.sync({ force: true });
     });
-    it('should find success', function* () {
-      const user = yield ctx.service.user.find(1);
+    it('should find success', async function() {
+      const user = await ctx.service.user.find(1);
       assert(user.id === 1);
       assert(user.name === 'yuqi');
       assert(user.age === 18);
       assert(user.created_at.valueOf() === new Date('2017-06-05T06:38:16.498Z').valueOf());
       assert(user.updated_at.valueOf() === new Date('2017-06-05T06:38:16.498Z').valueOf());
     });
-    it('should throw 404 error when id not exist', function* () {
+    it('should throw 404 error when id not exist', async function() {
       try {
-        yield ctx.service.user.find(3);
+        await ctx.service.user.find(3);
       } catch (error) {
         assert(error.status === 404);
         assert(error.message === 'user not found');
@@ -153,11 +153,11 @@ describe('test/app/service/user.test.js', () => {
     });
   });
   describe('create()', () => {
-    afterEach(function* () {
-      yield ctx.model.sync({ force: true });
+    afterEach(async function() {
+      await ctx.model.sync({ force: true });
     });
-    it('should create success', function* () {
-      const user = yield ctx.service.user.create({
+    it('should create success', async function() {
+      const user = await ctx.service.user.create({
         name: 'yuqi',
         age: 18,
       });
@@ -167,8 +167,8 @@ describe('test/app/service/user.test.js', () => {
     });
   });
   describe('update()', () => {
-    beforeEach(function* () {
-      yield ctx.model.User.bulkCreate([
+    beforeEach(async function() {
+      await ctx.model.User.bulkCreate([
         {
           id: 1,
           name: 'yuqi',
@@ -178,11 +178,11 @@ describe('test/app/service/user.test.js', () => {
         },
       ]);
     });
-    afterEach(function* () {
-      yield ctx.model.sync({ force: true });
+    afterEach(async function() {
+      await ctx.model.sync({ force: true });
     });
-    it('should update success', function* () {
-      const user = yield ctx.service.user.update({
+    it('should update success', async function() {
+      const user = await ctx.service.user.update({
         id: 1,
         updates: {
           name: 'update',
@@ -193,9 +193,9 @@ describe('test/app/service/user.test.js', () => {
       assert(user.name === 'update');
       assert(user.age === 19);
     });
-    it('should throw 404 when id not found', function* () {
+    it('should throw 404 when id not found', async function() {
       try {
-        yield ctx.service.user.update({
+        await ctx.service.user.update({
           id: 2,
           updates: {
             name: 'update',
@@ -209,8 +209,8 @@ describe('test/app/service/user.test.js', () => {
     });
   });
   describe('del()', () => {
-    beforeEach(function* () {
-      yield ctx.model.User.bulkCreate([
+    beforeEach(async function() {
+      await ctx.model.User.bulkCreate([
         {
           id: 1,
           name: 'yuqi',
@@ -220,16 +220,16 @@ describe('test/app/service/user.test.js', () => {
         },
       ]);
     });
-    afterEach(function* () {
-      yield ctx.model.sync({ force: true });
+    afterEach(async function() {
+      await ctx.model.sync({ force: true });
     });
-    it('should delete success', function* () {
-      const result = yield ctx.service.user.del(1);
+    it('should delete success', async function() {
+      const result = await ctx.service.user.del(1);
       assert(result);
     });
-    it('should throw 404 when id not found', function* () {
+    it('should throw 404 when id not found', async function() {
       try {
-        yield yield ctx.service.user.del(2);
+        await await ctx.service.user.del(2);
       } catch (error) {
         assert(error.status === 404);
         assert(error.message === 'user not found');

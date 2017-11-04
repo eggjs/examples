@@ -10,7 +10,7 @@ module.exports = function() {
     type: 'worker',
   };
 
-  exports.task = function* (ctx) {
+  exports.task = async function(ctx) {
     ctx.logger.info('worker&&cron');
   };
   return exports;

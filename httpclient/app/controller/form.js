@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function* form() {
-  const result = yield this.curl('https://httpbin.org/post', {
+module.exports = async function form() {
+  const result = await this.curl('https://httpbin.org/post', {
     // 必须指定 method，支持 POST，PUT 和 DELETE
     method: 'POST',
     // 不需要设置 contentType，httpclient 会默认以 application/x-www-form-urlencoded 格式发送请求

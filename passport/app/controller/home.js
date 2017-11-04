@@ -1,6 +1,6 @@
 'use strict';
 
-exports.index = function* () {
+exports.index = async function() {
   if (this.isAuthenticated()) {
     this.body = `<div>
       <h2>${this.path}</h2>

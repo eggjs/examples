@@ -10,7 +10,7 @@ module.exports = app => (
       this.config = this.app.config.test;
     }
 
-    * get(id) {
+    async get(id) {
       return { id, name: this.config.key };
     }
   }

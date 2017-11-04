@@ -18,13 +18,13 @@ module.exports = app => {
      * @param {Object} [opts] - urllib options
      * @return {Promise} response.data
      */
-    * request(api, opts) {
+    async request(api, opts) {
       const options = Object.assign({
         dataType: 'json',
         timeout: [ '30s', '30s' ],
       }, opts);
 
-      const result = yield this.ctx.curl(`${this.serverUrl}/${api}`, options);
+      const result = await this.ctx.curl(`${this.serverUrl}/${api}`, options);
       return result.data;
     }
 
@@ -34,11 +34,11 @@ module.exports = app => {
      * @param {Number} [pageSize] - page count
      * @return {Promise} id list
      */
-    * getTopStories(page, pageSize) {
+    async getTopStories(page, pageSize) {
       page = page || 1;
       pageSize = pageSize || this.pageSize;
 
-      const result = yield this.request('topstories.json', {
+      const result = await this.request('topstories.json', {
         data: {
           orderBy: '"$key"',
           startAt: `"${pageSize * (page - 1)}"`,
@@ -53,8 +53,8 @@ module.exports = app => {
      * @param {Number} id - itemId
      * @return {Promise} item info
      */
-    * getItem(id) {
-      return yield this.request(`item/${id}.json`);
+    async getItem(id) {
+      return this.request(`item/${id}.json`);
     }
 
     /**
@@ -62,8 +62,8 @@ module.exports = app => {
      * @param {Number} id - userId
      * @return {Promise} user info
      */
-    * getUser(id) {
-      return yield this.request(`user/${id}.json`);
+    async getUser(id) {
+      return this.request(`user/${id}.json`);
     }
   }
 

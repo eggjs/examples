@@ -6,16 +6,16 @@ const mock = require('egg-mock');
 describe('test/app/service/topics.test.js', () => {
   let app;
   let ctx;
-  before(function* () {
+  before(async function() {
     app = mock.app();
-    yield app.ready();
+    await app.ready();
     ctx = app.mockContext();
   });
 
   afterEach(mock.restore);
 
   describe('show()', () => {
-    it('should with render success', function* () {
+    it('should with render success', async function() {
       app.mockHttpclient(`${ctx.service.topics.root}/topic/57ea257b3670ca3f44c5beb6`, 'GET', {
         data: {
           success: true,
@@ -25,7 +25,7 @@ describe('test/app/service/topics.test.js', () => {
           },
         },
       });
-      const topic = yield ctx.service.topics.show({
+      const topic = await ctx.service.topics.show({
         id: '57ea257b3670ca3f44c5beb6',
         mdrender: true,
       });
@@ -35,7 +35,7 @@ describe('test/app/service/topics.test.js', () => {
       assert(Array.isArray(topic.replies));
     });
 
-    it('should without render success', function* () {
+    it('should without render success', async function() {
       app.mockHttpclient(`${ctx.service.topics.root}/topic/57ea257b3670ca3f44c5beb6`, 'GET', {
         data: {
           success: true,
@@ -45,7 +45,7 @@ describe('test/app/service/topics.test.js', () => {
           },
         },
       });
-      const topic = yield ctx.service.topics.show({
+      const topic = await ctx.service.topics.show({
         id: '57ea257b3670ca3f44c5beb6',
         mdrender: false,
       });
@@ -55,7 +55,7 @@ describe('test/app/service/topics.test.js', () => {
       assert(Array.isArray(topic.replies));
     });
 
-    it('should response 404 when topic id not exist', function* () {
+    it('should response 404 when topic id not exist', async function() {
       app.mockHttpclient(`${ctx.service.topics.root}/topic/5433d5e4e737cbe96dcef300`, 'GET', {
         status: 404,
         data: {
@@ -64,7 +64,7 @@ describe('test/app/service/topics.test.js', () => {
       });
 
       try {
-        yield ctx.service.topics.show({
+        await ctx.service.topics.show({
           id: '5433d5e4e737cbe96dcef300',
           mdrender: false,
         });
@@ -77,7 +77,7 @@ describe('test/app/service/topics.test.js', () => {
   });
 
   describe('list()', () => {
-    it('should with render, limit and tab success', function* () {
+    it('should with render, limit and tab success', async function() {
       app.mockHttpclient(`${ctx.service.topics.root}/topics`, 'GET', {
         data: {
           success: true,
@@ -90,7 +90,7 @@ describe('test/app/service/topics.test.js', () => {
         },
       });
 
-      const topics = yield ctx.service.topics.list({
+      const topics = await ctx.service.topics.list({
         mdrender: true,
         limit: 5,
         tab: 'share',
@@ -103,7 +103,7 @@ describe('test/app/service/topics.test.js', () => {
   });
 
   describe('create()', () => {
-    it('should create failed by accesstoken error', function* () {
+    it('should create failed by accesstoken error', async function() {
       app.mockHttpclient(`${ctx.service.topics.root}/topics`, 'POST', {
         status: 401,
         data: {
@@ -112,7 +112,7 @@ describe('test/app/service/topics.test.js', () => {
       });
 
       try {
-        yield ctx.service.topics.create({
+        await ctx.service.topics.create({
           accesstoken: 'hello',
           title: 'title',
           content: 'content',
@@ -123,14 +123,14 @@ describe('test/app/service/topics.test.js', () => {
       }
     });
 
-    it('should create success', function* () {
+    it('should create success', async function() {
       app.mockHttpclient(`${ctx.service.topics.root}/topics`, 'POST', {
         data: {
           success: true,
           topic_id: '5433d5e4e737cbe96dcef312',
         },
       });
-      const id = yield ctx.service.topics.create({
+      const id = await ctx.service.topics.create({
         accesstoken: 'hello',
         title: 'title',
         content: 'content',
@@ -140,7 +140,7 @@ describe('test/app/service/topics.test.js', () => {
   });
 
   describe('update()', () => {
-    it('should update failed by accesstoken error', function* () {
+    it('should update failed by accesstoken error', async function() {
       app.mockHttpclient(`${ctx.service.topics.root}/topics/update`, 'POST', {
         status: 401,
         data: {
@@ -149,7 +149,7 @@ describe('test/app/service/topics.test.js', () => {
       });
 
       try {
-        yield ctx.service.topics.update({
+        await ctx.service.topics.update({
           id: '57ea257b3670ca3f44c5beb6',
           accesstoken: 'hello',
           title: 'title',
@@ -161,14 +161,14 @@ describe('test/app/service/topics.test.js', () => {
       }
     });
 
-    it('should update success', function* () {
+    it('should update success', async function() {
       app.mockHttpclient(`${ctx.service.topics.root}/topics/update`, 'POST', {
         data: {
           success: true,
           topic_id: '5433d5e4e737cbe96dcef312',
         },
       });
-      yield ctx.service.topics.update({
+      await ctx.service.topics.update({
         id: '57ea257b3670ca3f44c5beb6',
         accesstoken: 'hello',
         title: 'title',

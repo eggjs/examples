@@ -1,21 +1,21 @@
 'use strict';
 
-exports.show = function* () {
-  this.body = yield this.service.topics.show({
+exports.show = async function() {
+  this.body = await this.service.topics.show({
     id: this.params.id,
     mdrender: this.query.mdrender !== 'false',
     accesstoken: this.query.accesstoken || '',
   });
 };
 
-exports.index = function* () {
+exports.index = async function() {
   this.validate({
     page: { format: /\d+/, required: false },
     tab: { type: 'enum', values: [ 'ask', 'share', 'job', 'good' ], required: false },
     limit: { format: /\d+/, required: false },
   }, this.query);
 
-  this.body = yield this.service.topics.list({
+  this.body = await this.service.topics.list({
     page: this.query.page,
     tab: this.query.tab,
     limit: this.query.limit,
@@ -30,19 +30,19 @@ const createRule = {
   content: 'string',
 };
 
-exports.create = function* () {
+exports.create = async function() {
   this.validate(createRule);
 
-  const id = yield this.service.topics.create(this.request.body);
+  const id = await this.service.topics.create(this.request.body);
   this.body = {
     topic_id: id,
   };
   this.status = 201;
 };
 
-exports.update = function* () {
+exports.update = async function() {
   const id = this.params.id;
   this.validate(createRule);
-  yield this.service.topics.update(Object.assign({ id }, this.request.body));
+  await this.service.topics.update(Object.assign({ id }, this.request.body));
   this.status = 204;
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function* () {
+module.exports = async function() {
   this.cookies.set('remember', null);
   this.redirect('/');
 };

@@ -16,8 +16,8 @@ describe('test/app/controller/news.test.js', () => {
 
   afterEach(mm.restore);
 
-  it('should GET /news', function* () {
-    const result = yield request(app.callback()).get('/news').expect(200);
+  it('should GET /news', async function() {
+    const result = await request(app.callback()).get('/news').expect(200);
     const $ = cheerio.load(result.text);
     const listItem = $('.news-view .item');
     assert(listItem.length === app.config.news.pageSize);

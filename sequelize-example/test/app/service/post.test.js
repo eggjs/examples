@@ -5,15 +5,15 @@ const mock = require('egg-mock');
 describe('test/app/service/post.test.js', () => {
   let app;
   let ctx;
-  before(function* () {
+  before(async function() {
     app = mock.app();
-    yield app.ready();
+    await app.ready();
     ctx = app.mockContext();
-    yield ctx.model.sync({ force: true });
+    await ctx.model.sync({ force: true });
   });
   describe('list()', () => {
-    before(function* () {
-      yield ctx.model.User.bulkCreate([
+    before(async function() {
+      await ctx.model.User.bulkCreate([
         {
           id: 1,
           name: 'yuqi01',
@@ -28,7 +28,7 @@ describe('test/app/service/post.test.js', () => {
           updated_at: '2017-06-05T06:38:16.498Z',
         },
       ]);
-      yield ctx.model.Post.bulkCreate([
+      await ctx.model.Post.bulkCreate([
         {
           id: 1,
           title: 'post01',
@@ -109,29 +109,29 @@ describe('test/app/service/post.test.js', () => {
         },
       ]);
     });
-    after(function* () {
-      yield ctx.model.sync({ force: true });
+    after(async function() {
+      await ctx.model.sync({ force: true });
     });
-    it('should list success with default limit 10 offset 0 order created_at desc', function* () {
-      const data = yield ctx.service.post.list({});
+    it('should list success with default limit 10 offset 0 order created_at desc', async function() {
+      const data = await ctx.service.post.list({});
       assert(data.count === 11);
       assert(data.rows.length === 10);
       assert(data.rows[0].id === 11);
       assert(data.rows[9].id === 2);
     });
-    it('should return the giving offset rows', function* () {
-      const data = yield ctx.service.post.list({ offset: 10 });
+    it('should return the giving offset rows', async function() {
+      const data = await ctx.service.post.list({ offset: 10 });
       assert(data.count === 11);
       assert(data.rows.length === 1);
       assert(data.rows[0].id === 1);
     });
-    it('should return the giving limit rows', function* () {
-      const data = yield ctx.service.post.list({ limit: 2 });
+    it('should return the giving limit rows', async function() {
+      const data = await ctx.service.post.list({ limit: 2 });
       assert(data.count === 11);
       assert(data.rows.length === 2);
     });
-    it('should return the posts of the giving user_id', function* () {
-      const data = yield ctx.service.post.list({ user_id: 2 });
+    it('should return the posts of the giving user_id', async function() {
+      const data = await ctx.service.post.list({ user_id: 2 });
       assert(data.count === 2);
       assert(data.rows.length === 2);
       assert(data.rows[0].user_id === 2);
@@ -139,8 +139,8 @@ describe('test/app/service/post.test.js', () => {
     });
   });
   describe('find(id)', () => {
-    before(function* () {
-      yield ctx.model.User.bulkCreate([
+    before(async function() {
+      await ctx.model.User.bulkCreate([
         {
           id: 1,
           name: 'yuqi',
@@ -149,7 +149,7 @@ describe('test/app/service/post.test.js', () => {
           updated_at: '2017-06-05T06:38:16.498Z',
         },
       ]);
-      yield ctx.model.Post.bulkCreate([
+      await ctx.model.Post.bulkCreate([
         {
           id: 1,
           title: 'post01',
@@ -167,19 +167,19 @@ describe('test/app/service/post.test.js', () => {
         },
       ]);
     });
-    after(function* () {
-      yield ctx.model.sync({ force: true });
+    after(async function() {
+      await ctx.model.sync({ force: true });
     });
-    it('should find success', function* () {
-      const post = yield ctx.service.post.find(1);
+    it('should find success', async function() {
+      const post = await ctx.service.post.find(1);
       assert(post.id === 1);
       assert(post.title === 'post01');
       assert(post.created_at.valueOf() === new Date('2017-06-05T06:38:00.498Z').valueOf());
       assert(post.updated_at.valueOf() === new Date('2017-06-05T06:38:16.498Z').valueOf());
     });
-    it('should throw 404 error when id not exist', function* () {
+    it('should throw 404 error when id not exist', async function() {
       try {
-        yield ctx.service.post.find(3);
+        await ctx.service.post.find(3);
       } catch (error) {
         assert(error.status === 404);
         assert(error.message === 'post not found');
@@ -187,8 +187,8 @@ describe('test/app/service/post.test.js', () => {
     });
   });
   describe('create()', () => {
-    beforeEach(function* () {
-      yield ctx.model.User.bulkCreate([
+    beforeEach(async function() {
+      await ctx.model.User.bulkCreate([
         {
           id: 1,
           name: 'yuqi',
@@ -198,11 +198,11 @@ describe('test/app/service/post.test.js', () => {
         },
       ]);
     });
-    afterEach(function* () {
-      yield ctx.model.sync({ force: true });
+    afterEach(async function() {
+      await ctx.model.sync({ force: true });
     });
-    it('should create success', function* () {
-      const post = yield ctx.service.post.create({
+    it('should create success', async function() {
+      const post = await ctx.service.post.create({
         title: 'post01',
         content: 'the first post',
         user_id: 1,
@@ -211,9 +211,9 @@ describe('test/app/service/post.test.js', () => {
       assert(post.title === 'post01');
       assert(post.content === 'the first post');
     });
-    it('should throw error when user_id not exist', function* () {
+    it('should throw error when user_id not exist', async function() {
       try {
-        yield ctx.service.post.create({
+        await ctx.service.post.create({
           title: 'post01',
           content: 'the first post',
           user_id: 2,
@@ -224,8 +224,8 @@ describe('test/app/service/post.test.js', () => {
     });
   });
   describe('update()', () => {
-    beforeEach(function* () {
-      yield ctx.model.User.bulkCreate([
+    beforeEach(async function() {
+      await ctx.model.User.bulkCreate([
         {
           id: 1,
           name: 'yuqi',
@@ -234,7 +234,7 @@ describe('test/app/service/post.test.js', () => {
           updated_at: '2017-06-05T06:38:16.498Z',
         },
       ]);
-      yield ctx.model.Post.bulkCreate([
+      await ctx.model.Post.bulkCreate([
         {
           id: 1,
           title: 'post01',
@@ -245,11 +245,11 @@ describe('test/app/service/post.test.js', () => {
         },
       ]);
     });
-    afterEach(function* () {
-      yield ctx.model.sync({ force: true });
+    afterEach(async function() {
+      await ctx.model.sync({ force: true });
     });
-    it('should update success', function* () {
-      const post = yield ctx.service.post.update({
+    it('should update success', async function() {
+      const post = await ctx.service.post.update({
         id: 1,
         user_id: 1,
         updates: {
@@ -261,9 +261,9 @@ describe('test/app/service/post.test.js', () => {
       assert(post.title === 'new title');
       assert(post.content === 'new content');
     });
-    it('should throw 403 when user_id not the author', function* () {
+    it('should throw 403 when user_id not the author', async function() {
       try {
-        yield ctx.service.post.update({
+        await ctx.service.post.update({
           id: 1,
           user_id: 2,
           updates: {
@@ -276,9 +276,9 @@ describe('test/app/service/post.test.js', () => {
         assert(error.message === 'not allowed to modify others post');
       }
     });
-    it('should throw 404 when id not found', function* () {
+    it('should throw 404 when id not found', async function() {
       try {
-        yield ctx.service.post.update({
+        await ctx.service.post.update({
           id: 2,
           user_id: 1,
           updates: {
@@ -293,8 +293,8 @@ describe('test/app/service/post.test.js', () => {
     });
   });
   describe('del()', () => {
-    beforeEach(function* () {
-      yield ctx.model.User.bulkCreate([
+    beforeEach(async function() {
+      await ctx.model.User.bulkCreate([
         {
           id: 1,
           name: 'yuqi',
@@ -303,7 +303,7 @@ describe('test/app/service/post.test.js', () => {
           updated_at: '2017-06-05T06:38:16.498Z',
         },
       ]);
-      yield ctx.model.Post.bulkCreate([
+      await ctx.model.Post.bulkCreate([
         {
           id: 1,
           title: 'post01',
@@ -314,16 +314,16 @@ describe('test/app/service/post.test.js', () => {
         },
       ]);
     });
-    afterEach(function* () {
-      yield ctx.model.sync({ force: true });
+    afterEach(async function() {
+      await ctx.model.sync({ force: true });
     });
-    it('should delete success', function* () {
-      const result = yield ctx.service.post.del(1);
+    it('should delete success', async function() {
+      const result = await ctx.service.post.del(1);
       assert(result);
     });
-    it('should throw 404 when id not found', function* () {
+    it('should throw 404 when id not found', async function() {
       try {
-        yield yield ctx.service.post.del(2);
+        await await ctx.service.post.del(2);
       } catch (error) {
         assert(error.status === 404);
         assert(error.message === 'post not found');

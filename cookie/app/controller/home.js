@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function* () {
+module.exports = async function() {
   if (this.cookies.get('remember')) {
     this.body = '<p>Remembered :). Click to <a href="/forget">forget</a>!.</p>';
     return;

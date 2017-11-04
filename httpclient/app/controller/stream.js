@@ -2,11 +2,11 @@
 
 const fs = require('fs');
 
-module.exports = function* stream() {
+module.exports = async function stream() {
   // 上传当前文件本身用于测试
   const fileStream = fs.createReadStream(__filename);
   const url = `${this.protocol}://${this.host}/stream`;
-  const result = yield this.curl(url, {
+  const result = await this.curl(url, {
     // 必须指定 method，支持 POST，PUT
     method: 'POST',
     // 以 stream 模式提交

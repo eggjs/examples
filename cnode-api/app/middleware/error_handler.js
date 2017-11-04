@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = () => {
-  return function* (next) {
+  return async function(ctx, next) {
     try {
-      yield next;
+      await next();
     } catch (err) {
       this.app.emit('error', err, this);
 

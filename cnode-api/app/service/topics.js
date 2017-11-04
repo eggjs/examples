@@ -7,17 +7,17 @@ module.exports = app => {
       this.root = 'https://cnodejs.org/api/v1';
     }
 
-    * request(url, opts) {
+    async request(url, opts) {
       url = `${this.root}${url}`;
       opts = Object.assign({
         timeout: [ '30s', '30s' ],
         dataType: 'json',
       }, opts);
-      return yield this.ctx.curl(url, opts);
+      return this.ctx.curl(url, opts);
     }
 
-    * show(params) {
-      const result = yield this.request(`/topic/${params.id}`, {
+    async show(params) {
+      const result = await this.request(`/topic/${params.id}`, {
         data: {
           mdrender: params.mdrender,
           accesstoken: params.accesstoken,
@@ -28,8 +28,8 @@ module.exports = app => {
       return result.data.data;
     }
 
-    * list(params) {
-      const result = yield this.request('/topics', {
+    async list(params) {
+      const result = await this.request('/topics', {
         data: params,
       });
 
@@ -37,8 +37,8 @@ module.exports = app => {
       return result.data.data;
     }
 
-    * create(params) {
-      const result = yield this.request('/topics', {
+    async create(params) {
+      const result = await this.request('/topics', {
         method: 'post',
         data: params,
         contentType: 'json',
@@ -48,8 +48,8 @@ module.exports = app => {
       return result.data.topic_id;
     }
 
-    * update(params) {
-      const result = yield this.request('/topics/update', {
+    async update(params) {
+      const result = await this.request('/topics/update', {
         method: 'post',
         data: params,
         contentType: 'json',

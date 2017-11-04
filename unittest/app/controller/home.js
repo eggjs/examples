@@ -1,27 +1,27 @@
 'use strict';
 
-exports.index = function* () {
+exports.index = async function() {
   this.body = 'hello world';
 };
 
-exports.post = function* () {
+exports.post = async function() {
   this.body = this.request.body;
 };
 
-exports.session = function* () {
+exports.session = async function() {
   this.body = {
     session: this.session,
   };
 };
 
-exports.user = function* () {
-  const user = yield this.service.user.get(this.query.name);
+exports.user = async function() {
+  const user = await this.service.user.get(this.query.name);
   this.body = {
     user,
   };
 };
 
-exports.httpclient = function* () {
-  const res = yield this.curl('https://eggjs.org');
+exports.httpclient = async function() {
+  const res = await this.curl('https://eggjs.org');
   this.body = res.data.toString();
 };

@@ -2,14 +2,14 @@
 
 const FormStream = require('formstream');
 
-module.exports = function* multipart() {
+module.exports = async function multipart() {
   const form = new FormStream();
   // 设置普通的 key value
   form.field('foo', 'bar');
   // 上传当前文件本身用于测试
   form.file('file', __filename);
 
-  const result = yield this.curl('https://httpbin.org/post', {
+  const result = await this.curl('https://httpbin.org/post', {
     // 必须指定 method，支持 POST，PUT
     method: 'POST',
     // 生成符合 multipart/form-data 要求的请求 headers

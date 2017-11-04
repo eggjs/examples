@@ -1,13 +1,13 @@
 'use strict';
 
-module.exports = function* postStream() {
+module.exports = async function postStream() {
   console.log(this.header);
   let size = 0;
   this.req.on('data', data => {
     size += data.length;
   });
   this.req.resume();
-  yield end(this.req);
+  await end(this.req);
 
   this.body = {
     streamSize: size,

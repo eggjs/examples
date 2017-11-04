@@ -5,16 +5,16 @@ const mock = require('egg-mock');
 describe('test/app/controller/post.test.js', () => {
   let app;
   let ctx;
-  before(function* () {
+  before(async function() {
     app = mock.app();
-    yield app.ready();
+    await app.ready();
     ctx = app.mockContext();
-    yield ctx.model.sync({ force: true });
+    await ctx.model.sync({ force: true });
   });
   describe('posts()', () => {
-    before(function* () {
+    before(async function() {
       /* eslint-disable no-unused-vars */
-      app.mockService('post', 'list', function* ({ offset = 0, limit = 10 }) {
+      app.mockService('post', 'list', async function({ offset = 0, limit = 10 }) {
         return Promise.resolve({
           count: 2,
           rows: [{
@@ -37,8 +37,8 @@ describe('test/app/controller/post.test.js', () => {
     after(function() {
       mock.restore();
     });
-    it('should success', function* () {
-      yield app.httpRequest()
+    it('should success', async function() {
+      await app.httpRequest()
         .get('/posts?offset=0&limit=2')
         .expect(200)
         .expect({
@@ -62,11 +62,11 @@ describe('test/app/controller/post.test.js', () => {
     });
   });
   describe('find(id)', () => {
-    before(function* () {
-      app.mockService('post', 'find', function* (id) {
+    before(async function() {
+      app.mockService('post', 'find', async function(id) {
         /* eslint eqeqeq: "off" */
         if (id == 1) {
-          return yield Promise.resolve({
+          return Promise.resolve({
             id: 1,
             title: 'post01',
             user_id: 1,
@@ -89,8 +89,8 @@ describe('test/app/controller/post.test.js', () => {
     after(function() {
       mock.restore();
     });
-    it('should success', function* () {
-      yield app.httpRequest()
+    it('should success', async function() {
+      await app.httpRequest()
         .get('/posts/1')
         .expect(200)
         .expect({
@@ -107,28 +107,28 @@ describe('test/app/controller/post.test.js', () => {
           },
         });
     });
-    it('should throw 404 error when id not exist', function* () {
-      yield app.httpRequest()
+    it('should throw 404 error when id not exist', async function() {
+      await app.httpRequest()
         .get('/posts/2')
         .expect(404);
     });
   });
   describe('create()', () => {
-    before(function* () {
-      app.mockService('post', 'create', function* (post) {
+    before(async function() {
+      app.mockService('post', 'create', async function(post) {
         post.id = 1;
         post.created_at = '2017-06-05T06:38:16.498Z';
         post.updated_at = '2017-06-05T06:38:16.498Z';
-        return yield Promise.resolve(post);
+        return Promise.resolve(post);
       });
       ctx = app.mockContext();
     });
     after(function() {
       mock.restore();
     });
-    it('should success', function* () {
+    it('should success', async function() {
       app.mockCsrf();
-      yield app.httpRequest()
+      await app.httpRequest()
         .post('/users/1/posts')
         .send({
           title: 'post',
@@ -146,11 +146,11 @@ describe('test/app/controller/post.test.js', () => {
     });
   });
   describe('update()', () => {
-    before(function* () {
-      app.mockService('post', 'update', function* ({ id, user_id, updates }) {
+    before(async function() {
+      app.mockService('post', 'update', async function({ id, user_id, updates }) {
         /* eslint eqeqeq: "off" */
         if (id == 1) {
-          return yield Promise.resolve({
+          return Promise.resolve({
             id: 1,
             title: updates.title || 'origin title',
             content: updates.content || 'origin content',
@@ -168,9 +168,9 @@ describe('test/app/controller/post.test.js', () => {
     after(function() {
       mock.restore();
     });
-    it('should success', function* () {
+    it('should success', async function() {
       app.mockCsrf();
-      yield app.httpRequest()
+      await app.httpRequest()
         .put('/users/1/posts/1')
         .send({
           title: 'new title',
@@ -186,9 +186,9 @@ describe('test/app/controller/post.test.js', () => {
           updated_at: '2017-06-07T06:38:16.498Z',
         });
     });
-    it('should throw 404 error when id not exist', function* () {
+    it('should throw 404 error when id not exist', async function() {
       app.mockCsrf();
-      yield app.httpRequest()
+      await app.httpRequest()
         .put('/users/1/posts/2')
         .send({
           title: 'new title',
@@ -198,11 +198,11 @@ describe('test/app/controller/post.test.js', () => {
     });
   });
   describe('del()', () => {
-    before(function* () {
-      app.mockService('post', 'del', function* (id) {
+    before(async function() {
+      app.mockService('post', 'del', async function(id) {
         /* eslint eqeqeq: "off" */
         if (id == 1) {
-          return yield Promise.resolve(true);
+          return Promise.resolve(true);
         }
         const error = new Error('post not found');
         error.status = 404;
@@ -213,15 +213,15 @@ describe('test/app/controller/post.test.js', () => {
     after(function() {
       mock.restore();
     });
-    it('should success', function* () {
+    it('should success', async function() {
       app.mockCsrf();
-      yield app.httpRequest()
+      await app.httpRequest()
         .del('/users/1/posts/1')
         .expect(200);
     });
-    it('should throw 404 error when id not exist', function* () {
+    it('should throw 404 error when id not exist', async function() {
       app.mockCsrf();
-      yield app.httpRequest()
+      await app.httpRequest()
         .del('/users/1/posts/2')
         .expect(404);
     });

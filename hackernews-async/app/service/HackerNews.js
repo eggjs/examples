@@ -54,7 +54,7 @@ module.exports = app => {
      * @return {Promise} item info
      */
     async getItem(id) {
-      return await this.request(`item/${id}.json`);
+      return this.request(`item/${id}.json`);
     }
 
     /**
@@ -63,7 +63,7 @@ module.exports = app => {
      * @return {Promise} user info
      */
     async getUser(id) {
-      return await this.request(`user/${id}.json`);
+      return this.request(`user/${id}.json`);
     }
   }
 

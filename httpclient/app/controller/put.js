@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function* put() {
-  const result = yield this.curl('https://httpbin.org/put', {
+module.exports = async function put() {
+  const result = await this.curl('https://httpbin.org/put', {
     // 必须指定 method
     method: 'PUT',
     // 通过 contentType 告诉 httpclient 以 JSON 格式发送

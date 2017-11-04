@@ -11,30 +11,30 @@ module.exports = app => {
       return memoryCache[key];
     }
 
-    * checkUpdate() {
+    async checkUpdate() {
       // check if remote data source has changed
-      const updated = yield mockCheck();
+      const updated = await mockCheck();
       this.ctx.logger.info('check update response %s', updated);
       return updated;
     }
 
-    * update() {
+    async update() {
       // update memory cache from remote
-      memoryCache = yield mockFetch();
+      memoryCache = await mockFetch();
       this.ctx.logger.info('update memory cache from remote: %j', memoryCache);
     }
   };
 };
 
 let index = 0;
-function* mockFetch() {
-  yield sleep(100);
+async function mockFetch() {
+  await sleep(100);
   return {
     index: index++,
   };
 }
 
-function* mockCheck() {
-  yield sleep(100);
+async function mockCheck() {
+  await sleep(100);
   return Math.random() > 0.5;
 }

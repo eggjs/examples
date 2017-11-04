@@ -2,11 +2,11 @@
 
 module.exports = app => {
   return class ApiController extends app.Controller {
-    * successAction() {
+    async successAction() {
       this.success({ foo: 'bar' });
     }
 
-    * failAction() {
+    async failAction() {
       this.fail('something wrong');
     }
   };
