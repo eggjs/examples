@@ -1,14 +1,14 @@
 {
   "name": "download",
   "dependencies": {
-    "egg": "^1.0.0"
+    "egg": "^1.10.0"
   },
   "devDependencies": {
-    "egg-bin": "1",
-    "egg-mock": "2",
+    "egg-bin": "^4.3.5",
+    "egg-mock": "^3.13.1",
     "eslint": "^3.19.0",
     "eslint-config-egg": "^4.2.0",
-    "supertest": "2"
+    "supertest": "^3.0.0"
   },
   "scripts": {
     "dev": "egg-bin dev",

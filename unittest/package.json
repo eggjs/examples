@@ -1,13 +1,13 @@
 {
   "name": "unittest-example",
   "dependencies": {
-    "egg": "^1.0.0",
-    "ylru": "^1.0.0"
+    "egg": "^1.10.0",
+    "ylru": "^1.2.0"
   },
   "devDependencies": {
-    "egg-bin": "1",
-    "egg-mock": "2",
-    "supertest": "^2.0.1"
+    "egg-bin": "^4.3.5",
+    "egg-mock": "^3.13.1",
+    "supertest": "^3.0.0"
   },
   "scripts": {
     "dev": "egg-bin dev",

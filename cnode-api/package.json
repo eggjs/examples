@@ -4,14 +4,14 @@
   "description": "",
   "private": true,
   "dependencies": {
-    "egg": "^1.0.0",
-    "egg-scripts": "^2.1.0"
+    "egg": "^1.10.0",
+    "egg-validate": "^1.0.0"
   },
   "devDependencies": {
     "autod": "^2.7.1",
-    "egg-bin": "^3.1.0",
+    "egg-bin": "^4.3.5",
     "egg-ci": "^1.5.0",
-    "egg-mock": "^3.2.0",
+    "egg-mock": "^3.13.1",
     "egg-validate": "^1.0.0",
     "eslint": "^3.18.0",
     "eslint-config-egg": "^3.2.0",

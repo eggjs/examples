@@ -11,9 +11,9 @@ describe('example download test', () => {
   let server;
   let file;
 
-  before(function* () {
+  before(async () => {
     app = mm.app();
-    yield app.ready();
+    await app.ready();
     server = app.listen();
     file = fs.readFileSync(path.resolve(app.config.static.dir, 'hello.txt'));
   });
