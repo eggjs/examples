@@ -8,17 +8,22 @@ const runscript = require('runscript');
 
 const cwd = process.cwd();
 const action = process.argv[2];
-console.log(action);
 
 process.env.PATH = 'node_modules/.bin:' + process.env.PATH;
 
 const fn = ({
   async autod() {
     const dirs = await getExamples();
-    console.log(dirs);
     for (const dir of dirs) {
       console.info('Run autod in %s', dir);
       await runscript(`autod -p ${dir}`);
+    }
+  },
+
+  async list() {
+    const dirs = await getExamples();
+    for (const dir of dirs) {
+      console.info('- [%s](https://github.com/eggjs/examples/tree/master/%s)', dir, dir);
     }
   },
 

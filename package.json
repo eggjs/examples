@@ -22,7 +22,7 @@
     "test-cn": "node test.js -c",
     "ci": "npm run lint && npm test",
     "autod": "./example.js autod",
-    "list": "ls -d */ | tr -s ' ' | sed 's/^\\(.*\\)\\/$/- [\\1](https:\\\/\\\/github.com\\\/eggjs\\\/examples\\\/tree\\\/master\\\/\\1)/g'"
+    "list": "./example.js list"
   },
   "homepage": "https://github.com/eggjs/examples",
   "repository": {
