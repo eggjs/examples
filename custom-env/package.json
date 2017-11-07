@@ -14,7 +14,7 @@
     "supertest": "^3.0.0"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.9.0"
   },
   "scripts": {
     "start": "node index.js",

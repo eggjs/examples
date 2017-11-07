@@ -1,7 +1,7 @@
 {
-  "name": "egg-example-hackernews",
+  "name": "hackernews",
   "version": "1.0.0",
-  "description": "hackernews showcase for egg",
+  "description": "hackernews showcase using async/await for egg",
   "private": true,
   "dependencies": {
     "egg": "^1.10.0",
@@ -16,14 +16,12 @@
     "egg-mock": "^3.13.1",
     "eslint": "^3.19.0",
     "eslint-config-egg": "^4.2.0",
-    "supertest": "^3.0.0",
-    "webstorm-disable-index": "^1.1.2"
+    "supertest": "^3.0.0"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.9.0"
   },
   "scripts": {
-    "start": "node index.js",
     "dev": "egg-bin dev",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",

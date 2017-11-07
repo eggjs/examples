@@ -11,7 +11,7 @@
     "supertest": "^2.0.1"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.9.0"
   },
   "scripts": {
     "test": "egg-bin test"
