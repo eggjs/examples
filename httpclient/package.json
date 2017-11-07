@@ -10,8 +10,5 @@
   "scripts": {
     "start": "egg-bin dev"
   },
-  "ci": {
-    "version": "6, 7"
-  },
   "private": true
 }
