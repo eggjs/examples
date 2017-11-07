@@ -16,7 +16,7 @@ describe('test/controller/home.test.js', () => {
 
   describe('GET /', () => {
     it('should status 200 and get the body', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/')
         .expect(200)
         .expect('hello world');
@@ -24,13 +24,13 @@ describe('test/controller/home.test.js', () => {
 
     it('should send multi requests', function* () {
       // 使用 generator function 方式写测试用例，可以请求地发起多次请求
-      yield request(app.callback())
+      yield app.httpRequest()
         .get('/')
         .expect(200) // 期望返回 status 200
         .expect('hello world'); // 期望 body 是 hello world
 
       // 再请求一次
-      yield request(app.callback())
+      yield app.httpRequest()
         .get('/')
         .expect(200)
         .expect('hello world');
@@ -40,7 +40,7 @@ describe('test/controller/home.test.js', () => {
   describe('POST /post', () => {
     it('should status 200 and get the request body', () => {
       app.mockCsrf();
-      return request(app.callback())
+      return app.httpRequest()
         .post('/post')
         .type('form')
         .send({
@@ -59,7 +59,7 @@ describe('test/controller/home.test.js', () => {
         foo: 'bar',
         uid: 123,
       });
-      return request(app.callback())
+      return app.httpRequest()
         .get('/session')
         .expect(200)
         .expect({
@@ -73,7 +73,7 @@ describe('test/controller/home.test.js', () => {
 
   describe('GET /user', () => {
     it('should exists user', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/user?name=fengmk2')
         .expect(200)
         .expect({
@@ -87,7 +87,7 @@ describe('test/controller/home.test.js', () => {
 
     it('should mock service error', () => {
       app.mockServiceError('user', 'get', 'mock user service error');
-      return request(app.callback())
+      return app.httpRequest()
         .get('/user?name=fengmk2')
         .expect(500)
         .expect(/mock user service error/);
@@ -102,7 +102,7 @@ describe('test/controller/home.test.js', () => {
         // 按照请求时的 options.dataType �来做对应的转换
         data: 'mock eggjs.org response',
       });
-      return request(app.callback())
+      return app.httpRequest()
         .get('/httpclient')
         .expect('mock eggjs.org response');
     });

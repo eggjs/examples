@@ -1,25 +1,28 @@
 {
-  "name": "cnode-api",
+  "name": "cnode-api-async",
   "version": "1.0.0",
-  "description": "cnode RESTful API",
+  "description": "",
   "private": true,
   "dependencies": {
-    "egg": "^0.7.0"
+    "egg": "^1.0.0",
+    "egg-scripts": "^2.1.0"
   },
   "devDependencies": {
     "autod": "^2.7.1",
-    "egg-bin": "^1.7.0",
-    "egg-mock": "^2.0.0",
-    "eslint": "^3.10.0",
+    "egg-bin": "^3.1.0",
+    "egg-ci": "^1.5.0",
+    "egg-mock": "^3.2.0",
+    "egg-validate": "^1.0.0",
+    "eslint": "^3.18.0",
     "eslint-config-egg": "^3.2.0",
-    "supertest": "^2.0.1",
+    "supertest": "^3.0.0",
     "webstorm-disable-index": "^1.1.2"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=8.9.0"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "eggctl start",
     "dev": "egg-bin dev",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
@@ -28,20 +31,8 @@
     "ci": "npm run lint && npm run cov",
     "autod": "autod"
   },
-  "repository": {
-    "type": "git",
-    "url": ""
+  "ci": {
+    "version": "8"
   },
-  "author": "dead-horse",
-  "license": "MIT",
-  "boilerplate": {
-    "name": "egg-boilerplate-empty",
-    "version": "1.0.2",
-    "description": "empty boilerplate for egg simple project",
-    "repository": {
-      "type": "git",
-      "url": "git@github.com:eggjs/egg-boilerplate-empty.git"
-    },
-    "homepage": "https://github.com/eggjs/egg-boilerplate-empty"
-  }
+  "license": "MIT"
 }

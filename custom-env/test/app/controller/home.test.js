@@ -18,7 +18,7 @@ describe('test/app/controller/home.test.js', () => {
     after(() => app.close());
 
     it('should GET /', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/')
         .expect({
           env: 'prod',
@@ -40,7 +40,7 @@ describe('test/app/controller/home.test.js', () => {
     after(() => app.close());
 
     it('should GET /', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/')
         .expect({
           env: 'sit',

@@ -13,14 +13,14 @@ describe('test/controller/api.test.js', () => {
   after(() => app.close());
 
   it('should get /success ok', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/success')
       .expect(200)
       .expect({ success: true, result: { foo: 'bar' } });
   });
 
   it('should get /fail ok', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/fail')
       .expect(200)
       .expect({ success: false, message: 'something wrong' });

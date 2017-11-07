@@ -14,7 +14,7 @@ describe('example middleware test', () => {
   after(() => app.close());
 
   it('should GET / 200', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/')
       .expect(200)
       .expect(app.config.hello.text);

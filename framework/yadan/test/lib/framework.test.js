@@ -18,7 +18,7 @@ describe('test/lib/framework.test.js', () => {
   afterEach(mm.restore);
 
   it('should GET /', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/')
       .expect('hi, framework-example_123456')
       .expect(200);
