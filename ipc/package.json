@@ -4,16 +4,16 @@
   "description": "egg ipc example",
   "private": true,
   "dependencies": {
-    "egg": "^1.10.0",
+    "egg": "^1.10.1",
     "mz-modules": "^2.0.0"
   },
   "devDependencies": {
-    "autod": "^2.7.1",
+    "autod": "^2.10.1",
     "egg-bin": "^4.3.5",
-    "eslint": "^3.16.1",
-    "eslint-config-egg": "^3.2.0",
+    "eslint": "^4.10.0",
+    "eslint-config-egg": "^5.1.1",
     "supertest": "^3.0.0",
-    "webstorm-disable-index": "^1.1.2"
+    "webstorm-disable-index": "^1.2.0"
   },
   "engines": {
     "node": ">=8.9.0"

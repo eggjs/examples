@@ -2,7 +2,6 @@
 
 const mock = require('egg-mock');
 
-
 describe('test/app/controller/home.test.js', () => {
 
   let app;

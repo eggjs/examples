@@ -15,14 +15,13 @@ $ npm run dev
 ## List of examples
 
 - [cnode-api](https://github.com/eggjs/examples/tree/master/cnode-api)
-- [cookie](https://github.com/eggjs/examples/tree/master/cookie)
 - [cookie-session](https://github.com/eggjs/examples/tree/master/cookie-session)
+- [cookie](https://github.com/eggjs/examples/tree/master/cookie)
 - [custom-env](https://github.com/eggjs/examples/tree/master/custom-env)
 - [download](https://github.com/eggjs/examples/tree/master/download)
 - [framework](https://github.com/eggjs/examples/tree/master/framework)
-- [hackernews](https://github.com/eggjs/examples/tree/master/hackernews)
-- [hackernews-async](https://github.com/eggjs/examples/tree/master/hackernews-async)
 - [hackernews-async-ts](https://github.com/eggjs/examples/tree/master/hackernews-async-ts)
+- [hackernews](https://github.com/eggjs/examples/tree/master/hackernews)
 - [helloworld](https://github.com/eggjs/examples/tree/master/helloworld)
 - [httpclient](https://github.com/eggjs/examples/tree/master/httpclient)
 - [ipc](https://github.com/eggjs/examples/tree/master/ipc)

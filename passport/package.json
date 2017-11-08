@@ -1,7 +1,7 @@
 {
   "name": "passport",
   "dependencies": {
-    "egg": "^1.10.0",
+    "egg": "^1.10.1",
     "egg-passport": "^1.0.0",
     "egg-passport-bitbucket": "^1.0.0",
     "egg-passport-github": "^1.0.0",

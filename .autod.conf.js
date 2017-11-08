@@ -5,6 +5,7 @@ module.exports = {
   plugin: 'autod-egg',
   prefix: '^',
   devprefix: '^',
+  registry: 'https://r.cnpmjs.org',
   exclude: [
     'test/fixtures',
     'examples',

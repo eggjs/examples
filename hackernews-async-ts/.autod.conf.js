@@ -20,6 +20,8 @@ module.exports = {
     'egg-bin',
   ],
   keep: [
+    'tslib',
+    'typescript',
   ],
   semver: [
   ],

@@ -1,7 +1,7 @@
 {
   "name": "static-example",
   "dependencies": {
-    "egg": "^1.10.0"
+    "egg": "^1.10.1"
   },
   "devDependencies": {
     "egg-bin": "^4.3.5",

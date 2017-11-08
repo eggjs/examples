@@ -3,6 +3,8 @@
 module.exports = appInfo => {
   const config = {};
 
+  config.keys = 'keys';
+
   /**
    * some description
    * @member Config#test

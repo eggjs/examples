@@ -6,8 +6,7 @@
   },
   "devDependencies": {
     "egg-bin": "^2.0.0",
-    "egg-mock": "^2.0.0",
-    "supertest": "^2.0.1"
+    "egg-mock": "^2.0.0"
   },
   "scripts": {
     "dev": "egg-bin dev",
