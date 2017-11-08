@@ -6,7 +6,6 @@ const path = require('path');
 const fs = require('mz/fs');
 const runscript = require('runscript');
 
-
 const cwd = process.cwd();
 const action = process.argv[2];
 

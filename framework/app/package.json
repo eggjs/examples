@@ -1,6 +1,9 @@
 {
   "name": "framework-example",
   "version": "1.0.0",
+  "dependencies": {
+    "yadan": "../yadan"
+  },
   "devDependencies": {
     "egg-bin": "^2.0.0",
     "egg-mock": "^2.0.0",
