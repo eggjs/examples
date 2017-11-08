@@ -6,9 +6,8 @@
     "egg-ua": "../egg-ua"
   },
   "devDependencies": {
-    "egg-bin": "^2.0.0",
-    "egg-mock": "^2.0.0",
-    "supertest": "^2.0.1"
+    "egg-bin": "^4.3.5",
+    "egg-mock": "^3.13.1"
   },
   "engines": {
     "node": ">=8.9.0"

@@ -51,6 +51,7 @@ class Test extends Command {
     console.info(chalk.green('success %s'), success.size);
     console.info(chalk.red('fail %s'), fail.size);
     console.info(chalk.cyan('skip %s'), skip.size);
+    if (fail.size > 0) process.exit(fail.size);
   }
 
   testExists(dir) {

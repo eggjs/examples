@@ -11,8 +11,7 @@
   "devDependencies": {
     "egg-bin": "^4.3.5",
     "egg-mock": "^3.13.1",
-    "mz-modules": "^2.0.0",
-    "supertest": "3"
+    "mz-modules": "^2.0.0"
   },
   "scripts": {
     "dev": "egg-bin dev",

@@ -42,10 +42,5 @@
     "afterScript": false
   },
   "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "common-bin": "^2.7.1",
-    "globby": "^6.1.0",
-    "globy": "^0.1.8"
-  }
+  "private": true
 }
