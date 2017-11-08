@@ -2,7 +2,7 @@
 
 const path = require('path');
 const assert = require('assert');
-const request = require('supertest');
+
 const mm = require('egg-mock');
 
 describe('test/lib/framework.test.js', () => {
@@ -18,7 +18,7 @@ describe('test/lib/framework.test.js', () => {
   afterEach(mm.restore);
 
   it('should GET /', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/')
       .expect('hi, framework-example_123456')
       .expect(200);

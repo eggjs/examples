@@ -11,9 +11,9 @@ describe('example download test', () => {
   let server;
   let file;
 
-  before(function* () {
+  before(async () => {
     app = mm.app();
-    yield app.ready();
+    await app.ready();
     server = app.listen();
     file = fs.readFileSync(path.resolve(app.config.static.dir, 'hello.txt'));
   });
@@ -34,7 +34,7 @@ describe('example download test', () => {
       .expect('Content-Disposition', 'attachment; filename="hello.txt"')
       .expect(200)
       .expect(res => {
-        assert.deepStrictEqual(file.toString(), res.text);
+        assert.deepStrictEqual(file.toString(), res.body.toString());
       });
   });
 });

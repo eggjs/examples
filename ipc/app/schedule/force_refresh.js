@@ -5,7 +5,7 @@ exports.schedule = {
   type: 'all', // run in all workers
 };
 
-exports.task = function* (ctx) {
-  yield ctx.service.source.update();
+exports.task = async function(ctx) {
+  await ctx.service.source.update();
   ctx.app.lastUpdateBy = 'force';
 };

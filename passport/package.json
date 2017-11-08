@@ -1,15 +1,15 @@
 {
   "name": "passport",
   "dependencies": {
-    "egg": "^0.12.0",
+    "egg": "^1.10.0",
     "egg-passport": "^1.0.0",
-    "egg-passport-weibo": "^1.0.0",
-    "egg-passport-twitter": "^1.0.0",
+    "egg-passport-bitbucket": "^1.0.0",
     "egg-passport-github": "^1.0.0",
-    "egg-passport-bitbucket": "^1.0.0"
+    "egg-passport-twitter": "^1.0.0",
+    "egg-passport-weibo": "^1.0.0"
   },
   "devDependencies": {
-    "egg-bin": "1"
+    "egg-bin": "^4.3.5"
   },
   "scripts": {
     "dev": "egg-bin dev",

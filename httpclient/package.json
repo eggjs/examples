@@ -1,17 +1,14 @@
 {
   "name": "httpclient-example",
   "dependencies": {
-    "formstream": "^1.1.0",
-    "egg": "^1.0.0"
+    "egg": "^1.10.0",
+    "formstream": "^1.1.0"
   },
   "devDependencies": {
-    "egg-bin": "1"
+    "egg-bin": "^4.3.5"
   },
   "scripts": {
     "start": "egg-bin dev"
-  },
-  "ci": {
-    "version": "6, 7"
   },
   "private": true
 }

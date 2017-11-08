@@ -5,8 +5,8 @@ exports.schedule = {
   type: 'worker', // only run in one worker
 };
 
-exports.task = function* (ctx) {
-  const needRefresh = yield ctx.service.source.checkUpdate();
+exports.task = async function(ctx) {
+  const needRefresh = await ctx.service.source.checkUpdate();
   if (!needRefresh) return;
 
   // notify all workers to update memory cache from `file`

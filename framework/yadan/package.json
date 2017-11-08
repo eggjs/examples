@@ -2,7 +2,7 @@
   "name": "yadan",
   "version": "1.0.0",
   "dependencies": {
-    "egg": "^0.7.0",
+    "egg": "^1.0.0",
     "egg-view-nunjucks": "1.0.0"
   },
   "devDependencies": {
@@ -11,7 +11,7 @@
     "supertest": "^2.0.1"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.9.0"
   },
   "scripts": {
     "test": "egg-bin test"

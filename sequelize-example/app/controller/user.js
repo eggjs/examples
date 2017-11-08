@@ -1,36 +1,38 @@
 'use strict';
 
-module.exports = app => {
-  return class UserController extends app.Controller {
-    * users() {
-      const ctx = this.ctx;
-      ctx.body = yield ctx.service.user.list(ctx.query);
-    }
+const Controller = require('egg').Controller;
 
-    * user() {
-      const ctx = this.ctx;
-      ctx.body = yield ctx.service.user.find(ctx.params.id);
-    }
+class UserController extends Controller {
+  async users() {
+    const ctx = this.ctx;
+    ctx.body = await ctx.service.user.list(ctx.query);
+  }
 
-    * create() {
-      const ctx = this.ctx;
-      const created = yield ctx.service.user.create(ctx.request.body);
-      ctx.status = 201;
-      ctx.body = created;
-    }
+  async user() {
+    const ctx = this.ctx;
+    ctx.body = await ctx.service.user.find(ctx.params.id);
+  }
 
-    * update() {
-      const ctx = this.ctx;
-      const id = ctx.params.id;
-      const body = ctx.request.body;
-      ctx.body = yield ctx.service.user.update({ id, updates: body });
-    }
+  async create() {
+    const ctx = this.ctx;
+    const created = await ctx.service.user.create(ctx.request.body);
+    ctx.status = 201;
+    ctx.body = created;
+  }
 
-    * del() {
-      const ctx = this.ctx;
-      const id = ctx.params.id;
-      yield ctx.service.user.del(id);
-      ctx.status = 200;
-    }
-  };
-};
+  async update() {
+    const ctx = this.ctx;
+    const id = ctx.params.id;
+    const body = ctx.request.body;
+    ctx.body = await ctx.service.user.update({ id, updates: body });
+  }
+
+  async del() {
+    const ctx = this.ctx;
+    const id = ctx.params.id;
+    await ctx.service.user.del(id);
+    ctx.status = 200;
+  }
+}
+
+module.exports = UserController;

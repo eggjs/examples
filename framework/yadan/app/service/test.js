@@ -1,17 +1,19 @@
 'use strict';
 
-module.exports = app => (
-  /**
-   * Test Service
-   */
-  class Test extends app.Service {
-    constructor(ctx) {
-      super(ctx);
-      this.config = this.app.config.test;
-    }
+const Service = require('egg').Service;
 
-    * get(id) {
-      return { id, name: this.config.key };
-    }
+/**
+ * Test Service
+ */
+class Test extends Service {
+  constructor(ctx) {
+    super(ctx);
+    this.config = this.app.config.test;
   }
-);
+
+  async get(id) {
+    return { id, name: this.config.key };
+  }
+}
+
+module.exports = Test;

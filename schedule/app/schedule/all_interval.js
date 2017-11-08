@@ -1,10 +1,18 @@
 'use strict';
 
-exports.schedule = {
-  interval: 3000,
-  type: 'all',
-};
+const Subscription = require('egg').Subscription;
 
-exports.task = function* (ctx) {
-  ctx.logger.info('all&&interval');
-};
+class AllInterval extends Subscription {
+  async subscribe() {
+    this.ctx.logger.info('all&&interval');
+  }
+
+  static get schedule() {
+    return {
+      interval: 3000,
+      type: 'all',
+    };
+  }
+}
+
+module.exports = AllInterval;

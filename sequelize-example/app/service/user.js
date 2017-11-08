@@ -1,41 +1,43 @@
 'use strict';
 
-module.exports = app => {
-  return class User extends app.Service {
-    * list({ offset = 0, limit = 10, order_by = 'created_at', order = 'ASC' }) {
-      return yield this.ctx.model.User.findAndCountAll({
-        offset,
-        limit,
-        order: [[ order_by, order.toUpperCase() ]],
-      });
-    }
+const Service = require('egg').Service;
 
-    * find(id) {
-      const user = yield this.ctx.model.User.findById(id);
-      if (!user) {
-        this.ctx.throw(404, 'user not found');
-      }
-      return user;
-    }
+class User extends Service {
+  async list({ offset = 0, limit = 10, order_by = 'created_at', order = 'ASC' }) {
+    return this.ctx.model.User.findAndCountAll({
+      offset,
+      limit,
+      order: [[ order_by, order.toUpperCase() ]],
+    });
+  }
 
-    * create(user) {
-      return yield this.ctx.model.User.create(user);
+  async find(id) {
+    const user = await this.ctx.model.User.findById(id);
+    if (!user) {
+      this.ctx.throw(404, 'user not found');
     }
+    return user;
+  }
 
-    * update({ id, updates }) {
-      const user = yield this.ctx.model.User.findById(id);
-      if (!user) {
-        this.ctx.throw(404, 'user not found');
-      }
-      return yield user.update(updates);
-    }
+  async create(user) {
+    return this.ctx.model.User.create(user);
+  }
 
-    * del(id) {
-      const user = yield this.ctx.model.User.findById(id);
-      if (!user) {
-        this.ctx.throw(404, 'user not found');
-      }
-      return user.destroy();
+  async update({ id, updates }) {
+    const user = await this.ctx.model.User.findById(id);
+    if (!user) {
+      this.ctx.throw(404, 'user not found');
     }
-  };
-};
+    return user.update(updates);
+  }
+
+  async del(id) {
+    const user = await this.ctx.model.User.findById(id);
+    if (!user) {
+      this.ctx.throw(404, 'user not found');
+    }
+    return user.destroy();
+  }
+}
+
+module.exports = User;

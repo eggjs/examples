@@ -1,11 +1,11 @@
 'use strict';
 
 module.exports = app => {
-  app.get('/', function* () {
-    this.body = `isIOS: ${this.isIOS}`;
+  app.get('/', async function(ctx) {
+    ctx.body = `isIOS: ${ctx.isIOS}`;
   });
 
-  app.get('/framework', function* () {
-    this.body = this.app.config.framework.name;
+  app.get('/framework', async function(ctx) {
+    ctx.body = ctx.app.config.framework.name;
   });
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-const request = require('supertest');
+
 const mm = require('egg-mock');
 
 describe('example helloworld test', () => {
@@ -14,14 +14,14 @@ describe('example helloworld test', () => {
   after(() => app.close());
 
   it('should GET / 200', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/')
       .expect(200)
       .expect('Hello World');
   });
 
   it('should GET /foo', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/foo')
       .expect(200)
       .expect('Hello foo');

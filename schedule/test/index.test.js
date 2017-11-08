@@ -5,15 +5,15 @@ const path = require('path');
 const mm = require('egg-mock');
 
 describe.skip('egg schedule example', () => {
-  it('should schedule run schedule success', function* () {
+  it('should schedule run schedule success', async () => {
     const baseDir = path.dirname(__dirname);
 
     const app = mm.cluster({
       workers: 2,
     });
 
-    yield app.ready();
-    yield sleep(3000);
+    await app.ready();
+    await sleep(3000);
     const log = fs.readFileSync(path.join(baseDir, 'logs/schedule-example/schedule-example-web.log'), 'utf8');
     console.log(log);
     countLine(log, 'all&&cron').should.equal(2);
@@ -21,7 +21,7 @@ describe.skip('egg schedule example', () => {
     countLine(log, 'worker&&cron').should.equal(1);
     countLine(log, 'worker&&interval').should.equal(1);
 
-    yield app.close();
+    await app.close();
   });
 });
 

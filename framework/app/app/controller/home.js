@@ -1,7 +1,15 @@
 'use strict';
 
-module.exports = function* home() {
-  // use service defined in framework
-  const data = yield this.service.test.get(123);
-  yield this.render('home.tpl', data);
-};
+const Controller = require('yadan').Controller;
+
+class HomeController extends Controller {
+  async render() {
+    const ctx = this.ctx;
+
+    // use service defined in framework
+    const data = await ctx.service.test.get(123);
+    await ctx.render('home.tpl', data);
+  }
+}
+
+module.exports = HomeController;

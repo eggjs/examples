@@ -1,13 +1,15 @@
 'use strict';
 
-module.exports = app => {
-  return class ApiController extends app.Controller {
-    * successAction() {
-      this.success({ foo: 'bar' });
-    }
+const Controller = require('../core/controller');
 
-    * failAction() {
-      this.fail('something wrong');
-    }
-  };
-};
+class ApiController extends Controller {
+  async successAction() {
+    this.success({ foo: 'bar' });
+  }
+
+  async failAction() {
+    this.fail('something wrong');
+  }
+}
+
+module.exports = ApiController;

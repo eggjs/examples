@@ -7,23 +7,22 @@ describe('test/app/service/HackerNews.test.js', () => {
   let app;
   let ctx;
 
-  before(function* () {
+  before(async () => {
     app = mm.app();
-    yield app.ready();
+    await app.ready();
     ctx = app.mockContext();
   });
 
   after(() => app.close());
-
   afterEach(mm.restore);
 
-  it('getTopStories', function* () {
-    const list = yield ctx.service.hackerNews.getTopStories();
+  it('getTopStories', async () => {
+    const list = await ctx.service.hackerNews.getTopStories();
     assert(list.length === 30);
   });
 
-  it('getItem', function* () {
-    const item = yield ctx.service.hackerNews.getItem(1);
+  it('getItem', async () => {
+    const item = await ctx.service.hackerNews.getItem(1);
     assert(item.hasOwnProperty('id') && item.hasOwnProperty('title') && item.hasOwnProperty('url'));
   });
 });

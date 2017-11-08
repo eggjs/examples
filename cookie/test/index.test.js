@@ -1,6 +1,5 @@
 'use strict';
 
-const request = require('supertest');
 const mm = require('egg-mock');
 
 describe('example cookie test', () => {
@@ -14,14 +13,14 @@ describe('example cookie test', () => {
   after(() => app.close());
 
   it('should GET / show "remember me" checkbox when cookie.remember not exists', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/')
       .expect(200)
       .expect(/<input type="checkbox" name="remember"\/> remember me<\/label>/);
   });
 
   it('should POST /remember to set cookie.remember = 1', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .post('/remember')
       .send({
         remember: 'true',
@@ -32,7 +31,7 @@ describe('example cookie test', () => {
   });
 
   it('should GET /forget to delete cookie.remember', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/forget')
       .expect(302)
       .expect('Location', '/')

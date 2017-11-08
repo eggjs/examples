@@ -1,5 +1,13 @@
 'use strict';
 
-module.exports = function* () {
-  this.body = 'Hello World';
-};
+const Controller = require('egg').Controller;
+
+class HomeController extends Controller {
+  async render() {
+    const ctx = this.ctx;
+
+    ctx.body = 'Hello World';
+  }
+}
+
+module.exports = HomeController;

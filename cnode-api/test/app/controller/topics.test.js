@@ -1,6 +1,6 @@
 'use strict';
 
-const request = require('supertest');
+
 const mock = require('egg-mock');
 const assert = require('assert');
 
@@ -13,11 +13,11 @@ describe('test/app/controller/topics.test.js', () => {
 
   afterEach(mock.restore);
 
-  it('should GET /api/v2/topics', function* () {
+  it('should GET /api/v2/topics', async function() {
     app.mockService('topics', 'list', [{
       content: 'Mock List',
     }]);
-    const r = yield request(app.callback())
+    const r = await app.httpRequest()
       .get('/api/v2/topics')
       .expect(200);
 
@@ -25,31 +25,31 @@ describe('test/app/controller/topics.test.js', () => {
     assert(typeof r.body[0].content === 'string');
   });
 
-  it('should GET /api/v2/topics error', function* () {
+  it('should GET /api/v2/topics error', async function() {
     const err = new Error('client error');
     err.status = 400;
     app.mockServiceError('topics', 'list', err);
-    yield request(app.callback())
+    await app.httpRequest()
       .get('/api/v2/topics')
       .expect(400)
       .expect({ error: 'client error' });
   });
 
-  it('should GET /api/v2/topics/:id 404', function* () {
+  it('should GET /api/v2/topics/:id 404', async function() {
     const err = new Error('not found error');
     err.status = 404;
     app.mockService('topics', 'show', err);
-    yield request(app.callback())
+    await app.httpRequest()
       .get('/api/v2/topics/5433d5e4e737cbe96dcef300')
       .expect(404);
   });
 
-  it('should POST /api/v2/topics/ 422', function* () {
+  it('should POST /api/v2/topics/ 422', async function() {
     app.mockCsrf();
     const err = new Error('validation failed');
     err.status = 422;
     app.mockService('topics', 'create', err);
-    yield request(app.callback())
+    await app.httpRequest()
       .post('/api/v2/topics')
       .send({
         accesstoken: '123',
@@ -61,10 +61,10 @@ describe('test/app/controller/topics.test.js', () => {
       });
   });
 
-  it('should POST /api/v2/topics/ 201', function* () {
+  it('should POST /api/v2/topics/ 201', async function() {
     app.mockCsrf();
     app.mockService('topics', 'create', 123);
-    yield request(app.callback())
+    await app.httpRequest()
       .post('/api/v2/topics')
       .send({
         accesstoken: '123',
@@ -77,10 +77,10 @@ describe('test/app/controller/topics.test.js', () => {
       });
   });
 
-  it('should PUT /api/v2/topics/1 204', function* () {
+  it('should PUT /api/v2/topics/1 204', async function() {
     app.mockCsrf();
     app.mockService('topics', 'update', null);
-    yield request(app.callback())
+    await app.httpRequest()
       .put('/api/v2/topics/1')
       .send({
         accesstoken: '123',

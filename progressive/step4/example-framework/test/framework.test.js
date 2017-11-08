@@ -1,6 +1,6 @@
 'use strict';
 
-const request = require('supertest');
+
 const mm = require('egg-mock');
 
 describe('test/framework.test.js', () => {
@@ -18,7 +18,7 @@ describe('test/framework.test.js', () => {
   afterEach(mm.restore);
 
   it('should GET /', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/')
       .set('user-agent', 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1')
       .expect(200)

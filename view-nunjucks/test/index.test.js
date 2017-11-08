@@ -1,6 +1,6 @@
 'use strict';
 
-const request = require('supertest');
+
 const mm = require('egg-mock');
 
 describe('example view-nunjucks test', () => {
@@ -14,7 +14,7 @@ describe('example view-nunjucks test', () => {
   after(() => app.close());
 
   it('should GET / 200', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/')
       .expect(200)
       .expect(/<h2>egg view example here, welcome foobar<\/h2>/)

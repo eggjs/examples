@@ -5,21 +5,17 @@ module.exports = {
   plugin: 'autod-egg',
   prefix: '^',
   devprefix: '^',
-  registry: 'https://r.cnpmjs.org',
   exclude: [
     'test/fixtures',
+    'examples',
+    'docs',
+    'run',
+  ],
+  devdep: [
+    'egg-bin',
   ],
   dep: [
     'egg',
-  ],
-  devdep: [
-    'autod',
-    'autod-egg',
-    'eslint',
-    'eslint-config-egg',
-    'egg-bin',
-  ],
-  keep: [
   ],
   semver: [
   ],

@@ -1,27 +1,38 @@
 'use strict';
 
-exports.index = function* () {
-  this.body = 'hello world';
-};
+const Controller = require('egg').Controller;
 
-exports.post = function* () {
-  this.body = this.request.body;
-};
+class Home extends Controller {
+  async index() {
+    const ctx = this.ctx;
+    ctx.body = 'hello world';
+  }
 
-exports.session = function* () {
-  this.body = {
-    session: this.session,
-  };
-};
+  async post() {
+    const ctx = this.ctx;
+    ctx.body = ctx.request.body;
+  }
 
-exports.user = function* () {
-  const user = yield this.service.user.get(this.query.name);
-  this.body = {
-    user,
-  };
-};
+  async session() {
+    const ctx = this.ctx;
+    ctx.body = {
+      session: ctx.session,
+    };
+  }
 
-exports.httpclient = function* () {
-  const res = yield this.curl('https://eggjs.org');
-  this.body = res.data.toString();
-};
+  async user() {
+    const ctx = this.ctx;
+    const user = await ctx.service.user.get(ctx.query.name);
+    ctx.body = {
+      user,
+    };
+  }
+
+  async httpclient() {
+    const ctx = this.ctx;
+    const res = await ctx.curl('https://eggjs.org');
+    ctx.body = res.data.toString();
+  }
+}
+
+module.exports = Home;

@@ -13,3 +13,4 @@ run
 *.log.*
 cnode-api-async/*.yml
 public
+!static/app/public

@@ -1,14 +1,14 @@
 'use strict';
 
 module.exports = app => {
-  app.get('/', 'home');
-  app.get('/get', 'get');
-  app.get('/post', 'post');
-  app.get('/put', 'put');
-  app.get('/delete', 'delete');
-  app.get('/form', 'form');
-  app.get('/multipart', 'multipart');
-  app.get('/stream', 'stream');
-  app.post('/stream', 'postStream');
-  app.get('/error', 'error');
+  app.get('/', 'httpclient.home');
+  app.get('/get', 'httpclient.get');
+  app.get('/post', 'httpclient.post');
+  app.get('/put', 'httpclient.put');
+  app.get('/delete', 'httpclient.delete');
+  app.get('/form', 'httpclient.form');
+  app.get('/multipart', 'httpclient.multipart');
+  app.get('/stream', 'httpclient.stream');
+  app.post('/stream', 'httpclient.postStream');
+  app.get('/error', 'httpclient.error');
 };

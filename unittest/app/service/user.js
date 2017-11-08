@@ -1,5 +1,7 @@
 'use strict';
 
+const Service = require('egg').Service;
+
 const mockUsers = [
   {
     name: 'fengmk2',
@@ -9,7 +11,7 @@ const mockUsers = [
 ];
 
 const userDatabase = {
-  * get(name) {
+  async get(name) {
     for (const user of mockUsers) {
       if (user.name === name) {
         return user;
@@ -19,10 +21,10 @@ const userDatabase = {
   },
 };
 
-module.exports = app => {
-  return class User extends app.Service {
-    * get(name) {
-      return yield userDatabase.get(name);
-    }
-  };
-};
+class User extends Service {
+  async get(name) {
+    return userDatabase.get(name);
+  }
+}
+
+module.exports = User;

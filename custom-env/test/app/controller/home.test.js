@@ -1,7 +1,6 @@
 'use strict';
 
 const mock = require('egg-mock');
-const request = require('supertest');
 
 
 describe('test/app/controller/home.test.js', () => {
@@ -18,7 +17,7 @@ describe('test/app/controller/home.test.js', () => {
     after(() => app.close());
 
     it('should GET /', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/')
         .expect({
           env: 'prod',
@@ -40,7 +39,7 @@ describe('test/app/controller/home.test.js', () => {
     after(() => app.close());
 
     it('should GET /', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/')
         .expect({
           env: 'sit',

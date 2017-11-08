@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = app => {
-  app.get('/', 'home.index');
-  app.get('/user', 'home.index');
+  app.get('/', 'home.render');
+  app.get('/user', 'home.render');
 
   app.passport.mount('weibo');
   app.passport.mount('github');

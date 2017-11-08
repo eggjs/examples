@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = app => {
-  app.beforeStart(function* () {
+  app.beforeStart(async () => {
     // ensure memory cache exists before app ready
-    yield app.runSchedule('force_refresh');
+    await app.runSchedule('force_refresh');
   });
 
   const { messenger } = app;
@@ -14,8 +14,8 @@ module.exports = app => {
     const ctx = app.createAnonymousContext();
     // a convenient way to excute with generator function
     // can replaced by `co`
-    ctx.runInBackground(function* () {
-      yield ctx.service.source.update();
+    ctx.runInBackground(async () => {
+      await ctx.service.source.update();
       app.lastUpdateBy = by;
     });
   });

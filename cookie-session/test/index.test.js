@@ -1,6 +1,6 @@
 'use strict';
 
-const request = require('supertest');
+
 const mm = require('egg-mock');
 
 describe('example cookie_session test', () => {
@@ -15,7 +15,7 @@ describe('example cookie_session test', () => {
   after(() => app.close());
 
   it('should GET / first time', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/')
       .expect(200)
       .expect(/^1 times/)
@@ -26,7 +26,7 @@ describe('example cookie_session test', () => {
   });
 
   it('should GET / second time', () => {
-    return request(app.callback())
+    return app.httpRequest()
       .get('/')
       .set('Cookie', cookie)
       .expect(200)
