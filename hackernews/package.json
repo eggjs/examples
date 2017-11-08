@@ -9,14 +9,9 @@
     "moment": "^2.19.1"
   },
   "devDependencies": {
-    "autod": "^2.10.1",
-    "autod-egg": "^1.0.0",
     "cheerio": "^1.0.0-rc.2",
     "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1",
-    "eslint": "^4.10.0",
-    "eslint-config-egg": "^5.1.1",
-    "supertest": "^3.0.0"
+    "egg-mock": "^3.13.1"
   },
   "engines": {
     "node": ">=8.9.0"

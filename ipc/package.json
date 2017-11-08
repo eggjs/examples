@@ -8,20 +8,13 @@
     "mz-modules": "^2.0.0"
   },
   "devDependencies": {
-    "autod": "^2.10.1",
-    "egg-bin": "^4.3.5",
-    "eslint": "^4.10.0",
-    "eslint-config-egg": "^5.1.1",
-    "supertest": "^3.0.0",
-    "webstorm-disable-index": "^1.2.0"
+    "egg-bin": "^4.3.5"
   },
   "engines": {
     "node": ">=8.9.0"
   },
   "scripts": {
-    "start": "egg-bin dev --cluster 2",
     "dev": "egg-bin dev",
-    "test": "",
     "lint": "eslint .",
     "autod": "autod"
   },

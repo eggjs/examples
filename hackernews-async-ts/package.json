@@ -16,17 +16,11 @@
     "@types/mocha": "^2.2.40",
     "@types/node": "^7.0.12",
     "@types/supertest": "^2.0.0",
-    "autod": "^2.10.1",
-    "autod-egg": "^1.0.0",
     "cheerio": "^1.0.0-rc.2",
     "egg-bin": "^4.3.5",
     "egg-mock": "^3.13.1",
-    "eslint": "^4.10.0",
-    "eslint-config-egg": "^5.1.1",
-    "intelli-espower-loader": "^1.0.1",
     "rimraf": "^2.6.1",
     "sinon": "^2.1.0",
-    "supertest": "^3.0.0",
     "tslint": "^4.0.0"
   },
   "engines": {
