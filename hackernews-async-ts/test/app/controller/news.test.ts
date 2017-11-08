@@ -3,7 +3,6 @@
 import * as assert from 'assert';
 import * as cheerio from 'cheerio';
 import * as mm from 'egg-mock';
-import * as request from 'supertest';
 
 describe('test/app/controller/news.test.ts', () => {
   const app = mm.app();

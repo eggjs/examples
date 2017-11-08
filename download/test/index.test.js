@@ -34,7 +34,7 @@ describe('example download test', () => {
       .expect('Content-Disposition', 'attachment; filename="hello.txt"')
       .expect(200)
       .expect(res => {
-        assert.deepStrictEqual(file.toString(), res.text);
+        assert.deepStrictEqual(file.toString(), res.body.toString());
       });
   });
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 const mock = require('egg-mock');
-const request = require('supertest');
+
 
 describe('test/app/controller/home.test.js', () => {
 

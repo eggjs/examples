@@ -1,6 +1,6 @@
 'use strict';
 
-const request = require('supertest');
+
 const mm = require('egg-mock');
 
 describe('example middleware test', () => {

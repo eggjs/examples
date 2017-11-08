@@ -1,6 +1,6 @@
 'use strict';
 
-const request = require('supertest');
+
 const assert = require('assert');
 const mock = require('egg-mock');
 

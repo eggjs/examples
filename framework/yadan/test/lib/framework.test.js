@@ -2,7 +2,7 @@
 
 const path = require('path');
 const assert = require('assert');
-const request = require('supertest');
+
 const mm = require('egg-mock');
 
 describe('test/lib/framework.test.js', () => {

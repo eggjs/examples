@@ -27,7 +27,7 @@
   },
   "scripts": {
     "dev": "egg-bin dev",
-    "test": "npm run lint -- --fix && npm run test-local",
+    "test": "npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",
     "lint": "eslint .",
