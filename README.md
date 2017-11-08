@@ -44,6 +44,12 @@ $ npm run dev
 $ npm test
 ```
 
+You can use `--verbose` to show more infomation
+
+```bash
+$ npm test -- --verbose
+```
+
 ### Generate dependencies
 
 ```bash
