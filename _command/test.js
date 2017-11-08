@@ -38,7 +38,8 @@ class Test extends Command {
         chalk.gray(dir)
       );
       try {
-        await this.runscript(`npminstall ${argv.c ? '-c' : ''}`, { cwd: dir });
+        const flag = argv.c ? ' -c' : '';
+        await this.runscript(`npminstall${flag}`, { cwd: dir });
         await this.runscript('npm test', { cwd: dir });
         console.info('%s success\n', chalk.green('✔'));
         success.add(dir);

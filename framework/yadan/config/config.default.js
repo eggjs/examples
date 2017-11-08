@@ -14,5 +14,9 @@ module.exports = appInfo => {
     key: appInfo.name + '_123456',
   };
 
+  config.view = {
+    defaultViewEngine: 'nunjucks',
+  };
+
   return config;
 };
