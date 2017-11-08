@@ -1,6 +1,14 @@
 'use strict';
 
-exports.logout = async function() {
-  this.logout();
-  this.redirect(this.get('referer') || '/');
-};
+const Controller = require('egg').Controller;
+
+class UserController extends Controller {
+  async logout() {
+    const ctx = this.ctx;
+
+    ctx.logout();
+    ctx.redirect(ctx.get('referer') || '/');
+  }
+}
+
+module.exports = UserController;

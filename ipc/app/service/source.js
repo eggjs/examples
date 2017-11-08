@@ -1,30 +1,31 @@
 'use strict';
 
 const sleep = require('mz-modules/sleep');
+const Service = require('egg').Service;
 
-module.exports = app => {
-  let memoryCache = {};
+let memoryCache = {};
 
-  return class Source extends app.Service {
+class Source extends Service {
 
-    get(key) {
-      return memoryCache[key];
-    }
+  get(key) {
+    return memoryCache[key];
+  }
 
-    async checkUpdate() {
-      // check if remote data source has changed
-      const updated = await mockCheck();
-      this.ctx.logger.info('check update response %s', updated);
-      return updated;
-    }
+  async checkUpdate() {
+    // check if remote data source has changed
+    const updated = await mockCheck();
+    this.ctx.logger.info('check update response %s', updated);
+    return updated;
+  }
 
-    async update() {
-      // update memory cache from remote
-      memoryCache = await mockFetch();
-      this.ctx.logger.info('update memory cache from remote: %j', memoryCache);
-    }
-  };
-};
+  async update() {
+    // update memory cache from remote
+    memoryCache = await mockFetch();
+    this.ctx.logger.info('update memory cache from remote: %j', memoryCache);
+  }
+}
+
+module.exports = Source;
 
 let index = 0;
 async function mockFetch() {

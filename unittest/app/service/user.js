@@ -1,5 +1,7 @@
 'use strict';
 
+const Service = require('egg').Service;
+
 const mockUsers = [
   {
     name: 'fengmk2',
@@ -19,10 +21,10 @@ const userDatabase = {
   },
 };
 
-module.exports = app => {
-  return class User extends app.Service {
-    async get(name) {
-      return userDatabase.get(name);
-    }
-  };
-};
+class User extends Service {
+  async get(name) {
+    return userDatabase.get(name);
+  }
+}
+
+module.exports = User;

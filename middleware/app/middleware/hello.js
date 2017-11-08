@@ -3,9 +3,9 @@
 const assert = require('assert');
 
 module.exports = (options, app) => {
-  return async function(next) {
+  return async function(ctx, next) {
     assert.deepEqual(options, app.config.hello);
-    this.body = options.text;
-    await next;
+    ctx.body = options.text;
+    await next();
   };
 };

@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = async function() {
-  await this.render('home.html', {
+module.exports = async function(ctx) {
+  await ctx.render('home.html', {
     user: {
       name: 'foobar',
     },
