@@ -35,3 +35,23 @@ $ npm run dev
 - [static](https://github.com/eggjs/examples/tree/master/static)
 - [unittest](https://github.com/eggjs/examples/tree/master/unittest)
 - [view-nunjucks](https://github.com/eggjs/examples/tree/master/view-nunjucks)
+
+## Development
+
+### Run test
+
+```bash
+$ npm test
+```
+
+### Generate dependencies
+
+```bash
+$ npm run autod
+```
+
+### Show list of examples
+
+```bash
+$ npm run list
+```
