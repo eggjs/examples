@@ -1,17 +1,14 @@
 'use strict';
 
-const Controller = require('egg').Controller;
+const Controller = require('../core/controller');
 
 class ApiController extends Controller {
   async successAction() {
-    const ctx = this.ctx;
-
-    ctx.success({ foo: 'bar' });
+    this.success({ foo: 'bar' });
   }
 
   async failAction() {
-    const ctx = this.ctx;
-    ctx.fail('something wrong');
+    this.fail('something wrong');
   }
 }
 

@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "egg-bin dev",
-    "test": "npm run lint && egg-bin test",
+    "test": "egg-bin test",
     "lint": "eslint app config test *.js",
     "cov": "egg-bin cov"
   },
