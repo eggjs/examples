@@ -5,7 +5,6 @@ module.exports = {
   plugin: 'autod-egg',
   prefix: '^',
   devprefix: '^',
-  registry: 'https://r.cnpmjs.org',
   exclude: [
     'test/fixtures',
   ],
@@ -20,6 +19,8 @@ module.exports = {
     'egg-bin',
   ],
   keep: [
+    'tslib',
+    'typescript',
   ],
   semver: [
   ],

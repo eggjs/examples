@@ -10,17 +10,9 @@
     "pg-hstore": "^2.3.2"
   },
   "devDependencies": {
-    "autod": "^2.8.0",
-    "autod-egg": "^1.0.0",
     "egg-bin": "^3.4.2",
-    "egg-ci": "^1.7.0",
     "egg-mock": "^3.7.2",
-    "eslint": "^3.19.0",
-    "eslint-config-egg": "^4.2.0",
-    "lodash": "^4.17.4",
-    "mocha": "^3.4.2",
-    "supertest": "^3.0.0",
-    "webstorm-disable-index": "^1.2.0"
+    "lodash": "^4.17.4"
   },
   "engines": {
     "node": ">=8.9.0"

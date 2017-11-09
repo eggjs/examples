@@ -4,14 +4,11 @@
   "description": "custom environment",
   "private": true,
   "dependencies": {
-    "egg": "^1.10.0"
+    "egg": "^1.10.1"
   },
   "devDependencies": {
-    "autod": "^2.7.1",
-    "autod-egg": "^1.0.0",
     "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1",
-    "supertest": "^3.0.0"
+    "egg-mock": "^3.13.1"
   },
   "engines": {
     "node": ">=8.9.0"
