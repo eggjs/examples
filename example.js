@@ -9,7 +9,7 @@ class Example extends Command {
   constructor(rawArgs) {
     super(rawArgs);
 
-    this.load(path.join(__dirname, '_command'));
+    this.load(path.join(__dirname, 'bin'));
   }
 }
 
