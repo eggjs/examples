@@ -1,6 +1,6 @@
 'use strict';
 
 module.exports = app => {
-  app.get('/', app.controller.home.isIOS);
-  app.get('/framework', app.controller.home.getFramework);
+  app.router.get('/', app.controller.home.isIOS);
+  app.router.get('/framework', app.controller.home.getFramework);
 };

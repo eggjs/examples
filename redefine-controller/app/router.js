@@ -1,6 +1,6 @@
 'use strict';
 
 module.exports = app => {
-  app.get('/success', 'api.successAction');
-  app.get('/fail', 'api.failAction');
+  app.router.get('/success', 'api.successAction');
+  app.router.get('/fail', 'api.failAction');
 };

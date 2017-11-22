@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-  app.get('/', async function() {
+  app.router.get('/', async function() {
     this.body = `isIOS: ${this.isIOS}`;
   });
 };
