@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = app => {
-  app.get('/', app.controller.home.render);
+  app.router.get('/', app.controller.home.render);
 };

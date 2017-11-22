@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-  app.get('/', app.controller.index.index);
-  app.get('/download', app.controller.index.download);
-  app.get('/download-image', app.controller.index.downloadImage);
+  app.router.get('/', app.controller.index.index);
+  app.router.get('/download', app.controller.index.download);
+  app.router.get('/download-image', app.controller.index.downloadImage);
 };

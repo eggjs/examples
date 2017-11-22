@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = app => {
-  app.get('homepage', '/', 'home.index');
-  app.post('postdata', '/post', 'home.post');
-  app.get('session', '/session', 'home.session');
-  app.get('user', '/user', 'home.user');
-  app.get('httpclient', '/httpclient', 'home.httpclient');
+  app.router.get('homepage', '/', 'home.index');
+  app.router.post('postdata', '/post', 'home.post');
+  app.router.get('session', '/session', 'home.session');
+  app.router.get('user', '/user', 'home.user');
+  app.router.get('httpclient', '/httpclient', 'home.httpclient');
 };
