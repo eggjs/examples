@@ -1,5 +1,5 @@
 ## About this example
-this example is a simple quickstart of Egg, it includes the basic and comprehensive usages of Egg such as Controller,Service and some 
+This example is a [quickstart](https://eggjs.org/zh-cn/intro/quickstart.html) of Egg, it includes the basic and comprehensive usages of Egg such as Controller, Service and some 
 simple configurations, moreover, it has the corresponding unit tests. you can follow this simple example and build your Egg application step by step.
 
 ## How to run it locally
@@ -27,14 +27,8 @@ $ EGG_SERVER_ENV=prod npm start
 
 ### Requirement
 
-Please ensure your node version is `>=8.0` for async await support without flag. If your node version is `>=7.0.0 < 8.0`, you can run npm scripts with harmony flag
+Please ensure your node version is `>=8.0` for Egg2.x.
 
-```shell
-# start server
-npm run dev -- --harmony-async-await
-# run test cases
-npm run test-local -- --harmony-async-await
-```
 
 ## some problems you might encounter
 - lack of MVC model development experience, click [here](https://www.zhihu.com/question/27897315) to learn more

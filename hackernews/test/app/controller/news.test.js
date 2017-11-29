@@ -2,18 +2,18 @@
 
 
 const cheerio = require('cheerio');
-const { mm, mock, assert } = require('egg-mock/bootstrap');
+const { mock, assert } = require('egg-mock/bootstrap');
 
 describe('test/app/controller/news.test.js', () => {
   let app;
   before(async () => {
-    app = mm.app();
+    app = mock.app();
     await app.ready();
   });
 
   after(() => app.close());
 
-  afterEach(mm.restore);
+  afterEach(mock.restore);
 
   it('should GET /news', async () => {
     const result = await app.httpRequest().get('/news').expect(200);
