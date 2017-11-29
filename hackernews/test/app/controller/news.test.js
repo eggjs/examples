@@ -1,9 +1,8 @@
 'use strict';
 
 
-const mm = require('egg-mock');
-const assert = require('assert');
 const cheerio = require('cheerio');
+const { mm, mock, assert } = require('egg-mock/bootstrap');
 
 describe('test/app/controller/news.test.js', () => {
   let app;

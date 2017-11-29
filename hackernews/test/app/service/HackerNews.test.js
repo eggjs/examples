@@ -1,7 +1,6 @@
 'use strict';
 
-const assert = require('assert');
-const mm = require('egg-mock');
+const { mm, assert } = require('egg-mock/bootstrap');
 
 describe('test/app/service/HackerNews.test.js', () => {
   let app;
