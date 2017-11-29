@@ -1,8 +1,9 @@
 'use strict';
 
 module.exports = app => {
+  const { router, controller } = app;
   app.redirect('/', '/news');
-  app.router.get('/news', 'news.list');
-  app.router.get('/news/item/:id', 'news.detail');
-  app.router.get('/news/user/:id', 'news.user');
+  router.get('/news', controller.news.list);
+  router.get('/news/item/:id', controller.news.detail);
+  router.get('/news/user/:id', controller.news.user);
 };
