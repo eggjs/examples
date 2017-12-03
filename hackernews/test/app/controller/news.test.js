@@ -1,20 +1,19 @@
 'use strict';
 
 
-const mm = require('egg-mock');
-const assert = require('assert');
 const cheerio = require('cheerio');
+const { mock, assert } = require('egg-mock/bootstrap');
 
 describe('test/app/controller/news.test.js', () => {
   let app;
   before(async () => {
-    app = mm.app();
+    app = mock.app();
     await app.ready();
   });
 
   after(() => app.close());
 
-  afterEach(mm.restore);
+  afterEach(mock.restore);
 
   it('should GET /news', async () => {
     const result = await app.httpRequest().get('/news').expect(200);
