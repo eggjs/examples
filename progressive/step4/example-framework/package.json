@@ -7,12 +7,17 @@
   },
   "devDependencies": {
     "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1"
+    "egg-mock": "^3.13.1",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.0.0"
   },
   "engines": {
     "node": ">=8.9.0"
   },
   "scripts": {
-    "test": "egg-bin test"
+    "dev": "egg-bin dev",
+    "test": "egg-bin test",
+    "cov": "egg-bin cov",
+    "autod": "autod"
   }
 }
