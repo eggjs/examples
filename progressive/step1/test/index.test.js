@@ -1,11 +1,9 @@
 'use strict';
 
 
-const { app, mock } = require('egg-mock/bootstrap');
+const { app } = require('egg-mock/bootstrap');
 
 describe('test/index.test.js', () => {
-
-  afterEach(mock.restore);
 
   it('should GET / with iOS', () => {
     return app.httpRequest()

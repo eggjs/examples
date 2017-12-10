@@ -9,7 +9,7 @@ describe('test/framework.test.js', () => {
   before(() => {
     app = mock.app({
       baseDir: 'test-app',
-      customEgg: true,
+      framework: true,
     });
     return app.ready();
   });
