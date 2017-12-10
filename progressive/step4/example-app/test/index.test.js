@@ -1,17 +1,10 @@
 'use strict';
 
 
-const { mock } = require('egg-mock/bootstrap')
+const { app, mock } = require('egg-mock/bootstrap');
 
 describe('test/index.test.js', () => {
-  let app;
 
-  before(() => {
-    app = mock.app();
-    return app.ready();
-  });
-
-  after(() => app.close());
   afterEach(mock.restore);
 
   it('should use custom framework', () => {
