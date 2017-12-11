@@ -5,7 +5,7 @@
     "name": "ua"
   },
   "devDependencies": {
-    "egg": "^1.0.0",
+    "egg": "^2.0.0",
     "egg-bin": "^4.3.5",
     "egg-mock": "^3.13.1"
   },
