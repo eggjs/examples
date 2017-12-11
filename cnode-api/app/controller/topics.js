@@ -28,9 +28,9 @@ class TopicsController extends Controller {
     const { ctx } = this;
 
     ctx.validate({
-      page: { format: /\d+/, required: false },
+      page: { type: 'string', format: /\d+/, required: false },
       tab: { type: 'enum', values: [ 'ask', 'share', 'job', 'good' ], required: false },
-      limit: { format: /\d+/, required: false },
+      limit: { type: 'string', format: /\d+/, required: false },
     }, ctx.query);
 
     ctx.body = await ctx.service.topics.list({
