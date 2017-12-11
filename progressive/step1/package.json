@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-     "egg": "^2.0.0"
+    "egg": "^2.0.0"
   },
   "devDependencies": {
     "egg-bin": "^4.3.5",
