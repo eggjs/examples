@@ -1,9 +1,20 @@
 'use strict';
 
 
-const { app } = require('egg-mock/bootstrap');
+const mm = require('egg-mock');
 
 describe('test/ua.test.js', () => {
+  let app;
+
+  before(() => {
+    app = mm.app({
+      baseDir: 'test-app',
+    });
+    return app.ready();
+  });
+
+  after(() => app.close());
+  afterEach(mm.restore);
 
   it('should GET / with iOS', () => {
     return app.httpRequest()

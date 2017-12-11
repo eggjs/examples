@@ -10,14 +10,11 @@
   },
   "devDependencies": {
     "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1",
-    "autod": "^3.0.1",
-    "autod-egg": "^1.0.0"
+    "egg-mock": "^3.13.1"
   },
   "scripts": {
     "dev": "egg-bin dev",
     "test": "egg-bin test",
-    "cov": "egg-bin cov",
-    "autod": "autod"
+    "cov": "egg-bin cov"
   }
 }
