@@ -2,7 +2,7 @@
 
 import * as assert from 'assert';
 import { Context } from 'egg';
-import * as mm from 'egg-mock';
+import mm from 'egg-mock';
 
 describe('test/app/service/HackerNews.test.js', () => {
   const app = mm.app();

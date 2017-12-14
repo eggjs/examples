@@ -4,23 +4,24 @@
   "description": "hackernews showcase using async/await for egg",
   "private": true,
   "dependencies": {
-    "egg": "^1.10.1",
+    "egg": "^2.0.0",
     "egg-view-nunjucks": "^2.1.4",
-    "moment": "^2.19.1",
+    "moment": "^2.19.4",
     "source-map-support": "^0.5.0",
-    "tslib": "^1.7.1",
-    "typescript": "^2.3.4"
+    "tslib": "^1.8.1",
+    "typescript": "^2.6.2"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.1",
     "@types/mocha": "^2.2.40",
     "@types/node": "^7.0.12",
     "@types/supertest": "^2.0.0",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
     "cheerio": "^1.0.0-rc.2",
-    "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1",
+    "egg-bin": "^4.3.7",
+    "egg-mock": "^3.14.0",
     "rimraf": "^2.6.1",
-    "sinon": "^2.1.0",
     "tslint": "^4.0.0"
   },
   "engines": {
