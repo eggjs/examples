@@ -14,8 +14,6 @@ module.exports = {
   devdep: [
     'autod',
     'autod-egg',
-    'eslint',
-    'eslint-config-egg',
     'egg-bin',
   ],
   keep: [
