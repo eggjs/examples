@@ -8,7 +8,8 @@
     "egg-bin": "^4.3.5"
   },
   "scripts": {
-    "start": "egg-bin dev"
+    "start": "egg-bin dev",
+    "dev": "egg-bin dev"
   },
   "private": true
 }

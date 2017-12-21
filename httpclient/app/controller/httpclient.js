@@ -5,7 +5,7 @@ const FormStream = require('formstream');
 const Controller = require('egg').Controller;
 
 class HttpclientController extends Controller {
-  async del() {
+  async delete() {
     const ctx = this.ctx;
 
     const result = await ctx.curl('https://httpbin.org/delete', {
