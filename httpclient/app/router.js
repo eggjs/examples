@@ -5,7 +5,7 @@ module.exports = app => {
   app.router.get('/get', 'httpclient.get');
   app.router.get('/post', 'httpclient.post');
   app.router.get('/put', 'httpclient.put');
-  app.router.get('/delete', 'httpclient.delete');
+  app.router.get('/delete', 'httpclient.del');
   app.router.get('/form', 'httpclient.form');
   app.router.get('/multipart', 'httpclient.multipart');
   app.router.get('/stream', 'httpclient.stream');
