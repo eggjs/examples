@@ -26,7 +26,7 @@ module.exports = appInfo => {
       env: {
         DISABLE_ESLINT: true,
         SOCKET_SERVER: 'http://127.0.0.1:8000',
-        PUBLIC_PATH: 'http://127.0.0.1:8000/',
+        PUBLIC_PATH: 'http://127.0.0.1:8000',
       },
     },
   };
