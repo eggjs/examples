@@ -4,14 +4,13 @@
   "description": "The egg example project that uses egg-sequelize plugin.",
   "private": true,
   "dependencies": {
-    "egg": "^1.4.0",
-    "egg-sequelize": "^3.0.1",
-    "pg": "^6.2.4",
-    "pg-hstore": "^2.3.2"
+    "co": "^4.6.0",
+    "egg": "^2.2.0",
+    "egg-sequelize": "^3.1.0"
   },
   "devDependencies": {
-    "egg-bin": "^3.4.2",
-    "egg-mock": "^3.7.2",
+    "egg-bin": "^4.3.7",
+    "egg-mock": "^3.14.0",
     "lodash": "^4.17.4"
   },
   "engines": {

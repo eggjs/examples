@@ -4,16 +4,16 @@
   "description": "hackernews showcase using async/await for egg",
   "private": true,
   "dependencies": {
-    "egg": "^2.0.0",
+    "egg": "^2.2.0",
     "egg-view-nunjucks": "^2.1.4",
-    "moment": "^2.19.2"
+    "moment": "^2.20.1"
   },
   "devDependencies": {
     "autod": "^3.0.1",
     "autod-egg": "^1.0.0",
     "cheerio": "^1.0.0-rc.2",
-    "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1",
+    "egg-bin": "^4.3.7",
+    "egg-mock": "^3.14.0",
     "eslint": "^4.12.0",
     "eslint-config-egg": "^5.1.1"
   },
