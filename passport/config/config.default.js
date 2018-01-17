@@ -20,3 +20,10 @@ exports.passportTwitter = {
   key: 'g',
   secret: 'h',
 };
+
+// 为了演示方便这里把 csrf 暂时关闭
+exports.security = {
+  csrf: {
+    enable: false,
+  },
+};

@@ -24,3 +24,8 @@ exports.passportBitbucket = {
   enable: true,
   package: 'egg-passport-bitbucket',
 };
+
+exports.passportLocal = {
+  enable: true,
+  package: 'egg-passport-local',
+};
