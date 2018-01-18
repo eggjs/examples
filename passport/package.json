@@ -5,8 +5,10 @@
     "egg-passport": "^1.0.0",
     "egg-passport-bitbucket": "^1.0.0",
     "egg-passport-github": "^1.0.0",
+    "egg-passport-local": "^1.1.0",
     "egg-passport-twitter": "^1.0.0",
-    "egg-passport-weibo": "^1.0.0"
+    "egg-passport-weibo": "^1.0.0",
+    "egg-view-nunjucks": "^2.1.4"
   },
   "devDependencies": {
     "egg-bin": "^4.3.5"
