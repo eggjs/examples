@@ -36,7 +36,7 @@
     "test": "npm run tsc && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",
-    "lint": "eslint .",
+    "lint": "tslint .",
     "ci": "npm run lint && npm run cov",
     "autod": "autod"
   }
