@@ -27,7 +27,7 @@
     "eslint": "^4.11.0",
     "eslint-config-egg": "^5.1.0",
     "redbox-react": "^1.5.0",
-    "roadhog": "^2.0.0-rc.1",
+    "roadhog": "^2.2.0",
     "webstorm-disable-index": "^1.2.0"
   },
   "engines": {
