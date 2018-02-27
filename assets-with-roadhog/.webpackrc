@@ -17,5 +17,11 @@
         "dva-hmr"
       ]
     }
+  },
+  "publicPath": "/public/",
+  "outputPath": "app/public",
+  "hash": true,
+  "manifest": {
+    "fileName": "../../config/manifest.json"
   }
 }
