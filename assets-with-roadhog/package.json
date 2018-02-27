@@ -13,6 +13,7 @@
     "react-dom": "^16.0.0",
     "egg": "^2.0.0",
     "egg-scripts": "^2.1.0",
+    "egg-view-assets": "1.0.0-alpha.1",
     "egg-view-nunjucks": "^2.1.4"
   },
   "devDependencies": {
@@ -34,7 +35,7 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon",
+    "start": "egg-scripts start --daemon --env prod",
     "stop": "egg-scripts stop",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
