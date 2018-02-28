@@ -14,3 +14,4 @@ run
 cnode-api-async/*.yml
 public
 !static/app/public
+assets-with-roadhog/config/manifest.json
