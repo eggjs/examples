@@ -5,7 +5,7 @@ import { Link } from 'dva/router';
 function Header({ location }) {
   return (
     <Menu
-      selectedKeys={[location.pathname]}
+      selectedKeys={[ location.pathname ]}
       mode="horizontal"
       theme="dark"
     >

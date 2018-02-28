@@ -11,7 +11,7 @@ class UserEditModal extends Component {
     };
   }
 
-  showModelHandler = (e) => {
+  showModelHandler = e => {
     if (e) e.stopPropagation();
     this.setState({
       visible: true,
