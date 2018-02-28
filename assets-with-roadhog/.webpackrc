@@ -18,6 +18,7 @@
       ]
     }
   },
+  "publicPath": "/public/",
   "outputPath": "app/public",
   "hash": true,
   "manifest": {
