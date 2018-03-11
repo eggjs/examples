@@ -4,13 +4,13 @@
   "description": "",
   "private": true,
   "dependencies": {
-    "umi": "^1.0.0-rc.13",
     "react-sticky": "^6.0.1",
     "egg": "^2.0.0",
     "egg-scripts": "^2.1.0",
     "egg-view-nunjucks": "^2.1.4"
   },
   "devDependencies": {
+    "umi": "^1.0.0",
     "autod": "^3.0.1",
     "autod-egg": "^1.0.0",
     "babel-plugin-dva-hmr": "^0.4.0",
@@ -21,7 +21,6 @@
     "eslint": "^4.11.0",
     "eslint-config-egg": "^5.1.0",
     "redbox-react": "^1.5.0",
-    "roadhog": "^2.2.0",
     "webstorm-disable-index": "^1.2.0"
   },
   "engines": {

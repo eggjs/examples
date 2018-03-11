@@ -23,6 +23,7 @@ module.exports = appInfo => {
       command: 'umi dev',
       port: 8000,
       env: {
+        APP_ROOT: process.cwd() + '/app/assets',
         BROWSER: 'none',
         ESLINT: 'none',
         SOCKET_SERVER: 'http://127.0.0.1:8000',
