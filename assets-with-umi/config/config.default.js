@@ -16,10 +16,9 @@ module.exports = appInfo => {
   };
 
   config.assets = {
-    urlPrefix: '/public',
-    // publicPath: '/public/',
+    publicPath: '/public/static',
     devServer: {
-      debug: true,
+      debug: false,
       command: 'umi dev',
       port: 8000,
       env: {

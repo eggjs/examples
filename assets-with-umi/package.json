@@ -31,7 +31,7 @@
     "stop": "egg-scripts stop",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
-    "build": "umi build",
+    "build": "APP_ROOT=$PWD/app/assets umi build",
     "test": "egg-bin test",
     "cov": "egg-bin cov",
     "lint": "eslint .",
