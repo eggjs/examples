@@ -7,7 +7,6 @@
     "@font-size-base": "16px",
     "@line-height-base": "1.2"
   },
-  "externals": {},
   "extraBabelPlugins": [
     [ "import", { "libraryName": "antd", "style": true } ]
   ],
@@ -18,7 +17,6 @@
       ]
     }
   },
-  "publicPath": "/public/",
   "outputPath": "app/public",
   "hash": true,
   "manifest": {

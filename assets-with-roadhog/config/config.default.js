@@ -15,20 +15,17 @@ module.exports = appInfo => {
     root: path.join(appInfo.baseDir, 'app/assets'),
     mapping: {
       '.js': 'assets',
-      '.html': 'nunjucks',
     },
   };
 
   config.assets = {
-    url: 'http://127.0.0.1:7001',
-    urlPrefix: '/public',
-    // publicPath: '/public/',
+    publicPath: '/public/',
     devServer: {
       command: 'roadhog dev',
       port: 8000,
       env: {
         BROWSER: 'none',
-        DISABLE_ESLINT: true,
+        ESLINT: 'none',
         SOCKET_SERVER: 'http://127.0.0.1:8000',
         PUBLIC_PATH: 'http://127.0.0.1:8000',
       },
