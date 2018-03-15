@@ -1,4 +1,4 @@
-# Example for building frontend app with [roadhog](https://github.com/sorrycc/roadhog)
+# Example for building frontend app with [umi](https://github.com/umijs/umi)
 
 ## Development
 
@@ -10,7 +10,7 @@ $ open http://localhost:7001/
 
 ### Deployment
 
-Build assets with roadhog that will be generated to `app/public` which served by egg.
+Build assets with umi that will be generated to `app/public` which served by egg.
 
 And `manifest.json` will be generated to `config`
 
