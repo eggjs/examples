@@ -1,0 +1,52 @@
+{
+  "name": "assets-with-umi",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "antd-mobile": "^2.1.6",
+    "egg": "^2.4.1",
+    "egg-scripts": "^2.5.1",
+    "egg-view-assets": "^1.0.1",
+    "egg-view-nunjucks": "^2.1.6",
+    "react": "^16.2.0",
+    "react-sticky": "^6.0.1",
+    "umi": "^1.0.7"
+  },
+  "devDependencies": {
+    "autod": "^3.0.1",
+    "autod-egg": "^1.0.0",
+    "babel-plugin-dva-hmr": "^0.4.0",
+    "babel-plugin-import": "^1.1.0",
+    "egg-bin": "^4.3.7",
+    "egg-mock": "^3.15.0",
+    "eslint": "^4.18.2",
+    "eslint-config-egg": "^7.0.0",
+    "redbox-react": "^1.5.0",
+    "webstorm-disable-index": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon --env prod",
+    "stop": "egg-scripts stop",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "build": "APP_ROOT=$PWD/app/assets HTML=none umi build",
+    "test": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT"
+}

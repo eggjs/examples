@@ -15,3 +15,7 @@ cnode-api-async/*.yml
 public
 !static/app/public
 assets-with-roadhog/config/manifest.json
+assets-with-umi/config/manifest.json
+.umi
+.umi-production
+dist
