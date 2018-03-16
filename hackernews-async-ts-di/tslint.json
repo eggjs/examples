@@ -16,7 +16,7 @@
     "space-before-function-paren": false,
     "interface-name": [
       true,
-      "no-prefix"
+      "never-prefix"
     ],
     "adjacent-overload-signatures": true,
     "member-access": [
