@@ -4,12 +4,11 @@
   "description": "hackernews showcase using async/await for egg",
   "private": true,
   "dependencies": {
-    "egg": "^2.0.0",
-    "egg-view-nunjucks": "^2.1.4",
-    "moment": "^2.19.4",
-    "source-map-support": "^0.5.0",
-    "tslib": "^1.8.1",
-    "typescript": "^2.6.2"
+    "egg": "^2.5.0",
+    "egg-scripts": "^2.5.1",
+    "egg-view-nunjucks": "^2.2.0",
+    "moment": "^2.21.0",
+    "source-map-support": "^0.5.4"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.1",
@@ -19,25 +18,28 @@
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
     "cheerio": "^1.0.0-rc.2",
-    "egg-bin": "^4.3.7",
-    "egg-mock": "^3.14.0",
+    "egg-bin": "^4.5.0",
+    "egg-mock": "^3.16.0",
+    "egg-ts-helper": "^1.1.3",
     "rimraf": "^2.6.1",
-    "tslint": "^4.0.0"
+    "tslib": "^1.8.1",
+    "tslint": "^4.0.0",
+    "typescript": "^2.6.2"
   },
   "engines": {
     "node": ">=8.9.0"
   },
   "scripts": {
-    "clean": "rimraf app/**/*.{js,map} test/**/*.{js,map} config/**/*.{js,map}",
-    "tsc": "tsc -p tsconfig.json",
-    "tsc:w": "tsc -p tsconfig.json -w",
-    "debug": "egg-bin debug",
-    "dev": "egg-bin dev",
-    "test": "npm run tsc && npm run test-local",
-    "test-local": "egg-bin test",
-    "cov": "egg-bin cov",
+    "start": "egg-scripts start",
+    "dev": "egg-bin dev --ts -r 'egg-ts-helper/register'",
+    "tsc": "ets && tsc -p tsconfig.json",
+    "clean": "rimraf ./app.js ./agent.js ./{app,test,config}/**/*.{js,map}",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "EGG_TYPESCRIPT=true egg-bin test --ts -r 'egg-ts-helper/register'",
+    "cov": "EGG_TYPESCRIPT=true egg-bin cov --ts",
     "lint": "tslint .",
     "ci": "npm run lint && npm run cov",
+    "debug": "egg-bin debug --ts",
     "autod": "autod"
   }
 }
