@@ -21,6 +21,7 @@ module.exports = appInfo => {
   config.assets = {
     publicPath: '/public/',
     devServer: {
+      debug: false,
       command: 'roadhog dev',
       port: 8000,
       env: {
