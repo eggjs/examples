@@ -1,20 +1,14 @@
 'use strict';
 
-import * as assert from 'assert';
 import { Context } from 'egg';
-import mm from 'egg-mock';
+import { app, assert } from 'egg-mock/bootstrap';
 
 describe('test/app/service/HackerNews.test.js', () => {
-  const app = mm.app();
   let ctx: Context;
 
   before(async () => {
-    await app.ready();
     ctx = app.mockContext();
   });
-
-  after(() => app.close());
-  afterEach(mm.restore);
 
   it('getTopStories', async () => {
     const list = await ctx.service.hackerNews.getTopStories();

@@ -3,6 +3,7 @@
   "compilerOptions": {
     "target": "es2017",
     "module": "commonjs",
+    "strict": true,
     "noImplicitAny": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -14,17 +15,13 @@
     "noUnusedParameters": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
+    "strictPropertyInitialization": false,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "inlineSourceMap": true,
     "importHelpers": true
   },
-  "include": [
-    "app/**/*",
-    "config/**/*",
-    "test/**/*.ts"
-  ],
   "exclude": [
     "app/public",
     "app/views"

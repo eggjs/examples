@@ -1,19 +1,9 @@
 'use strict';
 
-import * as assert from 'assert';
 import * as cheerio from 'cheerio';
-import mm from 'egg-mock';
+import { app, assert } from 'egg-mock/bootstrap';
 
 describe('test/app/controller/news.test.ts', () => {
-  const app = mm.app();
-  before(async () => {
-    await app.ready();
-  });
-
-  after(() => app.close());
-
-  afterEach(mm.restore);
-
   it('should GET /news', async () => {
     const result = await app.httpRequest().get('/news').expect(200);
     const $ = cheerio.load(result.text);
