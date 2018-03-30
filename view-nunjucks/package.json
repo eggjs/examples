@@ -1,12 +1,12 @@
 {
   "name": "view-nunjucks-example",
   "dependencies": {
-    "egg": "^1.10.1",
+    "egg": "^2.2.0",
     "egg-view-nunjucks": "^2.1.4"
   },
   "devDependencies": {
-    "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1"
+    "egg-bin": "^4.3.7",
+    "egg-mock": "^3.14.0"
   },
   "scripts": {
     "dev": "egg-bin dev",

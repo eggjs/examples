@@ -2,11 +2,12 @@
   "name": "framework-example",
   "version": "1.0.0",
   "dependencies": {
-    "yadan": "../yadan"
+    "egg": "^2.2.0",
+    "yadan": "^2.0.0"
   },
   "devDependencies": {
-    "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1"
+    "egg-bin": "^4.3.7",
+    "egg-mock": "^3.14.0"
   },
   "scripts": {
     "dev": "egg-bin dev",

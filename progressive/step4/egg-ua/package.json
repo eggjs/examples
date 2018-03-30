@@ -6,12 +6,15 @@
   },
   "devDependencies": {
     "egg": "^1.0.0",
-    "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1"
+    "egg-bin": "^4.3.7",
+    "egg-mock": "^3.14.0"
   },
   "scripts": {
     "dev": "egg-bin dev",
     "test": "egg-bin test",
     "cov": "egg-bin cov"
+  },
+  "dependencies": {
+    "egg": "^2.2.0"
   }
 }
