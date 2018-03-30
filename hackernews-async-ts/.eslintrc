@@ -1,0 +1,7 @@
+{
+  "extends": "eslint-config-egg",
+  "parser": "typescript-eslint-parser",
+  "plugins": [
+    "typescript"
+  ]
+}
