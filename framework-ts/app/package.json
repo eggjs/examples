@@ -1,0 +1,34 @@
+{
+  "name": "framework-ts-example",
+  "version": "1.0.0",
+  "dependencies": {
+    "egg": "^2.6.0",
+    "egg-scripts": "^2.6.0",
+    "yadan-ts": "../yadan"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.3.5",
+    "egg-mock": "^3.13.1"
+  },
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "scripts": {
+    "autod": "autod",
+    "clean": "rimraf app/**/*.{js,map} test/**/*.{js,map} config/**/*.{js,map}",
+    "ci": "npm run lint && npm run cov",
+    "cov": "egg-bin cov",
+    "debug": "egg-bin debug",
+    "dev": "egg-bin dev",
+    "lint": "tslint --fix -p tsconfig.json -t stylish",
+    "test": "npm run tsc && npm run test-local",
+    "test-local": "egg-bin test",
+    "start": "egg-scripts start --daemon --port=7001 --title=egg-win-test --workers=2",
+    "stop": "egg-scripts stop --title=egg-win-test",
+    "tsc": "tsc -p tsconfig.json",
+    "tsc:w": "tsc -p tsconfig.json -w"
+  },
+  "egg": {
+    "framework": "yadan-ts"
+  }
+}

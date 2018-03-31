@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,           /* Parse in strict mode and emit "use strict" for each source file. */
+    "charset": "utf8",
+    "declaration": true,            /* Generates corresponding '.d.ts' file. */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "importHelpers": false,
+    "inlineSourceMap": true,
+    "module": "commonjs",           /* 'commonjs', 'amd', 'system', 'umd' or 'es2015'. */
+    "newLine": "lf",
+    "noFallthroughCasesInSwitch": true,
+    // "outDir": "./dist", 
+    "pretty": true,
+    "skipLibCheck": true,
+    "strict": true,                 /* Enable all strict type-checking options. */
+    // "noImplicitAny": false,
+    // "noImplicitThis": false,
+    "target": "ES2017",              /* 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
+    "types" : ["node"]
+  },
+  "include": [
+    "*.ts",
+    "app/**/*",
+    "config/**/*",
+    "test/**/*.ts"
+  ],
+  "exclude": [
+    "app/public",
+    "app/views",
+    "test/",
+    "node_modules",
+    "**/*.d.ts",
+    "**/*.spec.ts"
+  ]
+}
