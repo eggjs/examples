@@ -19,9 +19,6 @@ export class HackerNews extends Service {
   constructor(ctx: Context) {
     super(ctx);
   }
-  getConfig() {
-    return this.app.config.news;
-  }
 
   /**
    * request hacker-news api
@@ -34,7 +31,7 @@ export class HackerNews extends Service {
       timeout: ['30s', '30s'],
     }, opts);
 
-    const result = await this.ctx.curl(`${this.getConfig().serverUrl}/${api}`, options);
+    const result = await this.ctx.curl(`${this.config.news.serverUrl}/${api}`, options);
     return result.data;
   }
 
@@ -45,7 +42,7 @@ export class HackerNews extends Service {
    */
   public async getTopStories(page?: number, pageSize?: number): Promise<number[]> {
     page = page || 1;
-    pageSize = pageSize || this.getConfig().pageSize;
+    pageSize = pageSize || this.config.news.pageSize;
 
     try {
       const result = await this.request('topstories.json', {

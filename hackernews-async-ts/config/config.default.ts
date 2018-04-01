@@ -18,7 +18,14 @@ export default (appInfo: EggAppConfig) => {
       },
     },
     news: {
+      /**
+       * page size
+       */
       pageSize: 30,
+
+      /**
+       * hacker news server url
+       */
       serverUrl: 'https://hacker-news.firebaseio.com/v0',
     },
   };

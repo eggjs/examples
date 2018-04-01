@@ -12,4 +12,12 @@ declare module 'egg' {
   interface Application {
     config: NewAppConfig;
   }
+
+  interface Controller {
+    config: NewAppConfig;
+  }
+
+  interface Service {
+    config: NewAppConfig;
+  }
 }
