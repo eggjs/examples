@@ -3,7 +3,7 @@ import { EggAppConfig } from 'egg';
 import * as fs from 'fs';
 import * as path from 'path';
 
-export default function config(appInfo: EggAppConfig) {
+export default (appInfo: EggAppConfig) => {
   return {
     keys: appInfo.name + '123456',
     siteFile: {
@@ -23,9 +23,3 @@ export default function config(appInfo: EggAppConfig) {
     },
   };
 };
-
-declare module 'egg' {
-  interface Application {
-    config: EggAppConfig & ReturnType<typeof config>;
-  }
-}
