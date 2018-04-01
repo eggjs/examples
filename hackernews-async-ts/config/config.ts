@@ -2,7 +2,6 @@
 import { EggAppConfig } from 'egg';
 import * as fs from 'fs';
 import * as path from 'path';
-import 'source-map-support/register';
 
 export default function config(appInfo: EggAppConfig) {
   return {
