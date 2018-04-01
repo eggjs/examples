@@ -27,7 +27,7 @@
     "rimraf": "^2.6.1",
     "tslib": "^1.8.1",
     "tslint": "^4.0.0",
-    "typescript": "^2.6.2"
+    "typescript": "^2.8.1"
   },
   "engines": {
     "node": ">=8.9.0"
@@ -36,7 +36,7 @@
     "start": "egg-scripts start",
     "dev": "egg-bin dev -r 'egg-ts-helper/register'",
     "tsc": "ets && tsc -p tsconfig.json",
-    "clean": "rimraf ./app.js ./agent.js ./{app,test,config}/**/*.{js,map}",
+    "clean": "ets clean",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test -r 'egg-ts-helper/register'",
     "cov": "egg-bin cov",
