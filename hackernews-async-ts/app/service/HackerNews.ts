@@ -1,4 +1,4 @@
-import { Context, Service } from 'egg';
+import { Service } from 'egg';
 
 export interface NewsItem {
   id: number;
@@ -16,10 +16,6 @@ export interface NewsItem {
  * HackerNews Api Service
  */
 export class HackerNews extends Service {
-  constructor(ctx: Context) {
-    super(ctx);
-  }
-
   /**
    * request hacker-news api
    * @param api - Api name
