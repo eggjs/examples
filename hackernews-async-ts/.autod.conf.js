@@ -10,6 +10,10 @@ module.exports = {
   ],
   dep: [
     'egg',
+    'egg-scripts',
+    'egg-view-nunjucks',
+    'moment',
+    'source-map-support',
   ],
   devdep: [
     'autod',
