@@ -19,3 +19,4 @@ assets-with-umi/config/manifest.json
 .umi
 .umi-production
 dist
+.history

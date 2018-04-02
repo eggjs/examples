@@ -34,11 +34,11 @@
   },
   "scripts": {
     "start": "egg-scripts start",
-    "dev": "egg-bin dev -r 'egg-ts-helper/register'",
+    "dev": "egg-bin dev -r egg-ts-helper/register",
     "tsc": "ets && tsc -p tsconfig.json",
     "clean": "ets clean",
     "test": "npm run lint -- --fix && npm run test-local",
-    "test-local": "egg-bin test -r 'egg-ts-helper/register'",
+    "test-local": "egg-bin test -r egg-ts-helper/register",
     "cov": "egg-bin cov",
     "lint": "tslint .",
     "ci": "npm run lint && npm run cov",
