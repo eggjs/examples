@@ -25,7 +25,7 @@ export default (appInfo: EggAppConfig): EggConfig & BizConfig => {
       mapping: {
         '.tpl': 'nunjucks',
       },
-    } as any,
+    },
     news: {
       pageSize: 30,
       serverUrl: 'https://hacker-news.firebaseio.com/v0',
