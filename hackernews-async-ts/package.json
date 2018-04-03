@@ -23,7 +23,7 @@
     "cheerio": "^1.0.0-rc.2",
     "egg-bin": "^4.6.0",
     "egg-mock": "^3.16.0",
-    "egg-ts-helper": "^1.1.3",
+    "egg-ts-helper": "^1.4.2",
     "rimraf": "^2.6.1",
     "tslib": "^1.8.1",
     "tslint": "^4.0.0",

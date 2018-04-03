@@ -1,9 +1,18 @@
 'use strict';
-import { EggAppConfig } from 'egg';
+import { EggAppConfig, EggConfig, PowerPartial } from 'egg';
 import * as fs from 'fs';
 import * as path from 'path';
 
-export default (appInfo: EggAppConfig) => {
+export interface BizConfig {
+  [key: string]: any;
+  news: {
+    pageSize: number;
+    serverUrl: string;
+  };
+}
+
+export type DefaultConfig = EggConfig & PowerPartial<BizConfig>;
+export default (appInfo: EggAppConfig): EggConfig & BizConfig => {
   return {
     keys: appInfo.name + '123456',
     siteFile: {
@@ -16,16 +25,9 @@ export default (appInfo: EggAppConfig) => {
       mapping: {
         '.tpl': 'nunjucks',
       },
-    },
+    } as any,
     news: {
-      /**
-       * page size
-       */
       pageSize: 30,
-
-      /**
-       * hacker news server url
-       */
       serverUrl: 'https://hacker-news.firebaseio.com/v0',
     },
   };
