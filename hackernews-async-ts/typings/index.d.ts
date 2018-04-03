@@ -1,5 +1,3 @@
-import { EggAppConfig } from 'egg';
-
 // extend egg
 declare module 'egg' {
   type PowerPartial<T> = {
@@ -7,6 +5,4 @@ declare module 'egg' {
       ? { [V in keyof T[U]]?: T[U][V] extends {} ? Partial<T[U][V]> : T[U][V] }
       : T[U]
   };
-
-  type EggConfig = PowerPartial<EggAppConfig>;
 }
