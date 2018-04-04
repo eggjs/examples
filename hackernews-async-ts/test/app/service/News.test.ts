@@ -3,7 +3,7 @@
 import { Context } from 'egg';
 import { app, assert } from 'egg-mock/bootstrap';
 
-describe('test/app/service/HackerNews.test.js', () => {
+describe('test/app/service/News.test.js', () => {
   let ctx: Context;
 
   before(async () => {
@@ -11,12 +11,12 @@ describe('test/app/service/HackerNews.test.js', () => {
   });
 
   it('getTopStories', async () => {
-    const list = await ctx.service.hackerNews.getTopStories();
+    const list = await ctx.service.news.getTopStories();
     assert(list.length === 30);
   });
 
   it('getItem', async () => {
-    const item = await ctx.service.hackerNews.getItem(1);
+    const item = await ctx.service.news.getItem(1);
     assert(item.id && item.title && item.url);
   });
 });
