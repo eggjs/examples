@@ -4,10 +4,10 @@ import { EggAppConfig, PowerPartial } from 'egg';
 import * as fs from 'fs';
 import * as path from 'path';
 
-// 提供给 config.{env}.ts 使用
+// for config.{env}.ts
 export type DefaultConfig = PowerPartial<EggAppConfig & BizConfig>;
 
-// 应用本身的配置 Scheme
+// app special config scheme
 export interface BizConfig {
   sourceUrl: string;
   news: {
@@ -19,14 +19,14 @@ export interface BizConfig {
 export default (appInfo: EggAppConfig) => {
   const config = {} as PowerPartial<EggAppConfig> & BizConfig;
 
-  // 应用本身的配置
+  // app special config
   config.sourceUrl = `https://github.com/eggjs/examples/tree/master/${appInfo.name}`;
   config.news = {
     pageSize: 30,
     serverUrl: 'https://hacker-news.firebaseio.com/v0',
   };
 
-  // 覆盖框架，插件的配置
+  // override config from framework / plugin
   config.keys = appInfo.name + '123456';
 
   config.view = {
