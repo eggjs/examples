@@ -1,17 +1,29 @@
 {
-  "name": "egg-example-hackernews-async-ts",
+  "name": "hackernews-async-ts",
   "version": "1.0.0",
-  "description": "hackernews showcase using async/await for egg",
+  "description": "hackernews showcase using typescript && egg",
   "private": true,
   "egg": {
     "typescript": true
   },
+  "scripts": {
+    "start": "egg-scripts start",
+    "dev": "egg-bin dev -r egg-ts-helper/register",
+    "tsc": "ets && tsc -p tsconfig.json",
+    "clean": "ets clean",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test -r egg-ts-helper/register",
+    "cov": "egg-bin cov",
+    "lint": "tslint .",
+    "ci": "npm run lint && npm run tsc && npm run cov --no-ts",
+    "debug": "egg-bin debug",
+    "autod": "autod"
+  },
   "dependencies": {
-    "egg": "^2.5.0",
+    "egg": "^2.6.0",
     "egg-scripts": "^2.5.1",
     "egg-view-nunjucks": "^2.2.0",
-    "moment": "^2.21.0",
-    "source-map-support": "^0.5.4"
+    "moment": "^2.21.0"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.1",
@@ -31,18 +43,5 @@
   },
   "engines": {
     "node": ">=8.9.0"
-  },
-  "scripts": {
-    "start": "egg-scripts start",
-    "dev": "egg-bin dev -r egg-ts-helper/register",
-    "tsc": "ets && tsc -p tsconfig.json",
-    "clean": "ets clean",
-    "test": "npm run lint -- --fix && npm run test-local",
-    "test-local": "egg-bin test -r egg-ts-helper/register",
-    "cov": "egg-bin cov",
-    "lint": "tslint .",
-    "ci": "npm run lint && npm run cov",
-    "debug": "egg-bin debug",
-    "autod": "autod"
   }
 }

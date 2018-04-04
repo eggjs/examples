@@ -2,6 +2,10 @@
 
 import * as moment from 'moment';
 
-exports.relativeTime = (time) => moment(new Date(time * 1000)).fromNow();
+export function relativeTime(time) {
+  return moment(new Date(time * 1000)).fromNow();
+};
 
-exports.domain = (url) => url && url.split('/')[2];
+export function domain (url) {
+  return url && url.split('/')[2];
+};
