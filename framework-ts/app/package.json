@@ -17,7 +17,7 @@
     "autod": "autod",
     "clean": "rimraf app/**/*.{js,map} test/**/*.{js,map} config/**/*.{js,map}",
     "ci": "npm run lint && npm run cov",
-    "cov": "egg-bin cov",
+    "cov": "npm run tsc && egg-bin cov",
     "debug": "egg-bin debug",
     "dev": "egg-bin dev",
     "lint": "tslint --fix -p tsconfig.json -t stylish",
