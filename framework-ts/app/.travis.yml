@@ -3,6 +3,7 @@ language: node_js
 node_js:
   - '8'
 install:
+  - npm i -g ts-node
   - npm i npminstall && npminstall
 script:
   - npm run ci
