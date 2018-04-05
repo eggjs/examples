@@ -29,7 +29,7 @@
   "scripts": {
     "clean": "rimraf app/**/*.{js,map} test/**/*.{js,map} config/**/*.{js,map}",
     "lint": "tslint --fix -p tsconfig.json -t stylish",
-    "test": "egg-bin test",
+    "test": "npm run tsc && egg-bin test",
     "test-local": "egg-bin test",
     "tsc": "tsc -p tsconfig.json",
     "tsc:w": "tsc -p tsconfig.json -w"
