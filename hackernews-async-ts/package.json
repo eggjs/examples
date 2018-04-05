@@ -12,9 +12,9 @@
     "debug": "egg-bin debug -r egg-ts-helper/register",
     "test-local": "egg-bin test -r egg-ts-helper/register",
     "test": "npm run lint -- --fix && npm run test-local",
-    "cov": "egg-bin cov",
+    "cov": "egg-bin cov -r egg-ts-helper/register",
     "tsc": "ets && tsc -p tsconfig.json",
-    "ci": "npm run lint && npm run tsc && egg-bin cov --no-ts",
+    "ci": "npm run lint && npm run cov && npm run tsc",
     "autod": "autod",
     "lint": "tslint .",
     "clean": "ets clean"
@@ -36,8 +36,7 @@
     "egg-bin": "^4.6.2",
     "egg-mock": "^3.16.0",
     "egg-ts-helper": "^1.4.2",
-    "rimraf": "^2.6.1",
-    "tslib": "^1.8.1",
+    "tslib": "^1.9.0",
     "tslint": "^4.0.0",
     "typescript": "^2.8.1"
   },
