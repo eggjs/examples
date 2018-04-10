@@ -1,15 +1,13 @@
-import { EggAppConfig } from 'egg'
+import { EggAppConfig, PowerPartial } from 'egg';
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
-import defaultConfig from './defaultConfig'
 
+// for config.{env}.ts
+export type DefaultConfig = PowerPartial<EggAppConfig>;
 
 export default (appInfo: EggAppConfig) => {
-  const config: any = {}
-
-  // should change to your own for every new project!
-  config.keys = appInfo.name + 1234567890
+  const config = <PowerPartial<EggAppConfig>> {}
 
   /**
    * some description
@@ -20,15 +18,14 @@ export default (appInfo: EggAppConfig) => {
     key: appInfo.name + '_123456',
   }
 
-  // config.siteFile = {
-  //   '/favicon.ico': readFileSync(join(appInfo.baseDir, 'app/public/favicon.png')),
-  // }
-
   config.view = {
     defaultViewEngine: 'nunjucks',
     mapping: { '.tpl': 'nunjucks' },
   }
 
+  config.siteFile = {
+    '/favicon.ico': readFileSync(join(appInfo.baseDir, 'app/public/favicon.png')),
+  };
 
-  return { ...config, ...defaultConfig }
+  return config;
 }
