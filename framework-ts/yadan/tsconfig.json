@@ -19,6 +19,7 @@
     "types" : ["node"]
   },
   "include": [
+    "./*.ts",
     "app/**/*",
     "config/**/*",
     "test/**/*.ts"
