@@ -7,22 +7,22 @@ module.exports = {
   devprefix: '^',
   exclude: [
     'test/fixtures',
+    'coverage',
   ],
   dep: [
     'egg',
     'egg-scripts',
     'egg-view-nunjucks',
     'moment',
-    'source-map-support',
   ],
   devdep: [
     'autod',
     'autod-egg',
     'egg-bin',
-  ],
-  keep: [
     'tslib',
     'typescript',
+  ],
+  keep: [
   ],
   semver: [
   ],

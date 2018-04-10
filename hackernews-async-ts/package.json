@@ -1,17 +1,29 @@
 {
-  "name": "egg-example-hackernews-async-ts",
+  "name": "hackernews-async-ts",
   "version": "1.0.0",
-  "description": "hackernews showcase using async/await for egg",
+  "description": "hackernews showcase using typescript && egg",
   "private": true,
   "egg": {
     "typescript": true
   },
+  "scripts": {
+    "start": "egg-scripts start",
+    "dev": "egg-bin dev -r egg-ts-helper/register",
+    "debug": "egg-bin debug -r egg-ts-helper/register",
+    "test-local": "egg-bin test -r egg-ts-helper/register",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "cov": "egg-bin cov -r egg-ts-helper/register",
+    "tsc": "ets && tsc -p tsconfig.json",
+    "ci": "npm run lint && npm run cov && npm run tsc",
+    "autod": "autod",
+    "lint": "tslint .",
+    "clean": "ets clean"
+  },
   "dependencies": {
-    "egg": "^2.5.0",
-    "egg-scripts": "^2.5.1",
+    "egg": "^2.6.0",
+    "egg-scripts": "^2.6.0",
     "egg-view-nunjucks": "^2.2.0",
-    "moment": "^2.21.0",
-    "source-map-support": "^0.5.4"
+    "moment": "^2.22.0"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.1",
@@ -21,28 +33,14 @@
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
     "cheerio": "^1.0.0-rc.2",
-    "egg-bin": "^4.6.0",
+    "egg-bin": "^4.6.2",
     "egg-mock": "^3.16.0",
-    "egg-ts-helper": "^1.1.3",
-    "rimraf": "^2.6.1",
-    "tslib": "^1.8.1",
+    "egg-ts-helper": "^1.4.2",
+    "tslib": "^1.9.0",
     "tslint": "^4.0.0",
     "typescript": "^2.8.1"
   },
   "engines": {
     "node": ">=8.9.0"
-  },
-  "scripts": {
-    "start": "egg-scripts start",
-    "dev": "egg-bin dev -r egg-ts-helper/register",
-    "tsc": "ets && tsc -p tsconfig.json",
-    "clean": "ets clean",
-    "test": "npm run lint -- --fix && npm run test-local",
-    "test-local": "egg-bin test -r egg-ts-helper/register",
-    "cov": "egg-bin cov",
-    "lint": "tslint .",
-    "ci": "npm run lint && npm run cov",
-    "debug": "egg-bin debug",
-    "autod": "autod"
   }
 }

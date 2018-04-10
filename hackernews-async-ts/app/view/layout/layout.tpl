@@ -13,7 +13,7 @@
         <a id="yc" href="http://www.ycombinator.com"><img src="https://news.ycombinator.com/y18.gif"></a>
         <h1><a href="/news">Hacker News</a></h1>
         <span class="source">
-          Built with <a href="https://eggjs.org/" target="_blank">egg</a> | <a href="https://github.com/eggjs/egg-boilerplate-simple" target="_blank">Source</a>
+          Built with <a href="https://eggjs.org/" target="_blank">Egg</a> | <a href="https://github.com/eggjs/examples/tree/master/hackernews-async-ts" target="_blank">Source</a>
         </span>
       </div>
       {% block content %}{% endblock %}
