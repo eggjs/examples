@@ -26,7 +26,9 @@ process.on('message', (msg: ClusterMsg) => {
     const { action, data, from, to } = msg
     // let titleNew = data.title ? data.title : data.baseDir
 
-    console.info('::message:', process.pid, process.ppid, msg)
+    // process.ppid need node.js v8.10
+    // console.info('::message:', process.pid, process.ppid, msg)
+    console.info('::message:', process.pid, msg)
     console.info('::window title:' + process.title)
     if (action === 'egg-ready') {
       if (to === 'app' && from === 'master') {
