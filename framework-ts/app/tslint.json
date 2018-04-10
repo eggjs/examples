@@ -9,14 +9,14 @@
   "rules": {
     "adjacent-overload-signatures": true,
     "align": [true, "members", "parameters", "statements"],
-    "array-bracket-spacing": [true, "never", {"singleValue": false, "objectsInArrays": true, "arraysInArrays": true} ],	// 设置在括号内使用空格风格
+    "array-bracket-spacing": [true, "never", {"singleValue": false, "objectsInArrays": true, "arraysInArrays": true} ],
     "arrow-parens": [true, "ban-single-arg-parens"],
-    "await-promise": [true, "Thenable"],  // Warns for an awaited value that is not a Promise.
+    "await-promise": [true, "Thenable"],
     "ban-comma-operator": true,
-    "block-spacing": [true, "always"],	// 强制在单行代码块中使用一致的空格
-    "brace-style": [true, "stroustrup", { "allowSingleLine": true }],	// 大括号风格要求 
-    "comment-format": [true, "check-space", {"ignore-words": ["-", "+"]}],  // 强制在注释中 // 或 /* 使用一致的空格 
-    "curly": [true, "ignore-same-line"],	// 要求遵循大括号约定 
+    "block-spacing": [true, "always"],
+    "brace-style": [true, "stroustrup", { "allowSingleLine": true }],
+    "comment-format": [true, "check-space", {"ignore-words": ["-", "+"]}],
+    "curly": [true, "ignore-same-line"],
     "eofline": true,
     "forin": false,
     "import-blacklist": [
@@ -43,22 +43,22 @@
     ]}],
     "no-arg": true,
     "no-angle-bracket-type-assertion": false,
-    "no-consecutive-blank-lines": [true, 4],	// 多个空行控制
+    "no-consecutive-blank-lines": [true, 4],
     "no-console": [ true, "dir", "log", "warn" ],
-    "no-construct": true,	// 禁止对 String，Number 和 Boolean 使用 new 操作符
+    "no-construct": true,
     "no-control-regex": true,
     "no-duplicate-variable": true,
-    "no-duplicate-imports": true, // 禁止单个模块多次导入
+    "no-duplicate-imports": true, 
     "no-duplicate-switch-case": true,
-    "no-empty": false,  // 禁止空块语句
+    "no-empty": false, 
     "no-extra-semi": true,
     "no-eval": true,
     "no-implicit-dependencies": [true, "dev"],
-    "no-multi-spaces": [ true, { "exceptions": { "PropertyAssignment": true, "VariableDeclaration": false } } ] ,	// 禁止出现多个空格
+    "no-multi-spaces": [ true, { "exceptions": { "PropertyAssignment": true, "VariableDeclaration": false } } ],
     "no-object-literal-type-assertion": false,
-    "no-parameter-reassignment": false, // 禁止参数变量重新赋值
+    "no-parameter-reassignment": false, 
     "no-return-await": true,
-    "no-reference": true, // Disallows /// <reference path=> imports (use ES6-style imports instead).
+    "no-reference": true,
     "no-shadowed-variable": [
       true,
       {
@@ -77,18 +77,18 @@
       "@angular/platform-browser",
       "source-map-support/register"
     ],
-    "no-trailing-whitespace": [true, "ignore-comments"],	// 禁用行尾空白 
-    "no-unnecessary-initializer": true, // 禁止变量赋值为 undefined 
+    "no-trailing-whitespace": [true, "ignore-comments"],
+    "no-unnecessary-initializer": true,
     "no-unused-expression": [true, "allow-fast-null-checks"],
     "no-unused-variable": {
       "severity": "warning",
       "options": [true, { "ignore-pattern": "^_" }]
     },
     "no-unnecessary-type-assertion": false,
-    "no-use-before-declare": true,  // 禁止在变量定义之前使用它们
-    "no-var-keyword": true,  // 要求使用 let 或 const 而不是 var
-    "no-var-requires": true,  // Disallows the use of require statements except in import statements.
-    "object-curly-spacing": [true, "always"],	// 强制在大括号中使用一致的空格
+    "no-use-before-declare": true, 
+    "no-var-keyword": true, 
+    "no-var-requires": true,
+    "object-curly-spacing": [true, "always"],
     "object-literal-shorthand": [true],
     "object-literal-sort-keys": false,
     "one-line": [true, "check-open-brace", "check-whitespace"],
@@ -108,14 +108,14 @@
       true, 
       {"anonymous": "always", "named": "never"}
     ],
-    "ter-arrow-spacing": [true, { "before": true, "after": true }],	// 要求箭头函数的箭头之前或之后有空格
-    "ter-func-call-spacing": [true, "never"],	// disallow spacing between function identifiers and their invocations
+    "ter-arrow-spacing": [true, { "before": true, "after": true }],
+    "ter-func-call-spacing": [true, "never"],
     "ter-indent": [true, 2, 
       {
         "SwitchCase": 1
       }
     ],
-    "ter-no-irregular-whitespace": true, // 禁止不规则的空白
+    "ter-no-irregular-whitespace": true,
     "trailing-comma": [true, 
       {
         "multiline": {
@@ -129,10 +129,10 @@
         "singleline": "never",
         "esSpecCompliant": true
       }
-    ],	// 当最后一个元素或属性与闭括号 ] 或 右大括号 在 不同的行时，要求使用拖尾逗号；当在 同一行时，禁止使用拖尾逗号
+    ],
     "triple-equals": true,
-    "use-isnan": true, // 要求使用 isNaN() 检查 NaN
-    "valid-typeof": true,  // 强制 typeof 表达式与有效的字符串进行比较 
+    "use-isnan": true,
+    "valid-typeof": true,
     "variable-name": [true, "ban-keywords", "allow-leading-underscore"],
     "whitespace": {
       "options": [true, 
