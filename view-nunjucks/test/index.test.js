@@ -1,6 +1,5 @@
 'use strict';
 
-
 const mm = require('egg-mock');
 
 describe('example view-nunjucks test', () => {

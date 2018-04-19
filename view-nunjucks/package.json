@@ -6,11 +6,14 @@
   },
   "devDependencies": {
     "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1"
+    "egg-mock": "^3.13.1",
+    "macaca-electron": "^1.1.19",
+    "macaca-wd": "^1.0.37"
   },
   "scripts": {
     "dev": "egg-bin dev",
     "test": "egg-bin test",
+    "test:ui": "macaca run -d ./uitest --reporter macaca-reporter",
     "cov": "egg-bin cov"
   },
   "private": true
