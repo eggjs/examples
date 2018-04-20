@@ -4,7 +4,7 @@ coverage
 npm-debug.log
 .logs
 logs
-*.swp
+*.sw*
 run
 *-run
 .idea
@@ -19,4 +19,6 @@ assets-with-umi/config/manifest.json
 .umi
 .umi-production
 dist
+screenshots
+reports
 .history
