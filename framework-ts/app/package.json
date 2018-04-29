@@ -2,12 +2,12 @@
   "name": "framework-ts-example",
   "version": "1.0.0",
   "dependencies": {
-    "egg": "^2.6.0",
+    "egg": "^2.7.1",
     "egg-scripts": "^2.6.0",
     "yadan-ts": "../yadan"
   },
   "devDependencies": {
-    "egg-bin": "^4.3.5",
+    "egg-bin": "^4.7.0",
     "egg-mock": "^3.13.1"
   },
   "engines": {
