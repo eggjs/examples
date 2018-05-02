@@ -2,7 +2,7 @@
 
 const Controller = require('egg').Controller;
 
-class UserController extends Controller {
+class PostController extends Controller {
   async posts() {
     const ctx = this.ctx;
     ctx.body = await ctx.service.post.list(ctx.query);
@@ -38,4 +38,4 @@ class UserController extends Controller {
   }
 }
 
-module.exports = UserController;
+module.exports = PostController;
