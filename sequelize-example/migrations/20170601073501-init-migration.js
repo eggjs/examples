@@ -1,9 +1,12 @@
 'use strict';
 
 module.exports = {
-  up: async function (db, Sequelize) {
-    const { INTEGER, DATE, STRING } = Sequelize;
-
+  async up(db, Sequelize) {
+    const {
+      INTEGER,
+      DATE,
+      STRING,
+    } = Sequelize;
     await db.createTable('users', {
       id: {
         type: INTEGER,
@@ -37,7 +40,7 @@ module.exports = {
     });
   },
 
-  down: async function (db) {
+  async down(db) {
     await db.dropTable('posts');
     await db.dropTable('users');
   },
