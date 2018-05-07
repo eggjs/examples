@@ -1,11 +1,13 @@
 'use strict';
-const co = require('co');
 
 module.exports = {
-  up: co.wrap(function* (db, Sequelize) {
-    const { INTEGER, DATE, STRING } = Sequelize;
-
-    yield db.createTable('users', {
+  async up(db, Sequelize) {
+    const {
+      INTEGER,
+      DATE,
+      STRING,
+    } = Sequelize;
+    await db.createTable('users', {
       id: {
         type: INTEGER,
         primaryKey: true,
@@ -16,7 +18,7 @@ module.exports = {
       created_at: DATE,
       updated_at: DATE,
     });
-    yield db.createTable('posts', {
+    await db.createTable('posts', {
       id: {
         type: INTEGER,
         primaryKey: true,
@@ -36,10 +38,10 @@ module.exports = {
       created_at: DATE,
       updated_at: DATE,
     });
-  }),
+  },
 
-  down: co.wrap(function* (db) {
-    yield db.dropTable('posts');
-    yield db.dropTable('users');
-  }),
+  async down(db) {
+    await db.dropTable('posts');
+    await db.dropTable('users');
+  },
 };
