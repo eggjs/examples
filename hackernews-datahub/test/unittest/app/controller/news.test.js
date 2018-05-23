@@ -21,4 +21,4 @@ describe('test/app/controller/news.test.js', () => {
     const listItem = $('.news-view .item');
     assert(listItem.length > 0);
   });
- });
+});

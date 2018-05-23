@@ -22,6 +22,7 @@ $ npm run dev
 - [framework](https://github.com/eggjs/examples/tree/master/framework)
 - [hackernews-async-ts](https://github.com/eggjs/examples/tree/master/hackernews-async-ts)
 - [hackernews](https://github.com/eggjs/examples/tree/master/hackernews)
+- [hackernews-datahub](https://github.com/eggjs/examples/tree/master/hackernews-datahub)
 - [helloworld](https://github.com/eggjs/examples/tree/master/helloworld)
 - [httpclient](https://github.com/eggjs/examples/tree/master/httpclient)
 - [ipc](https://github.com/eggjs/examples/tree/master/ipc)

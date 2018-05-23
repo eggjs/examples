@@ -2,6 +2,9 @@
 
 {% block content %}
   <div class="news-view view v-transition">
+    {% if list.length === 0 %}
+      <p class="empty">empty</p>
+    {% endif %}
     {% for item in list %}
       {% set index = ((page-1) * pageSize + loop.index) %}
       {% include "./item.tpl" %}

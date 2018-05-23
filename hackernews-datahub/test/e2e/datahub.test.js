@@ -1,15 +1,11 @@
 'use strict';
 
-const { assert } = require('chai');
-const { webpackHelper } = require('macaca-wd');
+const {
+  driver,
+  BASE_URL,
+} = require('./helper');
 
-const { driver } = webpackHelper;
-
-const shouldContains = (...substrs) => str => {
-  substrs.forEach(substr => assert.include(str, substr));
-};
-
-const BASE_URL = 'http://127.0.0.1:7001'
+// API Document: https://macacajs.github.io/macaca-wd/
 
 describe('test/datahub.test.js', () => {
 
@@ -18,13 +14,13 @@ describe('test/datahub.test.js', () => {
     before(() => {
       return driver
         .initWindow({
-          width: 1280,
-          height: 800,
-          deviceScaleFactor: 2
+          width: 800,
+          height: 600,
+          deviceScaleFactor: 2,
         });
     });
 
-    afterEach(function () {
+    afterEach(function() {
       return driver
         .coverage()
         .saveScreenshots(this);
@@ -41,8 +37,8 @@ describe('test/datahub.test.js', () => {
         .quit();
     });
 
-    it('default render should be ok', async function () {
-       return driver
+    it('default render should be ok', async function() {
+      return driver
         .switchScene({
           hub: 'hackernews',
           pathname: 'getTopStories',
@@ -50,13 +46,10 @@ describe('test/datahub.test.js', () => {
         })
         .getUrl(BASE_URL)
         .sleep(1000)
-        .elementByCss('#wrapper > div.news-view.view.v-transition > div:nth-child(10) > span')
-        .text()
-        .then(shouldContains('10'))
-        .sleep(1000);
+        .hasText('#wrapper > div.news-view.view.v-transition > div:nth-child(10) > span', '10');
     });
 
-    it('list20 render should be ok', async function () {
+    it('list20 render should be ok', async function() {
       return driver
         .switchScene({
           hub: 'hackernews',
@@ -65,13 +58,10 @@ describe('test/datahub.test.js', () => {
         })
         .getUrl(BASE_URL)
         .sleep(1000)
-        .elementByCss('#wrapper > div.news-view.view.v-transition > div:nth-child(20) > span')
-        .text()
-        .then(shouldContains('20'))
-        .sleep(1000);
+        .hasText('#wrapper > div.news-view.view.v-transition > div:nth-child(20) > span', '20');
     });
 
-    it('list5 render should be ok', async function () {
+    it('list5 render should be ok', async function() {
       return driver
         .switchScene({
           hub: 'hackernews',
@@ -80,10 +70,19 @@ describe('test/datahub.test.js', () => {
         })
         .getUrl(BASE_URL)
         .sleep(1000)
-        .elementByCss('#wrapper > div.news-view.view.v-transition > div:nth-child(5) > span')
-        .text()
-        .then(shouldContains('5'))
-        .sleep(1000);
+        .hasText('#wrapper > div.news-view.view.v-transition > div:nth-child(5) > span', '5');
+    });
+
+    it('list0 render should be empty', async function() {
+      return driver
+        .switchScene({
+          hub: 'hackernews',
+          pathname: 'getTopStories',
+          scene: 'empty',
+        })
+        .getUrl(BASE_URL)
+        .sleep(1000)
+        .hasText('#wrapper > div.news-view.view.v-transition > p', 'empty');
     });
   });
 });
