@@ -17,7 +17,9 @@ module.exports = appInfo => {
   config.news = {
     pageSize: 30,
     serverUrl: 'https://hacker-news.firebaseio.com/v0',
-    getTopStories: `http://${ipv4}:7001/api/news`,
+    getTopStories: process.env.MOCK
+      ? 'http://localhost:5678/data/hackernews/getTopStories'
+      : `http://${ipv4}:7001/api/news`,
   };
 
   config.view = {
@@ -26,6 +28,13 @@ module.exports = appInfo => {
       '.tpl': 'nunjucks',
       '.nj': 'nunjucks',
     },
+  };
+
+  // https://github.com/macacajs/macaca-datahub#configuration
+
+  config.datahub = {
+    port: 5678,
+    store: path.resolve(__dirname, '..', 'data'),
   };
 
   return config;

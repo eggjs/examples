@@ -4,7 +4,7 @@
 const cheerio = require('cheerio');
 const { mock, assert } = require('egg-mock/bootstrap');
 
-describe('test/app/controller/news.test.js', () => {
+describe('test/unittest/app/controller/news.test.js', () => {
   let app;
   before(async () => {
     app = mock.app();

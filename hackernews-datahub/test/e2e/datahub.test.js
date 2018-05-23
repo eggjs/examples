@@ -22,7 +22,6 @@ describe('test/datahub.test.js', () => {
 
     afterEach(function() {
       return driver
-        .coverage()
         .saveScreenshots(this);
     });
 
