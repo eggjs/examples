@@ -1,11 +1,24 @@
 # Examples for [egg](https://github.com/eggjs/egg)
 
+---
+
+[![build status][travis-image]][travis-url]
+[![node version][node-image]][node-url]
+[![egg version][egg-image]][egg-url]
+
+[travis-image]: https://img.shields.io/travis/eggjs/examples.svg?style=flat-square
+[travis-url]: https://travis-ci.org/eggjs/examples
+[node-image]: https://img.shields.io/badge/node.js-%3E=_8-green.svg?style=flat-square
+[node-url]: http://nodejs.org/download/
+[egg-image]: https://img.shields.io/badge/egg-%3E=_1-green.svg?style=flat-square
+[egg-url]: https://github.com/eggjs/egg
+
 ## Usage
 
-Find the example, then run command below. For example run the [httpclient] example
+Find the example, then run command below. For example, run the [hackernews-datahub] example:
 
 ```bash
-$ cd httpclient
+$ cd hackernews-datahub
 $ npm install
 $ npm run dev
 ```
