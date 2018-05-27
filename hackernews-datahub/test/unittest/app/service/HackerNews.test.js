@@ -2,7 +2,7 @@
 
 const { mock, assert } = require('egg-mock/bootstrap');
 
-describe('test/app/service/HackerNews.test.js', () => {
+describe('test/unittest/app/service/HackerNews.test.js', () => {
   let app;
   let ctx;
 

@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const ipv4 = require('ipv4');
 
 module.exports = appInfo => {
   const config = {};
@@ -14,10 +13,14 @@ module.exports = appInfo => {
     '/favicon.ico': fs.readFileSync(path.join(appInfo.baseDir, 'app/public/favicon.png')),
   };
 
+  const mockPort = 5678;
+  const hubName = 'hackernews';
+
   config.news = {
     pageSize: 30,
-    serverUrl: 'https://hacker-news.firebaseio.com/v0',
-    getTopStories: `http://${ipv4}:7001/api/news`,
+    serverUrl: process.env.MOCK
+      ? `http://localhost:${mockPort}/data/${hubName}`
+      : 'https://hacker-news.firebaseio.com/v0',
   };
 
   config.view = {
@@ -26,6 +29,13 @@ module.exports = appInfo => {
       '.tpl': 'nunjucks',
       '.nj': 'nunjucks',
     },
+  };
+
+  // https://github.com/macacajs/macaca-datahub#configuration
+
+  config.datahub = {
+    port: mockPort,
+    store: path.resolve(__dirname, '..', 'data'),
   };
 
   return config;

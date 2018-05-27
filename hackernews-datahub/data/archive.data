@@ -1,8 +1,8 @@
 [
   {
     "identifer": "hackernews",
-    "pathname": "getTopStories",
-    "description": "getTopStories",
+    "pathname": "topstories.json",
+    "description": "get top stories",
     "method": "ALL",
     "currentScene": "default",
     "proxyContent": "{\"statusCode\":\"200\",\"responseHeaders\":{}}",
