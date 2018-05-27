@@ -13,10 +13,13 @@ module.exports = appInfo => {
     '/favicon.ico': fs.readFileSync(path.join(appInfo.baseDir, 'app/public/favicon.png')),
   };
 
+  const mockPort = 5678;
+  const hubName = 'hackernews';
+
   config.news = {
     pageSize: 30,
     serverUrl: process.env.MOCK
-      ? 'http://localhost:5678/data/hackernews'
+      ? `http://localhost:${mockPort}/data/${hubName}`
       : 'https://hacker-news.firebaseio.com/v0',
   };
 
@@ -31,7 +34,7 @@ module.exports = appInfo => {
   // https://github.com/macacajs/macaca-datahub#configuration
 
   config.datahub = {
-    port: 5678,
+    port: mockPort,
     store: path.resolve(__dirname, '..', 'data'),
   };
 
