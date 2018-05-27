@@ -1,10 +1,8 @@
 'use strict';
 
+const { mock } = require('egg-mock/bootstrap');
 
-const cheerio = require('cheerio');
-const { mock, assert } = require('egg-mock/bootstrap');
-
-describe('test/unittest/app/controller/news.test.js', () => {
+describe('test/app/controller/news.test.js', () => {
   let app;
   before(async () => {
     app = mock.app();
@@ -16,9 +14,6 @@ describe('test/unittest/app/controller/news.test.js', () => {
   afterEach(mock.restore);
 
   it('should GET /news', async () => {
-    const result = await app.httpRequest().get('/news').expect(200);
-    const $ = cheerio.load(result.text);
-    const listItem = $('.news-view .item');
-    assert(listItem.length > 0);
+    await app.httpRequest().get('/news').expect(200);
   });
 });

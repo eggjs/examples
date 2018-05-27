@@ -29,7 +29,7 @@ describe('test/datahub.test.js', () => {
       return driver
         .switchAllScenes({
           hub: 'hackernews',
-          pathname: 'getTopStories',
+          pathname: 'topstories.json',
           scene: 'default',
         })
         .openReporter(true)
@@ -40,7 +40,7 @@ describe('test/datahub.test.js', () => {
       return driver
         .switchScene({
           hub: 'hackernews',
-          pathname: 'getTopStories',
+          pathname: 'topstories.json',
           scene: 'default',
         })
         .getUrl(BASE_URL)
@@ -52,7 +52,7 @@ describe('test/datahub.test.js', () => {
       return driver
         .switchScene({
           hub: 'hackernews',
-          pathname: 'getTopStories',
+          pathname: 'topstories.json',
           scene: 'list20',
         })
         .getUrl(BASE_URL)
@@ -64,7 +64,7 @@ describe('test/datahub.test.js', () => {
       return driver
         .switchScene({
           hub: 'hackernews',
-          pathname: 'getTopStories',
+          pathname: 'topstories.json',
           scene: 'list5',
         })
         .getUrl(BASE_URL)
@@ -76,7 +76,7 @@ describe('test/datahub.test.js', () => {
       return driver
         .switchScene({
           hub: 'hackernews',
-          pathname: 'getTopStories',
+          pathname: 'topstories.json',
           scene: 'empty',
         })
         .getUrl(BASE_URL)
