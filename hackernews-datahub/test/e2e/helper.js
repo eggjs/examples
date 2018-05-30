@@ -1,8 +1,5 @@
 'use strict';
 
-const {
-  assert,
-} = require('chai');
 const wd = require('macaca-wd');
 
 const {
