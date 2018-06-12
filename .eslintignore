@@ -7,3 +7,4 @@ coverage
 hackernews-async-ts/**/*.js
 assets-with-roadhog/app/assets/**/*.js
 **/app/assets
+zookeeper-3.4.6/
