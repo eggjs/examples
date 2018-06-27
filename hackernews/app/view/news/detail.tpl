@@ -6,7 +6,7 @@
     {% include "./item.tpl" %}
     <!-- comments -->
     {% if comments.length > 0%}
-      <ul class="comments"
+      <ul class="comments">
         {% for comment in comments %}
           <li>
             <div class="comhead">
