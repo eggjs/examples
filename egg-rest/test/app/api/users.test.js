@@ -46,7 +46,6 @@ describe('test/app/api/users.test.js', () => {
 
   describe('update()', () => {
     it('should success', async function() {
-      app.mockCsrf();
       await app.httpRequest()
         .put('/api/v1/users/1')
         .send({
@@ -66,7 +65,6 @@ describe('test/app/api/users.test.js', () => {
 
   describe('del()', () => {
     it('should success', async function() {
-      app.mockCsrf();
       await app.httpRequest()
         .del('/api/v1/users/1')
         .expect(200)
