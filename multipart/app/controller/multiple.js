@@ -3,8 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const Controller = require('egg').Controller;
-const awaitWriteStream = require('await-stream-ready').write;
-const sendToWormhole = require('stream-wormhole');
+const pump = require('mz-modules/pump');
 
 class UploadMultipleController extends Controller {
   async show() {
@@ -20,12 +19,7 @@ class UploadMultipleController extends Controller {
       const filename = stream.filename.toLowerCase();
       const target = path.join(this.config.baseDir, 'app/public', filename);
       const writeStream = fs.createWriteStream(target);
-      try {
-        await awaitWriteStream(stream.pipe(writeStream));
-      } catch (err) {
-        await sendToWormhole(stream);
-        throw err;
-      }
+      await pump(stream, writeStream);
       files.push(filename);
     }
 

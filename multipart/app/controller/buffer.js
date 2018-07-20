@@ -4,7 +4,6 @@ const fs = require('mz/fs');
 const path = require('path');
 const Controller = require('egg').Controller;
 const toArray = require('stream-to-array');
-const sendToWormhole = require('stream-wormhole');
 
 class UploadBufferController extends Controller {
   async show() {
