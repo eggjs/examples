@@ -6,15 +6,11 @@
   "dependencies": {
     "egg": "^2.9.1",
     "egg-rest": "^2.1.0",
-    "egg-sequelize": "^3.0.1",
-    "egg-validate": "^1.0.0",
-    "pg": "^6.2.4",
-    "pg-hstore": "^2.3.2"
+    "egg-validate": "^1.0.0"
   },
   "devDependencies": {
     "egg-bin": "^3.4.2",
-    "egg-mock": "^3.7.2",
-    "lodash": "^4.17.4"
+    "egg-mock": "^3.7.2"
   },
   "engines": {
     "node": ">=8.9.0"
@@ -26,10 +22,7 @@
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
-    "autod": "autod",
-    "migrate:new": "egg-sequelize migration:create",
-    "migrate:up": "egg-sequelize db:migrate",
-    "migrate:down": "egg-sequelize db:migrate:undo"
+    "autod": "autod"
   },
   "ci": {
     "version": "6"
