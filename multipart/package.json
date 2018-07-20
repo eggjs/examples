@@ -4,8 +4,9 @@
     "egg": "^2.9.1",
     "egg-view-nunjucks": "^2.1.4",
     "mz": "^2.7.0",
+    "mz-modules": "^2.1.0",
     "stream-to-array": "^2.3.0",
-    "mz-modules": "^2.1.0"
+    "stream-wormhole": "^1.0.4"
   },
   "devDependencies": {
     "egg-bin": "^4.3.5",
