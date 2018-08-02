@@ -1,0 +1,13 @@
+{
+  "protocol": "http",
+  "pathname": "topstories.json",
+  "method": "ALL",
+  "projectUniqId": "1b18b632-d7d7-4e31-a0df-8708f3accbc1",
+  "description": "get top stories",
+  "currentScene": "default",
+  "proxyConfig": {
+    "proxyList": []
+  },
+  "contextConfig": {},
+  "uniqId": "4b6f9986-ee5a-4e0d-ad76-f61f9e93c896"
+}
