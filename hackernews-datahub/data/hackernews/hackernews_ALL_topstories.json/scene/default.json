@@ -1,0 +1,141 @@
+{
+  "sceneName": "default",
+  "data": {
+    "list": [
+      {
+        "by": "ingve",
+        "descendants": 6,
+        "id": 17045576,
+        "kids": [
+          null
+        ],
+        "score": 59,
+        "time": 1526024150,
+        "title": "Linux sandboxing improvements in Firefox 60",
+        "type": "story",
+        "url": "https://www.morbo.org/2018/05/linux-sandboxing-improvements-in_10.html"
+      },
+      {
+        "by": "mpweiher",
+        "descendants": 89,
+        "id": 17045308,
+        "kids": [
+          null
+        ],
+        "score": 176,
+        "time": 1526019732,
+        "title": "Stanford Study Shows the Productivity Boost of Working From Home",
+        "type": "story",
+        "url": "https://www.thriveglobal.com/stories/30386-a-2-year-stanford-study-shows-the-astonishing-productivity-boost-of-working-from-home"
+      },
+      {
+        "by": "jseliger",
+        "descendants": 15,
+        "id": 17043513,
+        "kids": [
+          null
+        ],
+        "score": 24,
+        "time": 1525991756,
+        "title": "Interviews vs. auditions",
+        "type": "story",
+        "url": "https://ryanholiday.net/heres-the-technique-that-ambitious-people-use-to-get-what-they-want/"
+      },
+      {
+        "by": "DanielRibeiro",
+        "descendants": 5,
+        "id": 17044595,
+        "kids": [
+          null
+        ],
+        "score": 37,
+        "time": 1526006187,
+        "title": "Haskell's Missing Concurrency Basics",
+        "type": "story",
+        "url": "https://www.snoyman.com/blog/2016/11/haskells-missing-concurrency-basics"
+      },
+      {
+        "by": "cbhl",
+        "descendants": 118,
+        "id": 17033798,
+        "kids": [
+          null
+        ],
+        "score": 316,
+        "time": 1525898156,
+        "title": "What’s the waiter doing with the computer screen? (2012)",
+        "type": "story",
+        "url": "https://javlaskitsystem.se/2012/02/whats-the-waiter-doing-with-the-computer-screen/"
+      },
+      {
+        "by": "nopinsight",
+        "descendants": 10,
+        "id": 17045197,
+        "kids": [
+          null
+        ],
+        "score": 25,
+        "time": 1526017420,
+        "title": "The meaning of the Vision Fund",
+        "type": "story",
+        "url": "https://www.economist.com/news/leaders/21741973-succeed-or-fail-masayoshi-son-changing-world-technology-investing-meaning"
+      },
+      {
+        "by": "montrose",
+        "descendants": 56,
+        "id": 17041466,
+        "kids": [
+          null
+        ],
+        "score": 88,
+        "time": 1525975691,
+        "title": "All Work and No Play: Why Kids Are More Anxious, Depressed (2011)",
+        "type": "story",
+        "url": "https://www.theatlantic.com/health/archive/2011/10/all-work-and-no-play-why-your-kids-are-more-anxious-depressed/246422/?single_page=true"
+      },
+      {
+        "by": "clumsysmurf",
+        "descendants": 237,
+        "id": 17043629,
+        "kids": [
+          null
+        ],
+        "score": 510,
+        "time": 1525993095,
+        "title": "Emails Show FDA Chemists Have Been Finding Glyphosate in Food",
+        "type": "story",
+        "url": "https://modernfarmer.com/2018/05/emails-show-fda-chemists-have-been-quietly-finding-glyphosate-in-food/"
+      },
+      {
+        "by": "ohaikbai",
+        "descendants": 12,
+        "id": 17043812,
+        "kids": [
+          null
+        ],
+        "score": 72,
+        "time": 1525995449,
+        "title": "The Billion-Dollar Bank Job",
+        "type": "story",
+        "url": "https://www.nytimes.com/interactive/2018/05/03/magazine/money-issue-bangladesh-billion-dollar-bank-heist.html"
+      },
+      {
+        "by": "rgbrenner",
+        "descendants": 17,
+        "id": 17041758,
+        "kids": [
+          null
+        ],
+        "score": 150,
+        "time": 1525977543,
+        "title": "Lawmakers move to block government from ordering digital back doors",
+        "type": "story",
+        "url": "http://thehill.com/policy/cybersecurity/387122-house-lawmakers-move-to-block-govt-from-ordering-digital-back-doors"
+      }
+    ],
+    "page": 1,
+    "pageSize": 10
+  },
+  "interfaceUniqId": "cb8f0113-4bbc-4f29-97a1-7fc174a2f196",
+  "uniqId": "b9de0a05-6725-4f18-89cb-599ed2dbe4d5"
+}

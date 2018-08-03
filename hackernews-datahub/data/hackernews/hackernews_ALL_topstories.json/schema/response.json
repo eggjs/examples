@@ -1,0 +1,85 @@
+{
+  "type": "response",
+  "data": {
+    "schemaData": {
+      "type": "object",
+      "required": [
+        "page",
+        "pageSize",
+        "list"
+      ],
+      "properties": {
+        "page": {
+          "type": "integer",
+          "description": "current page",
+          "default": ""
+        },
+        "pageSize": {
+          "type": "integer",
+          "description": "page size",
+          "default": ""
+        },
+        "list": {
+          "type": "array",
+          "description": "news content",
+          "items": {
+            "type": "object",
+            "required": [
+              "by",
+              "descendants",
+              "id",
+              "time",
+              "title",
+              "type",
+              "url"
+            ],
+            "properties": {
+              "by": {
+                "type": "string",
+                "description": "author"
+              },
+              "descendants": {
+                "type": "string",
+                "description": ""
+              },
+              "id": {
+                "type": "string",
+                "description": "new id"
+              },
+              "score": {
+                "type": "string",
+                "description": "new score"
+              },
+              "time": {
+                "type": "string",
+                "description": "upload time"
+              },
+              "title": {
+                "type": "string",
+                "description": "new title"
+              },
+              "type": {
+                "type": "string",
+                "description": "new type"
+              },
+              "url": {
+                "type": "string",
+                "description": "new url"
+              },
+              "kids": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "object",
+                  "description": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "interfaceUniqId": "cb8f0113-4bbc-4f29-97a1-7fc174a2f196",
+  "uniqId": "1a8ce920-f75b-4174-b696-182ee3474a30"
+}

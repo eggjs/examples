@@ -1,0 +1,76 @@
+{
+  "sceneName": "list5",
+  "data": {
+    "list": [
+      {
+        "by": "ingve",
+        "descendants": 6,
+        "id": 17045576,
+        "kids": [
+          null
+        ],
+        "score": 59,
+        "time": 1526024150,
+        "title": "Linux sandboxing improvements in Firefox 60",
+        "type": "story",
+        "url": "https://www.morbo.org/2018/05/linux-sandboxing-improvements-in_10.html"
+      },
+      {
+        "by": "mpweiher",
+        "descendants": 89,
+        "id": 17045308,
+        "kids": [
+          null
+        ],
+        "score": 178,
+        "time": 1526019732,
+        "title": "Stanford Study Shows the Productivity Boost of Working From Home",
+        "type": "story",
+        "url": "https://www.thriveglobal.com/stories/30386-a-2-year-stanford-study-shows-the-astonishing-productivity-boost-of-working-from-home"
+      },
+      {
+        "by": "jseliger",
+        "descendants": 16,
+        "id": 17043513,
+        "kids": [
+          null
+        ],
+        "score": 25,
+        "time": 1525991756,
+        "title": "Interviews vs. auditions",
+        "type": "story",
+        "url": "https://ryanholiday.net/heres-the-technique-that-ambitious-people-use-to-get-what-they-want/"
+      },
+      {
+        "by": "DanielRibeiro",
+        "descendants": 5,
+        "id": 17044595,
+        "kids": [
+          null
+        ],
+        "score": 37,
+        "time": 1526006187,
+        "title": "Haskell's Missing Concurrency Basics",
+        "type": "story",
+        "url": "https://www.snoyman.com/blog/2016/11/haskells-missing-concurrency-basics"
+      },
+      {
+        "by": "cbhl",
+        "descendants": 119,
+        "id": 17033798,
+        "kids": [
+          null
+        ],
+        "score": 316,
+        "time": 1525898156,
+        "title": "What’s the waiter doing with the computer screen? (2012)",
+        "type": "story",
+        "url": "https://javlaskitsystem.se/2012/02/whats-the-waiter-doing-with-the-computer-screen/"
+      }
+    ],
+    "page": 1,
+    "pageSize": 5
+  },
+  "interfaceUniqId": "cb8f0113-4bbc-4f29-97a1-7fc174a2f196",
+  "uniqId": "fee43eee-f3cb-4478-be2b-6a7e41fefbe5"
+}
