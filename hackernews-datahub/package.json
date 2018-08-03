@@ -23,7 +23,7 @@
     "eslint-config-egg": "^5.1.1",
     "macaca-cli": "^2.1.2",
     "macaca-electron": "2",
-    "macaca-wd": "1"
+    "macaca-wd": "2"
   },
   "engines": {
     "node": ">=8.9.0"

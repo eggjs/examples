@@ -7,8 +7,8 @@
   "devDependencies": {
     "egg-bin": "^4.3.5",
     "egg-mock": "^3.13.1",
-    "macaca-electron": "^1.1.19",
-    "macaca-wd": "^1.0.37"
+    "macaca-electron": "2",
+    "macaca-wd": "2"
   },
   "scripts": {
     "dev": "egg-bin dev",
