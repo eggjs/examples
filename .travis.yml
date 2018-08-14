@@ -6,3 +6,7 @@ install:
   - npm i npminstall && npminstall
 script:
   - npm run ci
+services:
+  - mysql
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS egg-sequelize-example-unittest;'
