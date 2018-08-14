@@ -8,7 +8,7 @@ class Post extends Service {
       offset,
       limit,
       attributes: [ 'id', 'title', 'user_id', 'created_at', 'updated_at' ],
-      order: [[ 'created_at', 'desc' ]],
+      order: [[ 'created_at', 'desc' ], [ 'id', 'desc' ]],
     };
     if (user_id) {
       options.where = {
@@ -37,21 +37,14 @@ class Post extends Service {
   }
 
   async update({ id, user_id, updates }) {
-    const post = await this.ctx.model.Post.findById(id);
-    if (!post) {
-      this.ctx.throw(404, 'post not found');
-    }
-    if (post.user_id !== user_id) {
-      this.ctx.throw(403, 'not allowed to modify others post');
-    }
+    const post = await this.ctx.model.Post.findByIdWithUser(id, user_id);
+    if (!post) this.ctx.throw(404, 'post not found');
     return post.update(updates);
   }
 
-  async del(id) {
-    const post = await this.ctx.model.Post.findById(id);
-    if (!post) {
-      this.ctx.throw(404, 'post not found');
-    }
+  async destroy({ id, user_id }) {
+    const post = await this.ctx.model.Post.findByIdWithUser(id, user_id);
+    if (!post) this.ctx.throw(404, 'post not found');
     return post.destroy();
   }
 }

@@ -1,38 +1,53 @@
 # sequelize-example
 
-The [egg] example project that uses [egg-sequelize] plugin.
+The [egg] example project that uses [egg-sequelize] plugin. It will show you how to use sequelize in egg project, use [migrations] to help you manage changes of database and use [factory-girl] to help you write test cases more maintainable.
 
 ## QuickStart
 
-<!-- add docs here for user -->
+### Dependencies
 
-see [egg docs][egg] for more detail.
+- install mysql and create database
 
-### Development
-```bash
-$ npm install
-$ createdb example-dev --owner postgres
-$ npm run migrate:up
-$ npm run dev
-$ open http://localhost:7001/users
+```
+brew install mysql # macOS
+brew service start mysql
+
+mysql
+  > create database `egg-sequelize-example-dev`;
+  > create database `egg-sequelize-example-unittest`;
 ```
 
-### Deploy
+- install dependencies
 
-Use `EGG_SERVER_ENV=prod` to enable prod mode
-
-```bash
-$ createdb example-prod --owner postgres
-$ NODE_ENV=production npm run migrate:up
-$ EGG_SERVER_ENV=prod npm start
+```
+npm install
 ```
 
-### npm scripts
+### Start Server and Run Test
 
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
-- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
+- prepare database structure
 
+```
+# for develop
+npm run sequelize -- db:migrate
+# for unittest
+NODE_ENV=test npm run sequelize -- db:migrate
+```
+
+- start project
+
+```
+npm run dev
+```
+
+- run test
+
+```
+npm test
+```
 
 [egg]: https://eggjs.org
 [egg-sequelize]: https://github.com/eggjs/egg-sequelize
+[sequelize]: http://docs.sequelizejs.com/
+[migrations]: http://docs.sequelizejs.com/manual/tutorial/migrations.html
+[factory-girl]: https://github.com/aexmachina/factory-girl

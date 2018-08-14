@@ -1,6 +1,17 @@
 'use strict';
 
-const execSync = require('child_process').execSync;
+const { app } = require('egg-mock/bootstrap');
+const factories = require('./factories');
 
-execSync('psql -U postgres -tc "SELECT 1 FROM pg_database WHERE datname = \'example-unittest\'" | grep -q 1 || psql -U postgres -c \'CREATE DATABASE "example-unittest"\'');
-console.log('create db success');
+before(() => {
+  // defined app.factory for build test data
+  factories(app);
+});
+
+afterEach(async () => {
+  // clear database after each test case
+  await Promise.all([
+    app.model.User.destroy({ truncate: true, force: true }),
+    app.model.Post.destroy({ truncate: true, force: true }),
+  ]);
+});

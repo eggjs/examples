@@ -3,11 +3,11 @@
 const Service = require('egg').Service;
 
 class User extends Service {
-  async list({ offset = 0, limit = 10, order_by = 'created_at', order = 'ASC' }) {
+  async list({ offset = 0, limit = 10 }) {
     return this.ctx.model.User.findAndCountAll({
       offset,
       limit,
-      order: [[ order_by, order.toUpperCase() ]],
+      order: [[ 'created_at', 'desc' ], [ 'id', 'desc' ]],
     });
   }
 
