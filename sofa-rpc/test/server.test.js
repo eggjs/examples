@@ -2,7 +2,7 @@
 
 const mm = require('egg-mock');
 
-describe.skip('test/server.test.js', () => {
+describe('test/server.test.js', () => {
   let app;
   before(async function() {
     app = mm.app();
