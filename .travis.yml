@@ -9,4 +9,4 @@ script:
 services:
   - mysql
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS egg-sequelize-example-unittest;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS `egg-sequelize-example-unittest`;'
