@@ -1,3 +1,4 @@
+app/proxy
 logs/
 npm-debug.log
 yarn-error.log

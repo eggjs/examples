@@ -20,5 +20,11 @@ module.exports = app => {
     app.model.Post.belongsTo(app.model.User, { as: 'user', foreignKey: 'user_id' });
   };
 
+  Post.findByIdWithUser = async function(id, userId) {
+    return await this.findOne({
+      where: { id, user_id: userId },
+    });
+  };
+
   return Post;
 };
