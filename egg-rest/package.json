@@ -1,0 +1,32 @@
+{
+  "name": "egg-rest",
+  "version": "1.0.0",
+  "description": "The egg example project that uses egg-rest plugin.",
+  "private": true,
+  "dependencies": {
+    "egg": "^2.9.1",
+    "egg-rest": "^2.1.0",
+    "egg-validate": "^1.0.0"
+  },
+  "devDependencies": {
+    "egg-bin": "^3.4.2",
+    "egg-mock": "^3.7.2"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "dev": "egg-bin dev",
+    "test": "npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "ci": {
+    "version": "6"
+  },
+  "author": "sinchang <sinchangwen@gmail.coom>",
+  "license": "MIT"
+}
