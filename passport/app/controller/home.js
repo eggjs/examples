@@ -23,11 +23,21 @@ class HomeController extends Controller {
           <hr>
           Login with
           <a href="/passport/weibo">Weibo</a> | <a href="/passport/github">Github</a> |
-          <a href="/passport/bitbucket">Bitbucket</a> | <a href="/passport/twitter">Twitter</a>
+          <a href="/passport/bitbucket">Bitbucket</a> | <a href="/passport/twitter">Twitter</a> |
+          <a href="/login">Local</a>
           <hr>
           <a href="/">Home</a> | <a href="/user">User</a>
         </div>
       `;
+    }
+  }
+
+  async local() {
+    const { ctx } = this;
+    if (ctx.isAuthenticated()) {
+      ctx.body = ctx.user;
+    } else {
+      await ctx.render('login.html');
     }
   }
 }

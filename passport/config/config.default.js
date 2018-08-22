@@ -1,5 +1,7 @@
 'use strict';
 
+exports.keys = 'egg-examples';
+
 // secure keys on https://github.com/eggjs/egg/wiki#secure-env-for-travis-ci
 exports.passportWeibo = {
   key: 'a',
@@ -19,4 +21,8 @@ exports.passportBitbucket = {
 exports.passportTwitter = {
   key: 'g',
   secret: 'h',
+};
+
+exports.view = {
+  defaultViewEngine: 'nunjucks',
 };
