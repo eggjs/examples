@@ -1,0 +1,24 @@
+{
+  "type": "request",
+  "data": {
+    "schemaData": {
+      "type": "object",
+      "required": [
+        "page",
+        "pageSize"
+      ],
+      "properties": {
+        "page": {
+          "type": "integer",
+          "description": "current page"
+        },
+        "pageSize": {
+          "type": "integer",
+          "description": "page size"
+        }
+      }
+    }
+  },
+  "interfaceUniqId": "cb8f0113-4bbc-4f29-97a1-7fc174a2f196",
+  "uniqId": "5dfc02e0-2b04-4588-ad18-28e3ec4cdd39"
+}

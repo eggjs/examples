@@ -10,7 +10,6 @@
     "autod": "^2.7.1",
     "autod-egg": "^1.0.0",
     "chalk": "^1.1.3",
-    "egg-ci": "^1.6.0",
     "eslint": "4",
     "eslint-config-egg": "5",
     "npminstall": "3",
