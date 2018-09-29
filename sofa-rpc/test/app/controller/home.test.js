@@ -1,6 +1,7 @@
 'use strict';
 
 const { app, assert } = require('egg-mock/bootstrap');
+const sleep = require('mz-modules/sleep');
 
 describe('test/app/controller/home.test.js', () => {
 
@@ -12,7 +13,8 @@ describe('test/app/controller/home.test.js', () => {
     // yield ctx.service.xx();
   });
 
-  it('should GET /', () => {
+  it('should GET /', async function() {
+    await sleep(1000);
     return app.httpRequest()
       .get('/')
       .expect('{"code":200,"message":"hello gxcsoccer, you are in 0"}')
