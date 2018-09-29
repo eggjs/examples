@@ -21,7 +21,7 @@
   },
   "scripts": {
     "dev": "egg-bin dev",
-    "test": "egg-bin test",
+    "test": "NODE_ENV=test npm run sequelize -- db:migrate && egg-bin test",
     "cov": "egg-bin cov",
     "ci": "npm run cov",
     "autod": "autod",

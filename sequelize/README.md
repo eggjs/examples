@@ -8,7 +8,7 @@ The [egg] example project that uses [egg-sequelize] plugin. It will show you how
 
 - install mysql and create database
 
-```
+```bash
 brew install mysql # macOS
 brew service start mysql
 
@@ -19,7 +19,7 @@ mysql
 
 - install dependencies
 
-```
+```bash
 npm install
 ```
 
@@ -27,7 +27,7 @@ npm install
 
 - prepare database structure
 
-```
+```bash
 # for develop
 npm run sequelize -- db:migrate
 # for unittest
@@ -36,13 +36,13 @@ NODE_ENV=test npm run sequelize -- db:migrate
 
 - start project
 
-```
+```bash
 npm run dev
 ```
 
 - run test
 
-```
+```bash
 npm test
 ```
 

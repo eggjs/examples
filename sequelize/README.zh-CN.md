@@ -8,7 +8,7 @@
 
 - 安装 mysql 并建立数据库
 
-```
+```bash
 brew install mysql # macOS
 brew service start mysql
 
@@ -19,7 +19,7 @@ mysql
 
 - 安装 node 依赖
 
-```
+```bash
 npm install
 ```
 
@@ -27,7 +27,7 @@ npm install
 
 - 执行 migration 执行数据变更
 
-```
+```bash
 # for develop
 npm run sequelize -- db:migrate
 # for unittest
@@ -36,13 +36,13 @@ NODE_ENV=test npm run sequelize -- db:migrate
 
 - 启动项目
 
-```
+```bash
 npm run dev
 ```
 
 - 运行测试
 
-```
+```bash
 npm test
 ```
 
