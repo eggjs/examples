@@ -1,7 +1,7 @@
 {
   "name": "multipart-file-mode-example",
   "dependencies": {
-    "egg": "^2.9.1",
+    "egg": "^2.11.2",
     "egg-view-nunjucks": "^2.1.4",
     "mz": "^2.7.0",
     "mz-modules": "^2.1.0"
