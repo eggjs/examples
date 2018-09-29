@@ -38,6 +38,9 @@
   },
   "ci": {
     "version": "8",
+    "license": {
+      "year": 2017
+    },
     "afterScript": false
   },
   "license": "MIT",

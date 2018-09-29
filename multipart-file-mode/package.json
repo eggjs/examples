@@ -1,0 +1,19 @@
+{
+  "name": "multipart-file-mode-example",
+  "dependencies": {
+    "egg": "^2.11.2",
+    "egg-view-nunjucks": "^2.1.4",
+    "mz": "^2.7.0",
+    "mz-modules": "^2.1.0"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.3.5",
+    "egg-mock": "^3.13.1"
+  },
+  "scripts": {
+    "dev": "egg-bin dev",
+    "test": "egg-bin test",
+    "cov": "egg-bin cov"
+  },
+  "private": true
+}
