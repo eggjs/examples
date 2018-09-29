@@ -1,5 +1,7 @@
 'use strict';
 
+exports.keys = '123456';
+
 // secure keys on https://github.com/eggjs/egg/wiki#secure-env-for-travis-ci
 exports.passportWeibo = {
   key: 'a',
