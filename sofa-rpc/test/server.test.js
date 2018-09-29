@@ -1,12 +1,14 @@
 'use strict';
 
 const mm = require('egg-mock');
+const sleep = require('mz-modules/sleep');
 
 describe('test/server.test.js', () => {
   let app;
   before(async function() {
     app = mm.app();
     await app.ready();
+    await sleep(3000);
   });
   after(async function() {
     await app.close();
