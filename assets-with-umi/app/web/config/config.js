@@ -9,7 +9,6 @@ export default {
         dynamicImport: {
           webpackChunkName: true,
         },
-        routes: { exclude: [ /model\.js/, /service\.js/, /children/ ] },
       },
     ],
   ],
