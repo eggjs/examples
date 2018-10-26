@@ -12,8 +12,6 @@ export default class extends Component {
     info: {},
   }
 
-  itemOffset = {};
-
   componentWillMount() {
     window.scrollTo(0, 0);
     const id = this.props.location.query.id;
@@ -34,6 +32,8 @@ export default class extends Component {
     }
     return `http://fuss10.elemecdn.com/${path}.${type}`;
   }
+
+  itemOffset = {};
 
   loadMenu = id => {
     fetch(`/restapi/shopping/v2/menu?restaurant_id=${id}`)
@@ -67,6 +67,9 @@ export default class extends Component {
         console.warn(err);
       });
   }
+
+  throttle = false;
+  offset = 0;
 
   renderTab = tab => {
     return (
@@ -112,9 +115,6 @@ export default class extends Component {
       );
     }
   }
-
-  throttle = false;
-  offset = 0;
 
   render() {
     const { index, info, menu, menuIndex } = this.state;

@@ -20,15 +20,10 @@ export default class extends React.Component {
     isLoading: false,
   }
 
-  rests = []
-  dataSource = new ListView.DataSource({
-    rowHasChanged: (row1, row2) => row1 !== row2,
-  });
-
   componentWillMount() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        console.log('getCurrentPosition', position)
+        console.log('getCurrentPosition', position);
         // eslint-disable-next-line react/no-direct-mutation-state
         this.state.coords = position.coords;
         this.init(this.state.coords);
@@ -45,6 +40,45 @@ export default class extends React.Component {
     }
   }
 
+
+  onSearch = value => {
+    console.log('onSearch', value);
+  }
+
+  onEndReached = () => {
+    if (!this.state.isLoading) {
+      this.setState({
+        isLoading: true,
+      }, () => {
+        const { coords, rank_id } = this.state;
+        this.loadRestaurantData(coords, rank_id);
+      });
+    }
+  }
+
+  getImage = hash => {
+    const path = hash[0] + '/'
+      + hash.substr(1, 2) + '/'
+      + hash.substr(3);
+
+    let type = 'jpeg';
+    if (path.indexOf('png') > -1) {
+      type = 'png';
+    }
+    return `http://fuss10.elemecdn.com/${path}.${type}`;
+  }
+
+  getTypeData = () => {
+    try {
+      return this.state.headerData[0].entries.map(type => ({
+        icon: this.getImage(type.image_hash),
+        text: type.name,
+      }));
+    } catch (error) {
+      return [];
+    }
+  }
+
   /**
    * 初始化
    * @param {Coordinates} coords 坐标
@@ -54,6 +88,12 @@ export default class extends React.Component {
     this.loadPoiData(coords);
     this.loadRestaurantData(coords);
   }
+
+  rests = []
+
+  dataSource = new ListView.DataSource({
+    rowHasChanged: (row1, row2) => row1 !== row2,
+  });
 
   /**
    * 加载分类数据
@@ -120,33 +160,6 @@ export default class extends React.Component {
       });
   }
 
-  onSearch = value => {
-    console.log('onSearch', value);
-  }
-
-  getImage = hash => {
-    const path = hash[0] + '/'
-      + hash.substr(1, 2) + '/'
-      + hash.substr(3);
-
-    let type = 'jpeg';
-    if (path.indexOf('png') > -1) {
-      type = 'png';
-    }
-    return `http://fuss10.elemecdn.com/${path}.${type}`;
-  }
-
-  getTypeData = () => {
-    try {
-      return this.state.headerData[0].entries.map(type => ({
-        icon: this.getImage(type.image_hash),
-        text: type.name,
-      }));
-    } catch (error) {
-      return [];
-    }
-  }
-
   gotoDetail = data => {
     const { coords } = this.state;
     router.push({
@@ -159,14 +172,14 @@ export default class extends React.Component {
     });
   }
 
-  renderRow = (rowData, sectionID, rowID) => {
+  renderRow = rowData => {
     if (!rowData) {
       return null;
     }
 
     const data = rowData.restaurant;
     return (
-      <div className={styles.restItem} onClick={() => this.gotoDetail(data)}>
+      <div className={styles.restItem} role="button" onClick={() => this.gotoDetail(data)}>
         <div className={styles.logo}>
           <img src={this.getImage(data.image_path)} alt="" />
         </div>
@@ -195,18 +208,7 @@ export default class extends React.Component {
           }
         </div>
       </div>
-    )
-  }
-
-  onEndReached = () => {
-    if (!this.state.isLoading) {
-      this.setState({
-        isLoading: true,
-      }, () => {
-        const { coords, rank_id } = this.state;
-        this.loadRestaurantData(coords, rank_id);
-      })
-    }
+    );
   }
 
   render() {
@@ -216,7 +218,7 @@ export default class extends React.Component {
       <div className={styles.home}>
         <header className={styles.header}>
           <div>
-            <svg viewBox="0 0 26 31" id="location" width="28px" height="34px"><path fill="#FFF" fillRule="evenodd" d="M22.116 22.601c-2.329 2.804-7.669 7.827-7.669 7.827-.799.762-2.094.763-2.897-.008 0 0-5.26-4.97-7.643-7.796C1.524 19.8 0 16.89 0 13.194 0 5.908 5.82 0 13 0s13 5.907 13 13.195c0 3.682-1.554 6.602-3.884 9.406zM18 13a5 5 0 1 0-10 0 5 5 0 0 0 10 0z"></path></svg>
+            <svg viewBox="0 0 26 31" id="location" width="28px" height="34px"><path fill="#FFF" fillRule="evenodd" d="M22.116 22.601c-2.329 2.804-7.669 7.827-7.669 7.827-.799.762-2.094.763-2.897-.008 0 0-5.26-4.97-7.643-7.796C1.524 19.8 0 16.89 0 13.194 0 5.908 5.82 0 13 0s13 5.907 13 13.195c0 3.682-1.554 6.602-3.884 9.406zM18 13a5 5 0 1 0-10 0 5 5 0 0 0 10 0z" /></svg>
             &nbsp;
             {address}
           </div>
@@ -247,7 +249,7 @@ export default class extends React.Component {
             activeStyle={false}
             isCarousel
             onClick={_el => console.log(_el)}
-            renderItem={(item) => (
+            renderItem={item => (
               <div className={styles.typeItem}>
                 <div><img src={item.icon} alt={item.text} /></div>
                 <div className={styles.text}>{item.text}</div>
@@ -258,9 +260,9 @@ export default class extends React.Component {
             <img src="https://fuss10.elemecdn.com/3/c8/45b2ec2855ed55d90c45bf9b07abbpng.png?imageMogr/format/webp/thumbnail/!710x178r/gravity/Center/crop/710x178/" alt="ad" />
           </div>
           <div className={styles.sep}>
-            <div className={styles.seph}></div>
+            <div className={styles.seph} />
             推荐商家
-            <div className={styles.seph}></div>
+            <div className={styles.seph} />
           </div>
           <ListView
             dataSource={this.dataSource}
@@ -276,6 +278,6 @@ export default class extends React.Component {
           />
         </StickyContainer>
       </div>
-    )
+    );
   }
 }
