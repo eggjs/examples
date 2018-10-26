@@ -2,7 +2,7 @@ import * as React from 'react';
 import withRouter from 'umi/withRouter';
 import router from 'umi/router';
 import { Tabs } from 'antd-mobile';
-import * as styles from './index.less';
+import styles from './index.module.less';
 
 @withRouter
 export default class extends React.PureComponent {

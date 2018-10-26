@@ -1,10 +1,9 @@
 import * as React from "react";
 import router from "umi/router";
 import { NavBar, Icon, Button } from "antd-mobile";
-import * as styles from "./page.less";
+import styles from "./index.module.less";
 
 export default class extends React.Component {
-
   renderItem = (data) => {
     return (
       <div>{data.title}</div>

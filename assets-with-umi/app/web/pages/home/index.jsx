@@ -1,11 +1,10 @@
-import * as React from "react";
-import router from "umi/router";
+import * as React from 'react';
+import router from 'umi/router';
 import { StickyContainer, Sticky } from 'react-sticky';
-import { SearchBar, Grid, ListView } from "antd-mobile";
-import * as styles from './page.less';
+import { SearchBar, Grid, ListView } from 'antd-mobile';
+import styles from './index.module.less';
 
 export default class extends React.Component {
-
   constructor(props) {
     super(props);
     if (window.location.pathname.indexOf('/home') < 0) {
@@ -28,13 +27,13 @@ export default class extends React.Component {
 
   componentWillMount() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
+      navigator.geolocation.getCurrentPosition(position => {
         console.log('getCurrentPosition', position)
         // eslint-disable-next-line react/no-direct-mutation-state
         this.state.coords = position.coords;
         this.init(this.state.coords);
-      }, (err) => {
-        console.log('getCurrentPosition err', err)
+      }, err => {
+        console.log('getCurrentPosition err', err);
         // eslint-disable-next-line react/no-direct-mutation-state
         this.state.coords = {
           latitude: '30.27697500000001',
@@ -48,7 +47,7 @@ export default class extends React.Component {
 
   /**
    * 初始化
-   * @param {Coordinates} coords
+   * @param {Coordinates} coords 坐标
    */
   init(coords) {
     this.loadTypeData(coords);
@@ -58,7 +57,7 @@ export default class extends React.Component {
 
   /**
    * 加载分类数据
-   * @param {Coordinates} coords
+   * @param {Coordinates} coords 坐标
    */
   loadTypeData({ latitude, longitude }) {
     fetch(`/restapi/shopping/openapi/entries?latitude=${latitude}&longitude=${longitude}&templates[]=main_template&templates[]=favourable_template&templates[]=svip_template`)
@@ -67,18 +66,18 @@ export default class extends React.Component {
           res.json().then(data => {
             this.setState({
               headerData: data,
-            })
-          })
+            });
+          });
         }
       })
       .catch(err => {
-        console.warn(err)
-      })
+        console.warn(err);
+      });
   }
 
   /**
    * 加载地理数据
-   * @param {Coordinates} coords
+   * @param {Coordinates} coords 坐标
    */
   loadPoiData({ latitude, longitude }) {
     // poi数据
@@ -88,19 +87,19 @@ export default class extends React.Component {
           res.json().then(data => {
             this.setState({
               address: data.name,
-            })
-          })
+            });
+          });
         }
       })
       .catch(err => {
-        console.warn(err)
-      })
+        console.warn(err);
+      });
   }
 
   /**
    * 加载地理数据
-   * @param {Coordinates} coords
-   * @param {number} offset
+   * @param {Coordinates} coords 坐标
+   * @param {number} rank_id rank id
   */
   loadRestaurantData({ latitude, longitude }, rank_id = '') {
     fetch(`/restapi/shopping/v3/restaurants?latitude=${latitude}&longitude=${longitude}&offset=${this.rests.length}limit=8&extras[]=activities&extras[]=tags&extra_filters=home&rank_id=&terminal=h5&rank_id=${rank_id}`)
@@ -112,23 +111,24 @@ export default class extends React.Component {
             this.setState({
               rank_id: data.meta.rank_id,
               isLoading: false,
-            })
-          })
+            });
+          });
         }
       })
       .catch(err => {
-        console.warn(err)
-      })
+        console.warn(err);
+      });
   }
 
-  onSearch = (value) => {
-    console.log('onSearch', value)
+  onSearch = value => {
+    console.log('onSearch', value);
   }
 
-  getImage(hash) {
+  getImage = hash => {
     const path = hash[0] + '/'
       + hash.substr(1, 2) + '/'
       + hash.substr(3);
+
     let type = 'jpeg';
     if (path.indexOf('png') > -1) {
       type = 'png';
@@ -140,14 +140,14 @@ export default class extends React.Component {
     try {
       return this.state.headerData[0].entries.map(type => ({
         icon: this.getImage(type.image_hash),
-        text: type.name
-      }))
+        text: type.name,
+      }));
     } catch (error) {
-      return []
+      return [];
     }
   }
 
-  gotoDetail = (data) => {
+  gotoDetail = data => {
     const { coords } = this.state;
     router.push({
       pathname: '/shop',
@@ -155,7 +155,7 @@ export default class extends React.Component {
         id: data.id,
         latitude: coords.latitude,
         longitude: coords.longitude,
-      }
+      },
     });
   }
 
@@ -163,6 +163,7 @@ export default class extends React.Component {
     if (!rowData) {
       return null;
     }
+
     const data = rowData.restaurant;
     return (
       <div className={styles.restItem} onClick={() => this.gotoDetail(data)}>
