@@ -17,7 +17,7 @@ module.exports = {
     'egg-bin',
     'eslint',
     'eslint-config-egg',
-    'umi',
+    'antd-mobile',
     'umi-plugin-react',
     'umi-plugin-ecma5-validator',
   ],
