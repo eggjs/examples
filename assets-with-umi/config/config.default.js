@@ -18,11 +18,11 @@ module.exports = appInfo => {
   config.assets = {
     publicPath: '/public/',
     devServer: {
-      debug: false,
+      debug: true,
       command: 'umi dev',
       port: 8000,
       env: {
-        APP_ROOT: process.cwd() + '/app/assets',
+        APP_ROOT: process.cwd() + '/app/web',
         BROWSER: 'none',
         ESLINT: 'none',
         SOCKET_SERVER: 'http://127.0.0.1:8000',

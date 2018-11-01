@@ -1,14 +1,13 @@
-import * as React from "react";
-import router from "umi/router";
-import { NavBar, Icon, Grid } from "antd-mobile";
-import * as styles from "./page.less";
+import * as React from 'react';
+import router from 'umi/router';
+import { NavBar, Icon, Grid } from 'antd-mobile';
+import styles from './index.module.less';
 
 export default class extends React.Component {
-
-  renderItem = (data) => {
+  renderItem = data => {
     return (
       <div>{data.title}</div>
-    )
+    );
   }
 
   render() {
@@ -31,6 +30,6 @@ export default class extends React.Component {
         <Grid data={items} columnNum={2} square={false} renderItem={this.renderItem} />
         <div className={styles.recommend}>为你推荐</div>
       </div>
-    )
+    );
   }
 }

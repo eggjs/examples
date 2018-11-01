@@ -1,7 +1,7 @@
-import { Component } from "react";
-import router from "umi/router";
-import { NavBar, Icon, Tabs, List, Button, WhiteSpace } from "antd-mobile";
-import * as styles from "./page.less";
+import React, { Component } from 'react';
+import router from 'umi/router';
+import { NavBar, Icon, Tabs, List, Button, WhiteSpace } from 'antd-mobile';
+import styles from './index.module.less';
 
 export default class extends Component {
 
@@ -12,8 +12,6 @@ export default class extends Component {
     info: {},
   }
 
-  itemOffset = {};
-
   componentWillMount() {
     window.scrollTo(0, 0);
     const id = this.props.location.query.id;
@@ -21,7 +19,7 @@ export default class extends Component {
     this.loadInfo(id);
   }
 
-  getImage(hash) {
+  getImage = hash => {
     if (!hash) {
       return '';
     }
@@ -35,23 +33,25 @@ export default class extends Component {
     return `http://fuss10.elemecdn.com/${path}.${type}`;
   }
 
-  loadMenu = (id) => {
+  itemOffset = {};
+
+  loadMenu = id => {
     fetch(`/restapi/shopping/v2/menu?restaurant_id=${id}`)
       .then(res => {
         if (res.status === 200) {
           res.json().then(data => {
             this.setState({
               menu: data,
-            })
-          })
+            });
+          });
         }
       })
       .catch(err => {
-        console.warn(err)
-      })
+        console.warn(err);
+      });
   }
 
-  loadInfo = (id) => {
+  loadInfo = id => {
     const { longitude, latitude } = this.props.location.query;
     fetch(`/restapi/shopping/restaurant/${id}?extras[]=activities&extras[]=albums&extras[]=license&extras[]=identification&extras[]=qualification&terminal=h5&latitude=${latitude}&longitude=${longitude}`)
       .then(res => {
@@ -59,36 +59,41 @@ export default class extends Component {
           res.json().then(data => {
             this.setState({
               info: data,
-            })
-          })
+            });
+          });
         }
       })
       .catch(err => {
-        console.warn(err)
-      })
+        console.warn(err);
+      });
   }
 
-  renderTab = (tab) => {
+  throttle = false;
+  offset = 0;
+
+  renderTab = tab => {
     return (
       <div className={styles.menuItem}>{tab.name}</div>
-    )
+    );
   }
 
   renderFood = (item, index) => {
     const id = item.id || item.virtual_food_id;
     if (item._type === 'type') {
       return (
-        <div key={id + `_${index}`} id={id} ref={(dom) => {
-          if (!dom) return;
-          this.itemOffset[id] = { top: dom.offsetTop, id };
-        }}>
+        <div
+          key={id + `_${index}`} id={id} ref={dom => {
+            if (!dom) return;
+            this.itemOffset[id] = { top: dom.offsetTop, id };
+          }}
+        >
           <List.Item>
             <div className={styles.foodType}>
               {item.name} <span className={styles.desc}>{item.description}</span>
             </div>
           </List.Item>
         </div>
-      )
+      );
     }
     if (item._type === 'food') {
       return (
@@ -107,12 +112,9 @@ export default class extends Component {
             </div>
           </List.Item>
         </div>
-      )
+      );
     }
   }
-
-  throttle = false;
-  offset = 0;
 
   render() {
     const { index, info, menu, menuIndex } = this.state;
@@ -127,8 +129,8 @@ export default class extends Component {
         item.push({
           _type: 'food',
           ...food,
-        })
-      })
+        });
+      });
     });
 
     return (
@@ -137,7 +139,7 @@ export default class extends Component {
           onLeftClick={() => router.goBack()}
           mode="dark"
           icon={<Icon type="left" />}
-        ></NavBar>
+        />
         <div className={styles.info}>
           <div className={styles.logo}>
             <img src={this.getImage(info.image_path)} alt={info.name} />
@@ -172,31 +174,33 @@ export default class extends Component {
                     menuIndex: index,
                   }, () => {
                     document.getElementById('foodList').scrollTo(0, document.getElementById(tab.id).offsetTop);
-                  })
+                  });
                 }}
-                renderTabBar={(props) => <Tabs.DefaultTabBar
+                renderTabBar={props => (<Tabs.DefaultTabBar
                   {...props}
                   renderTab={this.renderTab}
                   page={10}
-                />}
+                />)}
               />
             </div>
-            <div id="foodList" className={styles.list} onScroll={(evt) => {
-              this.offset = evt.nativeEvent.target.scrollTop + 200;
-              if (this.throttle) return;
-              this.throttle = true;
+            <div
+              id="foodList" className={styles.list} onScroll={evt => {
+                this.offset = evt.nativeEvent.target.scrollTop + 200;
+                if (this.throttle) return;
+                this.throttle = true;
 
-              setTimeout(() => {
-                this.throttle = false;
-                const items = Object.keys(this.itemOffset)
-                  .map(key => this.itemOffset[key])
-                  .sort((a, b) => a.top - b.top);
-                const index = items.findIndex(i => i.top > this.offset);
-                this.setState({
-                  menuIndex: index - 1,
-                });
-              }, 300);
-            }}>
+                setTimeout(() => {
+                  this.throttle = false;
+                  const items = Object.keys(this.itemOffset)
+                    .map(key => this.itemOffset[key])
+                    .sort((a, b) => a.top - b.top);
+                  const index = items.findIndex(i => i.top > this.offset);
+                  this.setState({
+                    menuIndex: index - 1,
+                  });
+                }, 300);
+              }}
+            >
               <List>
                 {item.map((food, index) => this.renderFood(food, index))}
               </List>

@@ -1,14 +1,13 @@
-import * as React from "react";
-import router from "umi/router";
-import { NavBar, Icon, Button } from "antd-mobile";
-import * as styles from "./page.less";
+import * as React from 'react';
+import router from 'umi/router';
+import { NavBar, Icon, Button } from 'antd-mobile';
+import styles from './index.module.less';
 
 export default class extends React.Component {
-
-  renderItem = (data) => {
+  renderItem = data => {
     return (
       <div>{data.title}</div>
-    )
+    );
   }
 
   render() {
@@ -25,6 +24,6 @@ export default class extends React.Component {
           <Button>立即登录</Button>
         </div>
       </div>
-    )
+    );
   }
 }

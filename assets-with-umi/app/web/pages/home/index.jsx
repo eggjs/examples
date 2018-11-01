@@ -1,11 +1,10 @@
-import * as React from "react";
-import router from "umi/router";
+import * as React from 'react';
+import router from 'umi/router';
 import { StickyContainer, Sticky } from 'react-sticky';
-import { SearchBar, Grid, ListView } from "antd-mobile";
-import * as styles from './page.less';
+import { SearchBar, Grid, ListView } from 'antd-mobile';
+import styles from './index.module.less';
 
 export default class extends React.Component {
-
   constructor(props) {
     super(props);
     if (window.location.pathname.indexOf('/home') < 0) {
@@ -21,20 +20,15 @@ export default class extends React.Component {
     isLoading: false,
   }
 
-  rests = []
-  dataSource = new ListView.DataSource({
-    rowHasChanged: (row1, row2) => row1 !== row2,
-  });
-
   componentWillMount() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        console.log('getCurrentPosition', position)
+      navigator.geolocation.getCurrentPosition(position => {
+        console.log('getCurrentPosition', position);
         // eslint-disable-next-line react/no-direct-mutation-state
         this.state.coords = position.coords;
         this.init(this.state.coords);
-      }, (err) => {
-        console.log('getCurrentPosition err', err)
+      }, err => {
+        console.log('getCurrentPosition err', err);
         // eslint-disable-next-line react/no-direct-mutation-state
         this.state.coords = {
           latitude: '30.27697500000001',
@@ -46,89 +40,27 @@ export default class extends React.Component {
     }
   }
 
-  /**
-   * 初始化
-   * @param {Coordinates} coords
-   */
-  init(coords) {
-    this.loadTypeData(coords);
-    this.loadPoiData(coords);
-    this.loadRestaurantData(coords);
+
+  onSearch = value => {
+    console.log('onSearch', value);
   }
 
-  /**
-   * 加载分类数据
-   * @param {Coordinates} coords
-   */
-  loadTypeData({ latitude, longitude }) {
-    fetch(`/restapi/shopping/openapi/entries?latitude=${latitude}&longitude=${longitude}&templates[]=main_template&templates[]=favourable_template&templates[]=svip_template`)
-      .then(res => {
-        if (res.status === 200) {
-          res.json().then(data => {
-            this.setState({
-              headerData: data,
-            })
-          })
-        }
-      })
-      .catch(err => {
-        console.warn(err)
-      })
+  onEndReached = () => {
+    if (!this.state.isLoading) {
+      this.setState({
+        isLoading: true,
+      }, () => {
+        const { coords, rank_id } = this.state;
+        this.loadRestaurantData(coords, rank_id);
+      });
+    }
   }
 
-  /**
-   * 加载地理数据
-   * @param {Coordinates} coords
-   */
-  loadPoiData({ latitude, longitude }) {
-    // poi数据
-    fetch(`/restapi/bgs/poi/reverse_geo_coding?latitude=${latitude}&longitude=${longitude}`)
-      .then(res => {
-        if (res.status === 200) {
-          res.json().then(data => {
-            this.setState({
-              address: data.name,
-            })
-          })
-        }
-      })
-      .catch(err => {
-        console.warn(err)
-      })
-  }
-
-  /**
-   * 加载地理数据
-   * @param {Coordinates} coords
-   * @param {number} offset
-  */
-  loadRestaurantData({ latitude, longitude }, rank_id = '') {
-    fetch(`/restapi/shopping/v3/restaurants?latitude=${latitude}&longitude=${longitude}&offset=${this.rests.length}limit=8&extras[]=activities&extras[]=tags&extra_filters=home&rank_id=&terminal=h5&rank_id=${rank_id}`)
-      .then(res => {
-        if (res.status === 200) {
-          res.json().then(data => {
-            this.rests = [].concat(this.rests, data.items);
-            this.dataSource = this.dataSource.cloneWithRows(this.rests);
-            this.setState({
-              rank_id: data.meta.rank_id,
-              isLoading: false,
-            })
-          })
-        }
-      })
-      .catch(err => {
-        console.warn(err)
-      })
-  }
-
-  onSearch = (value) => {
-    console.log('onSearch', value)
-  }
-
-  getImage(hash) {
+  getImage = hash => {
     const path = hash[0] + '/'
       + hash.substr(1, 2) + '/'
       + hash.substr(3);
+
     let type = 'jpeg';
     if (path.indexOf('png') > -1) {
       type = 'png';
@@ -140,14 +72,95 @@ export default class extends React.Component {
     try {
       return this.state.headerData[0].entries.map(type => ({
         icon: this.getImage(type.image_hash),
-        text: type.name
-      }))
+        text: type.name,
+      }));
     } catch (error) {
-      return []
+      return [];
     }
   }
 
-  gotoDetail = (data) => {
+  /**
+   * 初始化
+   * @param {Coordinates} coords 坐标
+   */
+  init(coords) {
+    this.loadTypeData(coords);
+    this.loadPoiData(coords);
+    this.loadRestaurantData(coords);
+  }
+
+  rests = []
+
+  dataSource = new ListView.DataSource({
+    rowHasChanged: (row1, row2) => row1 !== row2,
+  });
+
+  /**
+   * 加载分类数据
+   * @param {Coordinates} coords 坐标
+   */
+  loadTypeData({ latitude, longitude }) {
+    fetch(`/restapi/shopping/openapi/entries?latitude=${latitude}&longitude=${longitude}&templates[]=main_template&templates[]=favourable_template&templates[]=svip_template`)
+      .then(res => {
+        if (res.status === 200) {
+          res.json().then(data => {
+            this.setState({
+              headerData: data,
+            });
+          });
+        }
+      })
+      .catch(err => {
+        console.warn(err);
+      });
+  }
+
+  /**
+   * 加载地理数据
+   * @param {Coordinates} coords 坐标
+   */
+  loadPoiData({ latitude, longitude }) {
+    // poi数据
+    fetch(`/restapi/bgs/poi/reverse_geo_coding?latitude=${latitude}&longitude=${longitude}`)
+      .then(res => {
+        if (res.status === 200) {
+          res.json().then(data => {
+            this.setState({
+              address: data.name,
+            });
+          });
+        }
+      })
+      .catch(err => {
+        console.warn(err);
+      });
+  }
+
+  /**
+   * 加载地理数据
+   * @param {Coordinates} coords 坐标
+   * @param {number} rank_id rank id
+  */
+  loadRestaurantData({ latitude, longitude }, rank_id = '') {
+    fetch(`/restapi/shopping/v3/restaurants?latitude=${latitude}&longitude=${longitude}&offset=${this.rests.length}limit=8&extras[]=activities&extras[]=tags&extra_filters=home&rank_id=&terminal=h5&rank_id=${rank_id}`)
+      .then(res => {
+        if (res.status === 200) {
+          res.json().then(data => {
+            this.rests = [].concat(this.rests, data.items);
+            this.dataSource = this.dataSource.cloneWithRows(this.rests);
+            this.setState({
+              rank_id: data.meta.rank_id,
+              isLoading: false,
+            });
+          });
+        }
+      })
+      .catch(err => {
+        console.warn(err);
+      });
+  }
+
+  gotoDetail = data => {
     const { coords } = this.state;
     router.push({
       pathname: '/shop',
@@ -155,17 +168,18 @@ export default class extends React.Component {
         id: data.id,
         latitude: coords.latitude,
         longitude: coords.longitude,
-      }
+      },
     });
   }
 
-  renderRow = (rowData, sectionID, rowID) => {
+  renderRow = rowData => {
     if (!rowData) {
       return null;
     }
+
     const data = rowData.restaurant;
     return (
-      <div className={styles.restItem} onClick={() => this.gotoDetail(data)}>
+      <div className={styles.restItem} role="button" onClick={() => this.gotoDetail(data)}>
         <div className={styles.logo}>
           <img src={this.getImage(data.image_path)} alt="" />
         </div>
@@ -194,18 +208,7 @@ export default class extends React.Component {
           }
         </div>
       </div>
-    )
-  }
-
-  onEndReached = () => {
-    if (!this.state.isLoading) {
-      this.setState({
-        isLoading: true,
-      }, () => {
-        const { coords, rank_id } = this.state;
-        this.loadRestaurantData(coords, rank_id);
-      })
-    }
+    );
   }
 
   render() {
@@ -215,7 +218,7 @@ export default class extends React.Component {
       <div className={styles.home}>
         <header className={styles.header}>
           <div>
-            <svg viewBox="0 0 26 31" id="location" width="28px" height="34px"><path fill="#FFF" fillRule="evenodd" d="M22.116 22.601c-2.329 2.804-7.669 7.827-7.669 7.827-.799.762-2.094.763-2.897-.008 0 0-5.26-4.97-7.643-7.796C1.524 19.8 0 16.89 0 13.194 0 5.908 5.82 0 13 0s13 5.907 13 13.195c0 3.682-1.554 6.602-3.884 9.406zM18 13a5 5 0 1 0-10 0 5 5 0 0 0 10 0z"></path></svg>
+            <svg viewBox="0 0 26 31" id="location" width="28px" height="34px"><path fill="#FFF" fillRule="evenodd" d="M22.116 22.601c-2.329 2.804-7.669 7.827-7.669 7.827-.799.762-2.094.763-2.897-.008 0 0-5.26-4.97-7.643-7.796C1.524 19.8 0 16.89 0 13.194 0 5.908 5.82 0 13 0s13 5.907 13 13.195c0 3.682-1.554 6.602-3.884 9.406zM18 13a5 5 0 1 0-10 0 5 5 0 0 0 10 0z" /></svg>
             &nbsp;
             {address}
           </div>
@@ -246,7 +249,7 @@ export default class extends React.Component {
             activeStyle={false}
             isCarousel
             onClick={_el => console.log(_el)}
-            renderItem={(item) => (
+            renderItem={item => (
               <div className={styles.typeItem}>
                 <div><img src={item.icon} alt={item.text} /></div>
                 <div className={styles.text}>{item.text}</div>
@@ -257,9 +260,9 @@ export default class extends React.Component {
             <img src="https://fuss10.elemecdn.com/3/c8/45b2ec2855ed55d90c45bf9b07abbpng.png?imageMogr/format/webp/thumbnail/!710x178r/gravity/Center/crop/710x178/" alt="ad" />
           </div>
           <div className={styles.sep}>
-            <div className={styles.seph}></div>
+            <div className={styles.seph} />
             推荐商家
-            <div className={styles.seph}></div>
+            <div className={styles.seph} />
           </div>
           <ListView
             dataSource={this.dataSource}
@@ -275,6 +278,6 @@ export default class extends React.Component {
           />
         </StickyContainer>
       </div>
-    )
+    );
   }
 }
