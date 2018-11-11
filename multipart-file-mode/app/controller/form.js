@@ -19,10 +19,14 @@ module.exports = class extends Controller {
     const targetPath = path.join(this.config.baseDir, 'app/public', filename);
     const source = fs.createReadStream(file.filepath);
     const target = fs.createWriteStream(targetPath);
-    await pump(source, target);
-    ctx.logger.warn('save %s to %s', file.filepath, targetPath);
-    // delete tmp file
-    await fs.unlink(file.filepath);
+
+    try {
+      await pump(source, target);
+      ctx.logger.warn('save %s to %s', file.filepath, targetPath);
+    } finally {
+      // delete those request tmp files
+      await ctx.cleanupRequestFiles();
+    }
 
     ctx.redirect('/public/' + filename);
   }

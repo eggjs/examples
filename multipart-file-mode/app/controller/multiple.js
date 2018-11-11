@@ -14,15 +14,19 @@ module.exports = class extends Controller {
     const { ctx } = this;
     const files = ctx.request.files;
     ctx.logger.warn('files: %j', files);
-    for (const file of files) {
-      const filename = file.filename.toLowerCase();
-      const targetPath = path.join(this.config.baseDir, 'app/public', filename);
-      const source = fs.createReadStream(file.filepath);
-      const target = fs.createWriteStream(targetPath);
-      await pump(source, target);
-      ctx.logger.warn('save %s to %s', file.filepath, targetPath);
-      // delete tmp file
-      await fs.unlink(file.filepath);
+
+    try {
+      for (const file of files) {
+        const filename = file.filename.toLowerCase();
+        const targetPath = path.join(this.config.baseDir, 'app/public', filename);
+        const source = fs.createReadStream(file.filepath);
+        const target = fs.createWriteStream(targetPath);
+        await pump(source, target);
+        ctx.logger.warn('save %s to %s', file.filepath, targetPath);
+      }
+    } finally {
+      // delete those request tmp files
+      await ctx.cleanupRequestFiles();
     }
 
     const fields = [];
