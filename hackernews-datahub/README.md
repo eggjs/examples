@@ -24,6 +24,7 @@ $ npm run test
 ## E2E Test
 
 ```bash
+$ npm run datahub
 $ npm run dev:e2e
 $ npm run test:e2e
 ```

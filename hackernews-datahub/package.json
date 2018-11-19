@@ -17,11 +17,11 @@
     "chai": "^4.1.2",
     "cross-env": "^5.1.5",
     "egg-bin": "^4.3.5",
-    "egg-datahub": "2",
     "egg-mock": "^3.13.1",
     "eslint": "^4.12.0",
     "eslint-config-egg": "^5.1.1",
     "macaca-cli": "^2.1.2",
+    "macaca-datahub": "^2.3.5",
     "macaca-electron": "2",
     "macaca-wd": "2"
   },
@@ -31,6 +31,7 @@
   "scripts": {
     "dev": "egg-bin dev",
     "test": "egg-bin test test/unittest",
+    "datahub": "datahub server -c macaca-datahub.config.js --verbose",
     "dev:e2e": "cross-env NODE_ENV=test MOCK=true egg-bin dev",
     "test:e2e": "cross-env NODE_ENV=test macaca run --f_options '--opts test/e2e/mocha.opts' -d ./test/e2e",
     "cov": "egg-bin cov",

@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const datahubConfig = require('../macaca-datahub.config');
 
 module.exports = appInfo => {
   const config = {};
@@ -13,7 +14,7 @@ module.exports = appInfo => {
     '/favicon.ico': fs.readFileSync(path.join(appInfo.baseDir, 'app/public/favicon.png')),
   };
 
-  const mockPort = 5678;
+  const mockPort = datahubConfig.port;
   const hubName = 'hackernews';
 
   config.news = {
@@ -29,13 +30,6 @@ module.exports = appInfo => {
       '.tpl': 'nunjucks',
       '.nj': 'nunjucks',
     },
-  };
-
-  // https://github.com/macacajs/macaca-datahub#configuration
-
-  config.datahub = {
-    port: mockPort,
-    store: path.resolve(__dirname, '..', 'data'),
   };
 
   return config;

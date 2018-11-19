@@ -5,8 +5,3 @@ exports.nunjucks = {
   package: 'egg-view-nunjucks',
 };
 
-exports.datahub = {
-  enable: true,
-  package: 'egg-datahub',
-};
-
