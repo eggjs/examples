@@ -22,6 +22,7 @@ describe('test/datahub.test.js', () => {
 
     afterEach(function() {
       return driver
+        .coverage()
         .saveScreenshots(this);
     });
 
@@ -44,8 +45,8 @@ describe('test/datahub.test.js', () => {
           scene: 'default',
         })
         .getUrl(BASE_URL)
-        .sleep(1000)
-        .hasText('#wrapper > div.news-view.view.v-transition > div:nth-child(10) > span', '10');
+        .elementByCss('#wrapper > div.news-view.view.v-transition > div:nth-child(10) > span')
+        .hasText('10');
     });
 
     it('list20 render should be ok', async function() {
@@ -56,8 +57,8 @@ describe('test/datahub.test.js', () => {
           scene: 'list20',
         })
         .getUrl(BASE_URL)
-        .sleep(1000)
-        .hasText('#wrapper > div.news-view.view.v-transition > div:nth-child(20) > span', '20');
+        .elementByCss('#wrapper > div.news-view.view.v-transition > div:nth-child(20) > span')
+        .hasText('20');
     });
 
     it('list5 render should be ok', async function() {
@@ -68,8 +69,8 @@ describe('test/datahub.test.js', () => {
           scene: 'list5',
         })
         .getUrl(BASE_URL)
-        .sleep(1000)
-        .hasText('#wrapper > div.news-view.view.v-transition > div:nth-child(5) > span', '5');
+        .elementByCss('#wrapper > div.news-view.view.v-transition > div:nth-child(5) > span')
+        .hasText('5');
     });
 
     it('list0 render should be empty', async function() {
@@ -80,8 +81,8 @@ describe('test/datahub.test.js', () => {
           scene: 'empty',
         })
         .getUrl(BASE_URL)
-        .sleep(1000)
-        .hasText('#wrapper > div.news-view.view.v-transition > p', 'empty');
+        .elementByCss('#wrapper > div.news-view.view.v-transition > p')
+        .hasText('empty');
     });
   });
 });
