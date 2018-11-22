@@ -10,7 +10,7 @@
 
 ```bash
 brew install mysql # macOS
-brew service start mysql
+brew services start mysql
 
 mysql
   > create database `egg-sequelize-example-dev`;
