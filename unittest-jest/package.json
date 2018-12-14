@@ -1,0 +1,19 @@
+{
+  "name": "unittest-example",
+  "dependencies": {
+    "egg": "^1.10.1",
+    "ylru": "^1.2.0"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.3.5",
+    "egg-mock": "^3.13.1",
+    "jest": "^23.6.0"
+  },
+  "scripts": {
+    "dev": "egg-bin dev",
+    "test": "jest",
+    "cov": "jest --coverage",
+    "ci": "eslint . && egg-bin cov"
+  },
+  "private": true
+}
