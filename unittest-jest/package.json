@@ -13,7 +13,7 @@
     "dev": "egg-bin dev",
     "test": "jest",
     "cov": "jest --coverage",
-    "ci": "eslint . && egg-bin cov"
+    "ci": "eslint . && npm run cov"
   },
   "private": true
 }
