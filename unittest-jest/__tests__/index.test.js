@@ -2,7 +2,7 @@
 
 const mock = require('egg-mock');
 
-describe('test/controller/home.test.js', () => {
+describe('__tests__/index.test.js', () => {
   let app;
   beforeAll(() => {
     app = mock.app();
