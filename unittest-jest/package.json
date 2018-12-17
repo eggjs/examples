@@ -1,5 +1,5 @@
 {
-  "name": "unittest-example",
+  "name": "unittest-jest-example",
   "dependencies": {
     "egg": "^1.10.1"
   },
