@@ -1,3 +1,6 @@
 {
-  "extends": "egg"
+  "extends": "egg",
+  "env": {
+    "jest": true
+  }
 }
