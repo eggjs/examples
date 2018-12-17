@@ -1,6 +1,5 @@
 'use strict';
 
-const assert = require('assert');
 const mock = require('egg-mock');
 
 describe('test/controller/home.test.js', () => {
@@ -14,7 +13,6 @@ describe('test/controller/home.test.js', () => {
   afterAll(() => app.close());
 
   it('should app exist', () => {
-    assert(!!app.test);
     expect(app.test).toBe('123');
   });
 
