@@ -16,7 +16,7 @@ describe('test/app/controller/home.test.js', () => {
   it('should GET /', async function() {
     return app.httpRequest()
       .get('/')
-      .expect(/http:\/\/127.0.0.1:8000\/umi.js/)
+      .expect(/http:\/\/127.0.0.1:10000\/umi.js/)
       .expect(200);
   });
 
