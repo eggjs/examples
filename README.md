@@ -15,7 +15,7 @@
 
 ## Usage
 
-Find the example, then run command below. For example, run the [hackernews-datahub] example:
+Find the example, then run command below. For example, run the [hackernews-datahub](https://github.com/eggjs/examples/tree/master/hackernews-datahub) example:
 
 ```bash
 $ cd hackernews-datahub
@@ -45,7 +45,7 @@ $ npm run dev
 - [progressive](https://github.com/eggjs/examples/tree/master/progressive)
 - [redefine-controller](https://github.com/eggjs/examples/tree/master/redefine-controller)
 - [schedule](https://github.com/eggjs/examples/tree/master/schedule)
-- [sequelize-example](https://github.com/eggjs/examples/tree/master/sequelize-example)
+- [sequelize-example](https://github.com/eggjs/examples/tree/master/sequelize)
 - [static](https://github.com/eggjs/examples/tree/master/static)
 - [unittest](https://github.com/eggjs/examples/tree/master/unittest)
 - [view-nunjucks](https://github.com/eggjs/examples/tree/master/view-nunjucks)
