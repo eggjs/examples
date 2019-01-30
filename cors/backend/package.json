@@ -1,0 +1,17 @@
+{
+  "name": "cors-backend",
+  "dependencies": {
+    "egg": "^2.0.0",
+    "egg-cors": "^2.1.2"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.3.5",
+    "egg-mock": "^3.13.1"
+  },
+  "scripts": {
+    "dev": "egg-bin dev",
+    "test": "egg-bin test",
+    "cov": "egg-bin cov"
+  },
+  "private": true
+}

@@ -1,0 +1,12 @@
+# 由 afx 自动生成，如需手动修改，请删除此行注释
+before_script:
+  - echo $PATH
+  - time enclose install @alipay/afx
+  - afx -v
+test:
+  image: reg.docker.alibaba-inc.com/dockerlab/node-ci:1.0.0
+  script:
+    - time afx i --no-cache
+    - time afx ci
+  tags:
+    - swarm
