@@ -19,14 +19,14 @@ exports.bodyParser = {
 
 ## XML
 
-1. add `xml` to `enableTypes`.
+1. add `text` to `enableTypes`.
 2. treat `xml` as `text`, so we could access it by `ctx.request.body`.
 3. then parse it at `Controller` as your wish.
 
 ```js
 // config/config.default.js
 exports.bodyParser = {
-  enableTypes: [ 'json', 'form', 'text', 'xml' ],
+  enableTypes: [ 'json', 'form', 'text' ],
   extendTypes: {
     text: [ 'application/xml' ],
   },
@@ -47,7 +47,6 @@ class HomeController extends Controller {
     ctx.body = {
       type: ctx.get('content-type'),
       body,
-      raw: ctx.request.rawBody,
     };
   }
 }

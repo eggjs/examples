@@ -14,7 +14,6 @@ describe('test/app/controller/home.test.js', () => {
       .expect({
         type: 'application/x-www-form-urlencoded',
         body: { name: 'TZ' },
-        raw: 'name=TZ',
       })
       .expect(200);
   });
@@ -27,7 +26,6 @@ describe('test/app/controller/home.test.js', () => {
       .expect({
         type: 'application/json',
         body: { name: 'TZ' },
-        raw: '{"name":"TZ"}',
       })
       .expect(200);
   });
@@ -40,7 +38,6 @@ describe('test/app/controller/home.test.js', () => {
       .expect({
         type: 'text/plain',
         body: 'this is a raw',
-        raw: 'this is a raw',
       })
       .expect(200);
   });
@@ -53,7 +50,6 @@ describe('test/app/controller/home.test.js', () => {
       .expect({
         type: 'application/xml',
         body: { name: 'TZ' },
-        raw: '<User name="TZ"></User>',
       })
       .expect(200);
   });
@@ -66,7 +62,6 @@ describe('test/app/controller/home.test.js', () => {
       .expect({
         type: 'application/custom-json',
         body: { name: 'TZ' },
-        raw: '{"name":"TZ"}',
       })
       .expect(200);
   });

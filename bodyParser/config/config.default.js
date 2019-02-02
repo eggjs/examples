@@ -3,7 +3,7 @@
 exports.keys = '123456';
 
 exports.bodyParser = {
-  enableTypes: [ 'json', 'form', 'text', 'xml' ],
+  enableTypes: [ 'json', 'form', 'text' ],
   extendTypes: {
     json: 'application/custom-json',
     text: [ 'application/xml' ],

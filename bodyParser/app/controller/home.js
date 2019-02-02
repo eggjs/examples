@@ -10,7 +10,6 @@ class HomeController extends Controller {
     ctx.body = {
       type: ctx.get('content-type'),
       body: ctx.request.body,
-      raw: ctx.request.rawBody,
     };
   }
 
@@ -23,7 +22,6 @@ class HomeController extends Controller {
     ctx.body = {
       type: ctx.get('content-type'),
       body,
-      raw: ctx.request.rawBody,
     };
   }
 }
