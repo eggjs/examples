@@ -9,12 +9,13 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = [];
 
-  config.sofaRpc = {
+  config.rpc = {
     registry: {
       address: '127.0.0.1:2181', // 根据实际情况配置
     },
     server: {
       namespace: 'com.alipay.sofa.rpc.protobuf',
+      codecType: 'protobuf',
     },
   };
 

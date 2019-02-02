@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "sofa rpc demo",
   "private": true,
+  "egg": {
+    "framework": "sofa-node"
+  },
   "dependencies": {
-    "egg": "^2.2.1",
     "egg-scripts": "^2.5.0",
-    "egg-sofa-rpc": "^1.0.0"
+    "sofa-node": "^1.0.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
