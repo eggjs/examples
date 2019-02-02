@@ -23,3 +23,9 @@ reports
 .history
 yarn.lock
 package-lock.json
+.nyc_output/
+**/proxy_class
+**/apiMeta.json
+**/pom.xml
+sofa-rpc/src
+sofa-rpc/target
