@@ -6,7 +6,8 @@
     "egg-passport-bitbucket": "^1.0.0",
     "egg-passport-github": "^1.0.0",
     "egg-passport-twitter": "^1.0.0",
-    "egg-passport-weibo": "^1.0.0"
+    "egg-passport-weibo": "^1.0.0",
+    "egg-passport-yuque": "^1.0.0"
   },
   "devDependencies": {
     "egg-bin": "^4.3.5"

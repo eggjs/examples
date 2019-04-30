@@ -8,6 +8,7 @@ module.exports = app => {
   app.passport.mount('github');
   app.passport.mount('bitbucket');
   app.passport.mount('twitter');
+  app.passport.mount('yuque');
 
   app.router.get('/logout', 'user.logout');
 };

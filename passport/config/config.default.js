@@ -22,3 +22,8 @@ exports.passportTwitter = {
   key: 'g',
   secret: 'h',
 };
+
+exports.passportYuque = {
+  key: process.env.EGG_PASSPORT_YUQUE_CLIENT_ID || 'i',
+  secret: process.env.EGG_PASSPORT_YUQUE_CLIENT_SECRET || 'j',
+};

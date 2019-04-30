@@ -24,3 +24,8 @@ exports.passportBitbucket = {
   enable: true,
   package: 'egg-passport-bitbucket',
 };
+
+exports.passportYuque = {
+  enable: true,
+  package: 'egg-passport-yuque',
+};
