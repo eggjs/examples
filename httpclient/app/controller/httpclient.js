@@ -104,6 +104,28 @@ class HttpclientController extends Controller {
     ctx.body = result.data.files;
   }
 
+  // https://github.com/node-modules/urllib/pull/322
+  async files() {
+    const ctx = this.ctx;
+
+    const result = await ctx.curl('https://httpbin.org/post', {
+      // 必须指定 method，支持 POST，PUT
+      method: 'POST',
+      // 上传文件
+      files: {
+        file1: __filename,
+        file2: Buffer.from('mock file content'),
+      },
+      // 其他 Field
+      data: {
+        foo: 'bar',
+      },
+      // 明确告诉 httpclient 以 JSON 格式处理响应 body
+      dataType: 'json',
+    });
+    ctx.body = result.data.files;
+  }
+
   async postStream() {
     const ctx = this.ctx;
 
