@@ -12,7 +12,7 @@ class User extends Service {
   }
 
   async find(id) {
-    const user = await this.ctx.model.User.findById(id);
+    const user = await this.ctx.model.User.findByPk(id);
     if (!user) {
       this.ctx.throw(404, 'user not found');
     }
@@ -24,7 +24,7 @@ class User extends Service {
   }
 
   async update({ id, updates }) {
-    const user = await this.ctx.model.User.findById(id);
+    const user = await this.ctx.model.User.findByPk(id);
     if (!user) {
       this.ctx.throw(404, 'user not found');
     }
@@ -32,7 +32,7 @@ class User extends Service {
   }
 
   async del(id) {
-    const user = await this.ctx.model.User.findById(id);
+    const user = await this.ctx.model.User.findByPk(id);
     if (!user) {
       this.ctx.throw(404, 'user not found');
     }
