@@ -2,7 +2,6 @@ import { IConfig } from 'umi-types';
 
 // ref: https://umijs.org/config/
 const config: IConfig =  {
-  treeShaking: true,
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     [ 'umi-plugin-react', {
@@ -10,7 +9,9 @@ const config: IConfig =  {
       dva: true,
       title: 'assets-with-umi-ts',
       dll: false,
-
+      dynamicImport: {
+        webpackChunkName: true,
+      },
       routes: {
         exclude: [
           /models\//,
@@ -22,6 +23,9 @@ const config: IConfig =  {
       },
     }],
   ],
+  runtimePublicPath: true,
+  disableCSSModules: true,
+  cssModulesWithAffix: true,
 };
 
 export default config;

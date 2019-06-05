@@ -16,3 +16,5 @@
 # umi
 .umi
 .umi-production
+.umirc.local.ts
+.umirc.local.js
