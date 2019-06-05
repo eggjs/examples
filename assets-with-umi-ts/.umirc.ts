@@ -24,8 +24,8 @@ const config: IConfig =  {
     }],
   ],
   runtimePublicPath: true,
-  disableCSSModules: true,
-  cssModulesWithAffix: true,
+  disableCSSModules: false,
+  cssModulesWithAffix: false,
 };
 
 export default config;
