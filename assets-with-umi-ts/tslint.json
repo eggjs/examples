@@ -1,3 +1,8 @@
 {
-  "extends": ["tslint-config-egg"]
+  "extends": ["tslint-config-egg"],
+  "linterOptions": {
+    "exclude": [
+      "coverage/**/*.js"
+    ]
+  }
 }
