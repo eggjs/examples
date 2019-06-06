@@ -1,5 +1,5 @@
 import 'jest';
-import BasicLayout from '..';
+import BasicLayout from '../index';
 import React from 'react';
 import renderer, { ReactTestInstance, ReactTestRenderer } from 'react-test-renderer';
 

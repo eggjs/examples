@@ -1,4 +1,4 @@
-import * as assert from 'assert';
+import assert from 'assert';
 import { app } from 'egg-mock/bootstrap';
 
 describe('test/app/controller/home.test.ts', () => {
