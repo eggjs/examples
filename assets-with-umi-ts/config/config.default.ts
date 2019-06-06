@@ -37,8 +37,8 @@ export default (appInfo: EggAppInfo) => {
   };
 
   config.logger = {
-    level: 'DEBUG',
-    consoleLevel: 'DEBUG',
+    level: 'INFO',
+    consoleLevel: 'INFO',
     allowDebugAtProd: true,
   };
 
