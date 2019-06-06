@@ -5,7 +5,7 @@ import { IConfig } from 'umi-types';
 const config: IConfig =  {
   hash: true,
   publicPath: '',
-  outputPath: '../public',
+  outputPath: './app/public',
   manifest: {
     fileName: '../../config/manifest.json',
   },

@@ -36,6 +36,12 @@ export default (appInfo: EggAppInfo) => {
     csrf: false,
   };
 
+  config.logger = {
+    level: 'DEBUG',
+    consoleLevel: 'DEBUG',
+    allowDebugAtProd: true,
+  };
+
   // add your special config in here
   const bizConfig = {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,

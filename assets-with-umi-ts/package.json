@@ -8,7 +8,7 @@
     "declarations": true
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-assets-with-umi-ts",
+    "start": "egg-scripts start  --title=egg-server-assets-with-umi-ts",
     "stop": "egg-scripts stop --title=egg-server-assets-with-umi-ts",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
@@ -21,7 +21,7 @@
     "lint": "tslint --project . -c tslint.json",
     "clean": "ets clean",
     "start:umi": "umi dev",
-    "build": "umi build",
+    "build:umi": "UMI_ENV=prod CI=true  umi build",
     "test:umi": "umi test",
     "lint:es": "eslint --ext .js src mock tests",
     "lint:ts": "tslint \"src/**/*.ts\" \"src/**/*.tsx\""
