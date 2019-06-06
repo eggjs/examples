@@ -1,6 +1,6 @@
-# hackernews-async-ts
+# assets-with-umi-ts
 
-[Hacker News](https://news.ycombinator.com/) showcase using typescript && egg
+showcase for egg&umi with typescript
 
 ## QuickStart
 
@@ -17,6 +17,7 @@ Don't tsc compile at development mode, if you had run `tsc` then you need to `np
 ### Deploy
 
 ```bash
+$ npm run build:umi
 $ npm run tsc
 $ npm start
 ```
