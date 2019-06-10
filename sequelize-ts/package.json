@@ -1,0 +1,37 @@
+{
+  "name": "sequelize-ts-example",
+  "version": "1.0.0",
+  "description": "The egg ts example project that uses egg-sequelize plugin.",
+  "private": true,
+  "dependencies": {
+    "egg": "^2.10.0",
+    "egg-sequelize": "^5.0.0",
+    "mysql2": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.6",
+    "autod": "^3.0.1",
+    "egg-bin": "^4.8.1",
+    "egg-mock": "^3.19.2",
+    "factory-girl": "^5.0.2",
+    "lodash": "^4.17.10",
+    "sequelize-cli": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "egg": {
+    "typescript": true,
+    "declarations": true
+  },
+  "scripts": {
+    "dev": "egg-bin dev",
+    "test": "NODE_ENV=test npm run sequelize -- db:migrate && egg-bin test",
+    "cov": "egg-bin cov",
+    "ci": "npm run cov",
+    "autod": "autod",
+    "sequelize": "sequelize --"
+  },
+  "author": "Qi Yu <njuyuqi@gmail.coom>",
+  "license": "MIT"
+}
