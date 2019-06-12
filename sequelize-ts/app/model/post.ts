@@ -14,8 +14,8 @@ export default function(app: Application) {
     title: STRING(30),
     content: STRING(255),
     user_id: INTEGER,
-    created_at: DATE,
-    updated_at: DATE,
+    created_at: DATE(6),
+    updated_at: DATE(6),
   });
 
   return class extends Post {
@@ -23,7 +23,7 @@ export default function(app: Application) {
       app.model.Post.belongsTo(app.model.User, { as: 'user', foreignKey: 'user_id' });
     }
 
-    static async findByIdWithUser(id: string, userId: string) {
+    static async findByIdWithUser(id: number, userId: number) {
       return await this.findOne({
         where: { id, user_id: userId },
       });
