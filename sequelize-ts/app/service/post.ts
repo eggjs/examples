@@ -1,6 +1,7 @@
 'use strict';
 
 import { Service } from 'egg';
+import { CreateOptions } from 'sequelize';
 
 export default class Post extends Service {
   async list({ offset = 0, limit = 10, user_id = undefined }: { offset: number; limit: number; user_id?: number }) {
@@ -27,7 +28,7 @@ export default class Post extends Service {
     return post;
   }
 
-  async create(post) {
+  async create(post: CreateOptions) {
     return this.ctx.model.Post.create(post);
   }
 
