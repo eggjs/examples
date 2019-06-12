@@ -8,8 +8,8 @@ module.exports = {
       title: STRING(30),
       content: STRING(255),
       user_id: INTEGER,
-      created_at: DATE,
-      updated_at: DATE,
+      created_at: DATE(6),
+      updated_at: DATE(6),
     });
   },
 
