@@ -144,7 +144,7 @@ describe('test/app/service/post.test.js', () => {
 
     it('should throw 404 when id not found', async () => {
       try {
-        await ctx.service.post.destroy({ id: 1 });
+        await ctx.service.post.destroy({ id: 1, user_id: 1 });
         throw new Error('should not execute');
       } catch (error) {
         assert(error.status === 404);
