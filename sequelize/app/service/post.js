@@ -19,7 +19,7 @@ class Post extends Service {
   }
 
   async find(id) {
-    const post = await this.ctx.model.Post.findById(id, {
+    const post = await this.ctx.model.Post.findByPk(id, {
       include: [{
         model: this.ctx.model.User,
         as: 'user',
