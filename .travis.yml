@@ -6,6 +6,7 @@ node_js:
 services:
   - mysql
 before_install:
+  - npm i npminstall -g
   - 'wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz'
   - 'tar xf zookeeper-3.4.6.tar.gz'
   - 'mv zookeeper-3.4.6/conf/zoo_sample.cfg zookeeper-3.4.6/conf/zoo.cfg'
@@ -13,7 +14,7 @@ before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS `egg-sequelize-example-unittest`;'
   - mysql -e 'CREATE DATABASE IF NOT EXISTS `egg-sequelize-ts-unittest`;'
 install:
-  - npm i npminstall && npminstall
+  - npminstall
 script:
   - npm run ci
 after_script:
