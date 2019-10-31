@@ -1,3 +1,4 @@
+'use strict';
 require('ts-node').register();
 // tell egg loader to load ts file
 process.env.EGG_TYPESCRIPT = 'true';

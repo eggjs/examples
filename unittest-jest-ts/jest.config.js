@@ -1,11 +1,11 @@
-const {defaults} = require('jest-config');
+'use strict';
 
 module.exports = {
-  "roots": [
-    "<rootDir>/test"
+  roots: [
+    '<rootDir>/test',
   ],
-  "transform": {
-    "^.+\\.tsx?$": "ts-jest"
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
   },
   testEnvironment: './test/env.js',
 };
