@@ -9,6 +9,7 @@
 
 ```bash
 $ npm i
+$ npm run init-db
 $ npm run dev
 $ open http://localhost:7001/
 ```

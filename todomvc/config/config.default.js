@@ -2,6 +2,8 @@
 
 'use strict';
 
+const path = require('path');
+
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -26,6 +28,13 @@ module.exports = appInfo => {
       '.nj': 'nunjucks',
       '.tpl': 'nunjucks',
     },
+  };
+
+  config.orm = {
+    dialect: 'sqlite',
+    client: 'sqlite3',
+    database: path.join(__dirname, '..', 'todos.sqlite3'),
+    sequelize: true,
   };
 
   // add your user config here

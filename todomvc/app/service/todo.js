@@ -2,12 +2,6 @@
 
 const { Service } = require('egg');
 
-const dataStore = [
-  { id: '1', title: 'Read history of Node.js', completed: true },
-  { id: '2', title: 'Learn Koa', completed: true },
-  { id: '3', title: 'Star Egg', completed: false },
-];
-
 /**
  * @typedef Todo - Todo item
  * @property {String} id - todo id, will auto created
@@ -18,7 +12,7 @@ const dataStore = [
 class TodoService extends Service {
   constructor(ctx) {
     super(ctx);
-    this.store = dataStore;
+    this.Todo = ctx.model.Todo;
   }
 
   /**
@@ -30,10 +24,11 @@ class TodoService extends Service {
    */
   async list(filters) {
     const { completed } = filters;
-    let list = this.store;
+    const where = {};
     if (completed !== undefined) {
-      list = list.filter(x => x.completed === completed);
+      where.completed = completed ? 1 : 0;
     }
+    const list = await this.Todo.findAll({ where });
     return list;
   }
 
@@ -42,9 +37,9 @@ class TodoService extends Service {
    * @param {String} id - todo id
    */
   async get(id) {
-    const index = id ? this.store.findIndex(x => x.id === id) : -1;
-    if (index === -1) this.ctx.throw(500, `task#${id} not found`);
-    return this.store[index];
+    const item = await this.Todo.findByPk(id);
+    if (!item) this.ctx.throw(500, `task#${id} not found`);
+    return item;
   }
 
   /**
@@ -55,13 +50,10 @@ class TodoService extends Service {
   async create(todo) {
     // validate
     if (!todo.title) this.ctx.throw(422, 'task title required');
-
     // normalize
-    todo.id = Date.now().toString();
-    todo.completed = false;
-
-    this.store.push(todo);
-    return todo;
+    todo.completed = 0;
+    const item = await this.Todo.create(todo);
+    return item;
   }
 
   /**
@@ -73,7 +65,8 @@ class TodoService extends Service {
   async update(id, todo) {
     const data = await this.get(id);
     if (!todo.title) this.ctx.throw(442, 'task title required');
-    return Object.assign(data, todo);
+    await data.update(todo);
+    return data;
   }
 
   /**
@@ -82,10 +75,9 @@ class TodoService extends Service {
    * @param {String} id - todo id
    */
   async destroy(id) {
-    const index = id ? this.store.findIndex(x => x.id === id) : -1;
-    if (index === -1) this.ctx.throw(500, `task#${id} not found`);
-
-    return this.store.splice(index, 1);
+    const item = await this.get(id);
+    await item.destroy();
+    return item;
   }
 }
 
