@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "egg": "^2.15.1",
+    "egg-orm": "^1.0.0",
     "egg-scripts": "^2.11.0",
     "egg-validate": "^2.0.2",
     "egg-view-nunjucks": "^2.2.0",
