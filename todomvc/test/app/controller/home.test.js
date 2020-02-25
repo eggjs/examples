@@ -3,16 +3,6 @@
 const { app, assert } = require('egg-mock/bootstrap');
 
 describe('test/app/controller/home.test.js', () => {
-  before(async () => {
-    await app.model.sync();
-    await app.model.Todo.remove({}, true);
-    await app.model.Todo.bulkCreate([
-      { id: 1, title: 'Read history of Node.js', completed: true },
-      { id: 2, title: 'Learn Koa', completed: true },
-      { id: 3, title: 'Star Egg', completed: false },
-    ]);
-  });
-
   beforeEach(() => {
     app.mockCsrf();
   });

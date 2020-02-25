@@ -42,6 +42,9 @@
     "type": "git",
     "url": ""
   },
+  "ci": {
+    "version": "10, 12"
+  },
   "author": "TZ <atian25@qq.com>",
   "license": "MIT"
 }
