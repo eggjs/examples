@@ -27,7 +27,6 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "init-db": "./prepare.sh",
     "start": "egg-scripts start --daemon --title=egg-server-todomvc",
     "stop": "egg-scripts stop --title=egg-server-todomvc",
     "dev": "DEBUG=leoric egg-bin dev",
