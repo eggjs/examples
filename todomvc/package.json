@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "egg": "^2.15.1",
+    "egg-orm": "^1.0.0",
     "egg-scripts": "^2.11.0",
     "egg-validate": "^2.0.2",
-    "egg-view-nunjucks": "^2.2.0"
+    "egg-view-nunjucks": "^2.2.0",
+    "sqlite3": "^4.1.1"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -19,26 +21,22 @@
     "egg-ci": "^1.11.0",
     "egg-mock": "^3.21.0",
     "eslint": "^5.13.0",
-    "eslint-config-egg": "^7.1.0",
-    "webstorm-disable-index": "^1.2.0"
+    "eslint-config-egg": "^7.1.0"
   },
   "engines": {
-    "node": ">=8.9.0"
+    "node": ">=10.0.0"
   },
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-todomvc",
     "stop": "egg-scripts stop --title=egg-server-todomvc",
-    "dev": "egg-bin dev",
-    "debug": "egg-bin debug",
-    "test": "npm run lint -- --fix && npm run test-local",
-    "test-local": "egg-bin test",
-    "cov": "egg-bin cov",
+    "dev": "DEBUG=leoric egg-bin dev",
+    "debug": "DEBUG=leoric egg-bin debug",
+    "test": "DEBUG=leoric npm run lint -- --fix && npm run test-local",
+    "test-local": "DEBUG=leoric egg-bin test",
+    "cov": "DEBUG=leoric egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
     "autod": "autod"
-  },
-  "ci": {
-    "version": "8"
   },
   "repository": {
     "type": "git",

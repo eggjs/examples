@@ -10,4 +10,8 @@ module.exports = {
     enable: true,
     package: 'egg-validate',
   },
+  orm: {
+    enable: true,
+    package: 'egg-orm',
+  },
 };
