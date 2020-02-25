@@ -51,7 +51,7 @@ class TodoService extends Service {
     // validate
     if (!todo.title) this.ctx.throw(422, 'task title required');
     // normalize
-    todo.completed = 0;
+    todo.completed = false;
     const item = await this.Todo.create(todo);
     return item;
   }
