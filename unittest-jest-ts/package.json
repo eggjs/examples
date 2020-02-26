@@ -1,0 +1,20 @@
+{
+  "name": "unittest-jest-ts-example",
+  "dependencies": {
+    "egg": "2"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.21",
+    "egg-bin": "^4.3.5",
+    "egg-mock": "^3.13.1",
+    "jest": "^24.6.0",
+    "ts-jest": "^24.1.0"
+  },
+  "scripts": {
+    "dev": "egg-bin dev",
+    "test": "jest",
+    "cov": "jest --coverage",
+    "ci": "eslint . && npm run cov"
+  },
+  "private": true
+}
