@@ -1,0 +1,16 @@
+src/
+node_modules/
+node_modules*/
+npm-shrinkwrap.json
+tsconfig.json
+tslint.json
+.eslintignore
+.eslintrc.json
+.travis.yml
+appveyor.yml
+*.swp
+*.bak
+demo/
+test/
+coverage/
+.nyc_output/

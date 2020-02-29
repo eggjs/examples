@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "charset": "utf8",
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": false,
+    "inlineSourceMap": true,
+    "module": "commonjs",
+    "newLine": "lf",
+    "noFallthroughCasesInSwitch": true,
+    "pretty": true,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "target": "ES2017", 
+    "types" : ["node"]
+  },
+  "include": [
+    "./*.ts",
+    "app/**/*.ts",
+    "config/**/*.ts",
+    "test/**/*.ts"
+  ],
+  "exclude": [
+    "app/public",
+    "app/views",
+    "node_modules*",
+    "**/*.d.ts",
+    "**/*.spec.ts"
+  ]
+}
