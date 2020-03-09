@@ -22,13 +22,14 @@ module.exports = appInfo => {
     publicPath: '/public/',
     devServer: {
       debug: false,
+      autoPort: true,
       command: 'roadhog dev',
-      port: 8000,
       env: {
+        PORT: '{port}',
         BROWSER: 'none',
         ESLINT: 'none',
-        SOCKET_SERVER: 'http://127.0.0.1:8000',
-        PUBLIC_PATH: 'http://127.0.0.1:8000',
+        SOCKET_SERVER: 'http://127.0.0.1:{port}',
+        PUBLIC_PATH: 'http://127.0.0.1:{port}',
       },
     },
   };
