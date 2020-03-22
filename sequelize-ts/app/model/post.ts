@@ -5,7 +5,7 @@ import { Application } from 'egg';
 export default function(app: Application) {
   const { STRING, INTEGER, DATE } = app.Sequelize;
 
-  const Post = app.model.define('post', {
+  const Model = app.model.define('post', {
     id: {
       type: INTEGER,
       primaryKey: true,
@@ -18,7 +18,7 @@ export default function(app: Application) {
     updated_at: DATE(6),
   });
 
-  return class extends Post {
+  return class Post extends Model {
     static associate() {
       app.model.Post.belongsTo(app.model.User, { as: 'user', foreignKey: 'user_id' });
     }
