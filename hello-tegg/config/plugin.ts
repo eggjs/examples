@@ -13,6 +13,10 @@ const plugin: EggPlugin = {
     enable: true,
     package: '@eggjs/tegg-controller-plugin',
   },
+  teggAop: {
+    enable: true,
+    package: '@eggjs/tegg-aop-plugin',
+  }
 };
 
 export default plugin;

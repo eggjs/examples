@@ -34,6 +34,7 @@ export class HelloController {
       success: true,
       data: {
         message,
+        other: this.helloService.path,
       },
     };
   }

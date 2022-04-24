@@ -22,11 +22,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@eggjs/tegg": "^0.1.1",
-    "@eggjs/tegg-config": "^0.1.0",
-    "@eggjs/tegg-controller-plugin": "^0.1.1",
-    "@eggjs/tegg-eventbus-plugin": "^0.1.1",
-    "@eggjs/tegg-plugin": "^0.1.1",
+    "@eggjs/tegg": "^1.0.0",
+    "@eggjs/tegg-aop-plugin": "^1.0.3",
+    "@eggjs/tegg-config": "^1.0.0",
+    "@eggjs/tegg-controller-plugin": "^1.0.0",
+    "@eggjs/tegg-eventbus-plugin": "^1.0.0",
+    "@eggjs/tegg-plugin": "^1.0.0",
     "egg": "^2.29.4"
   },
   "devDependencies": {
