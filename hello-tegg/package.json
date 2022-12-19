@@ -5,39 +5,38 @@
   "main": "index.js",
   "scripts": {
     "start": "egg-scripts start",
-    "dev": "egg-bin dev -r egg-ts-helper/register",
-    "debug": "egg-bin debug -r egg-ts-helper/register",
-    "test-local": "egg-bin test -r egg-ts-helper/register",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test-local": "egg-bin test",
     "test": "npm run lint -- --fix && npm run test-local",
-    "cov": "egg-bin cov -r egg-ts-helper/register",
+    "cov": "egg-bin cov",
     "tsc": "tsc -p tsconfig.json",
     "ci": "npm run lint && npm run cov && npm run tsc",
-    "autod": "autod",
-    "lint": "eslint .",
+    "lint": "eslint app config test *.ts",
     "clean": "tsc -b --clean"
   },
   "egg": {
     "typescript": true
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@eggjs/tegg": "^0.1.1",
-    "@eggjs/tegg-config": "^0.1.0",
-    "@eggjs/tegg-controller-plugin": "^0.1.1",
-    "@eggjs/tegg-eventbus-plugin": "^0.1.1",
-    "@eggjs/tegg-plugin": "^0.1.1",
-    "egg": "^2.29.4"
+    "@eggjs/tegg": "^1.6.4",
+    "@eggjs/tegg-config": "^1.3.3",
+    "@eggjs/tegg-controller-plugin": "^1.7.5",
+    "@eggjs/tegg-eventbus-plugin": "^1.5.5",
+    "@eggjs/tegg-plugin": "^1.5.5",
+    "egg": "^3.9.1"
   },
   "devDependencies": {
-    "@eggjs/tsconfig": "^1.0.0",
-    "@types/mocha": "^8.2.3",
-    "@types/node": "^16.4.0",
-    "egg-bin": "^4.16.4",
-    "egg-mock": "^3.26.0",
-    "egg-ts-helper": "^1.25.9",
-    "eslint": "^7.31.0",
-    "eslint-config-egg": "^9.0.0",
-    "typescript": "^4.3.5"
-  }
+    "@eggjs/tsconfig": "^1.2.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^16.18.10",
+    "egg-bin": "^5.9.0",
+    "egg-mock": "^5.4.0",
+    "egg-ts-helper": "^1.33.0",
+    "eslint": "^8.30.0",
+    "eslint-config-egg": "^12.1.0",
+    "typescript": "^4.9.4"
+  },
+  "repository": "git@github.com:eggjs/examples.git"
 }
