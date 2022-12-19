@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "egg-scripts start",
+    "stop": "egg-scripts stop",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test-local": "egg-bin test",
@@ -12,7 +13,7 @@
     "cov": "egg-bin cov",
     "tsc": "tsc -p tsconfig.json",
     "ci": "npm run lint && npm run cov && npm run tsc",
-    "lint": "eslint app config test *.ts",
+    "lint": "eslint .",
     "clean": "tsc -b --clean"
   },
   "egg": {
@@ -25,7 +26,8 @@
     "@eggjs/tegg-controller-plugin": "^1.7.5",
     "@eggjs/tegg-eventbus-plugin": "^1.5.5",
     "@eggjs/tegg-plugin": "^1.5.5",
-    "egg": "^3.9.1"
+    "egg": "^3.9.1",
+    "egg-scripts": "^2.17.0"
   },
   "devDependencies": {
     "@eggjs/tsconfig": "^1.2.0",
