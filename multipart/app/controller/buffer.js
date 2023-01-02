@@ -1,6 +1,4 @@
-'use strict';
-
-const fs = require('mz/fs');
+const fs = require('fs');
 const path = require('path');
 const Controller = require('egg').Controller;
 const toArray = require('stream-to-array');
