@@ -1,5 +1,3 @@
-'use strict';
-
 const initDatabase = require('./config/database/init');
 
 class AppBootHook {

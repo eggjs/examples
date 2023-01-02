@@ -1,7 +1,5 @@
 /* eslint valid-jsdoc: "off" */
 
-'use strict';
-
 const path = require('path');
 
 /**

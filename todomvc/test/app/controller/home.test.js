@@ -1,11 +1,10 @@
-'use strict';
-
-const { app, assert } = require('egg-mock/bootstrap');
+const { app, assert, mock } = require('egg-mock/bootstrap');
 
 describe('test/app/controller/home.test.js', () => {
   beforeEach(() => {
     app.mockCsrf();
   });
+  afterEach(mock.restore);
 
   it('should GET /', () => {
     return app.httpRequest()
@@ -69,9 +68,13 @@ describe('test/app/controller/home.test.js', () => {
   });
 
   it('should update todo', async () => {
+    const res = await app.httpRequest()
+      .get('/api/todo');
+    const row = res.body[0];
+
     await app.httpRequest()
-      .put('/api/todo/1')
-      .send({ id: '1', title: 'Modify Node.js' })
+      .put(`/api/todo/${row.id}`)
+      .send({ id: row.id, title: 'Modify Node.js' })
       .expect('X-Response-Time', /\d+ms/)
       .expect(204);
 
@@ -86,7 +89,7 @@ describe('test/app/controller/home.test.js', () => {
 
   it('should update todo fail', () => {
     return app.httpRequest()
-      .put('/api/todo/999')
+      .put('/api/todo/999999999999')
       .set('Accept', 'application/json')
       .send({ id: '1', title: undefined })
       .expect(422)
@@ -103,18 +106,22 @@ describe('test/app/controller/home.test.js', () => {
 
   it('should update todo fail with not found', () => {
     return app.httpRequest()
-      .put('/api/todo/999')
+      .put('/api/todo/999999999999')
       .set('Accept', 'application/json')
-      .send({ id: '999', title: 'Modify Node.js' })
+      .send({ id: '999999999999', title: 'Modify Node.js' })
       .expect(500)
       .then(res => {
-        assert(res.body.message === 'task#999 not found');
+        assert(res.body.message === 'task#999999999999 not found');
       });
   });
 
   it('should delete todo', async () => {
+    const res = await app.httpRequest()
+      .get('/api/todo');
+    const row = res.body[0];
+
     await app.httpRequest()
-      .delete('/api/todo/1')
+      .delete(`/api/todo/${row.id}`)
       .expect(204);
 
     // validate
@@ -129,11 +136,11 @@ describe('test/app/controller/home.test.js', () => {
 
   it('should delete todo fail', () => {
     return app.httpRequest()
-      .delete('/api/todo/999')
+      .delete('/api/todo/999999999999')
       .set('Accept', 'application/json')
       .expect(500)
       .then(res => {
-        assert(res.body.message === 'task#999 not found');
+        assert(res.body.message === 'task#999999999999 not found');
       });
   });
 });

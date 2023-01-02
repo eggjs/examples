@@ -1,3 +1,7 @@
 {
-  "extends": "eslint-config-egg"
+  "root": true,
+  "extends": "eslint-config-egg",
+  "parserOptions": {
+    "ecmaVersion": 2022
+  }
 }
