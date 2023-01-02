@@ -1,8 +1,6 @@
-'use strict';
-
-const fs = require('mz/fs');
 const path = require('path');
-const pump = require('mz-modules/pump');
+const fs = require('fs');
+const { pipeline } = require('stream/promises');
 const Controller = require('egg').Controller;
 
 module.exports = class extends Controller {
@@ -21,7 +19,7 @@ module.exports = class extends Controller {
         const targetPath = path.join(this.config.baseDir, 'app/public', filename);
         const source = fs.createReadStream(file.filepath);
         const target = fs.createWriteStream(targetPath);
-        await pump(source, target);
+        await pipeline(source, target);
         ctx.logger.warn('save %s to %s', file.filepath, targetPath);
       }
     } finally {

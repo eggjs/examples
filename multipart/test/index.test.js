@@ -1,18 +1,11 @@
-'use strict';
-
 const path = require('path');
 const assert = require('assert');
-const mm = require('egg-mock');
-const rimraf = require('mz-modules/rimraf');
+const fs = require('fs/promises');
+const { app, mock } = require('egg-mock/bootstrap');
 
 describe('example multipart test', () => {
-  let app;
-  before(async () => {
-    app = mm.app();
-    await app.ready();
-  });
-  after(() => app.close());
-  after(() => rimraf(path.join(app.config.baseDir, 'app/public')));
+  afterEach(mock.restore);
+  after(() => fs.rm(path.join(app.config.baseDir, 'app/public'), { recursive: true, force: true }));
 
   describe('form', () => {
     it('should upload', async () => {

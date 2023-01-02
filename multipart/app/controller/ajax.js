@@ -1,9 +1,7 @@
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
+const { pipeline } = require('stream/promises');
 const Controller = require('egg').Controller;
-const pump = require('mz-modules/pump');
 
 class UploadAjaxController extends Controller {
   async show() {
@@ -15,7 +13,7 @@ class UploadAjaxController extends Controller {
     const filename = encodeURIComponent(stream.fields.name) + path.extname(stream.filename).toLowerCase();
     const target = path.join(this.config.baseDir, 'app/public', filename);
     const writeStream = fs.createWriteStream(target);
-    await pump(stream, writeStream);
+    await pipeline(stream, writeStream);
 
     this.ctx.body = { url: '/public/' + filename };
   }

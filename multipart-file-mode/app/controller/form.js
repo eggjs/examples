@@ -1,8 +1,6 @@
-'use strict';
-
-const fs = require('mz/fs');
 const path = require('path');
-const pump = require('mz-modules/pump');
+const fs = require('fs');
+const { pipeline } = require('stream/promises');
 const Controller = require('egg').Controller;
 
 module.exports = class extends Controller {
@@ -21,7 +19,7 @@ module.exports = class extends Controller {
     const target = fs.createWriteStream(targetPath);
 
     try {
-      await pump(source, target);
+      await pipeline(source, target);
       ctx.logger.warn('save %s to %s', file.filepath, targetPath);
     } finally {
       // delete those request tmp files
