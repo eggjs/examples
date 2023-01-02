@@ -1,6 +1,4 @@
-'use strict';
-
-import * as assert from 'assert';
+import { strict as assert } from 'assert';
 import { Context } from 'egg';
 import { app } from 'egg-mock/bootstrap';
 

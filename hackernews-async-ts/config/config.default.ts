@@ -1,5 +1,3 @@
-'use strict';
-
 import { EggAppConfig, PowerPartial } from 'egg';
 import * as fs from 'fs';
 import * as path from 'path';

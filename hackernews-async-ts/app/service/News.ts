@@ -21,11 +21,12 @@ export class HackerNews extends Service {
    * @param api - Api name
    * @param opts - urllib options
    */
-  public async request(api: string, opts?: object) {
-    const options = Object.assign({
+  public async request(api: string, opts?: any) {
+    const options = {
       dataType: 'json',
-      timeout: ['30s', '30s'],
-    }, opts);
+      timeout: '30s',
+      ...opts,
+    };
 
     const result = await this.ctx.curl(`${this.config.news.serverUrl}/${api}`, options);
     return result.data;
@@ -38,17 +39,17 @@ export class HackerNews extends Service {
    */
   public async getTopStories(page?: number, pageSize?: number): Promise<number[]> {
     page = page || 1;
-    pageSize = pageSize || this.config.news.pageSize;
+    const requestPageSize = pageSize ?? this.config.news.pageSize;
 
     try {
       const result = await this.request('topstories.json', {
         data: {
           orderBy: '"$key"',
-          startAt: `"${pageSize * (page - 1)}"`,
-          endAt: `"${pageSize * page - 1}"`,
+          startAt: `"${requestPageSize * (page - 1)}"`,
+          endAt: `"${requestPageSize * page - 1}"`,
         },
       });
-      return Object.keys(result).map((key) => result[key]);
+      return Object.keys(result).map(key => result[key]);
     } catch (e) {
       this.ctx.logger.error(e);
       return [];
