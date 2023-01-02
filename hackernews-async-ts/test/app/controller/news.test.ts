@@ -1,7 +1,6 @@
-'use strict';
-
+import { strict as assert } from 'assert';
 import * as cheerio from 'cheerio';
-import { app, assert } from 'egg-mock/bootstrap';
+import { app } from 'egg-mock/bootstrap';
 
 describe('test/app/controller/news.test.ts', () => {
   it('should GET /news', async () => {
@@ -13,17 +12,17 @@ describe('test/app/controller/news.test.ts', () => {
 
   it('should GET /news/item/:id', async () => {
     await app.httpRequest()
-    .get('/news/item/1')
+      .get('/news/item/1')
     // just a example, use regex to test part of dom string, but should be strong characteristic
-    .expect(/\/news\/item\/1/)
-    .expect(200);
+      .expect(/\/news\/item\/1/)
+      .expect(200);
   });
 
   it('should GET /news/user/:id', async () => {
     await app.httpRequest()
-    .get('/news/user/activatedgeek')
+      .get('/news/user/activatedgeek')
     // just a example, use regex to test part of dom string, but should be strong characteristic
-    .expect(/<span class="label">user:<\/span> activatedgeek/)
-    .expect(200);
+      .expect(/<span class="label">user:<\/span> activatedgeek/)
+      .expect(200);
   });
 });

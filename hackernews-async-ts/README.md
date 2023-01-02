@@ -29,5 +29,5 @@ $ npm start
 
 ### Requirement
 
-- Node.js 8.x
-- Typescript 2.8+
+- Node.js 16.x
+- Typescript 4.x

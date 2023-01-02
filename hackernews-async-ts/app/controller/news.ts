@@ -9,7 +9,7 @@ export default class NewsController extends Controller {
     const idList = await ctx.service.news.getTopStories(page);
 
     // get itemInfo parallel
-    const newsList = await Promise.all(idList.map((id) => ctx.service.news.getItem(id)));
+    const newsList = await Promise.all(idList.map(id => ctx.service.news.getItem(id)));
     await ctx.render('news/list.tpl', { list: newsList, page, pageSize });
   }
 
@@ -18,7 +18,7 @@ export default class NewsController extends Controller {
     const id = ctx.params.id;
     const newsInfo = await ctx.service.news.getItem(id);
     // get comment parallel
-    const commentList = await Promise.all(newsInfo.kids.map((_id) => ctx.service.news.getItem(_id)));
+    const commentList = await Promise.all(newsInfo.kids.map(_id => ctx.service.news.getItem(_id)));
     await ctx.render('news/detail.tpl', { item: newsInfo, comments: commentList });
   }
 
