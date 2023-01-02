@@ -39,7 +39,7 @@
     </div>
     {% endraw %}
   </body>
-  <script src="//cdn.jsdelivr.net/npm/vue"></script>
+  <script src="//cdn.jsdelivr.net/npm/vue@2"></script>
   <script src="//cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/js-cookie/src/js.cookie.min.js"></script>
   <script src="/public/main.js"></script>

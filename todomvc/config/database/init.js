@@ -1,5 +1,3 @@
-'use strict';
-
 // init database here
 module.exports = async app => {
   // sync database defines
@@ -8,9 +6,11 @@ module.exports = async app => {
   if (app.config.env === 'unittest') {
     await app.model.Todo.remove({}, true);
     await app.model.Todo.bulkCreate([
-      { id: 1, title: 'Read history of Node.js', completed: true },
-      { id: 2, title: 'Learn Koa', completed: true },
-      { id: 3, title: 'Star Egg', completed: false },
+      { title: 'Read history of Node.js', completed: true },
+      { title: 'Learn Koa', completed: true },
+      { title: 'Star Egg', completed: false },
     ]);
+    const rows = await app.model.Todo.findAll();
+    console.log(rows);
   }
 };

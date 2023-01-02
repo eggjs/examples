@@ -7,24 +7,21 @@
     "declarations": true
   },
   "dependencies": {
-    "egg": "^2.15.1",
-    "egg-orm": "^1.0.0",
-    "egg-scripts": "^2.11.0",
+    "egg": "^3.11.0",
+    "egg-orm": "^2.3.0",
+    "egg-scripts": "^2.17.0",
     "egg-validate": "^2.0.2",
-    "egg-view-nunjucks": "^2.2.0",
-    "sqlite3": "^4.1.1"
+    "egg-view-nunjucks": "^2.3.0",
+    "sqlite3": "^5.1.4"
   },
   "devDependencies": {
-    "autod": "^3.0.1",
-    "autod-egg": "^1.1.0",
-    "egg-bin": "^4.11.0",
-    "egg-ci": "^1.11.0",
-    "egg-mock": "^3.21.0",
-    "eslint": "^5.13.0",
-    "eslint-config-egg": "^7.1.0"
+    "egg-bin": "^5.9.0",
+    "egg-mock": "^5.5.0",
+    "eslint": "^8.31.0",
+    "eslint-config-egg": "^12.1.0"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=16.0.0"
   },
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-todomvc",
@@ -35,15 +32,11 @@
     "test-local": "DEBUG=leoric egg-bin test",
     "cov": "DEBUG=leoric egg-bin cov",
     "lint": "eslint .",
-    "ci": "npm run lint && npm run cov",
-    "autod": "autod"
+    "ci": "npm run lint && npm run cov"
   },
   "repository": {
     "type": "git",
     "url": ""
-  },
-  "ci": {
-    "version": "10, 12"
   },
   "author": "TZ <atian25@qq.com>",
   "license": "MIT"

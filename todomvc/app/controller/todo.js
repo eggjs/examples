@@ -1,5 +1,3 @@
-'use strict';
-
 const { Controller } = require('egg');
 
 class TodoController extends Controller {
