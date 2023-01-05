@@ -1,8 +1,7 @@
 {
   "name": "hello-tegg",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "description": "tegg application example",
   "scripts": {
     "start": "egg-scripts start",
     "stop": "egg-scripts stop",
@@ -33,7 +32,7 @@
     "@eggjs/tsconfig": "^1.2.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "^16.18.10",
-    "egg-bin": "^5.9.0",
+    "egg-bin": "^5.10.0",
     "egg-mock": "^5.4.0",
     "egg-ts-helper": "^1.33.0",
     "eslint": "^8.30.0",
