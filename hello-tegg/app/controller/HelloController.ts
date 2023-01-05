@@ -9,8 +9,8 @@ import {
   Inject,
 } from '@eggjs/tegg';
 import { EggLogger } from 'egg';
-import { traceMethod } from 'app/middleware/trace_method';
-import { HelloService } from 'app/biz/HelloService';
+import { traceMethod } from '../middleware/trace_method';
+import { HelloService } from '../biz/HelloService';
 
 @HTTPController()
 @Middleware(traceMethod)
