@@ -2,5 +2,8 @@
   "extends": "@eggjs/tsconfig",
   "compilerOptions": {
     "baseUrl": "./"
+  },
+  "ts-node": {
+    "files": true
   }
 }
