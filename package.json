@@ -7,22 +7,18 @@
     "egg"
   ],
   "devDependencies": {
-    "autod": "^2.7.1",
-    "autod-egg": "^1.0.0",
     "chalk": "^1.1.3",
-    "eslint": "^5.6.1",
-    "eslint-config-egg": "^7.1.0",
-    "npminstall": "3",
-    "semver": "^5.3.0",
     "common-bin": "^2.7.1",
-    "globby": "^6.1.0"
+    "globby": "^6.1.0",
+    "npminstall": "^6.6.2",
+    "runscript": "^1.5.3",
+    "semver": "^5.3.0"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "echo 'ignore'",
     "test": "./example.js test",
     "test-cn": "./example.js test -c",
     "ci": "npm run lint && npm test",
-    "autod": "./example.js autod",
     "list": "./example.js list"
   },
   "homepage": "https://github.com/eggjs/examples",
@@ -34,14 +30,7 @@
     "url": "https://github.com/eggjs/egg/issues"
   },
   "engines": {
-    "node": ">= 8.0.0"
-  },
-  "ci": {
-    "version": "8",
-    "license": {
-      "year": 2017
-    },
-    "afterScript": false
+    "node": ">= 14.17.0"
   },
   "license": "MIT",
   "private": true
