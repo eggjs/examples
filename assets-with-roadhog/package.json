@@ -16,8 +16,6 @@
     "react": "^16.2.0"
   },
   "devDependencies": {
-    "autod": "^3.0.1",
-    "autod-egg": "^1.0.0",
     "babel-plugin-dva-hmr": "^0.4.0",
     "babel-plugin-import": "^1.1.0",
     "egg-bin": "^4.3.7",
@@ -25,8 +23,7 @@
     "eslint": "^4.18.2",
     "eslint-config-egg": "^7.0.0",
     "redbox-react": "^1.5.0",
-    "roadhog": "^2.3.0",
-    "webstorm-disable-index": "^1.2.0"
+    "roadhog": "^2.3.0"
   },
   "engines": {
     "node": ">=8.9.0"
@@ -40,8 +37,7 @@
     "test": "egg-bin test",
     "cov": "egg-bin cov",
     "lint": "eslint .",
-    "ci": "npm run lint && npm run cov",
-    "autod": "autod"
+    "ci": "npm run lint && npm run cov"
   },
   "ci": {
     "version": "8"
