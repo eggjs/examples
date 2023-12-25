@@ -4,7 +4,7 @@ import { Application } from 'egg';
 
 export default function(app: Application) {
   const { STRING, INTEGER, DATE } = app.Sequelize;
-  const User = app.model.define('user', {
+  const Model = app.model.define('user', {
     id: {
       type: INTEGER,
       primaryKey: true,
@@ -16,7 +16,7 @@ export default function(app: Application) {
     updated_at: DATE(6),
   });
 
-  return class extends User {
+  return class User extends Model {
     static associate() {
       app.model.User.hasMany(app.model.Post, { as: 'posts' });
     }
