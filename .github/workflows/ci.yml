@@ -3,16 +3,13 @@ name: CI
 on:
   push:
     branches: [ master ]
-
   pull_request:
     branches: [ master ]
-
-  workflow_dispatch: {}
 
 jobs:
   Job:
     name: Node.js
-    uses: artusjs/github-actions/.github/workflows/node-test.yml@master
+    uses: node-modules/github-actions/.github/workflows/node-test.yml@master
     with:
       os: 'ubuntu-latest'
-      version: '14, 16, 18'
+      version: '18, 20, 22'

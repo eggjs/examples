@@ -1,16 +1,12 @@
 # Examples for [egg](https://github.com/eggjs/egg)
 
----
-
-[![build status][travis-image]][travis-url]
+[![CI](https://github.com/eggjs/examples/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/eggjs/examples/actions/workflows/ci.yml)
 [![node version][node-image]][node-url]
 [![egg version][egg-image]][egg-url]
 
-[travis-image]: https://img.shields.io/travis/eggjs/examples.svg?style=flat-square
-[travis-url]: https://travis-ci.org/eggjs/examples
-[node-image]: https://img.shields.io/badge/node.js-%3E=_8-green.svg?style=flat-square
+[node-image]: https://img.shields.io/badge/node.js-%3E=_18-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
-[egg-image]: https://img.shields.io/badge/egg-%3E=_1-green.svg?style=flat-square
+[egg-image]: https://img.shields.io/badge/egg-%3E=_4-green.svg?style=flat-square
 [egg-url]: https://github.com/eggjs/egg
 
 ## Usage
@@ -23,7 +19,7 @@ $ npm install
 $ npm run dev
 ```
 
-**Recommend to use Node >= 8**
+**Recommend to use Node >= 18**
 
 ## List of examples
 
@@ -62,12 +58,6 @@ You can use `--verbose` to show more infomation
 
 ```bash
 $ npm test -- --verbose
-```
-
-### Generate dependencies
-
-```bash
-$ npm run autod
 ```
 
 ### Show list of examples
