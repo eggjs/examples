@@ -6,7 +6,6 @@
     "start": "egg-scripts start",
     "stop": "egg-scripts stop",
     "dev": "egg-bin dev",
-    "debug": "egg-bin debug",
     "test-local": "egg-bin test",
     "test": "npm run lint -- --fix && npm run test-local",
     "cov": "egg-bin cov",
@@ -25,17 +24,17 @@
     "@eggjs/tegg-plugin": "^3.2.1",
     "@eggjs/tsconfig": "^1.2.0",
     "@eggjs/tegg-config": "^3.1.0",
-    "egg": "^3.9.1",
+    "egg": "beta",
     "egg-scripts": "^2.17.0"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^16.18.10",
-    "egg-bin": "^6.0.0",
-    "egg-mock": "^5.4.0",
-    "eslint": "^8.30.0",
-    "eslint-config-egg": "^12.1.0",
-    "typescript": "^4.9.4"
+    "@types/mocha": "10",
+    "@types/node": "22",
+    "@egg/bin": "7",
+    "@eggjs/mock": "6",
+    "eslint": "8",
+    "eslint-config-egg": "14",
+    "typescript": "5"
   },
   "repository": "git@github.com:eggjs/examples.git"
 }

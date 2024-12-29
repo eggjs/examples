@@ -16,9 +16,9 @@
   },
   "scripts": {
     "lint": "echo 'ignore'",
-    "test": "./example.js test",
+    "test": "./bin/test.sh",
     "test-cn": "./example.js test -c",
-    "ci": "npm run lint && npm test",
+    "ci": "npm test",
     "list": "./example.js list"
   },
   "homepage": "https://github.com/eggjs/examples",
