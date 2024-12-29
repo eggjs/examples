@@ -1,6 +1,15 @@
 {
   "extends": "@eggjs/tsconfig",
   "compilerOptions": {
-    "baseUrl": "./"
-  }
+    "baseUrl": ".",
+    "strict": true,
+    "noImplicitAny": true,
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "declaration": false
+  },
+  "exclude": [
+    "test"
+  ]
 }

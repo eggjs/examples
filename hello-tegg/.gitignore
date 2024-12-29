@@ -19,3 +19,4 @@ test/**/*.map
 config/**/*.map
 *.d.ts
 *.tsbuildinfo
+.egg/

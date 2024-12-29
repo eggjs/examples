@@ -1,6 +1,7 @@
-import { EggPlugin } from 'egg';
+// import { EggPlugin } from 'egg';
 
-const plugin: EggPlugin = {
+// const plugin: EggPlugin = {
+const plugin = {
   tegg: {
     enable: true,
     package: '@eggjs/tegg-plugin',

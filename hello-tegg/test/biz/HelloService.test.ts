@@ -1,10 +1,11 @@
-import { Context } from 'egg';
-import assert from 'assert';
-import { app } from 'egg-mock/bootstrap';
+import { strict as assert } from 'node:assert';
+// import { EggContext } from 'egg';
+import { app } from '@eggjs/mock/bootstrap';
 import { HelloService } from '../../app/biz/HelloService';
 
 describe('test/biz/HelloService.test.ts', () => {
-  let ctx: Context;
+  let ctx: any;
+  // let ctx: EggContext;
   let helloService: HelloService;
 
   beforeEach(async () => {

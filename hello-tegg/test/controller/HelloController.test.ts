@@ -1,5 +1,5 @@
-import { app } from 'egg-mock/bootstrap';
-import assert from 'assert';
+import { strict as assert } from 'node:assert';
+import { app } from '@eggjs/mock/bootstrap';
 
 describe('test/controller/HelloController.test.ts', () => {
   it('should work', async () => {
