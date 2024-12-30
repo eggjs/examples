@@ -14,7 +14,8 @@
     "ci": "egg-bin cov",
     "postci": "npm run tsc && npm run clean",
     "lint": "eslint .",
-    "clean": "tsc -b --clean"
+    "clean": "tsc -b --clean",
+    "prepublishOnly": "npm run clean && tsc"
   },
   "egg": {
     "typescript": true
@@ -22,12 +23,12 @@
   "license": "MIT",
   "dependencies": {
     "@eggjs/tegg": "^3.2.1",
+    "@eggjs/tegg-config": "^3.1.0",
     "@eggjs/tegg-controller-plugin": "^3.2.1",
     "@eggjs/tegg-plugin": "^3.2.1",
     "@eggjs/tsconfig": "^1.2.0",
-    "@eggjs/tegg-config": "^3.1.0",
     "egg": "beta",
-    "egg-scripts": "^2.17.0"
+    "egg-scripts": "^3.1.0"
   },
   "devDependencies": {
     "@types/mocha": "10",

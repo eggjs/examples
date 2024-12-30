@@ -1,7 +1,8 @@
 {
   "name": "helloworld",
   "dependencies": {
-    "egg": "beta"
+    "egg": "beta",
+    "egg-scripts": "^3.1.0"
   },
   "devDependencies": {
     "@eggjs/bin": "7",
@@ -14,6 +15,8 @@
     "typescript": "5"
   },
   "scripts": {
+    "start": "egg-scripts start",
+    "stop": "egg-scripts stop",
     "lint": "eslint . --ext .ts",
     "predev": "npm run clean && npm run lint -- --fix",
     "dev": "egg-bin dev",
