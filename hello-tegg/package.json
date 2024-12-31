@@ -3,8 +3,8 @@
   "private": true,
   "description": "tegg application example",
   "scripts": {
-    "start": "egg-scripts start",
-    "stop": "egg-scripts stop",
+    "start": "eggctl start --daemon",
+    "stop": "eggctl stop",
     "dev": "egg-bin dev",
     "test-local": "egg-bin test",
     "pretest": "npm run clean && npm run lint -- --fix",
@@ -22,13 +22,13 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@eggjs/scripts": "^4.0.0",
     "@eggjs/tegg": "^3.2.1",
     "@eggjs/tegg-config": "^3.1.0",
     "@eggjs/tegg-controller-plugin": "^3.2.1",
     "@eggjs/tegg-plugin": "^3.2.1",
     "@eggjs/tsconfig": "^1.2.0",
-    "egg": "beta",
-    "egg-scripts": "^3.1.0"
+    "egg": "beta"
   },
   "devDependencies": {
     "@types/mocha": "10",
