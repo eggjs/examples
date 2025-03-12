@@ -2,5 +2,6 @@
   "name": "biz-module",
   "eggModule": {
     "name": "biz"
-  }
+  },
+  "type": "module"
 }

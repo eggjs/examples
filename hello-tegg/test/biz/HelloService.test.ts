@@ -1,24 +1,16 @@
-import { strict as assert } from 'node:assert';
-// import { EggContext } from 'egg';
+import assert from 'node:assert/strict';
 import { app } from '@eggjs/mock/bootstrap';
-import { HelloService } from '../../app/biz/HelloService';
+import { HelloService } from '../../app/biz/HelloService.js';
 
 describe('test/biz/HelloService.test.ts', () => {
-  let ctx: any;
-  // let ctx: EggContext;
   let helloService: HelloService;
 
-  beforeEach(async () => {
-    ctx = await app.mockModuleContext();
-    helloService = await ctx.getEggObject(HelloService);
-  });
-
-  afterEach(async () => {
-    await app.destroyModuleContext(ctx);
+  before(async () => {
+    helloService = await app.getEggObject(HelloService);
   });
 
   it('should work', async () => {
     const msg = await helloService.hello('killa');
-    assert(msg === 'hello, killa');
+    assert.equal(msg, 'hello, killa');
   });
 });

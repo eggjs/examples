@@ -1,18 +1,16 @@
-import { strict as assert } from 'node:assert';
+import assert from 'node:assert/strict';
 import { app } from '@eggjs/mock/bootstrap';
 
 describe('test/controller/HelloController.test.ts', () => {
   it('should work', async () => {
-    await app.httpRequest()
+    const res = await app.httpRequest()
       .get('/hello?name=killa')
-      .expect(200)
-      .expect(res => {
-        assert.deepStrictEqual(res.body, {
-          success: true,
-          data: {
-            message: 'hello, killa (GET)',
-          },
-        });
-      });
+      .expect(200);
+    assert.deepEqual(res.body, {
+      success: true,
+      data: {
+        message: 'hello, killa (GET)',
+      },
+    });
   });
 });

@@ -1,16 +1,16 @@
 {
   "name": "hello-tegg",
   "private": true,
+  "type": "module",
   "description": "tegg application example",
   "scripts": {
     "start": "eggctl start --daemon",
     "stop": "eggctl stop",
     "dev": "egg-bin dev",
-    "test-local": "egg-bin test",
     "pretest": "npm run clean && npm run lint -- --fix",
     "test": "egg-bin test",
-    "tsc": "tsc -p tsconfig.json",
-    "preci": "npm run lint",
+    "tsc": "tsc -p tsconfig.prod.json",
+    "preci": "npm run clean && npm run lint",
     "ci": "egg-bin cov",
     "postci": "npm run tsc && npm run clean",
     "lint": "eslint .",
@@ -23,21 +23,24 @@
   "license": "MIT",
   "dependencies": {
     "@eggjs/scripts": "^4.0.0",
-    "@eggjs/tegg": "^3.2.1",
-    "@eggjs/tegg-config": "^3.1.0",
-    "@eggjs/tegg-controller-plugin": "^3.2.1",
-    "@eggjs/tegg-plugin": "^3.2.1",
-    "@eggjs/tsconfig": "^1.2.0",
-    "egg": "beta"
+    "@eggjs/tegg": "^4.0.0-beta.2",
+    "@eggjs/tegg-config": "^4.0.0-beta.2",
+    "@eggjs/tegg-controller-plugin": "^4.0.0-beta.2",
+    "@eggjs/tegg-plugin": "^4.0.0-beta.2",
+    "egg": "^4.0.10"
   },
   "devDependencies": {
     "@types/mocha": "10",
     "@types/node": "22",
+    "@eggjs/tsconfig": "2",
     "@eggjs/bin": "7",
     "@eggjs/mock": "6",
     "eslint": "8",
     "eslint-config-egg": "14",
     "typescript": "5"
   },
-  "repository": "git@github.com:eggjs/examples.git"
+  "repository": "git@github.com:eggjs/examples.git",
+  "engines": {
+    "node": ">=20.0.0"
+  }
 }
