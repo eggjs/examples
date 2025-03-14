@@ -10,5 +10,5 @@ test() {
   cd ..
 }
 
-test helloworld
-test hello-tegg
+test helloworld || exit 1
+test hello-tegg || exit 1
