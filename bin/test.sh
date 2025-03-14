@@ -2,7 +2,7 @@
 
 test() {
   echo "Test $1"
-  cd $1
+  cd "$1" || { echo "Error: Directory $1 not found"; return 1; }
   pwd
   rm -rf node_modules package-lock.json
   npm install --registry=https://registry.npmmirror.com
