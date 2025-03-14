@@ -30,7 +30,7 @@
     "url": "https://github.com/eggjs/egg/issues"
   },
   "engines": {
-    "node": ">= 18.19.0"
+    "node": ">= 20"
   },
   "license": "MIT",
   "private": true

@@ -1,18 +1,18 @@
 {
-  "name": "bodyParser",
+  "name": "body-parser-example",
   "version": "1.0.0",
   "dependencies": {
-    "egg": "^2",
+    "egg": "4",
     "xml-js": "^1.6.9"
   },
   "devDependencies": {
-    "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1"
+    "@eggjs/bin": "7",
+    "@eggjs/mock": "6"
   },
   "scripts": {
     "dev": "egg-bin dev",
     "test": "egg-bin test",
-    "cov": "egg-bin cov"
+    "ci": "egg-bin cov"
   },
   "private": true
 }
