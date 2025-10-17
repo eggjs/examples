@@ -2,27 +2,6 @@
   "name": "egg-examples",
   "version": "1.0.0",
   "description": "Application examples for egg",
-  "workspaces": [
-    "./body-parser-example",
-    "./cookie",
-    "./cookie-session",
-    "./custom-env",
-    "./download",
-    "./framework",
-    "./hackernews",
-    "./hackernews-async",
-    "./httpclient",
-    "./ipc",
-    "./middleware",
-    "./multipart",
-    "./multipart-file-mode",
-    "./passport",
-    "./progressive",
-    "./redefine-controller",
-    "./schedule",
-    "./static",
-    "./todomvc"
-  ],
   "keywords": [
     "application",
     "egg"
@@ -39,7 +18,7 @@
     "lint": "echo 'ignore'",
     "test": "./bin/test.sh",
     "test-cn": "./example.js test -c",
-    "ci": "ut ci --workspaces",
+    "ci": "npm run test",
     "list": "./example.js list"
   },
   "homepage": "https://github.com/eggjs/examples",
