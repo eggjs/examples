@@ -2,6 +2,27 @@
   "name": "egg-examples",
   "version": "1.0.0",
   "description": "Application examples for egg",
+  "workspaces": [
+    "./body-parser-example",
+    "./cookie",
+    "./cookie-session",
+    "./custom-env",
+    "./download",
+    "./framework",
+    "./hackernews",
+    "./hackernews-async",
+    "./httpclient",
+    "./ipc",
+    "./middleware",
+    "./multipart",
+    "./multipart-file-mode",
+    "./passport",
+    "./progressive",
+    "./redefine-controller",
+    "./schedule",
+    "./static",
+    "./todomvc"
+  ],
   "keywords": [
     "application",
     "egg"
@@ -12,13 +33,13 @@
     "globby": "^6.1.0",
     "runscript": "^1.5.3",
     "semver": "^5.3.0",
-    "npminstall": "^7.12.0"
+    "koa-compose": "4.1.0"
   },
   "scripts": {
     "lint": "echo 'ignore'",
     "test": "./bin/test.sh",
     "test-cn": "./example.js test -c",
-    "ci": "npm test",
+    "ci": "ut ci --workspaces",
     "list": "./example.js list"
   },
   "homepage": "https://github.com/eggjs/examples",

@@ -29,9 +29,11 @@ jobs:
         uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6
         with:
           node-version: ${{ matrix.node }}
+      
+      - uses: utooland/setup-utoo@v1
 
       - name: Install dependencies
-        run: npm i -g npminstall && npminstall
+        run: ut
 
       - name: Test
-        run: npm run ci
+        run: ut ci
