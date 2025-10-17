@@ -22,19 +22,19 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@eggjs/scripts": "^4.0.0",
-    "@eggjs/tegg": "^4.0.0-beta.2",
-    "@eggjs/tegg-config": "^4.0.0-beta.2",
-    "@eggjs/tegg-controller-plugin": "^4.0.0-beta.2",
-    "@eggjs/tegg-plugin": "^4.0.0-beta.2",
-    "egg": "^4.0.10"
+    "@eggjs/scripts": "beta",
+    "@eggjs/tegg": "beta",
+    "@eggjs/tegg-config": "beta",
+    "@eggjs/tegg-controller-plugin": "beta",
+    "@eggjs/tegg-plugin": "beta",
+    "egg": "beta"
   },
   "devDependencies": {
     "@types/mocha": "10",
     "@types/node": "22",
-    "@eggjs/tsconfig": "2",
-    "@eggjs/bin": "7",
-    "@eggjs/mock": "6",
+    "@eggjs/tsconfig": "beta",
+    "@eggjs/bin": "beta",
+    "@eggjs/mock": "beta",
     "eslint": "8",
     "eslint-config-egg": "14",
     "typescript": "5"

@@ -7,7 +7,7 @@ test() {
   cd "$1"
   pwd
   rm -rf node_modules package-lock.json
-  ut install
+  npmupdate -c
   npm run ci
   cd ..
 }

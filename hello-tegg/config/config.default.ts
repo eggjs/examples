@@ -1,10 +1,8 @@
-import { EggAppInfo, EggAppConfig, PowerPartial } from 'egg';
+import { defineConfigFactory } from 'egg';
 
-export default (appInfo: EggAppInfo) => {
-  const config = {} as PowerPartial<EggAppConfig>;
-
-  // override config from framework / plugin
-  config.keys = appInfo.name + '123456';
-
-  return config;
-};
+export default defineConfigFactory(appInfo => {
+  return {
+    // override config from framework / plugin
+    keys: appInfo.name + '123456',
+  };
+});

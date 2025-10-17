@@ -2,12 +2,12 @@
   "name": "body-parser-example",
   "version": "1.0.0",
   "dependencies": {
-    "egg": "4",
+    "egg": "beta",
     "xml-js": "^1.6.9"
   },
   "devDependencies": {
-    "@eggjs/bin": "7",
-    "@eggjs/mock": "6"
+    "@eggjs/bin": "beta",
+    "@eggjs/mock": "beta"
   },
   "scripts": {
     "dev": "egg-bin dev",

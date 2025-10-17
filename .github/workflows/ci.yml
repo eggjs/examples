@@ -30,12 +30,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - uses: utooland/setup-utoo@v1
-        with:
-          utoo-version: 'latest'
-
       - name: Install dependencies
-        run: utoo
+        run: npm i -g npminstall && npminstall
 
       - name: Test
         run: npm run ci

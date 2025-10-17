@@ -16,7 +16,7 @@ class Test extends Command {
     };
   }
 
-  async run() {
+  async run({ argv }) {
     const dirs = await this.getExamples();
 
     const skip = new Set();
@@ -38,7 +38,8 @@ class Test extends Command {
         chalk.gray(dir)
       );
       try {
-        await this.runscript('ut update', { cwd: dir });
+        const flag = argv.c ? ' -c' : '';
+        await this.runscript(`npmupdate${flag}`, { cwd: dir });
         await this.runscript('npm test', { cwd: dir });
         console.info('%s success\n', chalk.green('✔'));
         success.add(dir);

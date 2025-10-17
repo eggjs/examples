@@ -1,13 +1,15 @@
 {
   "name": "helloworld",
+  "private": true,
+  "type": "module",
   "dependencies": {
-    "@eggjs/scripts": "^4.0.0",
+    "@eggjs/scripts": "beta",
     "egg": "beta"
   },
   "devDependencies": {
-    "@eggjs/bin": "7",
-    "@eggjs/mock": "6",
-    "@eggjs/tsconfig": "1",
+    "@eggjs/bin": "beta",
+    "@eggjs/mock": "beta",
+    "@eggjs/tsconfig": "beta",
     "@types/mocha": "10",
     "@types/node": "22",
     "eslint": "8",
@@ -28,6 +30,5 @@
     "clean": "tsc -b --clean",
     "prepublishOnly": "npm run clean && tsc"
   },
-  "private": true,
   "repository": "git@github.com:eggjs/examples.git"
 }

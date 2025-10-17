@@ -1,5 +1,5 @@
-import { EggAppConfig } from 'egg';
+import { defineConfig } from 'egg';
 
-export default {
+export default defineConfig({
   keys: 'my secret keys',
-} as EggAppConfig;
+});
