@@ -1,0 +1,41 @@
+{
+  "name": "hackernews-async-ts",
+  "version": "1.0.0",
+  "description": "hackernews showcase using typescript && egg",
+  "private": true,
+  "egg": {
+    "typescript": true
+  },
+  "scripts": {
+    "start": "egg-scripts start",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test-local": "egg-bin test",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "cov": "egg-bin cov",
+    "tsc": "tsc -p tsconfig.json",
+    "ci": "npm run lint && npm run cov && npm run tsc",
+    "lint": "eslint .",
+    "clean": "tsc -b --clean"
+  },
+  "dependencies": {
+    "egg": "^3.11.0",
+    "egg-scripts": "^2.17.0",
+    "egg-view-nunjucks": "^2.3.0",
+    "moment": "^2.22.0"
+  },
+  "devDependencies": {
+    "@eggjs/tsconfig": "^1.1.0",
+    "@types/cheerio": "^0.22.1",
+    "@types/mocha": "^10.0.1",
+    "cheerio": "^1.0.0-rc.2",
+    "egg-bin": "^5.9.0",
+    "egg-mock": "^5.5.0",
+    "eslint": "^8.31.0",
+    "eslint-config-egg": "^12.1.0",
+    "typescript": "^4.9.4"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
