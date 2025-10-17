@@ -19,7 +19,7 @@ $ npm install
 $ npm run dev
 ```
 
-**Recommend to use Node >= 18**
+**Recommend to use Node >= 20**
 
 ## List of examples
 

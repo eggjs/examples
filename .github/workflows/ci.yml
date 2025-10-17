@@ -12,4 +12,5 @@ jobs:
     uses: node-modules/github-actions/.github/workflows/node-test.yml@master
     with:
       os: 'ubuntu-latest'
-      version: '20, 22'
+      version: '20, 22, 24'
+      install: 'npm i -g utoo && ut install'

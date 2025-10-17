@@ -7,7 +7,7 @@ test() {
   cd "$1"
   pwd
   rm -rf node_modules package-lock.json
-  npm install --registry=https://registry.npmmirror.com
+  ut install
   npm run ci
   cd ..
 }
