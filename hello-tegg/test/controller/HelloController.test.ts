@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+
 import { app } from '@eggjs/mock/bootstrap';
 
 describe('test/controller/HelloController.test.ts', () => {

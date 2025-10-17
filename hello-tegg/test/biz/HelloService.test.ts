@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { app } from '@eggjs/mock/bootstrap';
-import { HelloService } from '../../app/biz/HelloService.js';
+
+import { HelloService } from '../../app/biz/HelloService.ts';
 
 describe('test/biz/HelloService.test.ts', () => {
   let helloService: HelloService;
