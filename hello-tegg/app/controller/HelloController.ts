@@ -3,14 +3,15 @@ import {
   HTTPMethod,
   HTTPMethodEnum,
   Context,
-  EggContext,
+  type EggContext,
   HTTPQuery,
   Middleware,
   Inject,
 } from '@eggjs/tegg';
-import { EggLogger } from 'egg';
-import { traceMethod } from 'app/middleware/trace_method';
-import { HelloService } from 'app/biz/HelloService';
+import type { EggLogger } from 'egg';
+
+import { traceMethod } from '../middleware/trace_method.ts';
+import { HelloService } from '../biz/HelloService.ts';
 
 @HTTPController()
 @Middleware(traceMethod)

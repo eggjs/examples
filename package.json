@@ -10,15 +10,15 @@
     "chalk": "^1.1.3",
     "common-bin": "^2.7.1",
     "globby": "^6.1.0",
-    "npminstall": "^6.6.2",
     "runscript": "^1.5.3",
-    "semver": "^5.3.0"
+    "semver": "^5.3.0",
+    "npminstall": "^7.12.0"
   },
   "scripts": {
     "lint": "echo 'ignore'",
-    "test": "./example.js test",
+    "test": "./bin/test.sh",
     "test-cn": "./example.js test -c",
-    "ci": "npm run lint && npm test",
+    "ci": "npm test",
     "list": "./example.js list"
   },
   "homepage": "https://github.com/eggjs/examples",
@@ -30,7 +30,7 @@
     "url": "https://github.com/eggjs/egg/issues"
   },
   "engines": {
-    "node": ">= 14.17.0"
+    "node": ">= 20"
   },
   "license": "MIT",
   "private": true

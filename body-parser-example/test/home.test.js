@@ -1,9 +1,6 @@
-'use strict';
+const { app } = require('@eggjs/mock/bootstrap');
 
-const { app } = require('egg-mock/bootstrap');
-
-describe('test/app/controller/home.test.js', () => {
-
+describe('test/home.test.js', () => {
   beforeEach(() => app.mockCsrf());
 
   it('should parse form', () => {

@@ -1,6 +1,4 @@
-'use strict';
-
-const Controller = require('egg').Controller;
+const { Controller } = require('egg');
 const { xml2js } = require('xml-js');
 
 class HomeController extends Controller {

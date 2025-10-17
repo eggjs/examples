@@ -1,16 +1,34 @@
 {
   "name": "helloworld",
+  "private": true,
+  "type": "module",
   "dependencies": {
-    "egg": "^1.10.1"
+    "@eggjs/scripts": "beta",
+    "egg": "beta"
   },
   "devDependencies": {
-    "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1"
+    "@eggjs/bin": "beta",
+    "@eggjs/mock": "beta",
+    "@eggjs/tsconfig": "beta",
+    "@types/mocha": "10",
+    "@types/node": "22",
+    "eslint": "8",
+    "eslint-config-egg": "14",
+    "typescript": "5"
   },
   "scripts": {
+    "start": "eggctl start --daemon",
+    "stop": "eggctl stop",
+    "lint": "eslint . --ext .ts",
+    "predev": "npm run clean && npm run lint -- --fix",
     "dev": "egg-bin dev",
+    "pretest": "npm run clean && npm run lint -- --fix",
     "test": "egg-bin test",
-    "cov": "egg-bin cov"
+    "preci": "npm run clean && npm run lint",
+    "ci": "egg-bin cov",
+    "postci": "npm run prepublishOnly && npm run clean",
+    "clean": "tsc -b --clean",
+    "prepublishOnly": "npm run clean && tsc"
   },
-  "private": true
+  "repository": "git@github.com:eggjs/examples.git"
 }

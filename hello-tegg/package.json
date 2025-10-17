@@ -1,41 +1,46 @@
 {
   "name": "hello-tegg",
   "private": true,
+  "type": "module",
   "description": "tegg application example",
   "scripts": {
-    "start": "egg-scripts start",
-    "stop": "egg-scripts stop",
+    "start": "eggctl start --daemon",
+    "stop": "eggctl stop",
     "dev": "egg-bin dev",
-    "debug": "egg-bin debug",
-    "test-local": "egg-bin test",
-    "test": "npm run lint -- --fix && npm run test-local",
-    "cov": "egg-bin cov",
-    "tsc": "tsc -p tsconfig.json",
-    "ci": "npm run lint && npm run cov && npm run tsc",
+    "pretest": "npm run clean && npm run lint -- --fix",
+    "test": "egg-bin test",
+    "tsc": "tsc -p tsconfig.prod.json",
+    "preci": "npm run clean && npm run lint",
+    "ci": "egg-bin cov",
+    "postci": "npm run tsc && npm run clean",
     "lint": "eslint .",
-    "clean": "tsc -b --clean"
+    "clean": "tsc -b --clean",
+    "prepublishOnly": "npm run clean && tsc"
   },
   "egg": {
     "typescript": true
   },
   "license": "MIT",
   "dependencies": {
-    "@eggjs/tegg": "^3.2.1",
-    "@eggjs/tegg-controller-plugin": "^3.2.1",
-    "@eggjs/tegg-plugin": "^3.2.1",
-    "@eggjs/tsconfig": "^1.2.0",
-    "@eggjs/tegg-config": "^3.1.0",
-    "egg": "^3.9.1",
-    "egg-scripts": "^2.17.0"
+    "@eggjs/scripts": "beta",
+    "@eggjs/tegg": "beta",
+    "@eggjs/tegg-config": "beta",
+    "@eggjs/tegg-controller-plugin": "beta",
+    "@eggjs/tegg-plugin": "beta",
+    "egg": "beta"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^16.18.10",
-    "egg-bin": "^6.0.0",
-    "egg-mock": "^5.4.0",
-    "eslint": "^8.30.0",
-    "eslint-config-egg": "^12.1.0",
-    "typescript": "^4.9.4"
+    "@types/mocha": "10",
+    "@types/node": "22",
+    "@eggjs/tsconfig": "beta",
+    "@eggjs/bin": "beta",
+    "@eggjs/mock": "beta",
+    "eslint": "8",
+    "eslint-config-egg": "14",
+    "typescript": "5"
   },
-  "repository": "git@github.com:eggjs/examples.git"
+  "repository": "git@github.com:eggjs/examples.git",
+  "engines": {
+    "node": ">=20.0.0"
+  }
 }
