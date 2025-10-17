@@ -4,7 +4,7 @@
 [![node version][node-image]][node-url]
 [![egg version][egg-image]][egg-url]
 
-[node-image]: https://img.shields.io/badge/node.js-%3E=_18-green.svg?style=flat-square
+[node-image]: https://img.shields.io/badge/node.js-%3E=_20-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
 [egg-image]: https://img.shields.io/badge/egg-%3E=_4-green.svg?style=flat-square
 [egg-url]: https://github.com/eggjs/egg
