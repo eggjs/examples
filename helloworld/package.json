@@ -14,7 +14,8 @@
     "@types/node": "22",
     "eslint": "8",
     "eslint-config-egg": "14",
-    "typescript": "5"
+    "typescript": "5",
+    "koa-compose": "4.1.0"
   },
   "scripts": {
     "start": "eggctl start --daemon",

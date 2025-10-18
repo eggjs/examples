@@ -7,8 +7,8 @@ test() {
   cd "$1"
   pwd
   rm -rf node_modules package-lock.json
-  npmupdate -c
-  npm run ci
+  ut 
+  ut ci
   cd ..
 }
 

@@ -7,7 +7,8 @@
   },
   "devDependencies": {
     "@eggjs/bin": "beta",
-    "@eggjs/mock": "beta"
+    "@eggjs/mock": "beta",
+    "koa-compose": "4.1.0"
   },
   "scripts": {
     "dev": "egg-bin dev",
