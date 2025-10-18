@@ -1,9 +1,7 @@
-import { DefaultConfig } from './config.default';
+import type { DefaultConfig } from './config.default.ts';
 
-export default () => {
-  const config: DefaultConfig = {};
-  config.news = {
+export default {
+  news: {
     pageSize: 30,
-  };
-  return config;
-};
+  },
+} as DefaultConfig;

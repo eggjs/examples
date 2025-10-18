@@ -21,14 +21,14 @@ export class HackerNews extends Service {
    * @param api - Api name
    * @param opts - urllib options
    */
-  public async request(api: string, opts?: any) {
-    const options = {
+  public async request<T = any>(api: string, opts?: any): Promise<T> {
+    const url = `${this.config.news.serverUrl}/${api}`;
+    const result = await this.ctx.httpclient.request<T>(url, {
       dataType: 'json',
-      timeout: '30s',
+      timeout: 30000,
       ...opts,
-    };
-
-    const result = await this.ctx.curl(`${this.config.news.serverUrl}/${api}`, options);
+    });
+    this.logger.info('request %s got data %j', url, result.data);
     return result.data;
   }
 
@@ -61,7 +61,7 @@ export class HackerNews extends Service {
    * @param id - itemId
    */
   public async getItem(id: number): Promise<NewsItem> {
-    return await this.request(`item/${id}.json`);
+    return await this.request<NewsItem>(`item/${id}.json`);
   }
 
   /**

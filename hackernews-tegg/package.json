@@ -1,15 +1,16 @@
 {
-  "name": "hackernews-async-ts",
+  "name": "hackernews-tegg",
   "version": "1.0.0",
-  "description": "hackernews showcase using typescript && egg",
+  "description": "hackernews showcase using tegg",
   "private": true,
+  "type": "module",
   "egg": {
     "typescript": true
   },
   "scripts": {
-    "start": "egg-scripts start",
+    "start": "eggctl start",
+    "stop": "eggctl stop",
     "dev": "egg-bin dev",
-    "debug": "egg-bin debug",
     "test-local": "egg-bin test",
     "test": "npm run lint -- --fix && npm run test-local",
     "cov": "egg-bin cov",
@@ -19,23 +20,26 @@
     "clean": "tsc -b --clean"
   },
   "dependencies": {
-    "egg": "^3.11.0",
-    "egg-scripts": "^2.17.0",
-    "egg-view-nunjucks": "^2.3.0",
-    "moment": "^2.22.0"
+    "egg": "beta",
+    "@eggjs/scripts": "beta",
+    "@eggjs/tegg": "beta",
+    "@eggjs/tegg-config": "beta",
+    "@eggjs/tegg-controller-plugin": "beta",
+    "@eggjs/tegg-plugin": "beta",
+    "egg-view-nunjucks": "beta",
+    "moment": "^2.30.1"
   },
   "devDependencies": {
-    "@eggjs/tsconfig": "^1.1.0",
-    "@types/cheerio": "^0.22.1",
-    "@types/mocha": "^10.0.1",
-    "cheerio": "^1.0.0-rc.2",
-    "egg-bin": "^5.9.0",
-    "egg-mock": "^5.5.0",
-    "eslint": "^8.31.0",
-    "eslint-config-egg": "^12.1.0",
-    "typescript": "^4.9.4"
+    "@eggjs/bin": "beta",
+    "@eggjs/mock": "beta",
+    "@eggjs/tsconfig": "beta",
+    "@types/mocha": "10",
+    "@types/node": "^24.8.1",
+    "eslint": "8",
+    "eslint-config-egg": "14",
+    "typescript": "5"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=22.18.0"
   }
 }

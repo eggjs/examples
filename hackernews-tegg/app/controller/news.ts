@@ -6,7 +6,7 @@ export default class NewsController extends Controller {
     const pageSize = app.config.news.pageSize;
     const page = parseInt(ctx.query.page, 10) || 1;
 
-    const idList = await ctx.service.news.getTopStories(page);
+    const idList = await ctx.service.news.getTopStories(page) as number[];
 
     // get itemInfo parallel
     const newsList = await Promise.all(idList.map(id => ctx.service.news.getItem(id)));
@@ -15,7 +15,7 @@ export default class NewsController extends Controller {
 
   public async detail() {
     const { ctx } = this;
-    const id = ctx.params.id;
+    const id = ctx.params!.id as unknown as number;
     const newsInfo = await ctx.service.news.getItem(id);
     // get comment parallel
     const commentList = await Promise.all(newsInfo.kids.map(_id => ctx.service.news.getItem(_id)));
@@ -24,7 +24,7 @@ export default class NewsController extends Controller {
 
   public async user() {
     const { ctx } = this;
-    const id = ctx.params.id;
+    const id = ctx.params!.id as unknown as number;
     const userInfo = await ctx.service.news.getUser(id);
     await ctx.render('news/user.tpl', { user: userInfo });
   }
