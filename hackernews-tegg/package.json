@@ -20,13 +20,13 @@
     "clean": "tsc -b --clean"
   },
   "dependencies": {
-    "egg": "beta",
     "@eggjs/scripts": "beta",
     "@eggjs/tegg": "beta",
     "@eggjs/tegg-config": "beta",
     "@eggjs/tegg-controller-plugin": "beta",
     "@eggjs/tegg-plugin": "beta",
-    "egg-view-nunjucks": "beta",
+    "@eggjs/view-nunjucks": "beta",
+    "egg": "beta",
     "moment": "^2.30.1"
   },
   "devDependencies": {
@@ -34,7 +34,7 @@
     "@eggjs/mock": "beta",
     "@eggjs/tsconfig": "beta",
     "@types/mocha": "10",
-    "@types/node": "^24.8.1",
+    "@types/node": "24",
     "eslint": "8",
     "eslint-config-egg": "14",
     "typescript": "5"

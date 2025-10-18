@@ -1,6 +1,6 @@
 # hackernews-typescript
 
-[Hacker News](https://news.ycombinator.com/) showcase using egg@4 and TypeScript
+[Hacker News](https://news.ycombinator.com/) showcase using typescript && egg
 
 ## QuickStart
 
@@ -31,4 +31,3 @@ $ npm start
 
 - Node.js 22.x
 - Typescript 5.x
-- egg@4.x

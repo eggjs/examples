@@ -1,12 +1,13 @@
 import assert from 'node:assert/strict';
 
-// import cheerio from 'cheerio';
 import { app } from '@eggjs/mock/bootstrap';
 
 describe('test/app/controller/news.test.ts', () => {
   it('should GET /news', async () => {
     const result = await app.httpRequest().get('/news').expect(200);
-    assert.equal(result.text.length, app.config.news.pageSize);
+    const m = result.text.match(/<span class="index">.*?<\/span>/g);
+    assert.ok(m);
+    assert.equal(m.length, app.config.news.pageSize);
   });
 
   it('should GET /news/item/:id', async () => {

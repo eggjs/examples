@@ -1,6 +1,6 @@
 export default {
   nunjucks: {
     enable: true,
-    package: 'egg-view-nunjucks',
+    package: '@eggjs/view-nunjucks',
   },
 };

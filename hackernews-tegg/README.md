@@ -1,6 +1,6 @@
-# hackernews-async-ts
+# hackernews-tegg
 
-[Hacker News](https://news.ycombinator.com/) showcase using typescript && egg
+[Hacker News](https://news.ycombinator.com/) showcase using tegg
 
 ## QuickStart
 
@@ -29,5 +29,5 @@ $ npm start
 
 ### Requirement
 
-- Node.js 16.x
-- Typescript 4.x
+- Node.js 22.x
+- Typescript 5.x
