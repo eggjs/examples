@@ -1,6 +1,3 @@
-import fs from 'node:fs';
-import path from 'node:path';
-
 import { defineConfigFactory, type EggAppConfig } from 'egg';
 
 // for config.{env}.ts
@@ -26,7 +23,7 @@ export default defineConfigFactory(appInfo => {
       },
     },
     siteFile: {
-      '/favicon.ico': fs.readFileSync(path.join(appInfo.baseDir, 'app/public/favicon.png')),
+      '/favicon.ico': 'https://eggjs.org/favicon.png',
     },
     // app special config
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
