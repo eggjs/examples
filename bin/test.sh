@@ -15,3 +15,5 @@ test() {
 test body-parser-example
 test helloworld
 test hello-tegg
+test hackernews-typescript
+test hackernews-tegg
