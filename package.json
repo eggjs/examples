@@ -11,8 +11,7 @@
     "common-bin": "^2.7.1",
     "globby": "^6.1.0",
     "runscript": "^1.5.3",
-    "semver": "^5.3.0",
-    "koa-compose": "4.1.0"
+    "semver": "^5.3.0"
   },
   "scripts": {
     "lint": "echo 'ignore'",
