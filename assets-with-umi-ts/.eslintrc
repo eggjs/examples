@@ -1,0 +1,11 @@
+{
+  "extends": "eslint-config-umi",
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "ecmaFeatures": {
+      "arrowFunctions": true,
+      "generators": true,
+      "jsx": true
+    }
+  }
+}
