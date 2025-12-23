@@ -1,0 +1,32 @@
+{
+    "presets": [
+        "@babel/preset-react",
+        ["@babel/preset-env", {
+            "targets": {
+                "chrome": "58",
+                "ie": "11"
+            },
+            "useBuiltIns": "entry"
+        }]
+    ],
+    "plugins": [
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "legacy": true
+            }
+        ],
+        "@babel/plugin-proposal-class-properties",
+        "react-hot-loader/babel",
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-syntax-dynamic-import",
+        [
+            "import",
+            {
+                "libraryName": "antd",
+                "libraryDirectory": "es",
+                "style": "css"
+            }
+        ]
+    ]
+}
