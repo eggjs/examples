@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,           /* Parse in strict mode and emit "use strict" for each source file. */
+    "charset": "utf8",
+    "declaration": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "importHelpers": true,
+    "inlineSourceMap": false,
+    "module": "commonjs",           /* 'commonjs', 'amd', 'system', 'umd' or 'es2015'. */
+    "newLine": "lf",
+    "noFallthroughCasesInSwitch": true,
+    "pretty": true,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "strict": true,                 /* Enable all strict type-checking options. */
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "target": "ES2017",              /* 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
+    "types" : ["node"]
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.d.ts",
+    "**/*.spec.ts"
+  ]
+}
